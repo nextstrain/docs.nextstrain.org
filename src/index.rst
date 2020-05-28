@@ -15,6 +15,8 @@ If you have any questions, or simply want to say hi, please give us a shout at h
 .. warning::
    This site is currently only a stub, to show what's possible with Read The Docs for an umbrella documentation project.
 
+   For the real documentation entry point, please go to `nextstrain.org/docs <https://nextstrain.org/docs>`__.
+
 .. toctree::
    :maxdepth: 2
    :caption: Table of contents
