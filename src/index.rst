@@ -19,6 +19,11 @@ If you have any questions, or simply want to say hi, please give us a shout at h
    :maxdepth: 2
    :caption: Table of contents
 
+Projects
+========
+
+* :doc:`augur:index`
+* `Auspice: Interactive exploration of phylodynamic & phylogenomic data <https://nextstrain.github.io/auspice/>`__
 
 Indices and tables
 ==================

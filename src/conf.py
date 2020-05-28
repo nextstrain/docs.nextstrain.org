@@ -29,6 +29,7 @@ author = 'The Nextstrain Team'
 # ones.
 extensions = [
     'recommonmark',
+    'sphinx.ext.intersphinx',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -51,3 +52,10 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['static']
+
+
+# -- Cross-project references ------------------------------------------------
+
+intersphinx_mapping = {
+    'augur': ('https://docs.nextstrain.org/projects/augur/en/latest', None),
+}
