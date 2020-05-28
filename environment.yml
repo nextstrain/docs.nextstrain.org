@@ -1,0 +1,10 @@
+name: docs.nextstrain.org
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - make
+  - recommonmark
+  - sphinx
+  - sphinx-markdown-tables
+  - sphinx_rtd_theme
