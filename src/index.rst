@@ -19,7 +19,11 @@ If you have any questions, or simply want to say hi, please give us a shout at h
 
 .. toctree::
    :maxdepth: 2
+   :titlesonly:
    :caption: Table of contents
+   :hidden:
+
+   self
 
 Projects
 ========

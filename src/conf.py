@@ -53,6 +53,23 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['static']
 
+# These paths are either relative to html_static_path
+# or fully qualified paths (eg. https://...)
+html_css_files = [
+    'nextstrain.css',
+    'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap',
+]
+
+html_logo = 'static/logo-portable.svg'
+
+html_theme_options = {
+    'display_version': False,
+    'logo_only': True,
+    'style_nav_header_background': '#f2f2f2',
+    'collapse_navigation': True,
+    'titles_only': True,
+}
+
 
 # -- Cross-project references ------------------------------------------------
 
