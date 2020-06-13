@@ -30,6 +30,7 @@ Projects
 
 * :doc:`augur:index`
 * `Auspice: Interactive exploration of phylodynamic & phylogenomic data <https://nextstrain.github.io/auspice/>`__
+* :doc:`cli:index`
 
 Indices and tables
 ==================

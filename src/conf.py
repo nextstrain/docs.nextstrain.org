@@ -75,4 +75,5 @@ html_theme_options = {
 
 intersphinx_mapping = {
     'augur': ('https://docs.nextstrain.org/projects/augur/en/latest', None),
+    'cli': ('https://docs.nextstrain.org/projects/cli/en/latest', None),
 }
