@@ -1,13 +1,11 @@
 name: docs.nextstrain.org
 channels:
   - defaults
-  - conda-forge
 dependencies:
   - make
   - recommonmark
   - sphinx
-  - sphinx-markdown-tables
-  - sphinx_rtd_theme
   - pip
   - pip:
     - nextstrain-sphinx-theme>=2020.2
+    - sphinx-markdown-tables
