@@ -1,5 +1,5 @@
 ====================================================================
-I would like to use Nextstrain to process and visualize my own data!
+Using Nextstrain to process and visualize your data
 ====================================================================
 
 How to run nextstrain docs

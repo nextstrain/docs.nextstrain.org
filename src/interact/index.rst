@@ -1,5 +1,5 @@
 =======================================================================================
-I am ready to investigate live datasets (including those contributed by the community)!
+Interacting with Nextstrain
 =======================================================================================
 
 * :doc:`interact`

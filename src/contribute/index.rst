@@ -1,5 +1,5 @@
 =========================================
-I would like to contribute to Nextstrain!
+Contributing guide
 =========================================
 
 Contributing guide

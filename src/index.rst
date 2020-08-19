@@ -32,13 +32,13 @@ This documentation is comprised of four different types of documents\ :sup:`3`\ 
 Let’s get started; what is your goal?
 =====================================
 
-* `Test link text <run_nextstrain/index.html>`__
-* :doc:`research/index`
-* :doc:`about/index`
-* :doc:`interpretation/index`
-* :doc:`interact/index`
-* :doc:`contribute/index`
-* :doc:`submitter/index`
+* `I would like to use Nextstrain to process and visualize my own data! <run_nextstrain/index.html>`__
+* `I have a research question or would like to solve a problem and suspect Nextstrain might be a part of the solution, but I’m not sure how! <research/index.html>`__
+* `<I would like a general explanation of what Nextstrain is! about/index.html>`__
+* `I would like to know what I am looking at on nextstrain.org! <interpretation/index.html>`__
+* `I am ready to investigate live datasets (including those contributed by the community)! <interact/index.html>`__
+* `I would like to contribute to Nextstrain! <contribute/index.html>`__
+* `I have submitted sequences to GISAID and want to see if they’ve been included in a Nextstrain-maintained build! <submitter/index.html>`__
 
 Footnote resources
 ==================

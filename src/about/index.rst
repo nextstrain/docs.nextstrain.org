@@ -1,5 +1,5 @@
 =========================================================
-I would like a general explanation of what Nextstrain is!
+About Nextstrain
 =========================================================
 
 About Nextstrain
