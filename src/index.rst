@@ -32,13 +32,13 @@ This documentation is comprised of four different types of documents\ :sup:`3`\ 
 Let’s get started; what is your goal?
 =====================================
 
+* :doc:`run_nextstrain/index`
+* :doc:`research/index`
+* :doc:`about/index`
 * :doc:`interpretation/index`
-* I am ready to investigate live datasets (including those contributed by the community)!
-* I would like to use Nextstrain to process and visualize my own data!
-* I have a research question or would like to solve a problem and suspect Nextstrain might be a part of the solution, but I’m not sure how!
-* I have submitted sequences to GISAID and want to see if they’ve been included in a Nextstrain-maintained build!
-* I would like a general explanation of what Nextstrain is!
-* I would like to contribute to Nextstrain!
+* :doc:`interact/index`
+* :doc:`contribute/index`
+* :doc:`submitter/index`
 
 Footnote resources
 ==================
@@ -59,7 +59,13 @@ Footnote resources
    :hidden:
 
    self
+   run_nextstrain/index
+   research/index
+   about/index
    interpretation/index
+   interact/index
+   contribute/index
+   submitter/index
 .. 
 .. Projects
 .. ========
