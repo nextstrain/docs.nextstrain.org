@@ -32,7 +32,7 @@ This documentation is comprised of four different types of documents\ :sup:`3`\ 
 Let’s get started; what is your goal?
 =====================================
 
-* :doc:`interpretation:index`
+* :doc:`interpretation/index`
 * I am ready to investigate live datasets (including those contributed by the community)!
 * I would like to use Nextstrain to process and visualize my own data!
 * I have a research question or would like to solve a problem and suspect Nextstrain might be a part of the solution, but I’m not sure how!
