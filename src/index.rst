@@ -12,7 +12,8 @@ We provide a continually-updated view of publicly available data with powerful a
 Our goal is to aid epidemiological understanding and improve outbreak response.
 If you have any questions, or simply want to say hi, please give us a shout at hello@nextstrain.org.
 
-This documentation is structured to meet the needs of the following user personas\ :sub:`1, 2`\ :
+This documentation is structured to meet the needs of the following user personas\ :sup:`1, 2`\ :
+
 * Bioinformatician
 * Researcher
 * Public Health Professional
@@ -20,9 +21,9 @@ This documentation is structured to meet the needs of the following user persona
 * Nextstrain Reader (Scienctific)
 * Software developer
 * GISAID User
-Detailed descriptions of our user personas are here (insert link)
 
-This documentation is comprised of four different types of documents\ :sub:`3`\ :
+This documentation is comprised of four different types of documents\ :sup:`3`\ :
+
 * Tutorials
 * How-to guides
 * Reference guides
@@ -38,7 +39,13 @@ Let’s get started; what is your goal?
 * I have submitted sequences to GISAID and want to see if they’ve been included in a Nextstrain-maintained build!
 * I would like a general explanation of what Nextstrain is!
 * I would like to contribute to Nextstrain!
-(TODO fit existing docs pages or sections into the above bins)
+
+Footnote resources
+==================
+
+1. `Who are our user personas (Insert public link to detailed persona descriptions) <Insert public link to detailed persona descriptions>`__
+2. `What is a user persona <https://www.usability.gov/how-to-and-tools/methods/personas.html>`__
+3. `The Documentation System <https://documentation.divio.com/>`__
 
 .. .. warning::
 ..    This site is currently only a stub, to show what's possible with Read The Docs for an umbrella documentation project.
