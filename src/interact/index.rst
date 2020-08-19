@@ -16,6 +16,10 @@ We use slideshows, called "narratives", which include datasets to tell a story i
 
 https://nextstrain.org/narratives/intro-to-narratives
 
+When you're ready to start interacting with live dataset (including those contributed by the community), head over to `nextstrain.org <https://nextstrain.org/>`__ to begin!
+
+If you would like to build and visualize your own dataset using Nextstrain, check out `Using Nextstrain to process and visualize your data <../run_nextstrain/index.html>`__
+
 .. toctree::
    :maxdepth: 1
    :glob:
