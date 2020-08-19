@@ -52,13 +52,13 @@ Footnote resources
 .. 
 ..    For the real documentation entry point, please go to `nextstrain.org/docs <https://nextstrain.org/docs>`__.
 .. 
-.. .. toctree::
-..    :maxdepth: 2
-..    :titlesonly:
-..    :caption: Table of contents
-..    :hidden:
-.. 
-..    self
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+   :caption: Table of contents
+   :hidden:
+
+   self
 .. 
 .. Projects
 .. ========
