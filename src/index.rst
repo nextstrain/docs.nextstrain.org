@@ -36,7 +36,7 @@ Let’s get started; what is your goal?
 
 * `I would like a general explanation of what Nextstrain is! <about/index.html>`__
 * `I would like to know what I am looking at on nextstrain.org! <interpretation/index.html>`__
-* `I am ready to investigate live datasets (including those contributed by the community)! <interact/index.html>`__
+* `I would like to investigate live datasets (CLICK ME)! <interact/index.html>`__
 * `I would like to use Nextstrain to process and visualize my own data! <run_nextstrain/index.html>`__
 * `I have a research question or would like to solve a problem and suspect Nextstrain might be a part of the solution, but I’m not sure how! <research/index.html>`__
 * `I would like to contribute to Nextstrain! <contribute/index.html>`__
