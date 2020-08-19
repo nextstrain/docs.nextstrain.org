@@ -32,7 +32,7 @@ This documentation is comprised of four different types of documents\ :sup:`3`\ 
 Let’s get started; what is your goal?
 =====================================
 
-* `<I would like a general explanation of what Nextstrain is! about/index.html>`__
+* `I would like a general explanation of what Nextstrain is! <about/index.html>`__
 * `I would like to know what I am looking at on nextstrain.org! <interpretation/index.html>`__
 * `I am ready to investigate live datasets (including those contributed by the community)! <interact/index.html>`__
 * `I would like to use Nextstrain to process and visualize my own data! <run_nextstrain/index.html>`__
@@ -59,11 +59,11 @@ Footnote resources
    :hidden:
 
    self
-   run_nextstrain/index
-   research/index
    about/index
    interpretation/index
    interact/index
+   run_nextstrain/index
+   research/index
    contribute/index
    submitter/index
 .. 
