@@ -7,7 +7,7 @@ General info on how to interpret
 Interpretation of Nextstrain.org docs:
 
 * :doc:`interact`
-* `How to read a tree <https://nextstrain.org/help/general/how-to-read-a-tree>`__
+* `How to read a tree (not yet migrated from nextstrain.org/docs) <https://nextstrain.org/help/general/how-to-read-a-tree>`__
 
 .. toctree::
    :maxdepth: 1
