@@ -59,7 +59,7 @@ Footnote resources
    :hidden:
 
    self
-   interpretation
+   interpretation/index
 .. 
 .. Projects
 .. ========
