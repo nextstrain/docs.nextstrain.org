@@ -32,7 +32,7 @@ This documentation is comprised of four different types of documents\ :sup:`3`\ 
 Let’s get started; what is your goal?
 =====================================
 
-* `Test link text <run_nextstrain/index>`__
+* `Test link text <run_nextstrain/index.html>`__
 * :doc:`research/index`
 * :doc:`about/index`
 * :doc:`interpretation/index`
