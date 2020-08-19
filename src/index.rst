@@ -14,29 +14,29 @@ If you have any questions, or simply want to say hi, please give us a shout at h
 
 This documentation is structured to meet the needs of the following user personas\ :sup:`1, 2`\ :
 
-* Bioinformatician
-* Researcher
-* Public Health Professional
 * Nextstrain Reader (General)
 * Nextstrain Reader (Scienctific)
+* Public Health Professional
+* Bioinformatician
+* Researcher
 * Software developer
 * GISAID User
 
 This documentation is comprised of four different types of documents\ :sup:`3`\ :
 
-* Tutorials
-* How-to guides
-* Reference guides
-* Explanations (also known as Discussions)
+* `Tutorials <https://documentation.divio.com/tutorials/>`__
+* `How-to guides <https://documentation.divio.com/how-to-guides/>`__
+* `Reference guides <https://documentation.divio.com/reference/>`__
+* `Explanations (also known as Discussions) <https://documentation.divio.com/explanation/>`__
 
 Let’s get started; what is your goal?
 =====================================
 
-* `I would like to use Nextstrain to process and visualize my own data! <run_nextstrain/index.html>`__
-* `I have a research question or would like to solve a problem and suspect Nextstrain might be a part of the solution, but I’m not sure how! <research/index.html>`__
 * `<I would like a general explanation of what Nextstrain is! about/index.html>`__
 * `I would like to know what I am looking at on nextstrain.org! <interpretation/index.html>`__
 * `I am ready to investigate live datasets (including those contributed by the community)! <interact/index.html>`__
+* `I would like to use Nextstrain to process and visualize my own data! <run_nextstrain/index.html>`__
+* `I have a research question or would like to solve a problem and suspect Nextstrain might be a part of the solution, but I’m not sure how! <research/index.html>`__
 * `I would like to contribute to Nextstrain! <contribute/index.html>`__
 * `I have submitted sequences to GISAID and want to see if they’ve been included in a Nextstrain-maintained build! <submitter/index.html>`__
 
