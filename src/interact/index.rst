@@ -2,10 +2,11 @@
 I am ready to investigate live datasets (including those contributed by the community)!
 =======================================================================================
 
-How to investigate by interacting with Nextstrain
+* :doc:`interact`
 
 .. toctree::
    :maxdepth: 1
    :glob:
    :hidden:
 
+   interact

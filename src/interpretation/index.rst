@@ -6,12 +6,9 @@ Nextstrain.org aims to provide a real-time snapshot of evolving pathogen populat
 
 Interpretation of nextstrain.org:
 
-* :doc:`interact`
 * `How to read a tree (not yet migrated from nextstrain.org/docs) <https://nextstrain.org/help/general/how-to-read-a-tree>`__
 
 .. toctree::
    :maxdepth: 1
    :glob:
    :hidden:
-
-   interact
