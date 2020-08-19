@@ -4,8 +4,10 @@
    contain the root `toctree` directive.
 
 ======================================
-Welcome to Nextstrain's documentation!
+Guide
 ======================================
+
+Welcome to Nextstrain's documentation!
 
 Nextstrain is an open-source project to harness the scientific and public health potential of pathogen genome data.
 We provide a continually-updated view of publicly available data with powerful analyses and visualizations showing pathogen evolution and epidemic spread.
