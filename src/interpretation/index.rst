@@ -12,5 +12,6 @@ Interpretation of Nextstrain.org docs:
 .. toctree::
    :maxdepth: 1
    :glob:
+   :hidden:
 
    interact
