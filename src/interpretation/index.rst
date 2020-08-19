@@ -1,10 +1,16 @@
-=======================================
-What I am looking at on nextstrain.org?
-=======================================
+============================================================
+I would like to know what I am looking at on nextstrain.org!
+============================================================
 
 General info on how to interpret 
 
 Interpretation of Nextstrain.org docs:
 
 * :doc:`interact`
-* `Auspice: Interactive exploration of phylodynamic & phylogenomic data <https://nextstrain.github.io/auspice/>`__
+* `How to read a tree <https://nextstrain.org/help/general/how-to-read-a-tree>`__
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   interact
