@@ -56,7 +56,7 @@ html_static_path = ['static']
 html_theme_options = {
     'display_version': False,
     'logo_only': True,
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'titles_only': True,
 }
 
