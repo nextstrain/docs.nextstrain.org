@@ -9,4 +9,5 @@ Tutorials to help you get started with Nextstrain!
    :maxdepth: 2
    :titlesonly:
    :caption: Table of contents
-
+    
+   ../ncov/docs/index
