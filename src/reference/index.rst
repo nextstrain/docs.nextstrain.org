@@ -5,6 +5,13 @@ Reference Guides
 
 Reference guides and API documentation that give implementation and usage details.
 
-.. toctree::
 
-    what-is-a-build
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+   :caption: Table of contents
+
+   formats/index
+   augur/index
+   auspice/index
+   cli/index

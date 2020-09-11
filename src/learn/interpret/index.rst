@@ -1,9 +1,9 @@
 
 ======================================
-Tutorials
+Interpreting Nextstrain
 ======================================
 
-Tutorials to help you get started with Nextstrain!
+Learn how to interpret Nextstrain analyses.
 
 .. toctree::
    :maxdepth: 2

@@ -1,9 +1,9 @@
 
 ======================================
-Tutorials
+Contributing to Nextstrain
 ======================================
 
-Tutorials to help you get started with Nextstrain!
+How-to guides for contributing to Nextstrain. 
 
 .. toctree::
    :maxdepth: 2

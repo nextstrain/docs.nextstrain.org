@@ -1,9 +1,9 @@
 
 ======================================
-Tutorials
+Visualizing and Sharing Analyses
 ======================================
 
-Tutorials to help you get started with Nextstrain!
+How-to guides for visualizing and sharing Nextstrain analyses.
 
 .. toctree::
    :maxdepth: 2

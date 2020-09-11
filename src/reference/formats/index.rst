@@ -1,12 +1,11 @@
 
 ======================================
-Tutorials
+Data formats of Nextstrain
 ======================================
 
-Tutorials to help you get started with Nextstrain!
+Reference material regarding data formats input and output by Nextstrain tools.
 
 .. toctree::
    :maxdepth: 2
    :titlesonly:
    :caption: Table of contents
-

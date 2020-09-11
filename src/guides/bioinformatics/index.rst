@@ -1,9 +1,9 @@
 
 ======================================
-Tutorials
+Running Bioinformatic Analyses
 ======================================
 
-Tutorials to help you get started with Nextstrain!
+How-to guides for performing bioinformatic anaylses with Nextstrain. 
 
 .. toctree::
    :maxdepth: 2

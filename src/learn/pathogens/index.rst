@@ -1,9 +1,9 @@
 
 ======================================
-Tutorials
+Pathogens
 ======================================
 
-Tutorials to help you get started with Nextstrain!
+Learn about some of the pathogens analyzed by the Nextstrain team.
 
 .. toctree::
    :maxdepth: 2
