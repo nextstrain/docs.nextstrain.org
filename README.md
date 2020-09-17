@@ -47,7 +47,7 @@ In some other cases, where it makes more sense to store the document in a differ
 2. Fetch any existing submodules `submodule update --init --recursive`
 3. Change to the `src` directory and add the submodule for the repository from which you would like to include document(s), e.g. `cd src && git submodule add https://github.com/nextstrain/augur.git`
 4. Add the submodule to `readthedocs.yml`, e.g.:
-```
+```diff
  ---
  version: 2
  conda:
@@ -58,7 +58,7 @@ In some other cases, where it makes more sense to store the document in a differ
 +     - src/augur
 ```
 5. Now you may include any document from your submodule directory, `src/augur` by including the relative path to the document in a table of contents specification in a restructured text file like `src/guides/share/index.rst`:
-```
+```diff
  ======================================
  Visualizing and Sharing Analyses
  ======================================
