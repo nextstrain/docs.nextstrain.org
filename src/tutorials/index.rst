@@ -10,4 +10,4 @@ Tutorials to help you get started with Nextstrain!
    :titlesonly:
    :caption: Table of contents
     
-   ../ncov/docs/index
+   SARS-CoV-2/index
