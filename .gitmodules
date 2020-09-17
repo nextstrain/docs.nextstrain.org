@@ -1,0 +1,3 @@
+[submodule "src/ncov"]
+	path = src/ncov
+	url = https://github.com/nextstrain/ncov.git
