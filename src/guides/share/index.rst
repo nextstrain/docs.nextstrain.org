@@ -10,3 +10,7 @@ How-to guides for visualizing and sharing Nextstrain analyses.
    :titlesonly:
    :caption: Table of contents
 
+   community-builds
+   Download data <download-data>
+   nextstrain-groups
+   sharing-data

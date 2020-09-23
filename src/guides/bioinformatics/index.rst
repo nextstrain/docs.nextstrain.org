@@ -10,3 +10,4 @@ How-to guides for performing bioinformatic anaylses with Nextstrain.
    :titlesonly:
    :caption: Table of contents
 
+   defining-clades

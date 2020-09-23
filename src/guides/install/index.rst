@@ -10,3 +10,6 @@ How-to guides for installing the various Nextstrain tools.
    :titlesonly:
    :caption: Table of contents
 
+   local-installation
+   local-vs-container-install
+   windows-help

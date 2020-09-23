@@ -10,3 +10,4 @@ How-to guides for contributing to Nextstrain.
    :titlesonly:
    :caption: Table of contents
 
+   documentation

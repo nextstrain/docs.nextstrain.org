@@ -11,3 +11,4 @@ Augur splash page placeholder.
    :caption: Table of contents
    
    what-is-a-build
+   introduction-to-augur

@@ -1,13 +1,16 @@
 
 ======================================
-Data formats of Nextstrain
+Coronavirus
 ======================================
 
-Reference material regarding data formats input and output by Nextstrain tools.
+Learn about coronaviruses including SARS-CoV-2.
 
 .. toctree::
    :maxdepth: 2
    :titlesonly:
    :caption: Table of contents
 
-   data-formats
+   FAQ 
+   SARS-CoV-2 <SARS-CoV-2>
+   Technical-FAQ 
+   Human CoV <human-CoV>

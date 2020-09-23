@@ -10,3 +10,4 @@ Learn about some of the pathogens analyzed by the Nextstrain team.
    :titlesonly:
    :caption: Table of contents
 
+   coronavirus/index
