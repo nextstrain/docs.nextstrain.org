@@ -39,7 +39,20 @@ templates_path = ['templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = [
+    'ncov/narratives',
+    'ncov/defaults',
+    'ncov/.github',
+    'ncov/README.md',
+    'ncov/docs/change_log_2020-07.md',
+    'ncov/docs/data_submitter_faq.md',
+    'ncov/docs/dev_docs.md',
+    'ncov/docs/glossary.md',
+    'ncov/docs/naming_clades.md',
+    'ncov/docs/translation_docs.md',
+    'ncov/my_profiles',
+    'ncov/nextstrain_profiles'
+]
 
 
 # -- Options for HTML output -------------------------------------------------
