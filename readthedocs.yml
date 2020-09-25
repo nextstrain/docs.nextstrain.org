@@ -5,3 +5,4 @@ conda:
 submodules:
   include:
      - src/ncov
+     - src/augur
