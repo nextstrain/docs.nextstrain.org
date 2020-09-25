@@ -1,3 +1,6 @@
 [submodule "src/ncov"]
 	path = src/ncov
 	url = https://github.com/nextstrain/ncov.git
+[submodule "src/augur"]
+	path = src/augur
+	url = https://github.com/nextstrain/augur.git
