@@ -30,7 +30,9 @@ author = 'The Nextstrain Team'
 extensions = [
     'recommonmark',
     'sphinx.ext.intersphinx',
-    'sphinx_markdown_tables'
+    'sphinx_markdown_tables',
+    'sphinxarg.ext',
+    'sphinx.ext.autodoc'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

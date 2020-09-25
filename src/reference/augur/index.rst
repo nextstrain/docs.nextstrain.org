@@ -26,3 +26,4 @@ Augur splash page placeholder.
    ../../augur/docs/faq/clades
    ../../augur/docs/faq/refine
    ../../augur/docs/authors/authors
+   ../../augur/docs/api/api
