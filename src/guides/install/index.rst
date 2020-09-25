@@ -13,3 +13,4 @@ How-to guides for installing the various Nextstrain tools.
    local-installation
    local-vs-container-install
    windows-help
+   ../../augur/docs/installation/installation

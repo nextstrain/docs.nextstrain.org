@@ -13,3 +13,5 @@ Tutorials to help you get started with Nextstrain!
    quickstart
    SARS-CoV-2/index
    zika
+   ../augur/docs/tutorials/zika_tutorial
+   ../augur/docs/tutorials/tb_tutorial

@@ -14,3 +14,4 @@ How-to guides for visualizing and sharing Nextstrain analyses.
    Download data <download-data>
    nextstrain-groups
    sharing-data
+   ../../augur/docs/faq/community_hosting
