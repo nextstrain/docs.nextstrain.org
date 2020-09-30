@@ -80,6 +80,6 @@ html_theme_options = {
 # -- Cross-project references ------------------------------------------------
 
 intersphinx_mapping = {
-    'augur': ('https://docs.nextstrain.org/projects/augur/en/latest', None),
+    'augur': ('https://docs.nextstrain.org/projects/augur/en/migrate-docs', None),
     'cli': ('https://docs.nextstrain.org/projects/cli/en/latest', None),
 }
