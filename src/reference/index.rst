@@ -12,6 +12,6 @@ Reference guides and API documentation that give implementation and usage detail
    :caption: Table of contents
 
    formats/index
-   augur/index
+   Augur: A bioinformatics toolkit for phylogenetic analysis <https://docs.nextstrain.org/projects/augur/en/migrate-docs/index.html>
    auspice/index
    cli/index
