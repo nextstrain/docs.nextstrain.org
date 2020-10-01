@@ -11,3 +11,4 @@ How-to guides for contributing to Nextstrain.
    :caption: Table of contents
 
    documentation
+   ../../cli/doc/development

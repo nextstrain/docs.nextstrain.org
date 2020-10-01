@@ -4,3 +4,6 @@
 [submodule "src/augur"]
 	path = src/augur
 	url = https://github.com/nextstrain/augur.git
+[submodule "src/cli"]
+	path = src/cli
+	url = https://github.com/nextstrain/cli.git

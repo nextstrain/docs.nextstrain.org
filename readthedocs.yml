@@ -6,3 +6,4 @@ submodules:
   include:
      - src/ncov
      - src/augur
+     - src/cli
