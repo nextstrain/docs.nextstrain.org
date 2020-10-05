@@ -8,3 +8,6 @@
 	path = src/auspice
 	url = https://github.com/nextstrain/auspice.git
 	branch = migrate-docs
+[submodule "src/cli"]
+	path = src/cli
+	url = https://github.com/nextstrain/cli.git
