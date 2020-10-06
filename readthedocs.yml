@@ -7,3 +7,4 @@ submodules:
      - src/ncov
      - src/augur
      - src/cli
+     - src/auspice
