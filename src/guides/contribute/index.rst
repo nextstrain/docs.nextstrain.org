@@ -12,3 +12,4 @@ How-to guides for contributing to Nextstrain.
 
    documentation
    ../../cli/doc/development
+   ../../auspice/docs/contributing/overview

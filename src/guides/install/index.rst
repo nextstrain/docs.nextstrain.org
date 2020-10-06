@@ -15,3 +15,4 @@ How-to guides for installing the various Nextstrain tools.
    windows-help
    ../../augur/docs/installation/installation
    ../../cli/doc/installation
+   ../../auspice/docs/introduction/install

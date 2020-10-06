@@ -15,3 +15,5 @@ How-to guides for visualizing and sharing Nextstrain analyses.
    nextstrain-groups
    sharing-data
    ../../augur/docs/faq/community_hosting
+   ../../auspice/docs/narratives/introduction
+   ../../auspice/docs/narratives/create-pdf

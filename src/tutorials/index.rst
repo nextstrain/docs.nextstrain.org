@@ -15,3 +15,4 @@ Tutorials to help you get started with Nextstrain!
    zika
    ../augur/docs/tutorials/zika_tutorial
    ../augur/docs/tutorials/tb_tutorial
+   ../auspice/docs/narratives/how-to-write
