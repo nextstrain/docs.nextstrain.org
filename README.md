@@ -226,8 +226,8 @@ It advocates for a balance of content from these distinct categories for more us
 Explicitly spelling out this breakdown in the docs themselves is recommended to make choosing the right document for a given question more transparent.
 
 The types of documents are:
-[Tutorials](https://documentation.divio.com/tutorials/) - learning-oriented
-[How-to guides](https://documentation.divio.com/how-to-guides/) - problem- / goal- oriented
-[Reference guides](https://documentation.divio.com/reference/) - information-oriented
-[Explanation](https://documentation.divio.com/explanation/) (aka discussions) - understanding oriented
+- [Tutorials](https://documentation.divio.com/tutorials/) - learning-oriented
+- [How-to guides](https://documentation.divio.com/how-to-guides/) - problem- / goal- oriented
+- [Reference guides](https://documentation.divio.com/reference/) - information-oriented
+- [Explanation](https://documentation.divio.com/explanation/) (aka discussions) - understanding oriented
 
