@@ -150,6 +150,10 @@ In some other cases, where it makes more sense to store the document in a differ
 ```
 6. After building the docs (see above section), the `/guides/share/` section should include the document from the submodule in its table of contents: ![](images/submodule_eg.png)
 
+Here is another example of using submodules to achieve this goal in this repository: https://github.com/nextstrain/docs.nextstrain.org/pull/2/files#
+
+7. From this point, we will need to update the commit referenced by the submodule-hosted document to ensure the version in this documentation doesn't become out of sync with the latest version in its home repository. In the future, we will set up bots to create automatic pull requests when this happens that we can review and merge, but for now you need to update the submodule using git on the command line; see this document for an illustration of how that works https://git-scm.com/book/en/v2/Git-Tools-Submodules#_working_on_a_project_with_submodules.
+
 ## Contributing
 
 ### Adding a document
@@ -159,6 +163,7 @@ If you come across a useful feature to solve a common problem in the docs implem
 
 #### Hide table of contents; only display in the sidebar
 Adding the following line to the table of contents statement in the index / root page of this project, for example, will remove the table of contents section from that document and only render the table of contents in the navigation bar on the left like this:
+
 ```diff
 .. toctree::
    :maxdepth: 2
