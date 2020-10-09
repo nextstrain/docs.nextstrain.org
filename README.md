@@ -118,7 +118,7 @@ You also need to add the project you are linking to to the [intersphinx configur
 Subprojects are how we keep documents in other repositories while still maintaining the versioning of those documents from their own repositories in a separate Read The Docs project.
 Documents which we've kept in subprojects, as opposed to including them in this project, are specific reference material for those projects / repositories such as API documentation for augur.
 It is our impression so far that subprojects necessitate a distinct domain name, such as https://docs.nextstrain.org/projects/augur as opposed to just https://docs.nextstrain.org.
-This means a distinct set of headings / links in the sidebar navigation, making navigating back tohttps://docs.nextstrain.org more difficult once you have navigated to a subproject.
+This means a distinct set of headings / links in the sidebar navigation, making navigating back to https://docs.nextstrain.org more difficult once you have navigated to a subproject.
 Therefore, we've made non-reference-guide documents (which are not repo-specific and for which we don't need subproject versioning) accessible in this main project via git submodules - so they still live in their respective repositories, but they are more accessible without having to know that one needs to find them in a particular repo's subproject.
 
 This setup may be ignorant of a "best of both worlds" solution, which would allow us to version documents in subprojects according to their own repositories, and also include them in this project's domain and table of contents without having to navigate to a separate project to view them.
