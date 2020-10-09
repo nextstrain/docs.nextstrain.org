@@ -203,17 +203,17 @@ If you come across a useful feature to solve a common problem in the docs implem
 Adding the following line to the table of contents statement in the index / root page of this project, for example, will remove the table of contents section from that document and only render the table of contents in the navigation bar on the left like this:
 
 ```diff
-.. toctree::
-   :maxdepth: 2
-   :titlesonly:
-   :hidden:
-   :caption: Table of contents
+ .. toctree:: 
+    :maxdepth: 2
+    :titlesonly:
++   :hidden:
+    :caption: Table of contents
 
-   self
-   learn/index
-   tutorials/index
-   guides/index
-   reference/index
+    self
+    learn/index
+    tutorials/index
+    guides/index
+    reference/index
 ```
 
 ![](images/hidden_toc.png)
