@@ -8,13 +8,14 @@ A prototype umbrella documentation project for Nextstrain, hosted at [docs.nexts
 - [Subprojects](https://docs.readthedocs.io/en/stable/subprojects.html) for Augur and the CLI (plus maybe Auspice and other component/build-specific documentation in the future)
 - Our custom [Sphinx theme](https://github.com/nextstrain/sphinx-theme) to provide consistent, branded styling.
 
-## Domain management
+## Domain / hosting management
 To manage the hosting settings of docs.nextstrain.org and monitor automated builds triggered by pushes to this repository, go to https://readthedocs.org/projects/nextstrain/.
 You'll need to create an account and be granted permissions to view and edit admin settings for the project by someone on the Nextstrain team.
 
 ## Building the docs
 
-Build dependencies are managed with [Conda](https://conda.io).  Install them
+Build dependencies are managed with [Conda](https://conda.io).
+Install them
 into an isolated environment named `docs.nextstrain.org` with:
 
     conda env create
@@ -27,8 +28,8 @@ You can now build the documentation with:
 
     make html
 
-which invokes Sphinx to build static HTML pages in `build/html/`.  You can view
-them by running:
+which invokes Sphinx to build static HTML pages in `build/html/`.
+You can view them by running:
 
     open build/html/index.html
 
@@ -38,7 +39,7 @@ Leave the environment with:
 
 ### Build configuration
 
-Read the docs is configured via `readthedocs.yml`; [more about Read the docs configuration](https://docs.readthedocs.io/en/stable/config-file/v2.html)
+Read The Docs is configured via `readthedocs.yml`; [more about Read The Docs configuration](https://docs.readthedocs.io/en/stable/config-file/v2.html)
 
 Sphinx is configured via `src/conf.py`; [more about Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html)
 
@@ -58,14 +59,14 @@ Documents which don't need to include special table of contents or similar state
 
 [Markdown formatting reference](https://www.markdownguide.org/basic-syntax/).
 
-#### Restructured text
-There are some set of special features of Sphinx / Read The Docs which require using restructured text, such as creating sidebar / table of contents entries with `toctree` statements (see [File Hierarchy](#file-hierarchy)).
+#### reStructuredText
+There are some set of special features of Sphinx / Read The Docs which require using reStructuredText, such as creating sidebar / table of contents entries with `toctree` statements (see [File Hierarchy](#file-hierarchy)).
 
-[restructured text formatting reference](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html).
+[reStructuredText formatting reference](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html).
 
 ### File Hierarchy
 The hierarchy of the table of contents as seen in the sidebar can be thought of as a tree of documents.
-The root is `src/index.rst` a restructured text (see [Restructured Text](#restructured-text)) file which dictates what the top-level headings in the sidebar will be.
+The root is `src/index.rst` a reStructuredText (see [Restructured Text](#restructured-text)) file which dictates what the top-level headings in the sidebar will be.
 It contains a `.. toctree::` "directive" or statement, followed by some configuration and then a list of file paths:
 ```
 ======================================
@@ -93,29 +94,40 @@ If you have any questions, or simply want to say hi, please give us a shout at h
    guides/index
    reference/index
 ```
-These file paths such as `learn/index` are what show up in the sidebar at the top level. 
-In this case, each of the paths specified is another restructured text(.rst - but the file extension is omitted in the `toctree` listing) file, containing a similar statement, listing the files for that section.
+These file paths such as `learn/index` are what show up in the sidebar at the top level.
+In this case, each of the paths specified is another reStructuredText(.rst - but the file extension is omitted in the `toctree` listing) file, containing a similar statement, listing the files for that section.
 However, you can also list paths to regular markdown documents (also without extension) which will just render a clickable entry in the sidebar to navigate to that document, and it will not be an expandable section.
 If any file contains a valid one of these `.. toctree::` statements, it will be rendered as an expandable heading in the sidebar, with the `toctree` entries rendered under that heading.
 
 More on this in the [Sphinx Documentation](https://www.sphinx-doc.org/en/1.5/markup/toctree.html).
 
 ### Subprojects
-TODO general intro to subprojects (dont duplicate things that I can just link here from RTD docs!!)
+[Subprojects](https://docs.readthedocs.io/en/stable/subprojects.html) are a way to nest Read The Docs projects.
+To link to a file in a subproject (or any other Read The Docs project), use [intershpinx](https://docs.readthedocs.io/en/stable/guides/intersphinx.html), e.g.:
+```diff
+ ======================================
+ Welcome to Nextstrain's documentation!
+ ======================================
+ 
+ Projects
+ ========
+ 
++* :doc:`augur:index`
+```
+You also need to add the project you are linking to to the [intersphinx configuration](https://docs.readthedocs.io/en/stable/guides/intersphinx.html#using-intersphinx) of your build.
 
-TODO make this info about how we organize things into something useful
-Part of the philosophy was that the sub-projects are repo-specific and those documents which we've made accessible in the main project (but still live in their respective repositories, i.e. those docs which we include from the submodules) seemed non-repo-specific, so we wanted to make them more accessible without having to know that one needs to find them in a particular repo's subproject, since the subprojects are somewhat "siloed" from the main project as @jameshadfield raised in some initial discussions on this.
-Meanwhile, we've left "reference guide" material in the subprojects to be linked to from the main project, since reference guides do feel repo-specific.
+#### How we are currently using subprojects
+Subprojects are how we keep documents in other repositories while still maintaining the versioning of those documents from their own repositories in a separate Read The Docs project.
+Documents which we've kept in subprojects, as opposed to including them in this project, are specific reference material for those projects / repositories such as API documentation for augur.
+It is our impression so far that subprojects necessitate a distinct domain name, such as https://docs.nextstrain.org/projects/augur as opposed to just https://docs.nextstrain.org.
+This means a distinct set of headings / links in the sidebar navigation, making navigating back tohttps://docs.nextstrain.org more difficult once you have navigated to a subproject.
+Therefore, we've made non-reference-guide documents (which are not repo-specific and for which we don't need subproject versioning) accessible in this main project via git submodules - so they still live in their respective repositories, but they are more accessible without having to know that one needs to find them in a particular repo's subproject.
 
-You're right on as far as I'm concerned: at least one challenge that presented there was if we wanted to include things like the augur api auto-generated docs there, it seemed like the options (assuming we wanted to maintain the versioning of those docs from the augur repo's git tags) were:
-via submodules - this doesn't achieve the goal of maintaining the version but does put it into the same toctree
-via subprojects - we went with this since it preserves versioning of those docs according to augur versioning; even though it may be siloed, at least it is content that you might expect in that silo
-but I definitely am no RTD or RsT expert so maybe we missed how to get the best of both worlds.
+This setup may be ignorant of a "best of both worlds" solution, which would allow us to version documents in subprojects according to their own repositories, and also include them in this project's domain and table of contents without having to navigate to a separate project to view them.
 
 ### Submodules
 In many cases this will involve moving the document so that it is stored in this repository and adding the necessary Read the Docs directive to the document to surface the document in the table of contents / in the sidebar.
 In some other cases, where it makes more sense to store the document in a different repository, we will need to include the document directly from it's home repository; the current plan for this is using submodules - see the following section for details on how to do this.
-
 
 ### How we use submodules to source documents from other repositories
 
@@ -133,7 +145,7 @@ In some other cases, where it makes more sense to store the document in a differ
       - src/ncov
 +     - src/augur
 ```
-5. Now you may include any document from your submodule directory, `src/augur` by including the relative path to the document in a table of contents specification in a restructured text file like `src/guides/share/index.rst`:
+5. Now you may include any document from your submodule directory, `src/augur` by including the relative path to the document in a table of contents specification in a reStructuredText file like `src/guides/share/index.rst`:
 ```diff
  ======================================
  Visualizing and Sharing Analyses
@@ -152,11 +164,37 @@ In some other cases, where it makes more sense to store the document in a differ
 
 Here is another example of using submodules to achieve this goal in this repository: https://github.com/nextstrain/docs.nextstrain.org/pull/2/files#
 
-7. From this point, we will need to update the commit referenced by the submodule-hosted document to ensure the version in this documentation doesn't become out of sync with the latest version in its home repository. In the future, we will set up bots to create automatic pull requests when this happens that we can review and merge, but for now you need to update the submodule using git on the command line; see this document for an illustration of how that works https://git-scm.com/book/en/v2/Git-Tools-Submodules#_working_on_a_project_with_submodules.
+7. From this point, we will need to update the commit referenced by the submodule-hosted document to ensure the version in this documentation doesn't become out of sync with the latest version in its home repository.
+In the future, we will set up bots to create automatic pull requests when this happens that we can review and merge, but for now you need to update the submodule using git on the command line; see this document for an illustration of how that works https://git-scm.com/book/en/v2/Git-Tools-Submodules#_working_on_a_project_with_submodules.
 
 ## Contributing
 
-### Adding a document
+### How to add a document
+1. What [type of document](#types-of-documents) is it? This will help write it with a clear goal in mind.
+2. Where should it go in the table of contents? See the Table of Contents at https://docs.nextstrain.org/en/migrate/ to find a heading that fits the document best.
+3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/migrate/src) corresponding to the heading under which you'd like to to appear, e.g.:
+```
+mv sharing-data.md src/guides/share/
+```
+4. Add a relative path to the document file to a [`toctree`](#file-hierarchy), e.g.:
+```diff
+ ======================================
+ Visualizing and Sharing Analyses
+ ======================================
+ 
+ How-to guides for visualizing and sharing Nextstrain analyses.
+ 
+ .. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :caption: Table of contents
+ 
+    community-builds
+    Download data <download-data>
+    nextstrain-groups
++   sharing-data
+```
+5. [Build the docs](#building-the-docs) to see it rendered, and make any necessary edits before pushing to this repo.
 
 ### How-to tips
 If you come across a useful feature to solve a common problem in the docs implementation, add it here!
@@ -184,8 +222,8 @@ Adding the following line to the table of contents statement in the index / root
 ## Types of documents
 In terms of the content of a given document, we aim to classify documents according to the [Documentation System](https://documentation.divio.com/).
 The Documentation System makes clear the distinction between motivations for different types of docs.
-It advocates for a balance of content from these distinct categories for more useful docs experience by doc readers and a more well-defined task for doc writers. 
-Explicitly spelling out this breakdown in the docs themselves is recommended to make choosing the right document for a given question more transparent. 
+It advocates for a balance of content from these distinct categories for more useful docs experience by doc readers and a more well-defined task for doc writers.
+Explicitly spelling out this breakdown in the docs themselves is recommended to make choosing the right document for a given question more transparent.
 
 The types of documents are:
 [Tutorials](https://documentation.divio.com/tutorials/) - learning-oriented
