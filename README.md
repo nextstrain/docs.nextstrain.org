@@ -44,7 +44,7 @@ Read The Docs is configured via `readthedocs.yml`; [more about Read The Docs con
 Sphinx is configured via `src/conf.py`; [more about Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html)
 
 ## Migration of Nextstrain docs to this repository
-We have agreed on some major [headings and subheadings](https://bedfordlab.slack.com/archives/C7SDVPBLZ/p1599159400016700?thread_ts=1599158255.014600&cid=C7SDVPBLZ) for an all-Nextstrain documentation project in this repo.
+We have agreed on some major [headings and subheadings](https://docs.google.com/document/d/1hq6hjukg3Pw8m12Y0IaephQYJCFvpFrChl0K0B_4UrQ/edit#heading=h.t0j8btmy5ggi) for an all-Nextstrain documentation project in this repo.
 We are using the migrate branch to move individual documents over to this Read the Docs project, under those headings.
 We are tracking progress of migration-related tasks in a [github project](https://github.com/nextstrain/docs.nextstrain.org/projects/1).
 
