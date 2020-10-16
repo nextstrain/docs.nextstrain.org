@@ -1,19 +1,18 @@
 
 ======================================
-Visualizing and Sharing Analyses
+Sharing Analyses
 ======================================
 
-How-to guides for visualizing and sharing Nextstrain analyses.
+Information on how-to share analyses through Nextstrain.org
 
 .. toctree::
    :maxdepth: 2
    :titlesonly:
    :caption: Table of contents
 
-   community-builds
-   Download data <download-data>
-   nextstrain-groups
    sharing-data
+   nextstrain-groups
+   community-builds
    ../../augur/docs/faq/community_hosting
-   ../../auspice/docs/narratives/introduction
-   ../../auspice/docs/narratives/create-pdf
+   fetch-via-urls
+   Download data <download-data>
