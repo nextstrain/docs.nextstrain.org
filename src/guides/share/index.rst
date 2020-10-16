@@ -13,6 +13,5 @@ Information on how-to share analyses through Nextstrain.org
    sharing-data
    nextstrain-groups
    community-builds
-   ../../augur/docs/faq/community_hosting
    fetch-via-urls
    Download data <download-data>
