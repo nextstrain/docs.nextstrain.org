@@ -14,6 +14,7 @@ Here is a summary of the different ways one can share data through [nextstrain.o
 | Nextstrain-maintained pathogens | S3 bucket which we manage   | [nextstrain.org]          | Public             |
 | [Nextstrain Community]          | Your own github repo        | nextstrain.org/community/ | Public             |
 | [Nextstrain Groups]             | S3 bucket which you manage  | nextstrain.org/groups/... | Public or private  |
+| [User-defined data fetch]     | Anywhere accessible via a URL | nextstrain.org/fetch/...  | Public             |
 | [auspice.us]                    | On your computer            | [auspice.us]              | Private            |
 | [Custom auspice servers]        | Wherever you choose         | your own server's URL     | Your choice        |
 
