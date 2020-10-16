@@ -8,7 +8,6 @@ Sharing Analyses through Nextstrain
    :titlesonly:
    :hidden:
 
-   sharing-data
    nextstrain-groups
    community-builds
    fetch-via-urls
