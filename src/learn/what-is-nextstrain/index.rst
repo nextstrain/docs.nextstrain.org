@@ -10,5 +10,4 @@ Learn about Nextstrain.
    :titlesonly:
    :caption: Table of contents
    
-   about-nextstrain
    introduction
