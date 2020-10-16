@@ -10,6 +10,6 @@ Learn about Nextstrain and related background information.
    :titlesonly:
    :caption: Table of contents
 
-   what-is-nextstrain/index
+   About Nextstrain <about-nextstrain>
    interpret/index
    pathogens/index
