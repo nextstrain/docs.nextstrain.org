@@ -1,7 +1,7 @@
 # Local Installation
 
 
-The following instructions describe how to install `augur` (bioinformatics tooling) and `auspice` (our visualization app) on macOS or an Ubuntu-style Linux distribution using Conda.
+The following instructions describe how to install `augur` (bioinformatics tooling) and `auspice` (our visualization app) **together, in the same Conda environment**, on macOS or an Ubuntu-style Linux distribution.
 
 > Before digging in, it's worth reading about [the different installation methods](./index) which will install the components behind Nextstrain and allow you to run and visualize analyses on your computer.
 
