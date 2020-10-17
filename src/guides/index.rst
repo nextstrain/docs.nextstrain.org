@@ -13,5 +13,6 @@ How-to guides which answer specific questions and goals related to Nextstrain.
    install/index
    bioinformatics/index
    share/index
+   communicate/index
    contribute/index
 
