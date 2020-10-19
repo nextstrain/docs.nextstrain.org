@@ -12,4 +12,5 @@ How-to guides for contributing to Nextstrain.
 
    documentation
    Contribute to Nextstrain CLI <../../cli/doc/development>
+   Contribute to Augur <../../augur/docs/contribute/DEV_DOCS>
    Contribute to Auspice <../../auspice/docs/contributing/overview>
