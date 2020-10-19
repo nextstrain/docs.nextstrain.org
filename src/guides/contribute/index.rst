@@ -11,5 +11,5 @@ How-to guides for contributing to Nextstrain.
    :caption: Table of contents
 
    documentation
-   ../../cli/doc/development
-   ../../auspice/docs/contributing/overview
+   Contribute to Nextstrain CLI <../../cli/doc/development>
+   Contribute to Auspice <../../auspice/docs/contributing/overview>
