@@ -10,7 +10,7 @@ How-to guides for contributing to Nextstrain.
    :titlesonly:
    :caption: Table of contents
 
-   documentation
+   Contributing to Documentation <../../readme>
    Contribute to Nextstrain CLI <../../cli/doc/development>
    Contribute to Augur <../../augur/docs/contribute/DEV_DOCS>
    Contribute to Auspice <../../auspice/docs/contributing/overview>
