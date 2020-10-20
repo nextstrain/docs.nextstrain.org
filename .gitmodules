@@ -1,13 +1,13 @@
-[submodule "src/ncov"]
-	path = src/ncov
+[submodule "docs/ncov"]
+	path = docs/ncov
 	url = https://github.com/nextstrain/ncov.git
-[submodule "src/augur"]
-	path = src/augur
+[submodule "docs/augur"]
+	path = docs/augur
 	url = https://github.com/nextstrain/augur.git
-[submodule "src/auspice"]
-	path = src/auspice
+[submodule "docs/auspice"]
+	path = docs/auspice
 	url = https://github.com/nextstrain/auspice.git
 	branch = migrate-docs
-[submodule "src/cli"]
-	path = src/cli
+[submodule "docs/cli"]
+	path = docs/cli
 	url = https://github.com/nextstrain/cli.git

@@ -41,7 +41,7 @@ Leave the environment with:
 
 Read The Docs is configured via `readthedocs.yml`; [more about Read The Docs configuration](https://docs.readthedocs.io/en/stable/config-file/v2.html)
 
-Sphinx is configured via `src/conf.py`; [more about Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html)
+Sphinx is configured via `docs/conf.py`; [more about Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html)
 
 ## Migration of Nextstrain docs to this repository
 We have agreed on some major [headings and subheadings](https://docs.google.com/document/d/1hq6hjukg3Pw8m12Y0IaephQYJCFvpFrChl0K0B_4UrQ/edit#heading=h.t0j8btmy5ggi) for an all-Nextstrain documentation project in this repo.
@@ -64,7 +64,7 @@ There are some set of special features of Sphinx / Read The Docs which require u
 
 ### File Hierarchy
 The hierarchy of the table of contents as seen in the sidebar can be thought of as a tree of documents.
-The root is `src/index.rst` a reStructuredText (see [Restructured Text](#restructured-text)) file which dictates what the top-level headings in the sidebar will be.
+The root is `docs/index.rst` a reStructuredText (see [Restructured Text](#restructured-text)) file which dictates what the top-level headings in the sidebar will be.
 It contains a `.. toctree::` "directive" or statement, followed by some configuration and then a list of file paths:
 ```
 ======================================
@@ -131,7 +131,7 @@ In some other cases, where it makes more sense to store the document in a differ
 
 1. Make sure you are on the latest `migrate` branch: `git clone https://github.com/nextstrain/docs.nextstrain.org.git && cd docs.nextstrain.org && git checkout migrate`
 2. Fetch any existing submodules `submodule update --init --recursive`
-3. Change to the `src` directory and add the submodule for the repository from which you would like to include document(s), e.g. `cd src && git submodule add https://github.com/nextstrain/augur.git`
+3. Change to the `docs` directory and add the submodule for the repository from which you would like to include document(s), e.g. `cd docs && git submodule add https://github.com/nextstrain/augur.git`
 4. Add the submodule to `readthedocs.yml`, e.g.:
 ```diff
  ---
@@ -140,10 +140,10 @@ In some other cases, where it makes more sense to store the document in a differ
    environment: environment.yml
  submodules:
    include:
-      - src/ncov
-+     - src/augur
+      - docs/ncov
++     - docs/augur
 ```
-5. Now you may include any document from your submodule directory, `src/augur` by including the relative path to the document in a table of contents specification in a reStructuredText file like `src/guides/share/index.rst`:
+5. Now you may include any document from your submodule directory, `docs/augur` by including the relative path to the document in a table of contents specification in a reStructuredText file like `docs/guides/share/index.rst`:
 ```diff
  ======================================
  Visualizing and Sharing Analyses
@@ -170,9 +170,9 @@ In the future, we will set up bots to create automatic pull requests when this h
 ### How to add a document
 1. What [type of document](#types-of-documents) is it? This will help write it with a clear goal in mind.
 2. Where should it go in the table of contents? See the Table of Contents at https://docs.nextstrain.org/en/migrate/ to find a heading that fits the document best.
-3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/migrate/src) corresponding to the heading under which you'd like to to appear, e.g.:
+3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/migrate/docs) corresponding to the heading under which you'd like to to appear, e.g.:
 ```
-mv sharing-data.md src/guides/share/
+mv sharing-data.md docs/guides/share/
 ```
 4. Add a relative path to the document file to a [`toctree`](#file-hierarchy), e.g.:
 ```diff

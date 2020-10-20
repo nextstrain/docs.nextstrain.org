@@ -4,7 +4,7 @@ conda:
   environment: environment.yml
 submodules:
   include:
-     - src/ncov
-     - src/augur
-     - src/cli
-     - src/auspice
+     - docs/ncov
+     - docs/augur
+     - docs/cli
+     - docs/auspice
