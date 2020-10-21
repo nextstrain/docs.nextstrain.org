@@ -22,4 +22,4 @@ For the Auspice input JSON schema, check out the [Auspice docs [external link]](
 
 ## Visualising and sharing results
 
-Once you have prepared your JSON(s) in the Auspice format, you can visualise and share these results in a variety of ways. To find one that meets your needs for privacy and collaboration, check out [our guide on sharing your results](../../guides/share/sharing-data).
+Once you have prepared your JSON(s) in the Auspice format, you can visualise and share these results in a variety of ways. To find one that meets your needs for privacy and collaboration, check out [our guide on sharing your results](../../guides/share/index).

@@ -5,7 +5,7 @@ We are a small team with a big job, and we are thrilled to be getting so much at
 #### I'd like to help out with Nextstrain development. How should I get started?
 
 We welcome development contributions to Nextstrain!
-Please see [our contributing philosophy](../../../guides/share/sharing-data) and [development](https://github.com/nextstrain/.github/blob/master/CONTRIBUTING.md) page.
+Please see [our contributing philosophy](../../../guides/contribute/index) and [development](https://github.com/nextstrain/.github/blob/master/CONTRIBUTING.md) page.
 
 #### I speak a language the Nextstrain Narratives isn't currently available in, and I would love to help with translating. How do I get started?
 

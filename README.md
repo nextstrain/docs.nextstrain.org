@@ -172,7 +172,7 @@ In the future, we will set up bots to create automatic pull requests when this h
 2. Where should it go in the table of contents? See the Table of Contents at https://docs.nextstrain.org/en/migrate/ to find a heading that fits the document best.
 3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/migrate/src) corresponding to the heading under which you'd like to to appear, e.g.:
 ```
-mv sharing-data.md src/guides/share/
+mv community-builds.md src/guides/share/
 ```
 4. Add a relative path to the document file to a [`toctree`](#file-hierarchy), e.g.:
 ```diff
@@ -187,10 +187,9 @@ mv sharing-data.md src/guides/share/
     :titlesonly:
     :caption: Table of contents
  
-    community-builds
     Download data <download-data>
     nextstrain-groups
-+   sharing-data
++   community-builds
 ```
 5. [Build the docs](#building-the-docs) to see it rendered, and make any necessary edits before pushing to this repo.
 
