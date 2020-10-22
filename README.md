@@ -158,7 +158,7 @@ In some other cases, where it makes more sense to store the document in a differ
  
 +   ../../augur/docs/faq/community_hosting
 ```
-6. After building the docs (see above section), the `/guides/share/` section should include the document from the submodule in its table of contents: ![](./images/submodule_eg.png)
+6. After building the docs (see above section), the `/guides/share/` section should include the document from the submodule in its table of contents: ![](./src/images/submodule_eg.png)
 
 Here is another example of using submodules to achieve this goal in this repository: https://github.com/nextstrain/docs.nextstrain.org/pull/2/files#
 
@@ -214,7 +214,7 @@ Adding the following line to the table of contents statement in the index / root
     reference/index
 ```
 
-![](./images/hidden_toc.png)
+![](./src/images/hidden_toc.png)
 
 
 ## Types of documents
