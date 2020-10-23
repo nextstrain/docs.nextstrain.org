@@ -45,7 +45,7 @@ Sphinx is configured via `src/conf.py`; [more about Sphinx configuration](https:
 
 ## Migration of Nextstrain docs to this repository
 We have agreed on some major [headings and subheadings](https://docs.google.com/document/d/1hq6hjukg3Pw8m12Y0IaephQYJCFvpFrChl0K0B_4UrQ/edit#heading=h.t0j8btmy5ggi) for an all-Nextstrain documentation project in this repo.
-We are using the migrate branch to move individual documents over to this Read the Docs project, under those headings.
+We are moving our documentation over to this Read the Docs project, under those headings.
 We are tracking progress of migration-related tasks in a [github project](https://github.com/nextstrain/docs.nextstrain.org/projects/1).
 
 ## Implementation
@@ -129,7 +129,7 @@ In some other cases, where it makes more sense to store the document in a differ
 
 ### How we use submodules to source documents from other repositories
 
-1. Make sure you are on the latest `migrate` branch: `git clone https://github.com/nextstrain/docs.nextstrain.org.git && cd docs.nextstrain.org && git checkout migrate`
+1. Make sure you have the latest version of this repository checked out: `git clone https://github.com/nextstrain/docs.nextstrain.org.git && cd docs.nextstrain.org`
 2. Fetch any existing submodules `submodule update --init --recursive`
 3. Change to the `src` directory and add the submodule for the repository from which you would like to include document(s), e.g. `cd src && git submodule add https://github.com/nextstrain/augur.git`
 4. Add the submodule to `readthedocs.yml`, e.g.:
@@ -169,8 +169,8 @@ In the future, we will set up bots to create automatic pull requests when this h
 
 ### How to add a document
 1. What [type of document](#types-of-documents) is it? This will help write it with a clear goal in mind.
-2. Where should it go in the table of contents? See the Table of Contents at https://docs.nextstrain.org/en/migrate/ to find a heading that fits the document best.
-3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/migrate/src) corresponding to the heading under which you'd like to to appear, e.g.:
+2. Where should it go in the table of contents? See the Table of Contents at https://docs.nextstrain.org/en/latest/ to find a heading that fits the document best.
+3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/latest/src) corresponding to the heading under which you'd like to to appear, e.g.:
 ```
 mv community-builds.md src/guides/share/
 ```
