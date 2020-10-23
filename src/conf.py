@@ -30,6 +30,9 @@ author = 'The Nextstrain Team'
 extensions = [
     'recommonmark',
     'sphinx.ext.intersphinx',
+    'sphinx_markdown_tables',
+    'sphinxarg.ext',
+    'sphinx.ext.autodoc'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -38,7 +41,20 @@ templates_path = ['templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = [
+    'ncov/narratives',
+    'ncov/defaults',
+    'ncov/.github',
+    'ncov/README.md',
+    'ncov/docs/change_log_2020-07.md',
+    'ncov/docs/data_submitter_faq.md',
+    'ncov/docs/dev_docs.md',
+    'ncov/docs/glossary.md',
+    'ncov/docs/naming_clades.md',
+    'ncov/docs/translation_docs.md',
+    'ncov/my_profiles',
+    'ncov/nextstrain_profiles'
+]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -56,7 +72,7 @@ html_static_path = ['static']
 html_theme_options = {
     'display_version': False,
     'logo_only': True,
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'titles_only': True,
 }
 
@@ -64,6 +80,7 @@ html_theme_options = {
 # -- Cross-project references ------------------------------------------------
 
 intersphinx_mapping = {
-    'augur': ('https://docs.nextstrain.org/projects/augur/en/latest', None),
-    'cli': ('https://docs.nextstrain.org/projects/cli/en/latest', None),
+    'augur': ('https://docs.nextstrain.org/projects/augur/en/migrate-docs', None),
+    'auspice': ('https://docs.nextstrain.org/projects/auspice/en/migrate-docs', None),
+    'cli': ('https://docs.nextstrain.org/projects/cli/en/migrate-docs/', None)
 }
