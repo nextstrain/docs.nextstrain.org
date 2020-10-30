@@ -5,7 +5,7 @@ If you have any questions, or simply want to say hi, please give us a shout at [
 
 
 **These docs describe using the components behind nextstrain to run your own analysis, which you can choose to share through nextstrain.org.**
-**To read about how to interpret the data presented through nextstrain, please [click here](../interpret/index)**
+**To read about how to interpret the data presented through nextstrain, please [click here](./interpret/index)**
 
 #### Table of Contents:
 * [What is Nextstrain?](#what-is-nextstrain)
