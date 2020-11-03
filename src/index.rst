@@ -22,7 +22,7 @@ If you have any questions, or simply want to say hi, please give us a shout at h
    :titlesonly:
    :caption: Table of contents
 
-   self
+   Nextstrain Documentation <self>
    learn/index
    tutorials/index
    guides/index
