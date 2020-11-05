@@ -11,7 +11,7 @@ How-to guides for performing bioinformatic anaylses with Nextstrain.
    :caption: Table of contents
 
    defining-clades
-   ../../augur/docs/faq/augur_snakemake
+   ../../augur/docs/usage/augur_snakemake
    ../../augur/docs/faq/translate_ref
    ../../augur/docs/faq/import-beast
    ../../augur/docs/faq/colors
