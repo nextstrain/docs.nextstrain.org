@@ -1,1 +1,11 @@
 /build/
+src/guides/bioinformatics/augur_snakemake.md
+src/guides/bioinformatics/beast.md
+src/guides/bioinformatics/colors.md
+src/guides/bioinformatics/examples.rst
+src/guides/bioinformatics/fasta_input.md
+src/guides/bioinformatics/lat_longs.md
+src/guides/bioinformatics/seq_traits.md
+src/guides/bioinformatics/translate_ref.md
+src/guides/bioinformatics/vcf_input.md
+src/guides/communicate/create-pdf.md
