@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 import subprocess
-
-edit_warning = '<!-- DONT EDIT THIS FILE OR YOU WILL LOSE YOUR CHANGES -->'
+from pathlib import Path
 
 augur_branch = 'migrate-docs'
 augur_url = f'https://raw.githubusercontent.com/nextstrain/augur/{augur_branch}/docs/'
 
-auspice_branch = 'fetch-docs'
+auspice_branch = 'migrate-docs'
 auspice_base_url = f'https://raw.githubusercontent.com/nextstrain/auspice/{auspice_branch}/'
 auspice_url = f'{auspice_base_url}docs/'
 
@@ -52,5 +51,6 @@ docs = {
 }
 
 if __name__ == '__main__':
+    Path("tutorials/SARS-CoV-2/steps").mkdir(exist_ok=True)
     for source_url, dest_path in docs.items():
         subprocess.check_call(['curl', source_url, '--compressed', '-o', dest_path])
