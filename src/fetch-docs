@@ -1,6 +1,0 @@
-#!/bin/bash
-
-curl https://raw.githubusercontent.com/nextstrain/auspice/migrate-docs/docs/narratives/create-pdf.md --compressed -o tmp
-echo \<\!-- DONT EDIT THIS FILE OR YOU WILL LOSE YOUR CHANGES --\> > guides/communicate/create-pdf.md
-cat tmp >> guides/communicate/create-pdf.md
-rm tmp

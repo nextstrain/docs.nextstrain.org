@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Fetch docs --------------------------------------------------------------
 
 import subprocess
-subprocess.check_call(['./fetch-docs'])
+subprocess.check_call(['./fetch-docs.py'])
 
 # -- Project information -----------------------------------------------------
 
