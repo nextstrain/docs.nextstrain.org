@@ -89,9 +89,9 @@ This may be appropriate when you want or need full control over how the website 
 Please see the `the auspice docs <https://docs.nextstrain.org/projects/auspice/en/migrate-docs>`_ for more information on how to set this up.
 
 
-.. _Nextstrain Community: ./community-builds
-.. _Nextstrain Groups: ./nextstrain-groups
+.. _Nextstrain Community: ./community-builds.html
+.. _Nextstrain Groups: ./nextstrain-groups.html
 .. _Custom auspice servers: https://nextstrain.github.io/auspice/server/introduction
-.. _Public URLs: ./fetch-via-urls
+.. _Public URLs: ./fetch-via-urls.html
 .. _auspice.us: https://auspice.us
 .. _nextstrain.org: http://nextstrain.org
