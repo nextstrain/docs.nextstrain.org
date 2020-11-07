@@ -6,8 +6,9 @@ edit_warning = '<!-- DONT EDIT THIS FILE OR YOU WILL LOSE YOUR CHANGES -->'
 augur_branch = 'migrate-docs'
 augur_url = f'https://raw.githubusercontent.com/nextstrain/augur/{augur_branch}/docs/'
 
-auspice_branch = 'migrate-docs'
-auspice_url = f'https://raw.githubusercontent.com/nextstrain/auspice/{auspice_branch}/docs/'
+auspice_branch = 'fetch-docs'
+auspice_base_url = f'https://raw.githubusercontent.com/nextstrain/auspice/{auspice_branch}/'
+auspice_url = f'{auspice_base_url}docs/'
 
 cli_branch = 'migrate-docs'
 cli_url = f'https://raw.githubusercontent.com/nextstrain/cli/{cli_branch}/doc/'
@@ -18,12 +19,12 @@ ncov_url = f'https://raw.githubusercontent.com/nextstrain/ncov/{ncov_branch}/doc
 docs = {
     f'{auspice_url}narratives/create-pdf.md': 'guides/communicate/create-pdf.md',
     f'{auspice_url}narratives/introduction.md': 'guides/communicate/narratives-intro.md',
-    f'{auspice_url}contributing/overview.md': 'guides/contribute/auspice-develop.md',
+    f'{auspice_base_url}DEV_DOCS.md': 'guides/contribute/auspice-develop.md',
     f'{auspice_url}introduction/install.md': 'guides/install/auspice-install.md',
     f'{auspice_url}narratives/how-to-write.md': 'tutorials/narratives-how-to-write.md',
     f'{augur_url}usage/augur_snakemake.md': 'guides/bioinformatics/augur_snakemake.md',
     f'{augur_url}faq/translate_ref.md': 'guides/bioinformatics/translate_ref.md',
-    f'{augur_url}faq/import-beast.md': 'guides/bioinformatics/beast.md',
+    f'{augur_url}faq/import-beast.md': 'guides/bioinformatics/import-beast.md',
     f'{augur_url}faq/colors.md': 'guides/bioinformatics/colors.md',
     f'{augur_url}faq/lat_longs.md': 'guides/bioinformatics/lat_longs.md',
     f'{augur_url}faq/vcf_input.md': 'guides/bioinformatics/vcf_input.md',
@@ -47,6 +48,7 @@ docs = {
     f'{ncov_url}sharing.md': 'tutorials/SARS-CoV-2/steps/sharing.md',
     f'{ncov_url}interpretation.md': 'tutorials/SARS-CoV-2/steps/interpretation.md',
     f'{ncov_url}narratives.md': 'tutorials/SARS-CoV-2/steps/narratives.md',
+    f'{ncov_url}naming_clades.md': 'tutorials/SARS-CoV-2/steps/naming_clades.md',
 }
 
 if __name__ == '__main__':

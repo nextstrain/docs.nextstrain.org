@@ -1,6 +1,6 @@
 /build/
 src/guides/bioinformatics/augur_snakemake.md
-src/guides/bioinformatics/beast.md
+src/guides/bioinformatics/import-beast.md
 src/guides/bioinformatics/colors.md
 src/guides/bioinformatics/examples.rst
 src/guides/bioinformatics/fasta_input.md
