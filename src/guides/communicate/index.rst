@@ -11,4 +11,4 @@ How-to guides for communicating understanding through Nextstrain-developed appro
    :caption: Table of contents
 
    ../../auspice/docs/narratives/introduction
-   ../../auspice/docs/narratives/create-pdf
+   create-pdf.md
