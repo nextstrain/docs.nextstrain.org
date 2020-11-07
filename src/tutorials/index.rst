@@ -13,6 +13,6 @@ Tutorials to help you get started with Nextstrain!
    quickstart
    SARS-CoV-2/index
    zika
-   ../augur/docs/tutorials/zika_tutorial
-   ../augur/docs/tutorials/tb_tutorial
-   ../auspice/docs/narratives/how-to-write
+   zika_tutorial
+   tb_tutorial
+   narratives-how-to-write

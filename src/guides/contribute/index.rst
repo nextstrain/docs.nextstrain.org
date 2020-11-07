@@ -13,6 +13,6 @@ Please read the `Nextstrain Github Contributing Guide <https://github.com/nextst
 
    Nextstrain Github Contributing Guide <https://github.com/nextstrain/.github/blob/master/CONTRIBUTING.md>
    documentation
-   Contribute to Nextstrain CLI <../../cli/doc/development>
-   Contribute to Augur <../../augur/docs/contribute/DEV_DOCS>
-   Contribute to Auspice <../../auspice/docs/contributing/overview>
+   Contribute to Nextstrain CLI <cli-develop>
+   Contribute to Augur <augur_develop>
+   Contribute to Auspice <auspice-develop>

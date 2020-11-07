@@ -9,3 +9,15 @@ src/guides/bioinformatics/seq_traits.md
 src/guides/bioinformatics/translate_ref.md
 src/guides/bioinformatics/vcf_input.md
 src/guides/communicate/create-pdf.md
+src/guides/communicate/narratives-intro.md
+src/guides/contribute/augur_develop.md
+src/guides/contribute/auspice-develop.md
+src/guides/contribute/cli-develop.md
+src/guides/install/augur_install.md
+src/guides/install/augur_installation.md
+src/guides/install/auspice-install.md
+src/guides/install/cli-install.md
+src/tutorials/narratives-how-to-write.md
+src/tutorials/tb_tutorial.md
+src/tutorials/zika_tutorial.md
+src/tutorials/SARS-CoV-2/steps/*

@@ -8,14 +8,14 @@ SARS-CoV-2
    :titlesonly:
    :caption: Table of contents
     
-   ../../ncov/docs/index
-   ../../ncov/docs/setup
-   ../../ncov/docs/data-prep
-   ../../ncov/docs/orientation-workflow
-   ../../ncov/docs/orientation-files
-   ../../ncov/docs/running
-   ../../ncov/docs/customizing-analysis
-   ../../ncov/docs/customizing-visualization
-   ../../ncov/docs/sharing
-   ../../ncov/docs/interpretation
-   ../../ncov/docs/narratives
+   steps/index.md
+   steps/setup
+   steps/data-prep
+   steps/orientation-workflow
+   steps/orientation-files
+   steps/running
+   steps/customizing-analysis
+   steps/customizing-visualization
+   steps/sharing
+   steps/interpretation
+   steps/narratives
