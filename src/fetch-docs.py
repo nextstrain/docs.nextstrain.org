@@ -10,10 +10,5 @@ docs = {
 }
 
 if __name__ == '__main__':
-    print(docs)
     for source_url, dest_path in docs.items():
-        subprocess.check_call(['curl', source_url, '--compressed', '-o', 'tmp'])
-        dest_file = open(dest_path, 'w')
-        subprocess.check_call(['echo', edit_warning], stdout=dest_file)
-        subprocess.check_call(['cat', 'tmp'], stdout=dest_file)
-        subprocess.check_call(['rm', 'tmp'])
+        subprocess.check_call(['curl', source_url, '--compressed', '-o', dest_path])
