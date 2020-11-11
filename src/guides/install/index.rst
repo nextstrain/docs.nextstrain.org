@@ -10,9 +10,9 @@ Installing Nextstrain
    :caption: Table of contents
 
    local-installation
-   Nextstrain CLI installation <../../cli/doc/installation>
-   Augur Installation <../../augur/docs/installation/installation>
-   Auspice Installation <../../auspice/docs/introduction/install>
+   Nextstrain CLI installation <cli-install>
+   Augur Installation <augur_install>
+   Auspice Installation <auspice-install>
    windows-help
 
 We -- and our collaborators -- have set up different versions of Nextstrain all around the world, on many different computer architectures.
@@ -25,7 +25,7 @@ This method is detailed `here <./local-installation.html>`_.
 
 2. **"Container-based installation"** We provide a container-based system using docker, which includes all of the individual components behind Nextstrain.
 You can then interact with this container through the ``nextstrain`` CLI (command line interface).
-This method is detailed `here <../../cli/doc/installation.html>`_.
+This method is detailed `here <./cli-install.html>`_.
 
 ----
 

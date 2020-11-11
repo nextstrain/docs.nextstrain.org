@@ -2,9 +2,3 @@
 version: 2
 conda:
   environment: environment.yml
-submodules:
-  include:
-     - src/ncov
-     - src/augur
-     - src/cli
-     - src/auspice
