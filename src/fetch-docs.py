@@ -5,7 +5,7 @@ from pathlib import Path
 augur_branch = 'migrate-docs'
 augur_url = f'https://raw.githubusercontent.com/nextstrain/augur/{augur_branch}/docs/'
 
-auspice_branch = 'migrate-docs'
+auspice_branch = 'master'
 auspice_base_url = f'https://raw.githubusercontent.com/nextstrain/auspice/{auspice_branch}/'
 auspice_url = f'{auspice_base_url}docs/'
 

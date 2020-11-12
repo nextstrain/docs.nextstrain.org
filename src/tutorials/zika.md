@@ -9,12 +9,12 @@ If you haven't already looked at the [Quickstart](./quickstart), you may want to
 ## Setup
 
 To run this tutorial you'll need either:
-* Augur and Auspice installed -- [see installation instructions here](../guides/install/local-installation#install-augur--auspice-with-conda-recommended).
+* Augur and Auspice installed -- [see installation instructions here](../guides/install/local-installation.html#install-augur--auspice-with-conda-recommended).
 * the Nextstrain CLI tool -- see [the quickstart for more info](./quickstart).
 
 
 You'll also need to install `git` if you don't have it.
-If you [used conda to install Augur and Auspice](../guides/install/local-installation#install-augur--auspice-with-conda-recommended) then you've already got this inside the "Nextstrain" environment.
+If you [used conda to install Augur and Auspice](../guides/install/local-installation.html#install-augur--auspice-with-conda-recommended) then you've already got this inside the "Nextstrain" environment.
 
 ## Build steps
 
@@ -281,6 +281,6 @@ If you want to force a re-run of the whole build, first remove any previous outp
 
 * Learn more about [Augur commands](https://docs.nextstrain.org/projects/augur/en/migrate-docs/index.html).
 
-* Learn more about [Auspice visualizations](https://docs.nextstrain.org/projects/auspice/en/migrate-docs/).
+* Learn more about [Auspice visualizations](https://docs.nextstrain.org/projects/auspice/en/latest/).
 
 * Fork the [Zika tutorial pathogen repository on GitHub](https://github.com/nextstrain/zika-tutorial), modify the Snakefile to make your own pathogen build, and learn [how to contribute to nextstrain.org](../guides/share/community-builds).

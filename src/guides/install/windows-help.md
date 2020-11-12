@@ -60,7 +60,7 @@ After re-opening Ubuntu, you can type `conda list` to ensure it's installed corr
 
 ## Install Nextstrain
 
-You're now ready to [install the Nextstrain programs](./local-installation) and can jump right to [installing Augur & Auspice with Conda](./local-installation#install-augur--auspice-with-conda-recommended).
+You're now ready to [install the Nextstrain programs](./local-installation) and can jump right to [installing Augur & Auspice with Conda](./local-installation.html#install-augur--auspice-with-conda-recommended).
 
 ## You're done!
 
