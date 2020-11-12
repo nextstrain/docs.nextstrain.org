@@ -2,7 +2,7 @@
 import subprocess
 from pathlib import Path
 
-augur_branch = 'migrate-docs'
+augur_branch = 'master'
 augur_url = f'https://raw.githubusercontent.com/nextstrain/augur/{augur_branch}/docs/'
 
 auspice_branch = 'master'
