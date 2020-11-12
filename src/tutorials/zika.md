@@ -279,7 +279,7 @@ If you want to force a re-run of the whole build, first remove any previous outp
 
 ## Next steps
 
-* Learn more about [Augur commands](https://docs.nextstrain.org/projects/augur/en/migrate-docs/index.html).
+* Learn more about [Augur commands](https://docs.nextstrain.org/projects/augur/en/latest/index.html).
 
 * Learn more about [Auspice visualizations](https://docs.nextstrain.org/projects/auspice/en/latest/).
 

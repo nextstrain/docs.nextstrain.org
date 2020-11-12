@@ -53,7 +53,7 @@ These data are continually updated whenever new genomes are made available, thus
 
 More information:
 * Installation [using containers](../install/cli-install) or [locally](../guides/install/local-installation) ([what's the difference?](../guides/install/index))
-* [Augur documentation](https://docs.nextstrain.org/projects/augur/en/migrate-docs)
+* [Augur documentation](https://docs.nextstrain.org/projects/augur/en/latest)
 * [Auspice documentation](https://docs.nextstrain.org/projects/auspice/en/latest)
 
 

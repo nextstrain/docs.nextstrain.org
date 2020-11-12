@@ -10,7 +10,7 @@ You'll have a basic understanding of how to run builds for other pathogens and a
 #### Further information:
 * If you'd like to run these analysis in a more hands-on manner, without installing docker or the nextstrain CLI, read about [the difference between a local and container installation](../guides/install/index) and [how to install Augur & Auspice locally](../guides/install/local-installation).
 You can then run the [Zika tutorial](./zika).
-* Confused about what exactly a "pathogen build" is? [See here](https://docs.nextstrain.org/projects/augur/en/migrate-docs/faq/what-is-a-build.html).
+* Confused about what exactly a "pathogen build" is? [See here](https://docs.nextstrain.org/projects/augur/en/latest/faq/what-is-a-build.html).
 
 
 #### Table of Contents:
@@ -113,7 +113,7 @@ After unzipping the snapshot, you'll need to rename the resulting `zika-tutorial
 ---
 ## Run the build
 
-Nextstrain builds use the [Augur bioinformatics toolkit](https://docs.nextstrain.org/projects/augur/en/migrate-docs/index.html) to subsample data, align sequences, build a phylogeny, estimate phylogeographic patterns, and save the results in a format suitable for [visualization with Auspice](https://docs.nextstrain.org/projects/auspice/en/latest/).
+Nextstrain builds use the [Augur bioinformatics toolkit](https://docs.nextstrain.org/projects/augur/en/latest/index.html) to subsample data, align sequences, build a phylogeny, estimate phylogeographic patterns, and save the results in a format suitable for [visualization with Auspice](https://docs.nextstrain.org/projects/auspice/en/latest/).
 
 Run `nextstrain build --cpus 1 zika-tutorial/` to run the build:
 
