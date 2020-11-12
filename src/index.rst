@@ -12,11 +12,6 @@ We provide a continually-updated view of publicly available data with powerful a
 Our goal is to aid epidemiological understanding and improve outbreak response.
 If you have any questions, or simply want to say hi, please give us a shout at hello@nextstrain.org.
 
-.. warning::
-   This site is currently only a stub, to show what's possible with Read The Docs for an umbrella documentation project.
-
-   For the real documentation entry point, please go to `nextstrain.org/docs <https://nextstrain.org/docs>`__.
-
 .. toctree::
    :maxdepth: 2
    :titlesonly:
