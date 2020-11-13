@@ -123,47 +123,15 @@ Therefore, we've made non-reference-guide documents (which are not repo-specific
 
 This setup may be ignorant of a "best of both worlds" solution, which would allow us to version documents in subprojects according to their own repositories, and also include them in this project's domain and table of contents without having to navigate to a separate project to view them.
 
-### Submodules
-In many cases this will involve moving the document so that it is stored in this repository and adding the necessary Read the Docs directive to the document to surface the document in the table of contents / in the sidebar.
-In some other cases, where it makes more sense to store the document in a different repository, we will need to include the document directly from it's home repository; the current plan for this is using submodules - see the following section for details on how to do this.
+### Fetching of documents from other repositories
 
-### How we use submodules to source documents from other repositories
+Some documents are fetched from other repositories during the build process via src/fetch-docs.py, which is called from src/conf.py.
 
-1. Make sure you have the latest version of this repository checked out: `git clone https://github.com/nextstrain/docs.nextstrain.org.git && cd docs.nextstrain.org`
-2. Fetch any existing submodules `submodule update --init --recursive`
-3. Change to the `src` directory and add the submodule for the repository from which you would like to include document(s), e.g. `cd src && git submodule add https://github.com/nextstrain/augur.git`
-4. Add the submodule to `readthedocs.yml`, e.g.:
-```diff
- ---
- version: 2
- conda:
-   environment: environment.yml
- submodules:
-   include:
-      - src/ncov
-+     - src/augur
-```
-5. Now you may include any document from your submodule directory, `src/augur` by including the relative path to the document in a table of contents specification in a reStructuredText file like `src/guides/share/index.rst`:
-```diff
- ======================================
- Visualizing and Sharing Analyses
- ======================================
- 
- How-to guides for visualizing and sharing Nextstrain analyses.
- 
- .. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :caption: Table of contents
- 
-+   ../../augur/docs/faq/community_hosting
-```
-6. After building the docs (see above section), the `/guides/share/` section should include the document from the submodule in its table of contents: ![](./src/images/submodule_eg.png)
+We aim to make this a temporary solution until we can achieve a shared-table-of-contents approach alluded to above; see https://github.com/nextstrain/docs.nextstrain.org/issues/27.
 
-Here is another example of using submodules to achieve this goal in this repository: https://github.com/nextstrain/docs.nextstrain.org/pull/2/files#
-
-7. From this point, we will need to update the commit referenced by the submodule-hosted document to ensure the version in this documentation doesn't become out of sync with the latest version in its home repository.
-In the future, we will set up bots to create automatic pull requests when this happens that we can review and merge, but for now you need to update the submodule using git on the command line; see this document for an illustration of how that works https://git-scm.com/book/en/v2/Git-Tools-Submodules#_working_on_a_project_with_submodules.
+Files fetched are excluded from git tracking in .gitignore so they don't get added to this repo by mistake.
+They should be edited in their own repositories.
+When editing those files in their respective repositories, keep in mind that any relative paths to images or other documents need to exist in this repository's file structure where the fetched file ends up.
 
 ## Contributing
 
