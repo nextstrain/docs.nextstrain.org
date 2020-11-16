@@ -7,7 +7,7 @@ Each group manages its own AWS S3 Bucket to store datasets and narratives, allow
 Please [get in touch with us](mailto:hello@nextstrain.org) and we'd be happy to set up a group for you.
 
 ### How Does This Actually Work?
-* Run your analysis locally ([see the bioinformatics introduction](https://docs.nextstrain.org/projects/augur/en/latest/index.html))
+* Run your analysis locally ([see the bioinformatics introduction](https://docs.nextstrain.org/projects/augur/en/stable/index.html))
 * Upload the datasets or narratives you've produced to the group's AWS S3 Bucket
     * There are no naming restrictions of the dataset JSONs (see [expected formats](../../reference/formats/data-formats))
     * Narrative Markdown files cannot be named `group-overview.md` but otherwise there are no naming restrictions
