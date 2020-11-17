@@ -20,4 +20,4 @@ src/guides/install/cli-install.md
 src/tutorials/narratives-how-to-write.md
 src/tutorials/tb_tutorial.md
 src/tutorials/zika_tutorial.md
-src/tutorials/SARS-CoV-2/steps/*
+src/tutorials/SARS-CoV-2/steps/*.md
