@@ -16,6 +16,7 @@ SARS-CoV-2
    steps/running
    steps/customizing-analysis
    steps/customizing-visualization
+   steps/naming_clades
    steps/sharing
    steps/interpretation
    steps/narratives
