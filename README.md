@@ -101,7 +101,7 @@ More on this in the [Sphinx Documentation](https://www.sphinx-doc.org/en/1.5/mar
 
 ### Subprojects
 [Subprojects](https://docs.readthedocs.io/en/stable/subprojects.html) are a way to nest Read The Docs projects.
-To link to a file in a subproject (or any other Read The Docs project), use [intershpinx](https://docs.readthedocs.io/en/stable/guides/intersphinx.html), e.g.:
+To link to a file in a subproject (or any other Read The Docs project), use [intersphinx](https://docs.readthedocs.io/en/stable/guides/intersphinx.html), e.g.:
 ```diff
  ======================================
  Welcome to Nextstrain's documentation!
