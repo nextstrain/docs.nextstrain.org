@@ -4,6 +4,7 @@ channels:
 dependencies:
   - make
   - recommonmark
+  - requests
   - sphinx
   - pip
   - pip:

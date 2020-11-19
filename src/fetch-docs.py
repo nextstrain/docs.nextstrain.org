@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-import subprocess
+import concurrent.futures
+import requests
 from pathlib import Path
 
 augur_branch = 'master'
@@ -51,6 +52,31 @@ docs = {
 }
 
 if __name__ == '__main__':
-    Path("tutorials/SARS-CoV-2/steps").mkdir(exist_ok=True)
-    for source_url, dest_path in docs.items():
-        subprocess.check_call(['curl', source_url, '--compressed', '-o', dest_path])
+    # Use a Session for connection pooling
+    session = requests.Session()
+
+    class RemoteDoc:
+        def __init__(self, source_url, dest_path):
+            self.source_url = source_url
+            self.dest_path  = Path(dest_path)
+
+        def __call__(self):
+            response = session.get(self.source_url)
+            response.raise_for_status()
+
+            self.dest_path.parent.mkdir(exist_ok=True)
+            self.dest_path.write_bytes(response.content)
+
+            return self
+
+    # Fetch up to 5 docs at a time.  Thread-based concurrency (as opposed to
+    # process-based) is appropriate because this is an I/O-bound operation.
+    with concurrent.futures.ThreadPoolExecutor(5) as pool:
+        futures = [
+            pool.submit(RemoteDoc(src, dst))
+                for src, dst in docs.items()
+        ]
+
+        for future in concurrent.futures.as_completed(futures):
+            doc = future.result()
+            print(f"Fetched {doc.dest_path} from {doc.source_url}")
