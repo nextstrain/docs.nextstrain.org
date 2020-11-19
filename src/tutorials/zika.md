@@ -281,6 +281,6 @@ If you want to force a re-run of the whole build, first remove any previous outp
 
 * Learn more about [Augur commands](https://docs.nextstrain.org/projects/augur/en/stable/index.html).
 
-* Learn more about [Auspice visualizations](https://docs.nextstrain.org/projects/auspice/en/latest/).
+* Learn more about [Auspice visualizations](https://docs.nextstrain.org/projects/auspice/en/stable/).
 
 * Fork the [Zika tutorial pathogen repository on GitHub](https://github.com/nextstrain/zika-tutorial), modify the Snakefile to make your own pathogen build, and learn [how to contribute to nextstrain.org](../guides/share/community-builds).

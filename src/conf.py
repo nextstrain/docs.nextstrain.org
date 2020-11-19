@@ -85,6 +85,6 @@ html_theme_options = {
 
 intersphinx_mapping = {
     'augur': ('https://docs.nextstrain.org/projects/augur/en/stable', None),
-    'auspice': ('https://docs.nextstrain.org/projects/auspice/en/latest', None),
+    'auspice': ('https://docs.nextstrain.org/projects/auspice/en/stable', None),
     'cli': ('https://docs.nextstrain.org/projects/cli/en/migrate-docs/', None)
 }

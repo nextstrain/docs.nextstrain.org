@@ -16,7 +16,7 @@ Auspice requires input in a single "v2" dataset JSON, which includes:
 
 and optionally, tip frequencies data specified in a _separate_ JSON file.
 
-For the Auspice input JSON schema, check out the [Auspice docs](https://docs.nextstrain.org/projects/auspice/en/latest/introduction/how-to-run.html#input-file-formats).
+For the Auspice input JSON schema, check out the [Auspice docs](https://docs.nextstrain.org/projects/auspice/en/stable/introduction/how-to-run.html#input-file-formats).
 
 > If you happen to maintain builds that rely on Auspice v1, don't worry - Auspice v2 is backward compatible and accepts the v1 format as well. The v1 schema is also available at the link above.
 

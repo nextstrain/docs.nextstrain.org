@@ -86,7 +86,7 @@ Custom Auspice Servers
 
 Auspice can be run on your own server, including customizations to the appearance and functionality.
 This may be appropriate when you want or need full control over how the website is deployed and where the data is stored.
-Please see the `the auspice docs <https://docs.nextstrain.org/projects/auspice/en/latest>`_ for more information on how to set this up.
+Please see the :doc:`the auspice docs <auspice:index>` for more information on how to set this up.
 
 
 .. _Nextstrain Community: ./community-builds.html
