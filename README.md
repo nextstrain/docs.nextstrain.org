@@ -43,11 +43,6 @@ Read The Docs is configured via `readthedocs.yml`; [more about Read The Docs con
 
 Sphinx is configured via `src/conf.py`; [more about Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html)
 
-## Migration of Nextstrain docs to this repository
-We have agreed on some major [headings and subheadings](https://docs.google.com/document/d/1hq6hjukg3Pw8m12Y0IaephQYJCFvpFrChl0K0B_4UrQ/edit#heading=h.t0j8btmy5ggi) for an all-Nextstrain documentation project in this repo.
-We are moving our documentation over to this Read the Docs project, under those headings.
-We are tracking progress of migration-related tasks in a [github project](https://github.com/nextstrain/docs.nextstrain.org/projects/1).
-
 ## Implementation
 
 ### Document Formats
@@ -140,24 +135,24 @@ When editing those files in their respective repositories, keep in mind that any
 2. Where should it go in the table of contents? See the Table of Contents at https://docs.nextstrain.org/en/latest/ to find a heading that fits the document best.
 3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/latest/src) corresponding to the heading under which you'd like to to appear, e.g.:
 ```
-mv community-builds.md src/guides/share/
+mv interacting-with-nextstrain.md src/learn/interpret/
 ```
-4. Add a relative path to the document file to a [`toctree`](#file-hierarchy), e.g.:
+4. Add a relative path to the document file to a [`toctree`](#file-hierarchy), e.g. `src/learn/interpret/index.rst`:
 ```diff
  ======================================
- Visualizing and Sharing Analyses
+ Interpreting Nextstrain
  ======================================
- 
- How-to guides for visualizing and sharing Nextstrain analyses.
- 
+
+ Learn how to interpret Nextstrain analyses.
+
  .. toctree::
     :maxdepth: 2
     :titlesonly:
     :caption: Table of contents
- 
-    Download data <download-data>
-    nextstrain-groups
-+   community-builds
+
+    how-to-read-a-tree
++   interacting-with-nextstrain
+    Interpreting the Map <map-interpretation>
 ```
 5. [Build the docs](#building-the-docs) to see it rendered, and make any necessary edits before pushing to this repo.
 
