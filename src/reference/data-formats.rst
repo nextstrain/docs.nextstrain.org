@@ -1,6 +1,6 @@
-===============================
-Data formats used by Nextstrain
-===============================
+============
+Data formats
+============
 
 Nextstrain uses a few different kinds of `JSON
 <https://en.wikipedia.org/wiki/JSON>`__ files at various stages in a typical

@@ -97,7 +97,7 @@ example, you visit `nextstrain.org/mumps/na
 
     Auspice displaying Mumps genomes from North America.
 
-Augur produces :doc:`dataset files </reference/formats/data-formats>` which are
+Augur produces :doc:`dataset files </reference/data-formats>` which are
 visualized by Auspice.  These files are often referred to as "JSONs"
 colloquially because they use a generic data format called JSON.
 
@@ -264,7 +264,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     :caption: Reference
     :hidden:
 
-    reference/formats/index
+    reference/data-formats
     Augur: A bioinformatics toolkit for phylogenetic analysis <https://docs.nextstrain.org/projects/augur/en/stable/index.html>
     Auspice: An Open-source Interactive Tool for Visualising Phylogenomic Data <https://docs.nextstrain.org/projects/auspice/en/stable/>
     Nextstrain command-line interface (CLI) <https://docs.nextstrain.org/projects/cli/en/stable/>

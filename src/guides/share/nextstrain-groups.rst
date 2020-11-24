@@ -20,7 +20,7 @@ How does it work?
   1. Run your analysis locally (:doc:`see the bioinformatics introduction <augur:index>`)
   2. Upload the datasets or narratives you've produced to the group's AWS S3 Bucket
 
-     * There are no naming restrictions of the dataset JSONs (see :doc:`expected formats </reference/formats/data-formats>`)
+     * There are no naming restrictions of the dataset JSONs (see :doc:`expected formats </reference/data-formats>`)
      * Narrative Markdown files cannot be named ``group-overview.md`` but otherwise there are no naming restrictions
 
   3. Access your data via the group's splash page at "nextstrain.org/groups/" + "group name". Example: `nextstrain.org/groups/blab <https://nextstrain.org/groups/blab>`_.
