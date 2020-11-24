@@ -14,11 +14,11 @@ understanding and improve outbreak response.
 .. note::
 
     This documentation site aims to cover all parts of Nextstrain.  If you
-    already have your bearings, see the :ref:`toc` below to dive right in.  If
-    you're interested in how to interpret what you see on nextstrain.org, start
-    with :doc:`/learn/interpret/index`.  If you’re ready to go beyond using the
-    website (or just plain curious!), continue reading for an overview of how
-    the different pieces of Nextstrain fit together.
+    already have your bearings, see the sidebar to the left to dive right in.
+    If you're interested in how to interpret what you see on nextstrain.org,
+    start with :doc:`/learn/interpret/index`.  If you’re ready to go beyond
+    using the website (or just plain curious!), continue reading for an
+    overview of how the different pieces of Nextstrain fit together.
 
 The core components of Nextstrain are :doc:`Augur <augur:index>` and
 :doc:`Auspice <auspice:index>`.
@@ -209,7 +209,7 @@ placement.  Nextclade can be used indepedently of other Nextstrain tools as
 well as integrated into builds.
 
 With this overview, you'll be better prepared to dive into the rest of the
-documentation listed in the :ref:`toc` below.
+documentation listed in the sidebar to the left.
 
 If you have questions, need help, or simply want to say hi, post to our
 `discussion forum <https://discussion.nextstrain.org>`__ where the Nextstrain
@@ -217,14 +217,56 @@ team and other Nextstrain users provide assistance.  For private inquiries,
 `email the Nextstrain team <hello@nextstrain.org>`__.
 
 .. toctree::
-   :maxdepth: 2
-   :titlesonly:
-   :caption: Table of Contents
-   :name: toc
+    :maxdepth: 1
+    :titlesonly:
+    :hidden:
 
-   Introduction <self>
-   install-nextstrain
-   learn/index
-   tutorials/index
-   guides/index
-   reference/index
+    Introduction <self>
+    install-nextstrain
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Learn
+    :hidden:
+
+    About Nextstrain <learn/about-nextstrain>
+    learn/interpret/index
+    learn/pathogens/index
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Tutorials
+    :hidden:
+
+    tutorials/quickstart
+    tutorials/zika
+    tutorials/tb_tutorial
+    Explore SARS-CoV-2 evolution <https://docs.nextstrain.org/projects/ncov/en/latest/index.html>
+    tutorials/narratives-how-to-write
+    Analyze your genomes with Nextclade in the browser <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-web.html>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: How-to Guides
+    :hidden:
+
+    guides/bioinformatics/index
+    guides/share/index
+    guides/communicate/index
+    guides/contribute/index
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Reference
+    :hidden:
+
+    reference/formats/index
+    Augur: A bioinformatics toolkit for phylogenetic analysis <https://docs.nextstrain.org/projects/augur/en/stable/index.html>
+    Auspice: An Open-source Interactive Tool for Visualising Phylogenomic Data <https://docs.nextstrain.org/projects/auspice/en/stable/>
+    Nextstrain command-line interface (CLI) <https://docs.nextstrain.org/projects/cli/en/stable/>
+    Nextclade CLI: Analysis, QC, and clade assignment of viral genomes <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-cli.html>
+    Nextalign CLI: reference alignments of viral genomes <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextalign-cli.html>
