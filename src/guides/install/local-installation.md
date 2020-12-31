@@ -5,7 +5,7 @@ The following instructions describe how to install `augur` (bioinformatics tooli
 
 > Before digging in, it's worth reading about [the different installation methods](./index) which will install the components behind Nextstrain and allow you to run and visualize analyses on your computer.
 
-If you would prefer to install each component individually, please see the respecive installation guides using the links in the sidebar. 
+If you would prefer to install each component individually, please see the respective installation guides using the links in the sidebar.
 If you are using Windows, we have instructions for [installing a Linux subsystem](./windows-help) to get Nextstrain running.
 If you have any issues with installing Augur/Auspice using any of these methods, please [email us](mailto:hello@nextstrain.org) or submit a GitHub issue to [Augur](https://github.com/nextstrain/augur/issues) or [Auspice](https://github.com/nextstrain/auspice/issues).
 
