@@ -13,7 +13,15 @@ If you have any issues with installing Augur/Auspice using any of these methods,
 ---
 ## Install Augur & Auspice with Conda
 
-[Download and install the latest version of Miniconda](https://conda.io/miniconda.html) which will make the `conda` command available to you.
+[Download and install the latest version of Miniconda with Python 3](https://conda.io/miniconda.html) which will make the `conda` command available to you.
+If you already have Miniconda installed with Python 2, download the latest Python 3 version and [follow conda's installation instructions](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+If you already have an older Miniconda version installed with Python 3, you may need to update your installation prior to installing Nextstrain's tools with:
+
+```sh
+conda activate base
+conda update conda
+```
+
 We're going to create a new environment called "nextstrain", which automatically installs `Augur` and dependencies.
 We'll then install `Auspice` into this environment as well, and optionally set up the `Nextstrain` command.
 
