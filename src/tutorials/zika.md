@@ -173,7 +173,7 @@ As with the `refine` command, the resulting JSON output is indexed by strain or 
 augur traits \
   --tree results/tree.nwk \
   --metadata data/metadata.tsv \
-  --output results/traits.json \
+  --output-node-data results/traits.json \
   --columns region country \
   --confidence
 ```
@@ -186,7 +186,7 @@ Next, infer the ancestral sequence of each internal node and identify any nucleo
 augur ancestral \
   --tree results/tree.nwk \
   --alignment results/aligned.fasta \
-  --output results/nt_muts.json \
+  --output-node-data results/nt_muts.json \
   --inference joint
 ```
 
@@ -201,7 +201,7 @@ augur translate \
   --tree results/tree.nwk \
   --ancestral-sequences results/nt_muts.json \
   --reference-sequence config/zika_outgroup.gb \
-  --output results/aa_muts.json
+  --output-node-data results/aa_muts.json
 ```
 
 ## Export the Results
