@@ -11,6 +11,7 @@ Sharing Analyses through Nextstrain
    nextstrain-groups
    community-builds
    fetch-via-urls
+   nextstrain-registry
    Download data <download-data>
 
 
