@@ -1,4 +1,4 @@
-# How to add a build to a pathogen page on nextstrain.org 
+# How to add a build to a pathogen page on nextstrain.org
 
 The nextstrain team maintains [nextstrain.org/sars-cov-2](https://nextstrain.org/sars-cov-2) to provide a resource for easy access to a variety of public analyses and interpretations by the Nextstrain team and the scientific community.
 
@@ -37,13 +37,16 @@ In this case, this looks like the following:
       url: https://bedford.io/
 ```
 
+### Formatting
+
+Spaces are used for indenting lines.
+The YAML file contains one list of all entries.
+The beginning section of the list contains hierarchy entries, while the latter section contains the build entries.
+
 ### Hierarchy entries
 
-This YAML file defines a hierarchy of builds according to their geographic specificity.
-The YAML file contains one list of all builds.
-This hierarchy is determined by the `geo` and `parentGeo` fields.
-At the [top of the hierarchy](https://github.com/nextstrain/nextstrain.org/blob/master/static-site/content/allSARS-CoV-2Builds.yaml#L4) are hierarchy entries with the `parentGeo` value of `null`. 
-Some entries in the list are just there to define the hierarchy with a `geo` field and a `parentGeo` field, like this one:
+This YAML file defines a hierarchy of builds according to their geographic specificity, which determines how builds appear in dropdown menus.
+Hierarchy entries in the list are just there to define this hierarchy with a `geo` field and a `parentGeo` field, like this one:
 ```
   - url: null
     name: Washington
@@ -52,7 +55,8 @@ Some entries in the list are just there to define the hierarchy with a `geo` fie
     org: null
 ```
 Since Washington is in the USA, its `parentGeo` is `usa`.
-We add this entry since there already existed one for `usa`, but not for `washington` which is the `geo` level of the build we are adding.
+At the [top of the hierarchy](https://github.com/nextstrain/nextstrain.org/blob/master/static-site/content/allSARS-CoV-2Builds.yaml#L4) are hierarchy entries with the `parentGeo` value of `null`.
+We add this entry since there already existed one for `usa`, but not for `washington` which is the `geo` level of the build entry we are adding.
 The `url` and `org` fields are `null` since those only apply for build entries, but you no longer need to add these two extra fields as `null` anymore and can just leave them out like this:
 ```
   - name: Washington
@@ -90,3 +94,8 @@ Here is what each of these fields mean:
 |`org.name`|`Bedford Lab`|Who maintains this build? | String |
 |`org.url`|`https://bedford.io/` |Link to info about the maintainers|Valid url|
 
+#### `coords`
+
+If there was already a build for `geo: washington` (or any build with nearby `coords`), we would need to be sure to specify coordinates that are not identical to those of the existing `washington` build so that you can see both on the map.
+This will look different for different areas, since in some cases adjusting a latitude by 1 degree may be too much, and in other cases not enough.
+There is a script, [`scripts/check-sars-cov-2-builds-yaml.js`](https://github.com/nextstrain/nextstrain.org/blob/master/scripts/check-sars-cov-2-builds-yaml.js), in the nextstrain.org repository which will tell you if two builds' coordinates are too close to one another to be distinguished on the map.
