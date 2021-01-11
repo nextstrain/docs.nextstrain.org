@@ -11,7 +11,7 @@ Sharing Analyses through Nextstrain
    nextstrain-groups
    community-builds
    fetch-via-urls
-   nextstrain-registry
+   sars-cov-2
    Download data <download-data>
 
 

@@ -1,10 +1,9 @@
-# How to add a build to a pathogen page on nextstrain.org
+# Add your dataset to the collection of SARS-CoV-2 builds
 
 The nextstrain team maintains [nextstrain.org/sars-cov-2](https://nextstrain.org/sars-cov-2) to provide a resource for easy access to a variety of public analyses and interpretations by the Nextstrain team and the scientific community.
 
-During the pandemic we are focused on the SARS-CoV-2 page, but may generalize our approach in the future to provide similar resources for other pathogens.
+> During the pandemic we are focused on the SARS-CoV-2 page, but may generalize our approach in the future to provide similar resources for other pathogens.
 
-## SARS-CoV-2
 
 To add a build to the SARS-CoV-2 builds list on [nextstrain.org/sars-cov-2](https://nextstrain.org/sars-cov-2), create a pull request to the [nextstrain.org repository](https://github.com/nextstrain/nextstrain.org) on github using the following guide.
 If this guide doesn't answer your questions or you aren't familiar with git, [open an issue in that same repository](https://github.com/nextstrain/nextstrain.org/issues/new/choose) letting us know about the build you would like to add, and we can help, or ask any question on [discussion.nextstrain.org](https://discussion.nextstrain.org/).
@@ -17,7 +16,7 @@ All information about this build is represented in the [YAML format](https://doc
 
 In this case, this looks like the following:
 
-```
+```yaml
   - url: null
     name: Washington
     geo: washington
@@ -58,7 +57,7 @@ Since Washington is in the USA, its `parentGeo` is `usa`.
 At the [top of the hierarchy](https://github.com/nextstrain/nextstrain.org/blob/master/static-site/content/allSARS-CoV-2Builds.yaml#L4) are hierarchy entries with the `parentGeo` value of `null`.
 We add this entry since there already existed one for `usa`, but not for `washington` which is the `geo` level of the build entry we are adding.
 The `url` and `org` fields are `null` since those only apply for build entries, but you no longer need to add these two extra fields as `null` anymore and can just leave them out like this:
-```
+```yaml
   - name: Washington
     geo: washington
     parentGeo: usa
@@ -68,7 +67,7 @@ If such an entry already existed for `washington`, we would only need to add the
 ### Build entries
 
 A build entry represents an actual build, and doesn't need the `parentGeo` field since it will get filed under the geographic region that matches its `geo` field:
-```
+```yaml
   - url: https://nextstrain.org/groups/blab/ncov/wa/4m
     name: Washington
     geo: washington
