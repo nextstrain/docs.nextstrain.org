@@ -10,7 +10,7 @@ auspice_branch = 'master'
 auspice_base_url = f'https://raw.githubusercontent.com/nextstrain/auspice/{auspice_branch}/'
 auspice_url = f'{auspice_base_url}docs/'
 
-cli_branch = 'migrate-docs'
+cli_branch = 'master'
 cli_url = f'https://raw.githubusercontent.com/nextstrain/cli/{cli_branch}/doc/'
 
 ncov_branch = 'master'
