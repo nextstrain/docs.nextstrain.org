@@ -114,12 +114,12 @@ This means that even once your PR is merged into the main branch of the nextstra
 ### Testing
 Once you have added your builds to the YAML file, if you want to see those changes immediately and you don't have access to the s3 bucket being used, you can make the following local changes to [`static-site/src/components/sars-cov-2/builds.jsx`](https://github.com/nextstrain/nextstrain.org/blob/master/static-site/src/components/sars-cov-2/builds.jsx):
 ```diff
-+ import allSARSCoV2Builds from "../../../content/allSARS-CoV-2Builds.yaml";
++ import SARSCoV2Catalogue from "../../../content/allSARS-CoV-2Builds.yaml";
   ...
   async componentDidMount() {
     try {
 -     const catalogueBuilds = await fetchAndParseBuildCatalogueYaml(this.state.buildsUrl);
-+     const catalogueBuilds = allSARSCoV2Builds;
++     const catalogueBuilds = SARSCoV2Catalogue.builds;
       this.setState({catalogueBuilds, dataLoaded: true});
     } catch (err) {
       console.error("Error fetching / parsing data.", err.message);
