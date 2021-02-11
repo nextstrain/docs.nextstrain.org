@@ -91,15 +91,37 @@ Builds using published data should include the following additional columns, as 
   * Journal
   * Paper_URL
 
+### Index the Sequences
+
+Precalculate the composition of the sequences (e.g., numbers of nucleotides, gaps, invalid characters, and total sequence length) prior to filtering.
+The resulting sequence index speeds up subsequent filter steps especially in more complex workflows.
+
+```
+mkdir -p results/
+
+augur index \
+  --sequences data/sequences.fasta \
+  --output results/sequence_index.tsv
+```
+
+The first lines in the sequence index look like this.
+
+```
+strain	length	A	C	G	T	N	other_IUPAC	-	?	invalid_nucleotides
+PAN/CDC_259359_V1_V3/2015	10771	2952	2379	3142	2298	0	0	0	0	0
+COL/FLR_00024/2015	10659	2921	2344	3113	2281	0	0	0	0	0
+PRVABC59	10675	2923	2351	3115	2286	0	0	0	0	0
+COL/FLR_00008/2015	10659	2924	2344	3110	2281	0	0	0	0	0
+```
+
 ### Filter the Sequences
 
 Filter the parsed sequences and metadata to exclude strains from subsequent analysis and subsample the remaining strains to a fixed number of samples per group.
 
 ```
-mkdir -p results/
-
 augur filter \
   --sequences data/sequences.fasta \
+  --sequence-index results/sequence_index.tsv \
   --metadata data/metadata.tsv \
   --exclude config/dropped_strains.txt \
   --output results/filtered.fasta \
