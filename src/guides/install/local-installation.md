@@ -52,10 +52,21 @@ conda deactivate
 ```
 
 
-## Updating `augur`, `auspice`, and `nextstrain`:
+## Updating
+
+> The following commands presume you have installed the software via the method described above.
+
+Firstly, ensure that `conda` itself is up-to-date!
+```sh
+conda activate base
+conda update conda
+conda activate nextstrain
+```
+
+Then we can update each individual piece, as necessary:
 
 ```sh
-conda activate nextstrain
-pip install --upgrade nextstrain-augur nextstrain-cli
+python3 -m pip install --upgrade nextstrain-cli
+conda install --update-deps -c conda-forge -c bioconda augur # will also update mafft etc
 npm update --global auspice
 ```
