@@ -51,22 +51,32 @@ nextstrain -h
 conda deactivate
 ```
 
-
-## Updating
+## Update an existing installation
 
 > The following commands presume you have installed the software via the method described above.
 
-Firstly, ensure that `conda` itself is up-to-date!
+First, update the base `conda` environment.
+
 ```sh
 conda activate base
 conda update conda
-conda activate nextstrain
 ```
 
-Then we can update each individual piece, as necessary:
+Then, update each individual program, as necessary.
 
 ```sh
-python3 -m pip install --upgrade nextstrain-cli
-conda install --update-deps -c conda-forge -c bioconda augur # will also update mafft etc
+conda activate nextstrain
+
+# Update Nextstrain dependencies (mafft, etc.).
+conda update --all
+
+# Update Augur.
+python3 -m pip install --upgrade nextstrain-augur
+
+# Update Auspice.
 npm update --global auspice
+
+# Update the Nextstrain CLI and pull the latest Docker image.
+python3 -m pip install --upgrade nextstrain-cli
+nextstrain update
 ```
