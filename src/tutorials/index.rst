@@ -9,10 +9,9 @@ Tutorials to help you get started with Nextstrain!
    :maxdepth: 1
    :titlesonly:
    :caption: Table of contents
-    
+
    quickstart
-   SARS-CoV-2/index
    zika
-   zika_tutorial
    tb_tutorial
+   SARS-CoV-2/index
    narratives-how-to-write
