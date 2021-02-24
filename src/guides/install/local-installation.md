@@ -51,11 +51,32 @@ nextstrain -h
 conda deactivate
 ```
 
+## Update an existing installation
 
-## Updating `augur`, `auspice`, and `nextstrain`:
+> The following commands presume you have installed the software via the method described above.
+
+First, update the base `conda` environment.
+
+```sh
+conda activate base
+conda update conda
+```
+
+Then, update each individual program, as necessary.
 
 ```sh
 conda activate nextstrain
-pip install --upgrade nextstrain-augur nextstrain-cli
+
+# Update Nextstrain dependencies (mafft, etc.).
+conda update --all
+
+# Update Augur.
+python3 -m pip install --upgrade nextstrain-augur
+
+# Update Auspice.
 npm update --global auspice
+
+# Update the Nextstrain CLI and pull the latest Docker image.
+python3 -m pip install --upgrade nextstrain-cli
+nextstrain update
 ```
