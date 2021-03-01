@@ -33,8 +33,6 @@ docs = {
     f'{augur_url}examples/examples.rst': 'guides/bioinformatics/examples.rst',
     f'{augur_url}contribute/DEV_DOCS.md':   'guides/contribute/augur_develop.md',
     f'{augur_url}installation/installation.md': 'guides/install/augur_install.md',
-    f'{augur_url}tutorials/zika_tutorial.md': 'tutorials/zika_tutorial.md',
-    f'{augur_url}tutorials/tb_tutorial.md': 'tutorials/tb_tutorial.md',
     f'{cli_url}development.md': 'guides/contribute/cli-develop.md',
     f'{cli_url}installation.md': 'guides/install/cli-install.md',
     f'{ncov_url}index.md': 'tutorials/SARS-CoV-2/steps/index.md',

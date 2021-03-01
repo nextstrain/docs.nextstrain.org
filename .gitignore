@@ -18,6 +18,4 @@ src/guides/install/augur_installation.md
 src/guides/install/auspice-install.md
 src/guides/install/cli-install.md
 src/tutorials/narratives-how-to-write.md
-src/tutorials/tb_tutorial.md
-src/tutorials/zika_tutorial.md
 src/tutorials/SARS-CoV-2/steps/*.md
