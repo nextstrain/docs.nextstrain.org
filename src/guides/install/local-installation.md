@@ -72,7 +72,4 @@ conda update --all
 
 # Update Auspice.
 npm update --global auspice
-
-# Pull the latest Docker image for the CLI.
-nextstrain update
 ```
