@@ -67,16 +67,9 @@ Then, update each individual program, as necessary.
 ```sh
 conda activate nextstrain
 
-# Update Nextstrain dependencies (mafft, etc.).
+# Update Nextstrain dependencies (mafft, etc.), Augur, and Nextstrain CLI.
 conda update --all
-
-# Update Augur.
-python3 -m pip install --upgrade nextstrain-augur
 
 # Update Auspice.
 npm update --global auspice
-
-# Update the Nextstrain CLI and pull the latest Docker image.
-python3 -m pip install --upgrade nextstrain-cli
-nextstrain update
 ```
