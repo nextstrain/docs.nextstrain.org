@@ -62,24 +62,23 @@ Configure Docker (optional)
 `Docker <https://docker.com/>`_ is a container system freely-available for all platforms.
 When you use the Nextstrain CLI with Docker, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
 
-Linux
------
+.. tabs::
 
-Install Docker with the standard package manager.
-For example, on Ubuntu, you can install Docker with ``sudo apt install docker.io``.
+   .. tab:: Linux
 
-Mac OS
-------
+      Install Docker with the standard package manager.
+      For example, on Ubuntu, you can install Docker with ``sudo apt install docker.io``.
 
-Download and install `Docker Desktop <https://www.docker.com/products/docker-desktop>`_, also known previously as "Docker for Mac".
-Note that if you have a M1 Mac, Docker is not yet ready for widespread use, and so we recommend sticking with the Conda environment above.
+   .. tab:: Mac OS
 
-Windows
--------
+      Download and install `Docker Desktop <https://www.docker.com/products/docker-desktop>`_, also known previously as "Docker for Mac".
+      Note that if you have a M1 Mac, Docker is not yet ready for widespread use, and so we recommend sticking with the Conda environment above.
 
-There are still significant obstacles to running Docker with Windows, as documented in `our issue tracking the problems <https://github.com/nextstrain/cli/issues/31>`_.
-However, if you have access to `WSL2 <https://docs.microsoft.com/en-us/windows/wsl/wsl2-index>`_, you should be able to use Docker inside it by following the Linux install instructions.
-Alternatively, you can use the Conda environment above or AWS Batch.
+   .. tab:: Windows
+
+      There are still significant obstacles to running Docker with Windows, as documented in `our issue tracking the problems <https://github.com/nextstrain/cli/issues/31>`_.
+      However, if you have access to `WSL2 <https://docs.microsoft.com/en-us/windows/wsl/wsl2-index>`_, you should be able to use Docker inside it by following the Linux install instructions.
+      Alternatively, you can use the Conda environment above or AWS Batch.
 
 After installing and starting Docker, configure the Nextstrain CLI to use Docker as the default environment manager.
 
