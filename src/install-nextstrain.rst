@@ -40,16 +40,14 @@ Create a Conda environment named ``nextstrain`` and install Nextstrain and its d
 
     conda create -n nextstrain nextstrain
 
-Confirm that the installation worked and tell the Nextstrain CLI to use this environment by default.
+Confirm that the installation worked.
 
 .. code-block:: bash
 
     conda activate nextstrain
     nextstrain check-setup --set-default
 
-Congratulations!
-You have successfully installed Nextstrain.
-Activate this Conda environment with ``conda activate nextstrain`` any time you need to run an analysis.
+Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Nextstrain Conda environment with ``conda activate nextstrain``.
 
 If you prefer to use Docker to manage your Nextstrain environment, follow the instructions below.
 Otherwise, :doc:`check out the quickstart <tutorials/quickstart>` next.
