@@ -34,18 +34,17 @@ Setup Conda channels for Nextstrain and its dependencies.
     conda config --add channels bioconda
     conda config --add channels conda-forge
 
-Create a Conda environment for Nextstrain and install Nextstrain and its dependencies.
+Create a Conda environment named ``nextstrain`` and install Nextstrain and its dependencies.
 
 .. code-block:: bash
 
-    conda create -n nextstrain nextstrain-cli augur nextalign nodejs
-    conda activate nextstrain
-    npm install --global auspice
+    conda create -n nextstrain nextstrain
 
 Confirm that the installation worked and tell the Nextstrain CLI to use this environment by default.
 
 .. code-block:: bash
 
+    conda activate nextstrain
     nextstrain check-setup --set-default
 
 Congratulations!
@@ -112,7 +111,6 @@ Update the Nextstrain environment.
 
     conda activate nextstrain
     conda update --all
-    npm update --global auspice
 
 If you are using the Docker image, download the latest version with the Nextstrain CLI.
 
