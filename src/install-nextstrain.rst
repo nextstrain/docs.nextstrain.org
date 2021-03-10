@@ -8,6 +8,7 @@ Nextstrain is a collection of different tools including:
   * Auspice: a tool for interactive visualization of pathogen evolution
   * Nextstrain command line interface (CLI): tools for management of analysis workflows and environments
 
+The following instructions will install all of these tools.
 For more details, :doc:`see the high level overview of these different components <learn/about-nextstrain>`.
 
 .. note::
@@ -23,10 +24,10 @@ Install Nextstrain in a Conda environment
 
 .. note::
 
-    If you do not want to manage your own software environment or if you need to run your analyses in a containerized environment (e.g., on a cloud compute platform), follow :ref:`the instructions to configure the Nextstrain Docker image <install-with-docker>`, after this initial installation.
+    If you use Microsoft Windows, `install the Windows Subsystem for Linux (WSL) <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
+    Follow `instructions to open a new WSL window for your Linux distribution <https://docs.microsoft.com/en-us/windows/wsl/wsl-config>`_ and then run the following commands.
 
-`Install Miniconda with Python 3 for your operating system <https://docs.conda.io/en/latest/miniconda.html>`_.
-Setup Conda channels for Nextstrain and its dependencies.
+`Install Miniconda with Python 3 for your operating system <https://docs.conda.io/en/latest/miniconda.html>`_ and then setup Conda channels for Nextstrain and its dependencies.
 
 .. code-block:: bash
 
