@@ -12,11 +12,17 @@ You'll have a basic understanding of how to run builds for other pathogens and a
 .. contents:: Table of Contents
    :local:
 
-Before you begin
-================
+Setup
+=====
 
 :doc:`Install Nextstrain </install-nextstrain>` including the Nextstrain CLI.
 These instructions will install all of the software you need to complete this quickstart and other tutorials.
+
+If you've already installed Nextstrain, activate the Nextstrain environment.
+
+.. code-block::
+
+    conda activate nextstrain
 
 Download the Nextstrain Zika tutorial repository
 ================================================
