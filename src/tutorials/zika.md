@@ -1,20 +1,18 @@
 # Explore Zika virus evolution
 
-This tutorial explains how to create a Nextstrain build for the Zika virus.
+This tutorial explains how to create [a Nextstrain build](https://docs.nextstrain.org/projects/augur/en/stable/faq/what-is-a-build.html) for the Zika virus.
 We will first make the build step-by-step using an example data set.
 Then we will see how to automate this stepwise process by defining a pathogen build script.
 
-If you haven't already looked at the [Quickstart](./quickstart), you may want to skim through that before continuing with this tutorial.
-
 ## Setup
 
-To run this tutorial you'll need either:
-* Augur and Auspice installed -- [see installation instructions here](../guides/install/local-installation.html#install-augur--auspice-with-conda-recommended).
-* the Nextstrain CLI tool -- see [the quickstart for more info](./quickstart).
+Before you begin this tutorial, [install Nextstrain](../install-nextstrain) and [check out the quickstart](./quickstart).
 
+If you've already installed Nextstrain, activate the Nextstrain environment.
 
-You'll also need to install `git` if you don't have it.
-If you [used conda to install Augur and Auspice](../guides/install/local-installation.html#install-augur--auspice-with-conda-recommended) then you've already got this inside the "Nextstrain" environment.
+```
+conda activate nextstrain
+```
 
 ## Build steps
 
@@ -26,19 +24,14 @@ Nextstrain builds typically require the following steps:
 4. Annotate the phylogeny with inferred ancestral pathogen dates, sequences, and traits
 5. Export the annotated phylogeny and corresponding metadata into auspice-readable format
 
-First, download the Zika pathogen build which includes example data and a pathogen build script.
+Download the Zika pathogen build which includes example data and a pathogen build script.
 
 ```
 git clone https://github.com/nextstrain/zika-tutorial.git
 cd zika-tutorial
 ```
 
-Next, if you're using the conda to install augur & auspice (see above), don't forget to enter the correct environment, e.g.
-
-```
-conda activate nextstrain
-```
-or if you're using the Nextstrain CLI tool, use it to enter the Nextstrain build environment by running:
+Optionally, if you want to run this tutorial from the Nextstrain Docker image, start Docker and then enter a shell prompt on that image.
 
 ```
 nextstrain shell .
@@ -46,8 +39,7 @@ nextstrain shell .
 
 Note the dot (`.`) as the last argument; it is important and indicates that your current directory (`zika-tutorial/`) is the build directory.
 Your command prompt will change to indicate you are in the build environment.
-(If you want to leave the build environment, run the command `exit`.)
-
+If you want to leave the build environment, run the command `exit`.
 
 ## Prepare the Sequences
 
@@ -273,36 +265,27 @@ To stop Auspice and return to the command line when you are done viewing your da
 While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a single script.
 Nextstrain implements these automated pathogen builds with [Snakemake](https://snakemake.readthedocs.io) by defining a `Snakefile` like [the one in the Zika repository you downloaded](https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile).
 
-First delete the output from the manual steps above.
-(Be sure to navigate into the `zika-tutorial/` directory first.)
+From the `zika-tutorial/` directory, delete the output from the manual steps above.
 
 ```
 rm -rf results/ auspice/
 ```
 
-If you've installed Augur & Auspice, simply run
-```
-snakemake --cores 1
-```
-
-or, if you're using the Nextstrain CLI tool, run:
+Run the automated build.
 
 ```
 nextstrain build --cpus 1 .
 ```
 
-which will run the automated pathogen build.
 This runs all of the manual steps above up through the auspice export.
 View the results the same way you did before to confirm it produced the same Zika build you made manually.
 
 Note that automated builds will only re-run steps when the data changes.
 This means builds will pick up where they left off if they are restarted after being interrupted.
-If you want to force a re-run of the whole build, first remove any previous output with `snakemake --cores 1 clean` or `nextstrain build --cpus 1 . clean`.
+If you want to force a re-run of the whole build, first remove any previous output with `nextstrain build --cpus 1 . clean`.
 
 ## Next steps
 
 * Learn more about [Augur commands](https://docs.nextstrain.org/projects/augur/en/stable/index.html).
-
 * Learn more about [Auspice visualizations](https://docs.nextstrain.org/projects/auspice/en/stable/).
-
 * Fork the [Zika tutorial pathogen repository on GitHub](https://github.com/nextstrain/zika-tutorial), modify the Snakefile to make your own pathogen build, and learn [how to contribute to nextstrain.org](../guides/share/community-builds).
