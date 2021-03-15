@@ -31,10 +31,10 @@ Our model for data analysis and sharing is for scientists to store the code used
 
 Nextstrain is a collection of open-source tools to aid in our understanding of pathogen spread and evolution, especially in outbreak scenarios.
 We have designed these in such a way that they can be used with a wide range of data sources, and are easy to replace with your own tooling.
-Broadly speaking, Nextstrain consists of 
+Broadly speaking, Nextstrain consists of
 * "Augur" -- a series of composable, modular (Unix-like) bioinformatics tools.
 We use these to create recipes for different pathogens and different analyses, which are easy to reproduce when new data is available.
-* "Auspice" -- a web-based visualization program, to present & interact with phylogenomic & phylogeographic data. 
+* "Auspice" -- a web-based visualization program, to present & interact with phylogenomic & phylogeographic data.
 This is what you see when, for example, you visit [nextstrain.org/zika](https://www.nextstrain.org/zika), but it can also run locally on your computer.
 
 
