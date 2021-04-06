@@ -36,8 +36,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx_markdown_tables',
     'sphinxarg.ext',
-    'sphinx.ext.autodoc',
-    'sphinx_tabs.tabs'
+    'sphinx.ext.autodoc'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
