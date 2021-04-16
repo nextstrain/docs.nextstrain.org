@@ -167,3 +167,10 @@ Then, use Mamba to create the Nextstrain environment.
 .. code-block:: bash
 
     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain
+
+Similarly, use Mamba to update an existing Nextstrain environment to the latest versions of its tools.
+
+.. code-block:: bash
+
+    conda activate nextstrain
+    mamba update --update-deps nextstrain
