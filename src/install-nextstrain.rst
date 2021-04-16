@@ -8,7 +8,7 @@ Nextstrain is a collection of different tools including:
   * Auspice: a tool for interactive visualization of pathogen evolution
   * Nextstrain command line interface (CLI): tools for management of analysis workflows and environments
 
-The following instructions will install all of these tools using either Conda or Docker to manage these installations.
+The following instructions describe how to install these tools with Conda or Docker.
 For more details, :doc:`see the high level overview of these different components <learn/about-nextstrain>`.
 
 .. contents:: Table of Contents
@@ -25,7 +25,7 @@ Install Conda
 =============
 
 `Conda <https://docs.conda.io/en/latest/>`_ is a package and environment management system that allows you to install Python and other software into controlled environments without disrupting other software you have installed (e.g., on your computer, your shared cluster, etc.).
-Installing Conda allows you to install an appropriate version of Python independent from the version installed globally on your computer.
+Conda provides an appropriate version of Python required by both approaches to installing Nextstrain tools.
 
 .. note::
 
@@ -36,10 +36,12 @@ Installing Conda allows you to install an appropriate version of Python independ
 
 .. code-block:: bash
 
-    conda activate base
-    conda update conda
+    conda update -n base conda
 
 Next, decide whether you prefer to install Nextstrain :ref:`with Conda <install-with-conda>` or :ref:`with Docker <install-with-docker>`.
+We recommend Conda for M1 Mac and Windows users.
+Docker is not yet ready for widespread use on the M1 Mac.
+Similarly, there are still significant obstacles to running Docker with Windows, as documented in `our issue tracking the problems <https://github.com/nextstrain/cli/issues/31>`_.
 
 .. _install-with-conda:
 
@@ -77,11 +79,7 @@ Install Nextstrain with Docker
 `Docker <https://docker.com/>`_ is a container system freely-available for all platforms.
 When you use the Nextstrain CLI with Docker, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
 
-`Follow Docker's installation guide <https://docs.docker.com/engine/install/>`_ for your operating system.
-Note that for M1 Mac and Windows users, we recommend sticking with the Conda environment above.
-Docker is not yet ready for widespread use on the M1 Mac.
-Similarly, there are still significant obstacles to running Docker with Windows, as documented in `our issue tracking the problems <https://github.com/nextstrain/cli/issues/31>`_.
-
+First, `follow Docker's installation guide <https://docs.docker.com/engine/install/>`_ for your operating system.
 After installing and starting Docker, create a Conda environment named ``nextstrain``.
 This command will install the Nextstrain CLI and Git (a dependency of subsequent tutorials).
 
@@ -118,15 +116,14 @@ Update the base Conda environment.
 
 .. code-block:: bash
 
-    conda activate base
-    conda update conda
+    conda update -n base conda
 
 Update the Nextstrain environment.
 
 .. code-block:: bash
 
     conda activate nextstrain
-    conda update --all
+    conda update --update-deps nextstrain
 
 If you are using the Docker image, download the latest image with the Nextstrain CLI.
 
