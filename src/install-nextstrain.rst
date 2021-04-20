@@ -25,7 +25,7 @@ Install Conda
 =============
 
 `Conda <https://docs.conda.io/en/latest/>`_ is a package and environment management system that allows you to install Python and other software into controlled environments without disrupting other software you have installed (e.g., on your computer, your shared cluster, etc.).
-Conda provides an appropriate version of Python required by both approaches to installing Nextstrain tools.
+Conda provides an appropriate version of Python required by all approaches to installing Nextstrain tools.
 
 .. note::
 
@@ -38,98 +38,116 @@ Conda provides an appropriate version of Python required by both approaches to i
 
     conda update -n base conda
 
-Next, decide whether you prefer to install Nextstrain :ref:`with Conda <install-with-conda>` or :ref:`with Docker <install-with-docker>`.
+Install Nextstrain with Conda or Docker
+=======================================
+
+Next, decide whether you prefer to install Nextstrain with Conda or Docker.
 We recommend Conda for M1 Mac and Windows users.
 Docker is not yet ready for widespread use on the M1 Mac.
 Similarly, there are still significant obstacles to running Docker with Windows, as documented in `our issue tracking the problems <https://github.com/nextstrain/cli/issues/31>`_.
 
-.. _install-with-conda:
+.. tabs::
 
-Install Nextstrain with Conda
-=============================
+   .. group-tab:: Conda
 
-Create a Conda environment named ``nextstrain``.
-This command will install Nextstrain and its dependencies.
+      Create a Conda environment named ``nextstrain``.
+      This command will install Nextstrain and its dependencies.
 
-.. code-block:: bash
+      .. code-block:: bash
 
-    conda create -n nextstrain -c conda-forge -c bioconda nextstrain
+         conda create -n nextstrain -c conda-forge -c bioconda nextstrain
 
-Confirm that the installation worked.
+      Confirm that the installation worked.
 
-.. code-block:: bash
+      .. code-block:: bash
 
-    conda activate nextstrain
-    nextstrain check-setup --set-default
+         conda activate nextstrain
+         nextstrain check-setup --set-default
 
-The final output from the last command should look like this:
+      The final output from the last command should look like this:
 
-.. code-block:: bash
+      .. code-block:: bash
 
-   Setting default environment to native.
+         Setting default environment to native.
 
-Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Nextstrain Conda environment with ``conda activate nextstrain``.
-Next, :doc:`check out the quickstart <tutorials/quickstart>`.
+      Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Nextstrain Conda environment with ``conda activate nextstrain``.
+      Next, :doc:`check out the quickstart <tutorials/quickstart>`.
 
-.. _install-with-docker:
+   .. group-tab:: Docker
 
-Install Nextstrain with Docker
-==============================
+    `Docker <https://docker.com/>`_ is a container system freely-available for all platforms.
+    When you use the Nextstrain CLI with Docker, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
 
-`Docker <https://docker.com/>`_ is a container system freely-available for all platforms.
-When you use the Nextstrain CLI with Docker, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
+    First, `follow Docker's installation guide <https://docs.docker.com/engine/install/>`_ for your operating system.
+    After installing and starting Docker, create a Conda environment named ``nextstrain``.
+    This command will install the Nextstrain CLI and Git (a dependency of subsequent tutorials).
 
-First, `follow Docker's installation guide <https://docs.docker.com/engine/install/>`_ for your operating system.
-After installing and starting Docker, create a Conda environment named ``nextstrain``.
-This command will install the Nextstrain CLI and Git (a dependency of subsequent tutorials).
+    .. code-block:: bash
 
-.. code-block:: bash
+        conda create -n nextstrain -c conda-forge -c bioconda nextstrain-cli git
 
-    conda create -n nextstrain -c conda-forge -c bioconda nextstrain-cli git
+    Confirm that the installation worked and configure the CLI to use Docker as the default environment manager.
 
-Confirm that the installation worked and configure the CLI to use Docker as the default environment manager.
+    .. code-block:: bash
 
-.. code-block:: bash
+        conda activate nextstrain
+        nextstrain check-setup --set-default
 
-    conda activate nextstrain
-    nextstrain check-setup --set-default
+    The final output from the last command should look like this:
 
-The final output from the last command should look like this:
+    .. code-block:: bash
 
-.. code-block:: bash
+        Setting default environment to docker.
 
-    Setting default environment to docker.
+    Finally, download the latest Docker image for Nextstrain.
 
-Finally, download the latest Docker image for Nextstrain.
+    .. code-block:: bash
 
-.. code-block:: bash
+        nextstrain update
 
-    nextstrain update
-
-Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Nextstrain Conda environment with ``conda activate nextstrain``.
-Next, :doc:`check out the quickstart <tutorials/quickstart>`.
+    Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Nextstrain Conda environment with ``conda activate nextstrain``.
+    Next, :doc:`check out the quickstart <tutorials/quickstart>`.
 
 Upgrade an existing installation
 ================================
 
-Update the base Conda environment.
+.. tabs::
 
-.. code-block:: bash
+   .. group-tab:: Conda
 
-    conda update -n base conda
+      Update the base Conda environment.
 
-Update the Nextstrain environment.
+      .. code-block:: bash
 
-.. code-block:: bash
+         conda update -n base conda
 
-    conda activate nextstrain
-    conda update --update-deps nextstrain
+      Update the Nextstrain environment.
 
-If you are using the Docker image, download the latest image with the Nextstrain CLI.
+      .. code-block:: bash
 
-.. code-block:: bash
+         conda activate nextstrain
+         conda update --update-deps nextstrain
 
-    nextstrain update
+   .. group-tab:: Docker
+
+      Update the base Conda environment.
+
+      .. code-block:: bash
+
+         conda update -n base conda
+
+      Update the Nextstrain CLI package.
+
+      .. code-block:: bash
+
+         conda activate nextstrain
+         conda update nextstrain-cli
+
+      Download the latest image with the Nextstrain CLI.
+
+      .. code-block:: bash
+
+         nextstrain update
 
 Troubleshoot a broken installation
 ==================================
@@ -148,7 +166,7 @@ To start over with a new Nextstrain environment, delete your current environment
     conda activate base
     conda env remove -n nextstrain
 
-Then, repeat :ref:`the installation instructions above <install-with-conda>`, starting with the update of Conda itself.
+Then, repeat the installation instructions above, starting with the update of Conda itself.
 
 Use Mamba as an alternative to Conda's environment solver
 ---------------------------------------------------------
