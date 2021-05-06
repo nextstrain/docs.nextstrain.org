@@ -55,7 +55,8 @@ Similarly, there are still significant obstacles to running Docker with Windows,
 
       .. code-block:: bash
 
-         conda create -n nextstrain -c conda-forge -c bioconda nextstrain
+         conda create -n nextstrain -c conda-forge -c bioconda \
+           augur auspice nextstrain-cli nextalign awscli git pip
 
       Confirm that the installation worked.
 
@@ -126,7 +127,7 @@ Upgrade an existing installation
       .. code-block:: bash
 
          conda activate nextstrain
-         conda update --update-deps nextstrain
+         conda update --all
 
    .. group-tab:: Docker
 
@@ -184,11 +185,12 @@ Then, use Mamba to create the Nextstrain environment.
 
 .. code-block:: bash
 
-    mamba create -n nextstrain -c conda-forge -c bioconda nextstrain
+    mamba create -n nextstrain -c conda-forge -c bioconda \
+      augur auspice nextstrain-cli nextalign awscli git pip
 
 Similarly, use Mamba to update an existing Nextstrain environment to the latest versions of its tools.
 
 .. code-block:: bash
 
     conda activate nextstrain
-    mamba update --update-deps nextstrain
+    mamba update --all
