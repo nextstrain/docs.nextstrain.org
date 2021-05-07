@@ -18,6 +18,7 @@ If you have any questions, or simply want to say hi, please give us a shout at h
    :caption: Table of contents
 
    Nextstrain Documentation <self>
+   install-nextstrain
    learn/index
    tutorials/index
    guides/index

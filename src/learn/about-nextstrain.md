@@ -31,10 +31,10 @@ Our model for data analysis and sharing is for scientists to store the code used
 
 Nextstrain is a collection of open-source tools to aid in our understanding of pathogen spread and evolution, especially in outbreak scenarios.
 We have designed these in such a way that they can be used with a wide range of data sources, and are easy to replace with your own tooling.
-Broadly speaking, Nextstrain consists of 
+Broadly speaking, Nextstrain consists of
 * "Augur" -- a series of composable, modular (Unix-like) bioinformatics tools.
 We use these to create recipes for different pathogens and different analyses, which are easy to reproduce when new data is available.
-* "Auspice" -- a web-based visualization program, to present & interact with phylogenomic & phylogeographic data. 
+* "Auspice" -- a web-based visualization program, to present & interact with phylogenomic & phylogeographic data.
 This is what you see when, for example, you visit [nextstrain.org/zika](https://www.nextstrain.org/zika), but it can also run locally on your computer.
 
 
@@ -52,7 +52,8 @@ These data are continually updated whenever new genomes are made available, thus
 
 
 More information:
-* Installation [using containers](../guides/install/cli-install) or [locally](../guides/install/local-installation) ([what's the difference?](../guides/install/index))
+
+* [Install Nextstrain](../install-nextstrain)
 * [Augur documentation](https://docs.nextstrain.org/projects/augur/en/stable)
 * [Auspice documentation](https://docs.nextstrain.org/projects/auspice/en/stable)
 
@@ -71,7 +72,10 @@ Additionally, we have open-sourced all the tools we use, and hope to create a co
 ### How to get started
 
 * If you would like to investigate live datasets -- including those contributed by the community -- [head to nextstrain.org](https://nextstrain.org/) and click on any of the tiles.
-* If you would like to use Nextstrain to process and visualize your own data, you can either start with the [Quickstart](../tutorials/quickstart), which uses a Docker container to run the builds automatically, or follow the [Zika Tutorial](../tutorials/zika) which provides a more hands-on approach to processing the data.
+* If you would like to use Nextstrain to process and visualize your own data:
+  * [install Nextstrain](../install-nextstrain)
+  * [follow the quickstart](../tutorials/quickstart)
+  * [explore Zika virus evolution](../tutorials/zika)
 * If you have data generated from other sources (e.g. BEAST, RAxML, etc.) then please watch this space -- we'll add tutorials for these soon!
 
 ---

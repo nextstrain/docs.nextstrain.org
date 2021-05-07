@@ -6,7 +6,14 @@ We'll build up a Snakefile step-by-step for each step of the analysis.
 
 ## Setup
 
-To run this tutorial you'll need to [install augur](../guides/install/augur_install.md) and [install Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html).
+[Install Nextstrain](../install-nextstrain) and [check out the quickstart](./quickstart).
+These instructions will install all of the software you need to complete this tutorial.
+
+If you've already installed Nextstrain, activate the Nextstrain environment.
+
+```
+conda activate nextstrain
+```
 
 ## Build steps
 Nextstrain builds typically require the following steps:
@@ -47,7 +54,6 @@ Then enter the directory you just cloned.
 ```bash
 git clone https://github.com/nextstrain/tb.git
 cd tb
-conda activate nextstrain
 ```
 
 ## Prepare the Sequences
