@@ -6,37 +6,112 @@ Each group manages its own AWS S3 Bucket to store datasets and narratives, allow
 > Nextstrain Groups is still in the early stages and require a Nextstrain team member to set up and add users.
 Please [get in touch with us](mailto:hello@nextstrain.org) and we'd be happy to set up a group for you.
 
-### How Does This Actually Work?
-* Run your analysis locally ([see the bioinformatics introduction](https://docs.nextstrain.org/projects/augur/en/stable/index.html))
-* Upload the datasets or narratives you've produced to the group's AWS S3 Bucket
-    * There are no naming restrictions of the dataset JSONs (see [expected formats](../../reference/formats/data-formats))
-    * Narrative Markdown files cannot be named `group-overview.md` but otherwise there are no naming restrictions
-* Access your data via the group's splash page at "nextstrain.org/groups/" + "group name". Example: [nextstrain.org/groups/blab](https://nextstrain.org/groups/blab).
+## How does it work?
 
-### How to Customize the Group's Splash Page
-You can customize the content of the group's splash page by uploading two files to the group's S3 Bucket:
-* `group-logo.png`: logo to be displayed at the top of the page
-* `group-overview.md`: content customization of the page
+  1. Run your analysis locally ([see the bioinformatics introduction](https://docs.nextstrain.org/projects/augur/en/stable/index.html))
+  1. Upload the datasets or narratives you've produced to the group's AWS S3 Bucket
+     * There are no naming restrictions of the dataset JSONs (see [expected formats](../../reference/formats/data-formats))
+     * Narrative Markdown files cannot be named `group-overview.md` but otherwise there are no naming restrictions
+  1. Access your data via the group's splash page at "nextstrain.org/groups/" + "group name". Example: [nextstrain.org/groups/blab](https://nextstrain.org/groups/blab).
 
-##### YAML Frontmatter
-This defines the title, byline, website, and show options of the splash page.
-It must appear at the top of the `group-overview.md` file and looks like:
+## Configure your AWS credentials
 
-```yaml
+Before you can upload data to your Nextstrain Group, you need to define your AWS credentials, so the Nextstrain CLI knows how to access your AWS resources.
+
+Create a new directory to store your AWS credentials and other configuration details.
+
+```bash
+# Creates a new hidden directory in your home directory
+# and does not throw an error if the directory already exists.
+mkdir -p ~/.aws
+```
+
+Next, create a new file to store your AWS credentials.
+
+```bash
+nano ~/.aws/credentials
+```
+
+Define your credentials in this file like so, replacing the “…” values with the corresponding key id and secret access key provided to you by the Nextstrain team. In the same file, we also define the default AWS region for your Nextstrain Groups data.
+
+```ini
+[default]
+aws_access_key_id=...
+aws_secret_access_key=...
+region=us-east-1
+```
+
+Save this file and return to the command line.
+
+Confirm that you have access to your Nextstrain Groups AWS resources, by listing the contents of your group’s S3 bucket. Replace `<group>` below with your group name.
+
+```bash
+nextstrain remote ls s3://nextstrain-<group>
+```
+
+This command should list all the files in your bucket. Your bucket will likely be empty by default.
+
+## Customize your group's page
+
+You can customize the content of your group's page by uploading two files to the group's S3 bucket:
+
+* `group-logo.png`: logo to display at the top of the page
+* `group-overview.md`: a description of your group and the Nextstrain builds your group provides
+
+Create a new file named `group-overview.md` that will contain information about your group.
+At the top of this file, provide a title for the page, a list of people who maintain the data, a website, and whether to show datasets or narratives from your group.
+This information is technically known as the [YAML front matter](https://jekyllrb.com/docs/front-matter/) for the file.
+You must provide a `title` and define `showDatasets` and `showNarratives` as either `true` or `false`.
+The `byline` and `website` are optional.
+
+```
 ---
-title: "Splash Page Title"
-byline: "Byline that is displayed directly below the title of the page"
-website: https://example.com
+title: "Your Department of Health and Human Services"
+byline: "Your Name Here"
+website: https://
 showDatasets: true
 showNarratives: true
 ---
-```
-* The only required field is `title`.
-* If no `byline` field is provided, then no byline will be displayed.
-* If no `website` field is provided, then no website will be displayed.
-* The `showDatasets` and `showNarratives` fields must be `true` or `false`, where `true` means to show the list of available datasets or narratives on the page.
 
-##### Markdown Content
-The content of the `group-overview.md` file can be anything you want in Markdown syntax.
-This content will be displayed between the byline and the list of available datasets on the splash page.
-Use it to give a brief overview or introduction of your group!
+A description of your organization goes here.
+```
+
+After the front matter (in the lines following the last `---` characters), write a description of your organization to provide context for users who can access your groups page.
+Use [Markdown syntax](https://www.markdownguide.org/basic-syntax/) to format the contents of your group description with headers, lists, links, etc.
+This content will appear between the byline and the list of available datasets on the group's page.
+
+Upload your logo and description to your group’s S3 bucket.
+
+```bash
+nextstrain remote upload s3://nextstrain-<group>/ \
+    group-logo.png group-overview.md
+```
+
+To update your logo, description, or any other data in your group’s S3 bucket, run the `nextstrain remote upload` command again and the uploaded data will replace the previous contents in the bucket.
+
+## Upload a Nextstrain build
+
+Next, upload one or more Nextstrain builds for your group.
+
+```bash
+nextstrain remote upload s3://nextstrain-<group>/ \
+    auspice/ncov_<your-build-name>.json \
+    auspice/ncov_<your-build-name>_tip-frequencies.json \
+    auspice/ncov_<your-build-name>_root-sequence.json
+```
+
+After the upload completes, navigate to your groups page from [https://nextstrain.org/groups/](https://nextstrain.org/groups/) to see the build you uploaded.
+Alternately, upload multiple build files at once with wildcard syntax.
+
+```bash
+nextstrain remote upload s3://nextstrain-<group>/ auspice/*.json
+```
+
+## Learn more about the Nextstrain command line interface
+
+[See the Nextstrain CLI’s documentation for the `nextstrain remote` command](https://docs.nextstrain.org/projects/cli/en/latest/commands/remote/), to learn more about interacting with your group’s S3 bucket.
+You can also learn more by viewing the help for this command.
+
+```bash
+nextstrain remote -h
+```
