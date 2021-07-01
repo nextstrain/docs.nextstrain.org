@@ -105,6 +105,11 @@ To update your logo, description, or any other data in your group’s S3 bucket,
 Upload a Nextstrain build
 =========================
 
+.. warning::
+
+   Do not upload personally identifiable information (PII) as part of your build data.
+   This restriction applies for public and private groups.
+
 Next, upload one or more Nextstrain builds for your group.
 
 .. code-block:: bash
