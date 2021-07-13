@@ -50,7 +50,6 @@ docs = {
     f'{nextclade_url}user/nextclade-algorithm.md': 'learn/nextclade.md',
     f'{nextclade_url}user/nextalign-cli-flags.md': 'reference/nextalign-cli.md',
     f'{nextclade_url}user/nextclade-cli-flags.md': 'reference/nextclade-cli.md',
-    f'{nextclade_url}user/nextclade-cli-flags.md': 'reference/nextclade-cli.md',
     f'{nextclade_url}user/nextclade-cli-tutorial.md': 'tutorials/nextclade-cli-tutorial.md',
     f'{nextclade_url}user/nextclade-web.md': 'tutorials/nextclade-web-tutorial.md',
 }
