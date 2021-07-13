@@ -43,6 +43,18 @@ Read The Docs is configured via `readthedocs.yml`; [more about Read The Docs con
 
 Sphinx is configured via `src/conf.py`; [more about Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html)
 
+
+## Building the docs with Docker
+
+Alternatively, you can perform the same steps inside a container.
+
+Once you have [Docker](https://docs.docker.com/get-docker/) installed, run:
+
+    make docker-html
+
+The HTML files appear in `build/html/` as usual, and can be viewed in a browser.
+
+
 ## Implementation
 
 ### Document Formats
