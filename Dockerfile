@@ -13,7 +13,7 @@ RUN set -x \
   && mkdir -p ${HOME}/data \
   && addgroup --system --gid ${GID} ${GROUP} \
   && useradd --system --create-home --home-dir ${HOME} \
-  --shell /bin/zsh \
+  --shell /bin/bash \
   --gid ${GROUP} \
   --groups sudo \
   --uid ${UID} \
