@@ -3,6 +3,9 @@ import concurrent.futures
 import requests
 from pathlib import Path
 
+nextclade_branch = 'docs/rtd'
+nextclade_url = f'https://raw.githubusercontent.com/nextstrain/nextclade/{nextclade_branch}/docs/'
+
 augur_branch = 'master'
 augur_url = f'https://raw.githubusercontent.com/nextstrain/augur/{augur_branch}/docs/'
 
@@ -44,6 +47,12 @@ docs = {
     f'{ncov_url}interpretation.md': 'tutorials/SARS-CoV-2/steps/interpretation.md',
     f'{ncov_url}narratives.md': 'tutorials/SARS-CoV-2/steps/narratives.md',
     f'{ncov_url}naming_clades.md': 'tutorials/SARS-CoV-2/steps/naming_clades.md',
+    f'{nextclade_url}user/nextclade-algorithm.md': 'learn/nextclade.md',
+    f'{nextclade_url}user/nextalign-cli-flags.md': 'reference/nextalign-cli.md',
+    f'{nextclade_url}user/nextclade-cli-flags.md': 'reference/nextclade-cli.md',
+    f'{nextclade_url}user/nextclade-cli-flags.md': 'reference/nextclade-cli.md',
+    f'{nextclade_url}user/nextclade-cli-tutorial.md': 'tutorials/nextclade-cli-tutorial.md',
+    f'{nextclade_url}user/nextclade-web.md': 'tutorials/nextclade-web-tutorial.md',
 }
 
 if __name__ == '__main__':

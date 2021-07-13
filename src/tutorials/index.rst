@@ -15,3 +15,5 @@ Tutorials to help you get started with Nextstrain!
    tb_tutorial
    SARS-CoV-2/index
    narratives-how-to-write
+   nextclade-web-tutorial
+   nextclade-cli-tutorial

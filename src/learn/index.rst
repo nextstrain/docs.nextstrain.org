@@ -13,3 +13,4 @@ Learn about Nextstrain and related background information.
    About Nextstrain <about-nextstrain>
    interpret/index
    pathogens/index
+   Nextclade analysis <nextclade>
