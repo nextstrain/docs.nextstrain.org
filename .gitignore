@@ -19,3 +19,8 @@ src/guides/install/auspice-install.md
 src/guides/install/cli-install.md
 src/tutorials/narratives-how-to-write.md
 src/tutorials/SARS-CoV-2/steps/*.md
+src/learn/nextclade.md
+src/reference/nextalign-cli.md
+src/reference/nextclade-cli.md
+src/tutorials/nextclade-cli-tutorial.md
+src/tutorials/nextclade-web-tutorial.md
