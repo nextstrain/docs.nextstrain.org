@@ -3,8 +3,8 @@ FROM continuumio/miniconda3:4.9.2
 ARG DEBIAN_FRONTEND=noninteractive
 ARG USER=user
 ARG GROUP=user
-ARG UID=1000
-ARG GID=1000
+ARG UID
+ARG GID
 
 ENV TERM="xterm-256color"
 ENV HOME="/home/user"
