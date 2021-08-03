@@ -22,7 +22,7 @@ help:
 .ONESHELL:
 docker-html:
 	set -euox
-	docker build -t nextclade-docs-builder \
+	docker build -t nextstrain-docs-builder \
 	--network=host \
 	--build-arg UID=$(shell id -u) \
 	--build-arg GID=$(shell id -g) \
