@@ -22,4 +22,5 @@ If you have any questions, or simply want to say hi, please give us a shout at h
    learn/index
    tutorials/index
    guides/index
+   ecosystem/index
    reference/index
