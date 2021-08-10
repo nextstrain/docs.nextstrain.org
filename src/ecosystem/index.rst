@@ -11,4 +11,4 @@ Nextstrain project has grown and a few projects have have spun-off of it.
    :titlesonly:
    :caption: Projects in Nextstrain ecosystem
 
-   Nextclade: analysis of viral genomes <https://docs.nextstrain.org/projects/nextclade>
+   Nextclade: analysis of viral genomes <https://docs.nextstrain.org/projects/cli/en/latest/>
