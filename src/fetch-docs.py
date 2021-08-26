@@ -13,9 +13,6 @@ auspice_url = f'{auspice_base_url}docs/'
 cli_branch = 'master'
 cli_url = f'https://raw.githubusercontent.com/nextstrain/cli/{cli_branch}/doc/'
 
-ncov_branch = 'master'
-ncov_url = f'https://raw.githubusercontent.com/nextstrain/ncov/{ncov_branch}/docs/'
-
 docs = {
     f'{auspice_url}narratives/create-pdf.md': 'guides/communicate/create-pdf.md',
     f'{auspice_url}narratives/introduction.md': 'guides/communicate/narratives-intro.md',
@@ -31,19 +28,7 @@ docs = {
     f'{augur_url}faq/seq_traits.md': 'guides/bioinformatics/seq_traits.md',
     f'{augur_url}examples/examples.rst': 'guides/bioinformatics/examples.rst',
     f'{augur_url}contribute/DEV_DOCS.md':   'guides/contribute/augur_develop.md',
-    f'{cli_url}development.md': 'guides/contribute/cli-develop.md',
-    f'{ncov_url}index.md': 'tutorials/SARS-CoV-2/steps/index.md',
-    f'{ncov_url}setup.md': 'tutorials/SARS-CoV-2/steps/setup.md',
-    f'{ncov_url}data-prep.md': 'tutorials/SARS-CoV-2/steps/data-prep.md',
-    f'{ncov_url}orientation-workflow.md': 'tutorials/SARS-CoV-2/steps/orientation-workflow.md',
-    f'{ncov_url}orientation-files.md': 'tutorials/SARS-CoV-2/steps/orientation-files.md',
-    f'{ncov_url}running.md': 'tutorials/SARS-CoV-2/steps/running.md',
-    f'{ncov_url}customizing-analysis.md': 'tutorials/SARS-CoV-2/steps/customizing-analysis.md',
-    f'{ncov_url}customizing-visualization.md': 'tutorials/SARS-CoV-2/steps/customizing-visualization.md',
-    f'{ncov_url}sharing.md': 'tutorials/SARS-CoV-2/steps/sharing.md',
-    f'{ncov_url}interpretation.md': 'tutorials/SARS-CoV-2/steps/interpretation.md',
-    f'{ncov_url}narratives.md': 'tutorials/SARS-CoV-2/steps/narratives.md',
-    f'{ncov_url}naming_clades.md': 'tutorials/SARS-CoV-2/steps/naming_clades.md',
+    f'{cli_url}development.md': 'guides/contribute/cli-develop.md'
 }
 
 if __name__ == '__main__':
