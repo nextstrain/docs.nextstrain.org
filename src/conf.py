@@ -37,7 +37,8 @@ extensions = [
     'sphinx_markdown_tables',
     'sphinxarg.ext',
     'sphinx.ext.autodoc',
-    'sphinx_tabs.tabs'
+    'sphinx_tabs.tabs',
+    'sphinx.ext.graphviz',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -67,6 +68,8 @@ html_theme_options = {
     'titles_only': True,
 }
 
+graphviz_output_format = "svg"
+
 
 # -- Cross-project references ------------------------------------------------
 
@@ -74,5 +77,6 @@ intersphinx_mapping = {
     'augur': ('https://docs.nextstrain.org/projects/augur/en/stable', None),
     'auspice': ('https://docs.nextstrain.org/projects/auspice/en/stable', None),
     'cli': ('https://docs.nextstrain.org/projects/cli/en/stable/', None),
+    'nextclade': ('https://docs.nextstrain.org/projects/nextclade/en/stable/', None),
     'ncov': ('https://docs.nextstrain.org/projects/ncov/en/latest/', None)
 }
