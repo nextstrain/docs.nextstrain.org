@@ -13,12 +13,12 @@ understanding and improve outbreak response.
 
 .. note::
 
-    This documentation site aims to cover all parts of Nextstrain.  If you already
-    have your bearings, see the :ref:`toc` below to dive right in.  If you're
-    interested in how to interpret what you see on nextstrain.org, please start
+    This documentation site aims to cover all parts of Nextstrain.  If you
+    already have your bearings, see the :ref:`toc` below to dive right in.  If
+    you're interested in how to interpret what you see on nextstrain.org, start
     with :doc:`/learn/interpret/index`.  If you’re ready to go beyond using the
-    website (or just plain curious!), please continue reading for an overview of
-    how the different pieces of Nextstrain fit together.
+    website (or just plain curious!), continue reading for an overview of how
+    the different pieces of Nextstrain fit together.
 
 The core components of Nextstrain are :doc:`Augur <augur:index>` and
 :doc:`Auspice <auspice:index>`.
@@ -211,10 +211,10 @@ well as integrated into builds.
 With this overview, you'll be better prepared to dive into the rest of the
 documentation listed in the :ref:`toc` below.
 
-If you have questions, need help, or simply want to say hi, please post to our
+If you have questions, need help, or simply want to say hi, post to our
 `discussion forum <https://discussion.nextstrain.org>`__ where the Nextstrain
 team and other Nextstrain users provide assistance.  For private inquiries,
-please `email the Nextstrain team <hello@nextstrain.org>`__.
+`email the Nextstrain team <hello@nextstrain.org>`__.
 
 .. toctree::
    :maxdepth: 2
