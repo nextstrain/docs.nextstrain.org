@@ -97,7 +97,7 @@ example, you visit `nextstrain.org/mumps/na
 
     Auspice displaying Mumps genomes from North America.
 
-Augur produces :doc:`data files </reference/formats/data-formats>` which are
+Augur produces :doc:`dataset files </reference/formats/data-formats>` which are
 visualized by Auspice.  These files are often referred to as "JSONs"
 colloquially because they use a generic data format called JSON.
 
