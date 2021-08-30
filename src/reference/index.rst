@@ -14,6 +14,6 @@ Reference guides and API documentation that give implementation and usage detail
    formats/index
    Augur: A bioinformatics toolkit for phylogenetic analysis <https://docs.nextstrain.org/projects/augur/en/stable/index.html>
    Auspice: An Open-source Interactive Tool for Visualising Phylogenomic Data <https://docs.nextstrain.org/projects/auspice/en/stable/>
-   Nextstrain command-line interface (CLI) <https://docs.nextstrain.org/projects/cli/en/latest/>
-   Nextclade CLI: Analysis, QC, and clade assignment of viral genomes <https://docs.nextstrain.org/projects/nextclade/en/latest/user/nextclade-cli.html>
-   Nextalign CLI: reference alignments of viral genomes <https://docs.nextstrain.org/projects/nextclade/en/latest/user/nextalign-cli.html>
+   Nextstrain command-line interface (CLI) <https://docs.nextstrain.org/projects/cli/en/stable/>
+   Nextclade CLI: Analysis, QC, and clade assignment of viral genomes <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-cli.html>
+   Nextalign CLI: reference alignments of viral genomes <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextalign-cli.html>
