@@ -73,7 +73,6 @@ html_theme_options = {
 intersphinx_mapping = {
     'augur': ('https://docs.nextstrain.org/projects/augur/en/stable', None),
     'auspice': ('https://docs.nextstrain.org/projects/auspice/en/stable', None),
-    # should be able to be change to stable after the next cli release (post https://github.com/nextstrain/cli/pull/102):
-    'cli': ('https://docs.nextstrain.org/projects/cli/en/latest/', None),
+    'cli': ('https://docs.nextstrain.org/projects/cli/en/stable/', None),
     'ncov': ('https://docs.nextstrain.org/projects/ncov/en/latest/', None)
 }
