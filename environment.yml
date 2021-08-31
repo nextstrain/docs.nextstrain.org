@@ -2,6 +2,7 @@ name: docs.nextstrain.org
 channels:
   - defaults
 dependencies:
+  - graphviz
   - make
   - recommonmark
   - requests
