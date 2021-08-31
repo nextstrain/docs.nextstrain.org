@@ -145,7 +145,7 @@ When editing those files in their respective repositories, keep in mind that any
 ### How to add a document
 1. What [type of document](#types-of-documents) is it? This will help write it with a clear goal in mind.
 2. Where should it go in the table of contents? See the Table of Contents at https://docs.nextstrain.org/en/latest/ to find a heading that fits the document best.
-3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/latest/src) corresponding to the heading under which you'd like to to appear, e.g.:
+3. Once the document is written, move it to the [directory](https://github.com/nextstrain/docs.nextstrain.org/tree/master/src) corresponding to the heading under which you'd like to to appear, e.g.:
 ```
 mv interacting-with-nextstrain.md src/learn/interpret/
 ```
