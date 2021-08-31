@@ -227,12 +227,12 @@ team and other Nextstrain users provide assistance.  For private inquiries,
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :caption: Learn
+    :caption: About
     :hidden:
 
-    About Nextstrain <learn/about-nextstrain>
+    Nextstrain <learn/about-nextstrain>
     learn/interpret/index
-    learn/pathogens/index
+    Pathogens <learn/pathogens/index>
 
 .. toctree::
     :maxdepth: 1
@@ -243,9 +243,9 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     tutorials/quickstart
     tutorials/zika
     tutorials/tb_tutorial
-    Explore SARS-CoV-2 evolution <https://docs.nextstrain.org/projects/ncov/en/latest/index.html>
-    tutorials/narratives-how-to-write
-    Analyze your genomes with Nextclade in the browser <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-web.html>
+    Exploring SARS-CoV-2 evolution <https://docs.nextstrain.org/projects/ncov/en/latest/index.html>
+    Writing a narrative <tutorials/narratives-how-to-write>
+    Analyzing genomes with Nextclade <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-web.html>
 
 .. toctree::
     :maxdepth: 1
@@ -253,10 +253,10 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     :caption: How-to Guides
     :hidden:
 
-    guides/bioinformatics/index
-    guides/share/index
-    guides/communicate/index
-    guides/contribute/index
+    Bioinformatics <guides/bioinformatics/index>
+    Sharing analyses <guides/share/index>
+    Communicating scientific insights <guides/communicate/index>
+    Contributing <guides/contribute/index>
 
 .. toctree::
     :maxdepth: 1

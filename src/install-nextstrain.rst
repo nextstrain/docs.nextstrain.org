@@ -1,6 +1,6 @@
-==================
-Install Nextstrain
-==================
+=====================
+Installing Nextstrain
+=====================
 
 Nextstrain is a collection of different tools including:
 
