@@ -222,7 +222,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     :hidden:
 
     Introduction <self>
-    install-nextstrain
+    install
 
 .. toctree::
     :maxdepth: 1
@@ -230,7 +230,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     :caption: About
     :hidden:
 
-    Nextstrain <learn/about-nextstrain>
+    Nextstrain <learn/about>
     learn/interpret/index
     Pathogens <learn/pathogens/index>
 

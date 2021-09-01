@@ -53,7 +53,7 @@ These data are continually updated whenever new genomes are made available, thus
 
 More information:
 
-* [Install Nextstrain](../install-nextstrain)
+* [Install Nextstrain](../install)
 * [Augur documentation](https://docs.nextstrain.org/projects/augur/en/stable)
 * [Auspice documentation](https://docs.nextstrain.org/projects/auspice/en/stable)
 
@@ -73,7 +73,7 @@ Additionally, we have open-sourced all the tools we use, and hope to create a co
 
 * If you would like to investigate live datasets -- including those contributed by the community -- [head to nextstrain.org](https://nextstrain.org/) and click on any of the tiles.
 * If you would like to use Nextstrain to process and visualize your own data:
-  * [install Nextstrain](../install-nextstrain)
+  * [install Nextstrain](../install)
   * [follow the quickstart](../tutorials/quickstart)
   * [explore Zika virus evolution](../tutorials/zika)
 * If you have data generated from other sources (e.g. BEAST, RAxML, etc.) then please watch this space -- we'll add tutorials for these soon!

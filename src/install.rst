@@ -9,7 +9,7 @@ Nextstrain is a collection of different tools including:
   * Nextstrain command line interface (CLI): tools for management of analysis workflows and environments
 
 The following instructions describe how to install these tools with Conda or Docker.
-For more details, :doc:`see the high level overview of these different components <learn/about-nextstrain>`.
+For more details, :doc:`see the high level overview of these different components <learn/about>`.
 
 .. contents:: Table of Contents
    :local:

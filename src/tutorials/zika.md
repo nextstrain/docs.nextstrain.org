@@ -6,7 +6,7 @@ Then we will see how to automate this stepwise process by defining a pathogen bu
 
 ## Setup
 
-[Install Nextstrain](../install-nextstrain) and [check out the quickstart](./quickstart).
+[Install Nextstrain](../install) and [check out the quickstart](./quickstart).
 These instructions will install all of the software you need to complete this tutorial.
 
 If you've already installed Nextstrain, activate the Nextstrain environment.

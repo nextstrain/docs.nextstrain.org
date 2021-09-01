@@ -6,7 +6,7 @@ We'll build up a Snakefile step-by-step for each step of the analysis.
 
 ## Setup
 
-[Install Nextstrain](../install-nextstrain) and [check out the quickstart](./quickstart).
+[Install Nextstrain](../install) and [check out the quickstart](./quickstart).
 These instructions will install all of the software you need to complete this tutorial.
 
 If you've already installed Nextstrain, activate the Nextstrain environment.
