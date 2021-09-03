@@ -1,11 +1,11 @@
 # docs.nextstrain.org
 
-A prototype umbrella documentation project for Nextstrain, hosted at [docs.nextstrain.org](https://docs.nextstrain.org), using:
+An umbrella documentation project for Nextstrain, hosted at [docs.nextstrain.org](https://docs.nextstrain.org), using:
 
 - [Read The Docs](https://readthedocs.org)
 - [Sphinx](http://sphinx-doc.org)
 - [Markdown](https://markdownguide.org) and [reStructuredText](https://docutils.sourceforge.io/rst.html) ([quick ref](https://docutils.sourceforge.io/docs/user/rst/quickref.html), [quicker ref](https://simonwillison.net/2018/Aug/25/restructuredtext/))
-- [Subprojects](https://docs.readthedocs.io/en/stable/subprojects.html) for Augur and the CLI (plus maybe Auspice and other component/build-specific documentation in the future)
+- [Subprojects](https://docs.readthedocs.io/en/stable/subprojects.html) for Augur, Auspice, Nextstrain CLI, Nextclade, etc.
 - Our custom [Sphinx theme](https://github.com/nextstrain/sphinx-theme) to provide consistent, branded styling.
 
 ## Domain / hosting management
