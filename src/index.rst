@@ -192,7 +192,7 @@ dataset.
 
 You can run :doc:`Augur <augur:index>` and :doc:`Auspice <auspice:index>` on
 your own computer and use them independently or together with your own builds,
-our core builds, or other's group or community builds.  You can even install
+our core builds, or others' group or community builds.  You can even install
 Auspice on :doc:`your own web server <auspice:server/index>` if you don't want
 to host your builds via nextstrain.org.
 
