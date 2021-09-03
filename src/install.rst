@@ -1,25 +1,24 @@
-==================
-Install Nextstrain
-==================
+=====================
+Installing Nextstrain
+=====================
 
-Nextstrain is a collection of different tools including:
+.. hint::
+
+    Before installing, we recommend you read about the :doc:`parts of Nextstrain </learn/parts>`.
+
+The following instructions describe how to install Nextstrain's software tools with Conda or Docker, including:
 
   * Augur: a bioinformatics toolkit for the analysis of pathogen genomes
   * Auspice: a tool for interactive visualization of pathogen evolution
-  * Nextstrain command line interface (CLI): tools for management of analysis workflows and environments
+  * Nextstrain CLI: tools for management of analysis workflows and environments
 
-The following instructions describe how to install these tools with Conda or Docker.
-For more details, :doc:`see the high level overview of these different components <learn/about-nextstrain>`.
+.. note::
+
+    If you want to :doc:`contribute to the development of Nextstrain </guides/contribute/index>` or if you prefer to manage your own custom environment (e.g., a Conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, or :doc:`Auspice <auspice:introduction/install>`.
 
 .. contents:: Table of Contents
    :local:
    :depth: 1
-
-.. note::
-
-    If you want to contribute to the development of Nextstrain tools, see :doc:`the developer documentation for instructions to install these tools from source <guides/contribute/index>`.
-
-    If you prefer to manage your own custom environment (e.g., a Conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, or :doc:`Auspice <auspice:introduction/install>`.
 
 Install Conda
 =============
@@ -72,7 +71,7 @@ Similarly, there are still significant obstacles to running Docker with Windows,
          Setting default environment to native.
 
       Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Nextstrain Conda environment with ``conda activate nextstrain``.
-      Next, :doc:`check out the quickstart <tutorials/quickstart>`.
+      Next, try :doc:`tutorials/quickstart`.
 
    .. group-tab:: Docker
 
@@ -107,7 +106,7 @@ Similarly, there are still significant obstacles to running Docker with Windows,
         nextstrain update
 
     Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Nextstrain Conda environment with ``conda activate nextstrain``.
-    Next, :doc:`check out the quickstart <tutorials/quickstart>`.
+    Next, try :doc:`tutorials/quickstart`.
 
 Upgrade an existing installation
 ================================
@@ -194,3 +193,9 @@ Similarly, use Mamba to update an existing Nextstrain environment to the latest 
 
     conda activate nextstrain
     mamba update --all
+
+
+Next steps
+==========
+
+With Nextstrain installed, try :doc:`tutorials/quickstart` next.

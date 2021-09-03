@@ -1,4 +1,4 @@
-# Explore Zika virus evolution
+# Exploring Zika virus evolution
 
 This tutorial explains how to create [a Nextstrain build](https://docs.nextstrain.org/projects/augur/en/stable/faq/what-is-a-build.html) for the Zika virus.
 We will first make the build step-by-step using an example data set.
@@ -6,10 +6,10 @@ Then we will see how to automate this stepwise process by defining a pathogen bu
 
 ## Setup
 
-[Install Nextstrain](../install-nextstrain) and [check out the quickstart](./quickstart).
+[Install Nextstrain](../install) and [check out the quickstart](./quickstart).
 These instructions will install all of the software you need to complete this tutorial.
 
-If you've already installed Nextstrain, activate the Nextstrain environment.
+Once you've installed Nextstrain, activate the Nextstrain environment.
 
 ```
 conda activate nextstrain

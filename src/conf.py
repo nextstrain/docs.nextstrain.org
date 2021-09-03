@@ -22,7 +22,7 @@ subprocess.check_call(['./fetch-docs.py'])
 # -- Project information -----------------------------------------------------
 
 project = 'Nextstrain'
-copyright = '2020, Trevor Bedford and Richard Neher'
+copyright = '2021, Trevor Bedford and Richard Neher'
 author = 'The Nextstrain Team'
 
 
