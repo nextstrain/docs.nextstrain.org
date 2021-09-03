@@ -10,7 +10,7 @@ An umbrella documentation project for Nextstrain, hosted at [docs.nextstrain.org
 
 ## Domain / hosting management
 To manage the hosting settings of docs.nextstrain.org and monitor automated builds triggered by pushes to this repository, go to https://readthedocs.org/projects/nextstrain/.
-You'll need to create an account and be granted permissions to view and edit admin settings for the project by someone on the Nextstrain team.
+You'll need to create a readthedocs.org account and be granted permissions to view and edit admin settings for the project by someone on the Nextstrain team.
 
 ## Building the docs
 
