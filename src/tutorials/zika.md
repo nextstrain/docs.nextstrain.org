@@ -9,7 +9,7 @@ Then we will see how to automate this stepwise process by defining a pathogen bu
 [Install Nextstrain](../install) and [check out the quickstart](./quickstart).
 These instructions will install all of the software you need to complete this tutorial.
 
-If you've already installed Nextstrain, activate the Nextstrain environment.
+Once you've installed Nextstrain, activate the Nextstrain environment.
 
 ```
 conda activate nextstrain

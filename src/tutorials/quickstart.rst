@@ -1,12 +1,12 @@
-==========
-Quickstart
-==========
+===============
+Running a build
+===============
 
-This guide uses the :doc:`Nextstrain command-line interface (CLI) <cli:index>` to help you get started running and viewing :doc:`the pathogen builds <augur:faq/what-is-a-build>` you see on `nextstrain.org <https://nextstrain.org>`_.
+This tutorial uses the :doc:`Nextstrain command-line interface (CLI) <cli:index>` to help you get started running and viewing :doc:`the pathogen builds <augur:faq/what-is-a-build>` you see on `nextstrain.org <https://nextstrain.org>`_.
 It assumes you are comfortable using the command line and installing software on your computer.
-If you need help when following this guide, please reach out by `emailing us <mailto:hello@nextstrain.org?subject=Quickstart%20help>`_, or create a post at `discussion.nextstrain.org <https://discussion.nextstrain.org>`_.
+If you need help when following this tutorial, please create a post at `discussion.nextstrain.org <https://discussion.nextstrain.org>`_.
 
-When you're done following this guide, you will have built a local version of `our example Zika analysis <https://github.com/nextstrain/zika-tutorial>`_ and viewed the results on your computer.
+When you're done following this tutorial, you will have built a local version of `our example Zika analysis <https://github.com/nextstrain/zika-tutorial>`_ and viewed the results on your computer.
 You'll have a basic understanding of how to run builds for other pathogens and a foundation for understanding the Nextstrain ecosystem in more depth.
 
 .. contents:: Table of Contents
@@ -16,7 +16,7 @@ Setup
 =====
 
 :doc:`Install Nextstrain </install>` including the Nextstrain CLI.
-These instructions will install all of the software you need to complete this quickstart and other tutorials.
+These instructions will install all of the software you need to complete this tutorial and others.
 
 If you've already installed Nextstrain, activate the Nextstrain environment.
 
