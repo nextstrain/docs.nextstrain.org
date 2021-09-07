@@ -6,11 +6,10 @@ dependencies:
   - make
   - recommonmark
   - requests
-  - sphinx
+  - sphinx>3,<4
   - pip
   - pip:
     - nextstrain-sphinx-theme>=2020.2
-    - sphinx-rtd-theme>=1.0.0rc1
     - sphinx-markdown-tables
     - sphinx-argparse
     - sphinx-tabs
