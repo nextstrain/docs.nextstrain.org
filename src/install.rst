@@ -191,8 +191,11 @@ Similarly, use Mamba to update an existing Nextstrain environment to the latest 
 
 .. code-block:: bash
 
+    # Update Conda and Mamba.
+    mamba update -n base conda mamba
+    # Update tools in the Nextstrain environment.
     conda activate nextstrain
-    mamba update --all
+    mamba update --all -c conda-forge -c bioconda
 
 
 Next steps
