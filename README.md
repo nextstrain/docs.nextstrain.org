@@ -93,6 +93,16 @@ More on this in the [Sphinx Documentation](https://www.sphinx-doc.org/en/1.5/mar
 
 ### Subprojects
 [Subprojects](https://docs.readthedocs.io/en/stable/subprojects.html) are a way to nest Read The Docs projects.
+
+We currently maintain the following subprojects for this project:
+- [Augur](https://docs.nextstrain.org/projects/augur/en/stable/index.html), sourced from https://github.com/nextstrain/augur/tree/master/docs
+- [Auspice](https://docs.nextstrain.org/projects/auspice/en/stable/), sourced from https://github.com/nextstrain/auspice/tree/master/docs
+- [Nextstrain CLI](https://docs.nextstrain.org/projects/cli/en/stable/), sourced from https://github.com/nextstrain/cli/tree/master/doc
+- [Nextclade (includes Nextclade Web, Nextclade CLI, Nextalign CLI)](https://docs.nextstrain.org/projects/nextclade/en/stable/index.html), sourced from https://github.com/nextstrain/nextclade/tree/master/docs
+- [ncov (SARS-CoV-2 Workflow)](https://docs.nextstrain.org/projects/ncov/en/latest/index.html), sourced from https://github.com/nextstrain/ncov/tree/master/docs
+
+
+
 To link to a file in a subproject (or any other Read The Docs project), use [intersphinx](https://docs.readthedocs.io/en/stable/guides/intersphinx.html), e.g.:
 ```diff
  ======================================
@@ -126,6 +136,13 @@ They should be edited in their own repositories.
 When editing those files in their respective repositories, keep in mind that any relative paths to images or other documents need to exist in this repository's file structure where the fetched file ends up.
 
 ## Contributing
+
+### How to edit a document
+
+Every document on docs.nextstrain.org and in the [subprojects](#subprojects) should have a link in the top right corner of the page that says "Edit on GitHub".
+Clicking this will take you to the repository on GitHub for that document so that you know what file to change to edit that document.
+Pushing changes to the file on the main branch of that repository will automatically rebuild the documentation with your changes, but if you're not sure of the changes and want to see the result, it's best to [build the documentation locally](#building-the-docs).
+You can push your changes up to a new branch and then activate automatic builds of that branch by finding it on https://readthedocs.org/projects/nextstrain/versions/ and clicking "Activate".
 
 ### How to add a document
 1. What [type of document](#types-of-documents) is it? This will help write it with a clear goal in mind.
