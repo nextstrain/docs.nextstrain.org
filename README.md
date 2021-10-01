@@ -72,36 +72,21 @@ There are some set of special features of Sphinx / Read The Docs which require u
 ### File Hierarchy
 The hierarchy of the table of contents as seen in the sidebar can be thought of as a tree of documents.
 The root is `src/index.rst` a reStructuredText (see [Restructured Text](#restructured-text)) file which dictates what the top-level headings in the sidebar will be.
-It contains a `.. toctree::` "directive" or statement, followed by some configuration and then a list of file paths:
+It contains multiple `.. toctree::` "directive" or statements, followed by some configuration and then a list of file paths:
 ```
-======================================
-Welcome to Nextstrain's documentation!
-======================================
-
-Nextstrain is an open-source project to harness the scientific and public health potential of pathogen genome data.
-We provide a continually-updated view of publicly available data with powerful analyses and visualizations showing pathogen evolution and epidemic spread.
-Our goal is to aid epidemiological understanding and improve outbreak response.
-If you have any questions, or simply want to say hi, please give us a shout at hello@nextstrain.org.
-
-.. warning::
-   This site is currently only a stub, to show what's possible with Read The Docs for an umbrella documentation project.
-
-   For the real documentation entry point, please go to `nextstrain.org/docs <https://nextstrain.org/docs>`__.
-
 .. toctree::
-   :maxdepth: 2
-   :titlesonly:
-   :caption: Table of contents
+    :maxdepth: 1
+    :titlesonly:
+    :caption: About
+    :hidden:
 
-   self
-   learn/index
-   tutorials/index
-   guides/index
-   reference/index
+    Introduction <self>
+    learn/about
+    learn/parts
+    learn/interpret/index
+    Pathogens <learn/pathogens/index>
 ```
-These file paths such as `learn/index` are what show up in the sidebar at the top level.
-In this case, each of the paths specified is another reStructuredText(.rst - but the file extension is omitted in the `toctree` listing) file, containing a similar statement, listing the files for that section.
-However, you can also list paths to regular markdown documents (also without extension) which will just render a clickable entry in the sidebar to navigate to that document, and it will not be an expandable section.
+These file paths (links to other documents) such as `learn/interpret/index` are what show up in the sidebar at the top level.
 If any file contains a valid one of these `.. toctree::` statements, it will be rendered as an expandable heading in the sidebar, with the `toctree` entries rendered under that heading.
 
 More on this in the [Sphinx Documentation](https://www.sphinx-doc.org/en/1.5/markup/toctree.html).
@@ -123,16 +108,16 @@ You also need to add the project you are linking to to the [intersphinx configur
 
 #### How we are currently using subprojects
 Subprojects are how we keep documents in other repositories while still maintaining the versioning of those documents from their own repositories in a separate Read The Docs project.
-Documents which we've kept in subprojects, as opposed to including them in this project, are specific reference material for those projects / repositories such as API documentation for augur.
+Documents which we've kept in subprojects, as opposed to including them in this project, are usually specific reference material for those projects / repositories such as API documentation for augur.
+Another example is the tutorial for the SARS-CoV-2 workflow, which lives alongside the workflow in its repository, https://github.com/nextstrain/ncov, and shows up as a subproject at https://docs.nextstrain.org/projects/ncov/en/latest/index.html.
 Subprojects necessitate a distinct URL, such as https://docs.nextstrain.org/projects/augur as opposed to just https://docs.nextstrain.org.
 By default, this means a distinct set of headings / links in the sidebar navigation, making navigating back to https://docs.nextstrain.org more difficult once you have navigated to a subproject.
-Therefore, we've made all non-reference-guide documents from other nextstrain repositories, like https://github.com/nextstrain/augur, accessible in this main project by fetching them from their respective repositories during the build process (see below for more details) and including them in this project's table of contents.
-
-This setup is in lieu of a "best of both worlds" solution, which would allow us to version documents in subprojects according to their own repositories, and also include them in this project's domain and table of contents without having to navigate to a separate project to view them.
 
 ### Fetching of documents from other repositories
 
 Some documents are fetched from other repositories during the build process via src/fetch-docs.py, which is called from src/conf.py.
+
+This setup is in lieu of a "best of both worlds" solution, which would allow us to version documents in subprojects according to their own repositories, and also include them in this project's domain and table of contents without having to navigate to a separate project to view them.
 
 We aim to make this a temporary solution until we can achieve a shared-table-of-contents approach alluded to above; see https://github.com/nextstrain/docs.nextstrain.org/issues/27.
 
