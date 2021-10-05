@@ -139,9 +139,14 @@ When editing those files in their respective repositories, keep in mind that any
 
 ### How to edit a document
 
-Every document on docs.nextstrain.org and in the [subprojects](#subprojects) should have a link in the top right corner of the page that says "Edit on GitHub".
+Every document on docs.nextstrain.org and in the [subprojects](#subprojects) should have a link in the top right corner of the page that says "Edit on GitHub":
+
+<img width="1063" alt="Screen Shot 2021-10-05 at 3 44 06 PM" src="https://user-images.githubusercontent.com/12140437/136113273-cd62dd7d-385b-4a2d-aa78-25d39b1a9536.png">
+
 Clicking this will take you to the repository on GitHub for that document so that you know what file to change to edit that document.
+
 Pushing changes to the file on the main branch of that repository will automatically rebuild the documentation with your changes, but if you're not sure of the changes and want to see the result, it's best to [build the documentation locally](#building-the-docs).
+
 You can push your changes up to a new branch and then activate automatic builds of that branch by finding it on https://readthedocs.org/projects/nextstrain/versions/ and clicking "Activate".
 
 ### How to add a document
