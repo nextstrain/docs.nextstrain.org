@@ -39,10 +39,38 @@ Leave the environment with:
 
 ### Build configuration
 
-Read The Docs is configured via `readthedocs.yml`; [more about Read The Docs configuration](https://docs.readthedocs.io/en/stable/config-file/v2.html)
+#### Read The Docs
+docs.nextstrain.org (the live version of the docs) is built and configured via [the Read The Docs dashboard for this project](https://readthedocs.org/projects/nextstrain/).
+It uses [our readthedocs.yml](https://github.com/nextstrain/docs.nextstrain.org/blob/master/readthedocs.yml) to get the right dependencies and configuration parameters to build the docs on the Read the Docs server; [more about Read The Docs configuration](https://docs.readthedocs.io/en/stable/config-file/v2.html).
 
-Sphinx is configured via `src/conf.py`; [more about Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html)
+You can adjust settings for the live version of the docs on [the Read The Docs dashboard for this project](https://readthedocs.org/dashboard/nextstrain/edit/). 
+This includes:
 
+#### Configuring [redirects](https://docs.readthedocs.io/en/stable/user-defined-redirects.html)
+To do this you must choose the following options for the redirect in [the redirects tab for this project](https://readthedocs.org/dashboard/nextstrain/redirects/):
+- type of redirect (we often use "Page redirects" when a page has been moved or we want to point from an old page to a new one)
+- From URL
+- To URL
+
+Here is an example:
+```
+Page Redirect
+From URL: /install-nextstrain.html
+To URL: /install.html
+````
+
+A useful tip for Page redirects is that you may configure them while the From URL still is a valid page.
+This won't do anything until that page begins returning a 404, at which point the redirect will take effect.
+This can be helpful to test redirects on a branch/PR, where you can remove the page but still have it on the main branch of the repo.
+Your redirect will apply to the branch/PR version of the docs so long as the page has been removed in that version of the docs and the From URL in the redirect's configuration doesn't specify a version (such as in the example above).
+Then, upon merging the branch/PR, the redirect will apply in the same way on the merged version of the docs!
+
+#### Sphinx
+Sphinx is configured via `src/conf.py`; [more about Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html).
+This includes things like:
+- Excluding files the building of the docs
+- Specifying a custom Sphinx theme such as [ours](https://github.com/nextstrain/sphinx-theme) to provide consistent, branded styling.
+- You may also run custom python code from this context which will execute at build time; we use this to [fetch some remote documents](#fetching-of-documents-from-other-repositories).
 
 ## Building the docs with Docker
 
