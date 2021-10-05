@@ -125,7 +125,7 @@ By default, this means a distinct set of headings / links in the sidebar navigat
 
 ### Fetching of documents from other repositories
 
-Some documents are fetched from other repositories during the build process via src/fetch-docs.py, which is called from src/conf.py.
+Some documents are fetched from other repositories during the build process via [src/fetch-docs.py](https://github.com/nextstrain/docs.nextstrain.org/blob/master/src/fetch-docs.py), which is called from [src/conf.py](https://github.com/nextstrain/docs.nextstrain.org/blob/master/src/conf.py).
 
 This setup is in lieu of a "best of both worlds" solution, which would allow us to version documents in subprojects according to their own repositories, and also include them in this project's domain and table of contents without having to navigate to a separate project to view them.
 
