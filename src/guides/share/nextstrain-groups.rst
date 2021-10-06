@@ -55,7 +55,8 @@ Define your credentials in this file like so, replacing the “…” values wit
 
 Save this file and return to the command line.
 
-Confirm that you have access to your Nextstrain Groups AWS resources, by listing the contents of your group’s S3 bucket. Replace ``<group>`` below with your group name.
+Confirm that you have access to your Nextstrain Groups AWS resources, by listing the contents of your group’s S3 bucket with :doc:`the nextstrain remote list command <cli:commands/remote/list>`.
+Replace ``<group>`` below with your group name.
 
 .. code-block:: bash
 
@@ -93,7 +94,7 @@ After the front matter (in the lines following the last ``---`` characters), wri
 Use `Markdown syntax <https://www.markdownguide.org/basic-syntax/>`_ to format the contents of your group description with headers, lists, links, etc.
 This content will appear between the byline and the list of available datasets on the group's page.
 
-Upload your logo and description to your group’s S3 bucket.
+Upload your logo and description to your group’s S3 bucket with :doc:`the nextstrain remote upload command <cli:commands/remote/upload>`.
 
 .. code-block:: bash
 
@@ -129,7 +130,7 @@ Alternately, upload multiple build files at once with wildcard syntax.
 Remove files from your group
 ============================
 
-You can remove specific files from your group's S3 bucket using the ``nextstrain remote delete`` command.
+You can remove specific files from your group's S3 bucket using :doc:`the nextstrain remote delete command <cli:commands/remote/delete>`.
 For example, the following command removes your group logo and overview files.
 
 .. code-block:: bash
