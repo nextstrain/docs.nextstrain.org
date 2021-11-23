@@ -128,6 +128,7 @@ There are two components to install and configure. These are all the possible co
 
             wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
             bash Miniconda3-latest-Linux-x86_64.sh
+            # follow through installation prompts
             rm Miniconda3-latest-Linux-x86_64.sh
 
       4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
