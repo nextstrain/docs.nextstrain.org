@@ -14,7 +14,7 @@ The following instructions describe how to install Nextstrain's software tools, 
 
 .. note::
 
-    If you want to :doc:`contribute to the development of Nextstrain </guides/contribute/index>` or if you prefer to manage your own custom environment (e.g., a Conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, and :doc:`Auspice <auspice:introduction/install>`.
+    If you want to :doc:`contribute to the development of Nextstrain </guides/contribute/index>` or if you prefer to manage your own custom environment (e.g., a conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, and :doc:`Auspice <auspice:introduction/install>`.
 
 .. contents:: Table of Contents
    :local:
@@ -277,13 +277,13 @@ Update the `nextstrain` conda environment.
 Troubleshoot a broken installation
 ==================================
 
-If Conda fails to install or update Nextstrain using the commands above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
+If conda fails to install or update Nextstrain using the commands above, it's possible that conda itself is out-of-date or that conda cannot figure out how to resolve the environment's dependencies.
 Try the following approaches, to fix these broken installations.
 
 Remove your environment and start from scratch
 ----------------------------------------------
 
-Starting from scratch often fixes problems with Conda environments.
+Starting from scratch often fixes problems with conda environments.
 To start over with a new Nextstrain environment, delete your current environment.
 
 .. code-block:: bash
@@ -291,7 +291,7 @@ To start over with a new Nextstrain environment, delete your current environment
     conda activate base
     conda env remove -n nextstrain
 
-Then, repeat the installation instructions above, starting with the update of Conda itself.
+Then, repeat the installation instructions above, starting with the update of conda itself.
 
 Next steps
 ==========
