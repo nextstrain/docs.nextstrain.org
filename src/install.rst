@@ -25,7 +25,7 @@ Background
 ==========
 
 `Conda <https://docs.conda.io/en/latest/>`_ is a package and environment management system that allows you to install Python and other software into controlled environments without disrupting other software you have installed (e.g., on your computer, your shared cluster, etc.).
-Conda provides an appropriate version of Python required by all approaches to installing Nextstrain tools.
+Conda provides an appropriate version of Python required by all approaches to installing Nextstrain tools. Miniconda is the minimal installation of the command-line interface to conda.
 
 `Mamba <https://github.com/mamba-org/mamba>`_ is a drop-in replacement for most ``conda`` functionality that implements a faster dependency solving algorithm in C++ and multithreaded downloads.
 As a result, mamba can install conda packages much faster and more accurately than the original conda installer.
@@ -46,7 +46,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for augur <augur:installation/installation>` and :doc:`install auspice via npm <auspice:introduction/install>`.
 
-      1. `Install Miniconda <https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html>`_.
+      1. `Install Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
       2. Open a terminal window.
       3. Install mamba on the ``base`` conda environment:
 
@@ -89,7 +89,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          Due to installation constraints, there is no way to use the native build/view environment on Windows directly. Follow steps for **WSL on Windows** if the native environment is desired.
 
-      1. `Install Miniconda <https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html>`_.
+      1. `Install Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
       2. Install Visual C++ build tools following `this guide <https://stackoverflow.com/a/64262038>`_.
 
          - This is necessary for a dependency of Nextstrain CLI and `we are investigating options to eliminate this step <https://github.com/nextstrain/cli/issues/31#issuecomment-970641263>`_.
