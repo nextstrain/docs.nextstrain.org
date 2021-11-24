@@ -33,14 +33,7 @@ When you use the Docker build/view environment, you don’t need to manage any o
 Installation Steps
 ==================
 
-There are two components to install and configure. These are all the possible configuration options, with availability varying by operating system:
-
-1. Nextstrain CLI
-2. Nextstrain build/view environment:
-
-   a. Docker (build + view)
-   b. Native (build + view)
-   c. AWS Batch (build) + Docker/Native (view)
+These instructions will install the Nextstrain CLI and tools to run and view your own Nextstrain analyses. Configuration options vary by operating system.
 
 .. tabs::
 
@@ -60,7 +53,7 @@ There are two components to install and configure. These are all the possible co
             conda create -n nextstrain -c bioconda nextstrain-cli --yes
             conda activate nextstrain
 
-      4. Install the Nextstrain build/view environment. There are two options:
+      4. Install the remaining Nextstrain components. There are two options:
 
          a. Docker (recommended) – install Docker Desktop using `the official guide <https://docs.docker.com/desktop/mac/install/>`_.
          b. Native – install all the necessary software using conda:
@@ -75,7 +68,7 @@ There are two components to install and configure. These are all the possible co
 
             nextstrain check-setup --set-default
 
-         The final output from the last command should look like this, where ``<option>`` is the environment chosen in the previous step:
+         The final output from the last command should look like this, where ``<option>`` is the option chosen in the previous step:
 
          .. code-block:: none
 
@@ -101,7 +94,7 @@ There are two components to install and configure. These are all the possible co
             conda create -n nextstrain -c bioconda nextstrain-cli --yes
             conda activate nextstrain
 
-      5. Install the Nextstrain build/view environment by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
+      5. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
       6. Confirm that the installation worked.
 
          .. code-block:: none
@@ -138,7 +131,7 @@ There are two components to install and configure. These are all the possible co
             conda create -n nextstrain -c bioconda nextstrain-cli --yes
             conda activate nextstrain
 
-      5. Install the Nextstrain build/view environment. There are two options:
+      5. Install the remaining Nextstrain components. There are two options:
 
          a. Docker (recommended) – on Windows, `install Docker Desktop for WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
@@ -156,13 +149,13 @@ There are two components to install and configure. These are all the possible co
 
             nextstrain check-setup --set-default
 
-         The final output from the last command should look like this, where ``<option>`` is the environment chosen in the previous step:
+         The final output from the last command should look like this, where ``<option>`` is the option chosen in the previous step:
 
          .. code-block:: none
 
             Setting default environment to <option>.
 
-Optionally, :doc:`configure the AWS Batch build environment <cli:aws-batch>` to run the build step on AWS.
+Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``nextstrain build`` on AWS.
 
 Next, try :doc:`tutorials/quickstart`.
 
