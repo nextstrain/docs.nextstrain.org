@@ -60,7 +60,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. code-block:: bash
 
-                  conda install -c conda-forge -c bioconda augur auspice snakemake --yes
+               conda install -c conda-forge -c bioconda augur auspice snakemake --yes
 
       5. Confirm that the installation worked.
 
@@ -141,7 +141,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. code-block:: bash
 
-                  conda install -c conda-forge -c bioconda augur auspice snakemake --yes
+               conda install -c conda-forge -c bioconda augur auspice snakemake --yes
 
       6. Confirm that the installation worked.
 
