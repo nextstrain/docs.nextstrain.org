@@ -43,8 +43,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for augur <augur:installation/installation>` and :doc:`install auspice via npm <auspice:introduction/install>`.
 
-      1. Install `Anaconda or Miniconda <https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html>`_.
-         Miniconda is sufficient for this guide.
+      1. `Install Miniconda <https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html>`_.
       2. Open a terminal window.
       3. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
@@ -80,8 +79,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          Due to installation constraints, there is no way to use the native build/view environment on Windows directly. Follow steps for **WSL on Windows** if the native environment is desired.
 
-      1. Install `Anaconda or Miniconda <https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html>`_.
-         Miniconda is sufficient for this guide.
+      1. `Install Miniconda <https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html>`_.
       2. Install Visual C++ build tools following `this guide <https://stackoverflow.com/a/64262038>`_.
 
          - This is necessary for a dependency of Nextstrain CLI and `we are investigating options to eliminate this step <https://github.com/nextstrain/cli/issues/31#issuecomment-970641263>`_.
