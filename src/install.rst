@@ -155,6 +155,71 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             Setting default environment to <option>.
 
+   .. group-tab:: Ubuntu Linux
+
+      .. note::
+
+         If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for augur <augur:installation/installation>` and :doc:`install auspice via npm <auspice:introduction/install>`.
+
+      1. Install Miniconda:
+
+         .. code-block:: bash
+
+            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+            bash Miniconda3-latest-Linux-x86_64.sh
+            # follow through installation prompts
+            rm Miniconda3-latest-Linux-x86_64.sh
+
+      2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+
+         .. code-block:: bash
+
+            conda create -n nextstrain -c bioconda nextstrain-cli --yes
+            conda activate nextstrain
+
+      3. Install the remaining Nextstrain components. There are two options:
+
+         a. Docker (recommended):
+
+            1. Install Docker Engine for Ubuntu using the `convenience script <https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script>`_:
+
+               .. code-block:: bash
+
+                  curl -fsSL https://get.docker.com -o get-docker.sh
+                  sudo sh get-docker.sh
+                  # follow through installation prompts
+                  rm get-docker.sh
+
+            2. Add your user to the `docker` group:
+
+               .. code-block:: bash
+
+                  sudo usermod -aG docker $USER
+
+            3. Restart your machine and activate the conda environment:
+
+               .. code-block:: bash
+
+                  conda activate nextstrain
+
+         b. Native – install all the necessary software using conda:
+
+            .. code-block:: bash
+
+                  conda install -c conda-forge -c bioconda augur auspice snakemake --yes
+
+      4. Confirm that the installation worked.
+
+         .. code-block:: bash
+
+            nextstrain check-setup --set-default
+
+         The final output from the last command should look like this, where ``<option>`` is the option chosen in the previous step:
+
+         .. code-block:: none
+
+            Setting default environment to <option>.
+
 Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``nextstrain build`` on AWS.
 
 Next, try :doc:`tutorials/quickstart`.
