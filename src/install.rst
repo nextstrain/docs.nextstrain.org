@@ -46,7 +46,12 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for augur <augur:installation/installation>` and :doc:`install auspice via npm <auspice:introduction/install>`.
 
-      1. `Install Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
+      1. Install Miniconda:
+
+         a. Go to the `installation page <https://docs.conda.io/en/latest/miniconda.html>`_.
+         b. Scroll down to the **Latest Miniconda Installer Links** section and click the MacOSX platform link that ends with **pkg**.
+         c. Open the downloaded file and follow through installation prompts.
+
       2. Open a terminal window.
       3. Install mamba on the ``base`` conda environment:
 
@@ -89,12 +94,23 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          Due to installation constraints, there is no way to use the native Nextstrain components on Windows directly. Follow steps for **WSL on Windows** if the native environment is desired.
 
-      1. `Install Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
-      2. Install Visual C++ build tools following `this guide <https://stackoverflow.com/a/64262038>`_.
+      1. Install Miniconda:
 
-         - This is necessary for a dependency of Nextstrain CLI and `we are investigating options to eliminate this step <https://github.com/nextstrain/cli/issues/31#issuecomment-970641263>`_.
+         a. Go to the `installation page <https://docs.conda.io/en/latest/miniconda.html>`_.
+         b. Scroll down to the **Latest Miniconda Installer Links** section and click the Windows platform link relevant to your machine.
+         c. Open the downloaded file and follow through installation prompts.
 
-      3. Open an Anaconda Prompt, which can be found in the Start menu.
+      2. Install Visual C++ build tools (`we are investigating options to eliminate this step <https://github.com/nextstrain/cli/issues/31>`_):
+
+         a. Go to `this page <https://visualstudio.microsoft.com/visual-cpp-build-tools/>`_ and click the download button.
+         b. Open the download file and follow through installation prompts.
+         c. Once the Visual Studio Installer opens, click **Modify** next to **Launch**, **More**, etc.
+         d. Select **Desktop development with C++**.
+         e. Go to the Individual components tab.
+         f. Search for and select **Windows 10 SDK** and the entry that ends with **C++ x64/x86 build tools (Latest)**.
+         g. Click **Modify** and follow through prompts.
+
+      3. Open an Anaconda PowerShell Prompt, which can be found in the Start menu.
       4. Install mamba on the ``base`` conda environment:
 
          .. code-block:: bash
