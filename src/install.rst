@@ -126,6 +126,12 @@ These instructions will install the Nextstrain CLI and tools to run and view you
             conda activate nextstrain
 
       6. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
+
+         .. note::
+
+            You may have to restart your machine when configuring WSL (Windows Subsystem for Linux).
+            If so, remember to open a new Anaconda PowerShell Prompt and run ``conda activate nextstrain`` before the next step.
+
       7. Confirm that the installation worked.
 
          .. code-block:: none
