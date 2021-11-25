@@ -31,7 +31,7 @@ Conda provides an appropriate version of Python required by all approaches to in
 As a result, mamba can install conda packages much faster and more accurately than the original conda installer.
 
 `Docker <https://docker.com/>`_ is a container system freely-available for all platforms.
-When you use the Docker build/view environment, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
+When you use Docker to run Nextstrain components, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
 
 Installation Steps
 ==================
@@ -87,7 +87,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       .. note::
 
-         Due to installation constraints, there is no way to use the native build/view environment on Windows directly. Follow steps for **WSL on Windows** if the native environment is desired.
+         Due to installation constraints, there is no way to use the native Nextstrain components on Windows directly. Follow steps for **WSL on Windows** if the native environment is desired.
 
       1. `Install Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
       2. Install Visual C++ build tools following `this guide <https://stackoverflow.com/a/64262038>`_.
