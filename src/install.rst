@@ -74,7 +74,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. code-block:: bash
 
-               mamba install -c conda-forge -c bioconda augur auspice snakemake --yes
+               mamba install -c conda-forge -c bioconda augur auspice nextalign snakemake git --yes
 
       6. Confirm that the installation worked.
 
@@ -185,7 +185,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. code-block:: bash
 
-               mamba install -c conda-forge -c bioconda augur auspice snakemake --yes
+               mamba install -c conda-forge -c bioconda augur auspice nextalign snakemake git --yes
 
       7. Confirm that the installation worked.
 
@@ -257,7 +257,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. code-block:: bash
 
-                  mamba install -c conda-forge -c bioconda augur auspice snakemake --yes
+                  mamba install -c conda-forge -c bioconda augur auspice nextalign snakemake git --yes
 
       5. Confirm that the installation worked.
 
