@@ -4,6 +4,9 @@ Exploring Zika virus evolution
 
 This tutorial explains how to create `a Nextstrain build <https://docs.nextstrain.org/projects/augur/en/stable/faq/what-is-a-build.html>`__ for the Zika virus. We will first make the build step-by-step using an example data set. Then we will see how to automate this stepwise process by defining a pathogen build script.
 
+.. contents:: Table of Contents
+   :local:
+
 Setup
 =====
 
