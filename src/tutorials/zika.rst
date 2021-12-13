@@ -1,21 +1,22 @@
+==============================
 Exploring Zika virus evolution
 ==============================
 
 This tutorial explains how to create `a Nextstrain build <https://docs.nextstrain.org/projects/augur/en/stable/faq/what-is-a-build.html>`__ for the Zika virus. We will first make the build step-by-step using an example data set. Then we will see how to automate this stepwise process by defining a pathogen build script.
 
 Setup
------
+=====
 
 `Install Nextstrain <../install>`__ and `check out the quickstart <./quickstart>`__. These instructions will install all of the software you need to complete this tutorial.
 
-Once you’ve installed Nextstrain, activate the Nextstrain environment.
+Once you've installed Nextstrain, activate the Nextstrain environment.
 
 ::
 
    conda activate nextstrain
 
 Build steps
------------
+===========
 
 Nextstrain builds typically require the following steps:
 
@@ -41,11 +42,11 @@ Optionally, if you want to run this tutorial from the Nextstrain Docker image, s
 Note the dot (``.``) as the last argument; it is important and indicates that your current directory (``zika-tutorial/``) is the build directory. Your command prompt will change to indicate you are in the build environment. If you want to leave the build environment, run the command ``exit``.
 
 Prepare the Sequences
----------------------
+=====================
 
 A Nextstrain build typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`__ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use an example data set with a subset of 34 viruses.
 
-Each example virus sequence record looks like the following, with the virus’s strain ID as the sequence name in the header line followed by the virus sequence.
+Each example virus sequence record looks like the following, with the virus's strain ID as the sequence name in the header line followed by the virus sequence.
 
 ::
 
@@ -55,7 +56,7 @@ Each example virus sequence record looks like the following, with the virus’s 
    taaaacgcggagtagcccgtgtgagcccctttgggggcttgaagaggctgccagccggac
    ttctgctgggtcatgggcccatcaggatggtcttggcgattctagcctttttgagattca
 
-Each sequence record’s virus strain ID links to the tab-delimited metadata file by the latter’s ``strain`` field. The metadata file contains a header of column names followed by one row per virus strain ID in the sequences file. An example metadata file looks like the following.
+Each sequence record's virus strain ID links to the tab-delimited metadata file by the latter's ``strain`` field. The metadata file contains a header of column names followed by one row per virus strain ID in the sequences file. An example metadata file looks like the following.
 
 ::
 
@@ -81,7 +82,7 @@ Builds using published data should include the following additional columns, as 
 -  Paper_URL
 
 Index the Sequences
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Precalculate the composition of the sequences (e.g., numbers of nucleotides, gaps, invalid characters, and total sequence length) prior to filtering. The resulting sequence index speeds up subsequent filter steps especially in more complex workflows.
 
@@ -104,7 +105,7 @@ The first lines in the sequence index look like this.
    COL/FLR_00008/2015  10659   2924    2344    3110    2281    0   0   0   0   0
 
 Filter the Sequences
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Filter the parsed sequences and metadata to exclude strains from subsequent analysis and subsample the remaining strains to a fixed number of samples per group.
 
@@ -121,7 +122,7 @@ Filter the parsed sequences and metadata to exclude strains from subsequent anal
      --min-date 2012
 
 Align the Sequences
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Create a multi-sequence alignment using a custom reference. After this alignment, columns with gaps in the reference are removed. Additionally, the ``--fill-gaps`` flag fills gaps in non-reference sequences with “N” characters. These modifications force all sequences into the same coordinate space as the reference sequence.
 
@@ -136,7 +137,7 @@ Create a multi-sequence alignment using a custom reference. After this alignment
 Now the pathogen sequences are ready for analysis.
 
 Construct the Phylogeny
------------------------
+=======================
 
 Infer a phylogenetic tree from the multi-sequence alignment.
 
@@ -149,7 +150,7 @@ Infer a phylogenetic tree from the multi-sequence alignment.
 The resulting tree is stored in `Newick format <http://evolution.genetics.washington.edu/phylip/newicktree.html>`__. Branch lengths in this tree measure nucleotide divergence.
 
 Get a Time-Resolved Tree
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 Augur can also adjust branch lengths in this tree to position tips by their sample date and infer the most likely time of their ancestors, using `TreeTime <https://github.com/neherlab/treetime>`__. Run the ``refine`` command to apply TreeTime to the original phylogenetic tree and produce a “time tree”.
 
@@ -170,10 +171,10 @@ Augur can also adjust branch lengths in this tree to position tips by their samp
 In addition to assigning times to internal nodes, the ``refine`` command filters tips that are likely outliers and assigns confidence intervals to inferred dates. Branch lengths in the resulting Newick tree measure adjusted nucleotide divergence. All other data inferred by TreeTime is stored by strain or internal node name in the corresponding JSON file.
 
 Annotate the Phylogeny
-----------------------
+======================
 
 Reconstruct Ancestral Traits
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 
 TreeTime can also infer ancestral traits from an existing phylogenetic tree and the metadata annotating each tip of the tree. The following command infers the region and country of all internal nodes from the time tree and original strain metadata. As with the ``refine`` command, the resulting JSON output is indexed by strain or internal node name.
 
@@ -187,7 +188,7 @@ TreeTime can also infer ancestral traits from an existing phylogenetic tree and 
      --confidence
 
 Infer Ancestral Sequences
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 Next, infer the ancestral sequence of each internal node and identify any nucleotide mutations on the branches leading to any node in the tree.
 
@@ -200,9 +201,9 @@ Next, infer the ancestral sequence of each internal node and identify any nucleo
      --inference joint
 
 Identify Amino-Acid Mutations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
-Identify amino acid mutations from the nucleotide mutations and a reference sequence with gene coordinate annotations. The resulting JSON file contains amino acid mutations indexed by strain or internal node name and by gene name. To export a FASTA file with the complete amino acid translations for each gene from each node’s sequence, specify the ``--alignment-output`` parameter in the form of ``results/aligned_aa_%GENE.fasta``.
+Identify amino acid mutations from the nucleotide mutations and a reference sequence with gene coordinate annotations. The resulting JSON file contains amino acid mutations indexed by strain or internal node name and by gene name. To export a FASTA file with the complete amino acid translations for each gene from each node's sequence, specify the ``--alignment-output`` parameter in the form of ``results/aligned_aa_%GENE.fasta``.
 
 ::
 
@@ -213,9 +214,9 @@ Identify amino acid mutations from the nucleotide mutations and a reference sequ
      --output-node-data results/aa_muts.json
 
 Export the Results
-------------------
+==================
 
-Finally, collect all node annotations and metadata and export it in Auspice’s JSON format. This refers to three config files to define colors via ``config/colors.tsv``, latitude and longitude coordinates via ``config/lat_longs.tsv``, as well as page title, maintainer, filters present, etc., via ``config/auspice_config.json``. The resulting tree and metadata JSON files are the inputs to the Auspice visualization tool.
+Finally, collect all node annotations and metadata and export it in Auspice's JSON format. This refers to three config files to define colors via ``config/colors.tsv``, latitude and longitude coordinates via ``config/lat_longs.tsv``, as well as page title, maintainer, filters present, etc., via ``config/auspice_config.json``. The resulting tree and metadata JSON files are the inputs to the Auspice visualization tool.
 
 ::
 
@@ -232,7 +233,7 @@ Finally, collect all node annotations and metadata and export it in Auspice’s 
      --output auspice/zika.json
 
 Visualize the Results
----------------------
+=====================
 
 If you entered the Nextstrain build environment using ``nextstrain shell`` at the beginning of this tutorial, leave it now using the ``exit`` command and then use ``nextstrain view`` to visualize the Zika build output in ``auspice/*.json``.
 
@@ -244,7 +245,7 @@ If you entered the Nextstrain build environment using ``nextstrain shell`` at th
    # View results in your auspice/ directory.
    nextstrain view auspice/
 
-If you’re not using the Nextstrain CLI shell, start auspice to view the dataset in the Zika build output directory.
+If you're not using the Nextstrain CLI shell, start auspice to view the dataset in the Zika build output directory.
 
 ::
 
@@ -255,7 +256,7 @@ When Auspice is running, navigate to http://localhost:4000/local/zika in your br
 To stop Auspice and return to the command line when you are done viewing your data, press CTRL+C.
 
 Automate the Build with Snakemake
----------------------------------
+=================================
 
 While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a single script. Nextstrain implements these automated pathogen builds with `Snakemake <https://snakemake.readthedocs.io>`__ by defining a ``Snakefile`` like `the one in the Zika repository you downloaded <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`__.
 
@@ -276,7 +277,7 @@ This runs all of the manual steps above up through the auspice export. View the 
 Note that automated builds will only re-run steps when the data changes. This means builds will pick up where they left off if they are restarted after being interrupted. If you want to force a re-run of the whole build, first remove any previous output with ``nextstrain build --cpus 1 . clean``.
 
 Next steps
-----------
+==========
 
 -  Learn more about `Augur commands <https://docs.nextstrain.org/projects/augur/en/stable/index.html>`__.
 -  Learn more about `Auspice visualizations <https://docs.nextstrain.org/projects/auspice/en/stable/>`__.
