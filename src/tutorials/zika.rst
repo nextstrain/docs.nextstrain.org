@@ -2,7 +2,7 @@
 Exploring Zika virus evolution
 ==============================
 
-This tutorial explains how to create `a Nextstrain build <https://docs.nextstrain.org/projects/augur/en/stable/faq/what-is-a-build.html>`__ for the Zika virus. We will first make the build step-by-step using an example data set. Then we will see how to automate this stepwise process by defining a pathogen build script.
+This tutorial explains how to create :doc:`a Nextstrain build <augur:faq/what-is-a-build>` for the Zika virus. We will first make the build step-by-step using an example data set. Then we will see how to automate this stepwise process by defining a pathogen build script.
 
 .. contents:: Table of Contents
    :local:
@@ -10,7 +10,7 @@ This tutorial explains how to create `a Nextstrain build <https://docs.nextstrai
 Setup
 =====
 
-`Install Nextstrain <../install>`__ and `check out the quickstart <./quickstart>`__. These instructions will install all of the software you need to complete this tutorial.
+:doc:`Install Nextstrain </install>` and :doc:`check out the quickstart <quickstart>`. These instructions will install all of the software you need to complete this tutorial.
 
 Once you've installed Nextstrain, activate the Nextstrain environment.
 
@@ -47,7 +47,7 @@ Note the dot (``.``) as the last argument; it is important and indicates that yo
 Prepare the Sequences
 =====================
 
-A Nextstrain build typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`__ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use an example data set with a subset of 34 viruses.
+A Nextstrain build typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use an example data set with a subset of 34 viruses.
 
 Each example virus sequence record looks like the following, with the virus's strain ID as the sequence name in the header line followed by the virus sequence.
 
@@ -150,12 +150,12 @@ Infer a phylogenetic tree from the multi-sequence alignment.
      --alignment results/aligned.fasta \
      --output results/tree_raw.nwk
 
-The resulting tree is stored in `Newick format <http://evolution.genetics.washington.edu/phylip/newicktree.html>`__. Branch lengths in this tree measure nucleotide divergence.
+The resulting tree is stored in `Newick format <http://evolution.genetics.washington.edu/phylip/newicktree.html>`_. Branch lengths in this tree measure nucleotide divergence.
 
 Get a Time-Resolved Tree
 ------------------------
 
-Augur can also adjust branch lengths in this tree to position tips by their sample date and infer the most likely time of their ancestors, using `TreeTime <https://github.com/neherlab/treetime>`__. Run the ``refine`` command to apply TreeTime to the original phylogenetic tree and produce a “time tree”.
+Augur can also adjust branch lengths in this tree to position tips by their sample date and infer the most likely time of their ancestors, using `TreeTime <https://github.com/neherlab/treetime>`_. Run the ``refine`` command to apply TreeTime to the original phylogenetic tree and produce a “time tree”.
 
 ::
 
@@ -261,7 +261,7 @@ To stop Auspice and return to the command line when you are done viewing your da
 Automate the Build with Snakemake
 =================================
 
-While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a single script. Nextstrain implements these automated pathogen builds with `Snakemake <https://snakemake.readthedocs.io>`__ by defining a ``Snakefile`` like `the one in the Zika repository you downloaded <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`__.
+While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a single script. Nextstrain implements these automated pathogen builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `the one in the Zika repository you downloaded <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_.
 
 From the ``zika-tutorial/`` directory, delete the output from the manual steps above.
 
@@ -282,6 +282,6 @@ Note that automated builds will only re-run steps when the data changes. This me
 Next steps
 ==========
 
--  Learn more about `Augur commands <https://docs.nextstrain.org/projects/augur/en/stable/index.html>`__.
--  Learn more about `Auspice visualizations <https://docs.nextstrain.org/projects/auspice/en/stable/>`__.
--  Fork the `Zika tutorial pathogen repository on GitHub <https://github.com/nextstrain/zika-tutorial>`__, modify the Snakefile to make your own pathogen build, and learn `how to contribute to nextstrain.org <../guides/share/community-builds>`__.
+-  Learn more about :doc:`Augur commands <augur:index>`.
+-  Learn more about :doc:`Auspice visualizations <auspice:index>`.
+-  Fork the `Zika tutorial pathogen repository on GitHub <https://github.com/nextstrain/zika-tutorial>`_, modify the Snakefile to make your own pathogen build, and learn :doc:`how to contribute to nextstrain.org </guides/share/community-builds>`.
