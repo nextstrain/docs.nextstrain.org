@@ -73,6 +73,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     :caption: Reference
     :hidden:
 
+    reference/glossary
     reference/data-formats
     Augur <https://docs.nextstrain.org/projects/augur/en/stable/index.html>
     Auspice <https://docs.nextstrain.org/projects/auspice/en/stable/>
