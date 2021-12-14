@@ -14,7 +14,7 @@ Setup
 
 Once you've installed Nextstrain, activate the Nextstrain environment.
 
-::
+.. code-block:: bash
 
    conda activate nextstrain
 
@@ -31,14 +31,14 @@ Nextstrain builds typically require the following steps:
 
 Download the Zika pathogen build which includes example data and a pathogen build script.
 
-::
+.. code-block:: bash
 
    git clone https://github.com/nextstrain/zika-tutorial.git
    cd zika-tutorial
 
 Optionally, if you want to run this tutorial from the Nextstrain Docker image, start Docker and then enter a shell prompt on that image.
 
-::
+.. code-block:: bash
 
    nextstrain shell .
 
@@ -89,7 +89,7 @@ Index the Sequences
 
 Precalculate the composition of the sequences (e.g., numbers of nucleotides, gaps, invalid characters, and total sequence length) prior to filtering. The resulting sequence index speeds up subsequent filter steps especially in more complex workflows.
 
-::
+.. code-block:: bash
 
    mkdir -p results/
 
@@ -112,7 +112,7 @@ Filter the Sequences
 
 Filter the parsed sequences and metadata to exclude strains from subsequent analysis and subsample the remaining strains to a fixed number of samples per group.
 
-::
+.. code-block:: bash
 
    augur filter \
      --sequences data/sequences.fasta \
@@ -129,7 +129,7 @@ Align the Sequences
 
 Create a multi-sequence alignment using a custom reference. After this alignment, columns with gaps in the reference are removed. Additionally, the ``--fill-gaps`` flag fills gaps in non-reference sequences with “N” characters. These modifications force all sequences into the same coordinate space as the reference sequence.
 
-::
+.. code-block:: bash
 
    augur align \
      --sequences results/filtered.fasta \
@@ -144,7 +144,7 @@ Construct the Phylogeny
 
 Infer a phylogenetic tree from the multi-sequence alignment.
 
-::
+.. code-block:: bash
 
    augur tree \
      --alignment results/aligned.fasta \
@@ -157,7 +157,7 @@ Get a Time-Resolved Tree
 
 Augur can also adjust branch lengths in this tree to position tips by their sample date and infer the most likely time of their ancestors, using `TreeTime <https://github.com/neherlab/treetime>`_. Run the ``refine`` command to apply TreeTime to the original phylogenetic tree and produce a “time tree”.
 
-::
+.. code-block:: bash
 
    augur refine \
      --tree results/tree_raw.nwk \
@@ -181,7 +181,7 @@ Reconstruct Ancestral Traits
 
 TreeTime can also infer ancestral traits from an existing phylogenetic tree and the metadata annotating each tip of the tree. The following command infers the region and country of all internal nodes from the time tree and original strain metadata. As with the ``refine`` command, the resulting JSON output is indexed by strain or internal node name.
 
-::
+.. code-block:: bash
 
    augur traits \
      --tree results/tree.nwk \
@@ -195,7 +195,7 @@ Infer Ancestral Sequences
 
 Next, infer the ancestral sequence of each internal node and identify any nucleotide mutations on the branches leading to any node in the tree.
 
-::
+.. code-block:: bash
 
    augur ancestral \
      --tree results/tree.nwk \
@@ -208,7 +208,7 @@ Identify Amino-Acid Mutations
 
 Identify amino acid mutations from the nucleotide mutations and a reference sequence with gene coordinate annotations. The resulting JSON file contains amino acid mutations indexed by strain or internal node name and by gene name. To export a FASTA file with the complete amino acid translations for each gene from each node's sequence, specify the ``--alignment-output`` parameter in the form of ``results/aligned_aa_%GENE.fasta``.
 
-::
+.. code-block:: bash
 
    augur translate \
      --tree results/tree.nwk \
@@ -221,7 +221,7 @@ Export the Results
 
 Finally, collect all node annotations and metadata and export it in Auspice's JSON format. This refers to three config files to define colors via ``config/colors.tsv``, latitude and longitude coordinates via ``config/lat_longs.tsv``, as well as page title, maintainer, filters present, etc., via ``config/auspice_config.json``. The resulting tree and metadata JSON files are the inputs to the Auspice visualization tool.
 
-::
+.. code-block:: bash
 
    augur export v2 \
      --tree results/tree.nwk \
@@ -240,7 +240,7 @@ Visualize the Results
 
 If you entered the Nextstrain build environment using ``nextstrain shell`` at the beginning of this tutorial, leave it now using the ``exit`` command and then use ``nextstrain view`` to visualize the Zika build output in ``auspice/*.json``.
 
-::
+.. code-block:: bash
 
    # Leave the shell you entered earlier.
    exit
@@ -250,7 +250,7 @@ If you entered the Nextstrain build environment using ``nextstrain shell`` at th
 
 If you're not using the Nextstrain CLI shell, start auspice to view the dataset in the Zika build output directory.
 
-::
+.. code-block:: bash
 
    auspice view --datasetDir auspice
 
@@ -265,13 +265,13 @@ While it is instructive to run all of the above commands manually, it is more pr
 
 From the ``zika-tutorial/`` directory, delete the output from the manual steps above.
 
-::
+.. code-block:: bash
 
    rm -rf results/ auspice/
 
 Run the automated build.
 
-::
+.. code-block:: bash
 
    nextstrain build --cpus 1 .
 
