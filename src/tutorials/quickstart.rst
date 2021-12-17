@@ -1,24 +1,26 @@
-===============
-Running a build
-===============
+===========================
+Quickstart - Zika evolution
+===========================
 
-This tutorial uses the :doc:`Nextstrain command-line interface (CLI) <cli:index>` to help you get started running and viewing :doc:`the pathogen builds <augur:faq/what-is-a-build>` you see on `nextstrain.org <https://nextstrain.org>`_.
+This tutorial uses the :term:`Nextstrain CLI<CLI>` to help you get started running and viewing :term:`the pathogen builds<Build>` you see on `nextstrain.org <https://nextstrain.org>`_.
 It assumes you are comfortable using the command line and installing software on your computer.
 If you need help when following this tutorial, please create a post at `discussion.nextstrain.org <https://discussion.nextstrain.org>`_.
 
-When you're done following this tutorial, you will have built a local version of `our example Zika analysis <https://github.com/nextstrain/zika-tutorial>`_ and viewed the results on your computer.
-You'll have a basic understanding of how to run builds for other pathogens and a foundation for understanding the Nextstrain ecosystem in more depth.
+In this, you will run a build of `our example Zika analysis <https://github.com/nextstrain/zika-tutorial>`_ and view the results on your computer.
+You will have a basic understanding of how to run builds for other pathogens and a foundation for understanding the Nextstrain ecosystem in more depth.
 
 .. contents:: Table of Contents
    :local:
 
+Prerequisites
+=============
+
+1. :doc:`Install Nextstrain </install>` including the Nextstrain CLI. These instructions will install all of the software you need to complete this tutorial and others.
+
 Setup
 =====
 
-:doc:`Install Nextstrain </install>` including the Nextstrain CLI.
-These instructions will install all of the software you need to complete this tutorial and others.
-
-If you've already installed Nextstrain, activate the Nextstrain environment.
+Activate the ``nextstrain`` conda environment.
 
 .. code-block::
 
