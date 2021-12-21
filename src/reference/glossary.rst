@@ -13,6 +13,7 @@ Glossary
       A web application used for phylogenetic visualization and analysis. :doc:`Documentation<auspice:index>`
 
    workflow
+      also *pathogen workflow*
 
       A sequential process producing one or more :term:`datasets<dataset>`, which can be visualized by :term:`Auspice`.
 
@@ -21,38 +22,23 @@ Glossary
       1. Single-build workflow (e.g. Zika workflow): one build, one dataset.
       2. Multi-build workflow (e.g. SARS-CoV-2 workflow): multiple builds, multiple datasets.
 
+      .. note::
+
+         The individual builds in a multi-build workflow are also "workflows" in the definition of workflow managers like Snakemake.
+
    build
-      also *pathogen build*
 
-      from :doc:`parts of a whole</learn/parts>`
+      *(noun)* A set of commands, parameters and input files which work together to reproducibly execute bioinformatic analyses and generate a :term:`dataset` for visualization with :term:`Auspice`.
 
-         **Builds** are recipes of code and data that produce result datasets for visualization and analysis.  Builds run dozens of commands and often use `Snakemake <https://snakemake.readthedocs.io>`_ to :doc:`manage the pipeline workflow </guides/bioinformatics/augur_snakemake>`, but any workflow system can be used, such as `Nextflow <https://nextflow.io>`_ or `WDL <https://openwdl.org>`_. As an example, our core builds are organized as `Git repositories <https://git-scm.com>`_ hosted on `GitHub <https://github.com/nextstrain>`_ which contain a Snakemake workflow using Augur, configuration, and data.
+   build (verb)
 
-      from https://docs.nextstrain.org/projects/augur/en/stable/faq/what-is-a-build.html
-
-         Nextstrain's focus on providing a real-time snapshot of evolving pathogen populations necessitates a reproducible analysis that can be rerun when new sequences are available. The individual steps necessary to repeat analysis together comprise a "build".
-
-         Because no two datasets or pathogens are the same, we build Augur to be flexible and suitable for different analyses. The individual Augur commands are composable, and can be mixed and matched with other scripts as needed. These steps, taken together, are what we refer to as a "build".
-
-      from https://docs.nextstrain.org/projects/ncov/en/latest/analysis/orientation-workflow.html#what-s-a-build
-
-         The components in this diagram constitute a Nextstrain “build” - i.e., a set of commands, parameters and input files which work together to reproducibly execute bioinformatic analyses and generate a JSON for visualization with auspice. You can learn more about builds `here <https://docs.nextstrain.org/projects/ncov/en/latest/analysis/orientation-workflow.html#what-s-a-build>`_.
-
-         Builds are particularly important if you frequently want to run several different analysis workflows or datasets. For example, if you wanted to run one analysis on just your data and another analysis that incorporates background / contextual sequences, you could configure two different builds (one for each of these workflows). We'll cover this in more detail in the `basic build configuration <https://docs.nextstrain.org/projects/ncov/en/latest/analysis/running.html>`_ section.
-
-      from https://github.com/nextstrain/nextstrain.org/blob/master/docs/glossary.md#build
-
-         A *build* is a collection of data and code that produces :term:`datasets<dataset>` for visualization on nextstrain.org.
-         Our [core](#core) builds — for example `Zika <https://github.com/nextstrain/zika>`_ — are organized as git repositories hosted on GitHub which contain a `Snakemake <https://snakemake.readthedocs.io>`_ workflow using :term:`Augur`, configuration, and data.
-         Builds produce :term:`JSONs` which can be visualized by :term:`Auspice` and may be deployed to Nextstrain.
+      A general term for running a :term:`workflow` (e.g. ``nextstrain build``).
 
    build step
-      also *pathogen build step*
 
       A modular instruction of a :term:`build` which can be run standalone (e.g. ``augur filter``), often with clear input and output files.
 
    build script
-      also *pathogen build script*
 
       In :term:`single-build workflows<workflow>`, a **build script** (e.g. ``Snakefile``) is used to chain together :term:`build steps<build step>` and runnable with a single command. The script is contained in a folder alongside other necessary files.
 

@@ -2,7 +2,7 @@
 Detailed analysis - Zika evolution
 ==================================
 
-This tutorial dissects the :term:`build` used in the quickstart tutorial. We will first make the build step-by-step. Then we will automate this stepwise process by creating a :term:`pathogen build script<build script>`.
+This tutorial dissects the :term:`single-build workflow<workflow>` used in the quickstart tutorial. We will first make the build step-by-step. Then we will automate this stepwise process by creating a :term:`build script`.
 
 .. contents:: Table of Contents
    :local:
@@ -23,7 +23,7 @@ Setup
 
       conda activate nextstrain
 
-2. Change directory to the Zika pathogen build folder downloaded in the quickstart, which includes example data and a :term:`pathogen build script<build script>`.
+2. Change directory to the Zika pathogen workflow folder downloaded in the quickstart, which includes example data and a :term:`build script`.
 
    .. code-block:: bash
 
