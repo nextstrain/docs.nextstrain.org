@@ -2,7 +2,11 @@
 Detailed analysis - Zika evolution
 ==================================
 
-This tutorial dissects the :term:`single-build workflow<workflow>` used in the quickstart tutorial. We will first make the build step-by-step. Then we will automate this stepwise process by creating a :term:`build script`.
+This tutorial dissects the :term:`single-build workflow<workflow>` used in the quickstart tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
+
+.. note::
+
+   The difference between a :term:`workflow` and :term:`build` isn't obvious with single-build workflows such as this example Zika workflow, but will become more distinct in multi-build workflows such as the SARS-CoV-2 workflow.
 
 .. contents:: Table of Contents
    :local:
@@ -23,7 +27,7 @@ Setup
 
       conda activate nextstrain
 
-2. Change directory to the Zika pathogen workflow folder downloaded in the quickstart, which includes example data and a :term:`build script`.
+2. Change directory to the Zika :term:`workflow repository` downloaded in the quickstart.
 
    .. code-block:: bash
 
@@ -35,67 +39,66 @@ Setup
 
       mkdir -p results/
 
-4. Additionally, if you installed Nextstrain with the :term:`Docker runtime<runtime>`, start Docker and then enter a shell prompt on that image.
+4. Additionally, if you installed Nextstrain with the :term:`Docker runtime<runtime>`, start Docker and enter the runtime.
 
    .. code-block:: bash
 
       nextstrain shell .
 
-   Note the dot (``.``) as the last argument; it is important and indicates that your current directory (``zika-tutorial/``) is the build directory. Your command prompt will change to indicate you are in the build environment. If you want to leave the build environment, run the command ``exit``.
+   .. note::
+
+      The dot (``.``) as the last argument indicates that your current directory (``zika-tutorial/``) is the working directory. Your command prompt will change to indicate you are in the Docker runtime. If you want to leave the runtime, run the command ``exit``.
 
 Run a Nextstrain Build
 ======================
 
-Nextstrain builds typically require the following steps:
+:term:`Nextstrain builds<build>` typically require the following steps:
 
-1. Prepare pathogen sequences and metadata
-2. Align sequences
-3. Construct a phylogeny from aligned sequences
-4. Annotate the phylogeny with inferred ancestral pathogen dates, sequences, and traits
-5. Export the annotated phylogeny and corresponding metadata into auspice-readable format
-
-.. contents:: Quick Links
+.. contents::
    :local:
 
 Prepare the Sequences
 ---------------------
 
-A Nextstrain build typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use an example data set with a subset of 34 viruses.
+.. admonition:: Sequence data overview
+   :class: dropdown, note
 
-Each example virus sequence record looks like the following, with the virus's strain ID as the sequence name in the header line followed by the virus sequence.
+   A :term:`Nextstrain build<build>` typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use example data containing 34 virus sequences.
 
-::
+   Each virus sequence record looks like the following, with the virus's strain ID as the sequence name in the header line followed by the virus sequence.
 
-   >PAN/CDC_259359_V1_V3/2015
-   gaatttgaagcgaatgctaacaacagtatcaacaggttttattttggatttggaaacgag
-   agtttctggtcatgaaaaacccaaaaaagaaatccggaggattccggattgtcaatatgc
-   taaaacgcggagtagcccgtgtgagcccctttgggggcttgaagaggctgccagccggac
-   ttctgctgggtcatgggcccatcaggatggtcttggcgattctagcctttttgagattca
+   ::
 
-Each sequence record's virus strain ID links to the tab-delimited metadata file by the latter's ``strain`` field. The metadata file contains a header of column names followed by one row per virus strain ID in the sequences file. An example metadata file looks like the following.
+      >PAN/CDC_259359_V1_V3/2015
+      gaatttgaagcgaatgctaacaacagtatcaacaggttttattttggatttggaaacgag
+      agtttctggtcatgaaaaacccaaaaaagaaatccggaggattccggattgtcaatatgc
+      taaaacgcggagtagcccgtgtgagcccctttgggggcttgaagaggctgccagccggac
+      ttctgctgggtcatgggcccatcaggatggtcttggcgattctagcctttttgagattca
 
-::
+   Each sequence record's virus strain ID links to the tab-delimited metadata file by the latter's ``strain`` field. The metadata file contains a header of column names followed by one row per virus strain ID in the sequences file. An example metadata file looks like the following.
 
-   strain  virus   accession   date    region  country division    city    db  segment authors url title   journal paper_url
-   1_0087_PF   zika    KX447509    2013-12-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447509   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
-   1_0181_PF   zika    KX447512    2013-12-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447512   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
-   1_0199_PF   zika    KX447519    2013-11-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447519   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
-   Aedes_aegypti/USA/2016/FL05 zika    KY075937    2016-09-09  north_america   usa usa usa genbank genome  Grubaugh et al  https://www.ncbi.nlm.nih.gov/nuccore/KY075937   Genomic epidemiology reveals multiple introductions of Zika virus into the United States    Nature (2017) In press  https://www.ncbi.nlm.nih.gov/pubmed/28538723
+   ::
 
-A metadata file must have the following columns:
+      strain  virus   accession   date    region  country division    city    db  segment authors url title   journal paper_url
+      1_0087_PF   zika    KX447509    2013-12-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447509   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
+      1_0181_PF   zika    KX447512    2013-12-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447512   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
+      1_0199_PF   zika    KX447519    2013-11-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447519   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
+      Aedes_aegypti/USA/2016/FL05 zika    KY075937    2016-09-09  north_america   usa usa usa genbank genome  Grubaugh et al  https://www.ncbi.nlm.nih.gov/nuccore/KY075937   Genomic epidemiology reveals multiple introductions of Zika virus into the United States    Nature (2017) In press  https://www.ncbi.nlm.nih.gov/pubmed/28538723
 
--  Strain
--  Virus
--  Date
+   A metadata file must have the following columns:
 
-Builds using published data should include the following additional columns, as shown in the example above:
+   -  Strain
+   -  Virus
+   -  Date
 
--  Accession (e.g., NCBI GenBank, EMBL EBI, etc.)
--  Authors
--  URL
--  Title
--  Journal
--  Paper_URL
+   Builds using published data should include the following additional columns, as shown in the example above:
+
+   -  Accession (e.g., NCBI GenBank, EMBL EBI, etc.)
+   -  Authors
+   -  URL
+   -  Title
+   -  Journal
+   -  Paper_URL
 
 Index the Sequences
 ~~~~~~~~~~~~~~~~~~~
@@ -108,7 +111,7 @@ Precalculate the composition of the sequences (e.g., numbers of nucleotides, gap
      --sequences data/sequences.fasta \
      --output results/sequence_index.tsv
 
-The first lines in the sequence index look like this.
+The first lines in ``results/sequence_index.tsv`` should look like this.
 
 ::
 
@@ -246,33 +249,32 @@ Finally, collect all node annotations and metadata and export it in Auspice's JS
      --auspice-config config/auspice_config.json \
      --output auspice/zika.json
 
+.. note::
+
+   If you entered the Nextstrain Docker runtime using ``nextstrain shell`` at the beginning of this tutorial, leave it now using the ``exit`` command.
+
+   .. code-block:: bash
+
+      # Leave the Docker runtime you entered earlier.
+      exit
+
 Visualize the Results
 =====================
 
-If you entered the Nextstrain build environment using ``nextstrain shell`` at the beginning of this tutorial, leave it now using the ``exit`` command and then use ``nextstrain view`` to visualize the Zika build output in ``auspice/*.json``.
+Use ``nextstrain view`` to visualize the Zika dataset using :term:`Auspice`.
 
 .. code-block:: bash
 
-   # Leave the shell you entered earlier.
-   exit
-
-   # View results in your auspice/ directory.
    nextstrain view auspice/
 
-If you're not using the Nextstrain CLI shell, start auspice to view the dataset in the Zika build output directory.
-
-.. code-block:: bash
-
-   auspice view --datasetDir auspice
-
-When Auspice is running, navigate to http://localhost:4000/local/zika in your browser to view the results.
+While Auspice is running, navigate to http://127.0.0.1:4000/zika in your browser to view the dataset.
 
 To stop Auspice and return to the command line when you are done viewing your data, press CTRL+C.
 
 Automate the Build with Snakemake
 =================================
 
-While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a single script. Nextstrain implements these automated pathogen builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`quickstart tutorial <quickstart>`.
+While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager. Nextstrain implements these automated builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`quickstart tutorial <quickstart>`.
 
 From the ``zika-tutorial/`` directory, delete the previously generated results.
 
@@ -286,13 +288,13 @@ Run the automated build.
 
    nextstrain build --cpus 1 .
 
-This runs all of the manual steps above up through the auspice export. View the results the same way you did before to confirm it produced the same Zika build you made manually.
+This runs all of the manual steps above, up through ``augur export``. View the results the same way you did before to confirm it produced the same dataset.
 
-Note that automated builds will only re-run steps when the data changes. This means builds will pick up where they left off if they are restarted after being interrupted. If you want to force a re-run of the whole build, first remove any previous output with ``nextstrain build --cpus 1 . clean``.
+Note that Snakemake will only re-run rules when the data changes. This means workflows will pick up where they left off if they are restarted after being interrupted. If you want to force a re-run of the whole workflow, first remove any previous output with ``nextstrain build --cpus 1 . clean``.
 
 Next steps
 ==========
 
 -  Learn more about :doc:`Augur commands <augur:index>`.
 -  Learn more about :doc:`Auspice visualizations <auspice:index>`.
--  Fork the `Zika tutorial pathogen repository on GitHub <https://github.com/nextstrain/zika-tutorial>`_, modify the Snakefile to make your own pathogen build, and learn :doc:`how to contribute to nextstrain.org </guides/share/community-builds>`.
+-  Fork the `Zika tutorial pathogen repository on GitHub <https://github.com/nextstrain/zika-tutorial>`_, modify the Snakefile to make your own pathogen workflow, and learn :doc:`how to contribute to nextstrain.org </guides/share/community-builds>`.

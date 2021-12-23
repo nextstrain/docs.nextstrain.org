@@ -3,7 +3,7 @@ Parts of a whole
 ================
 
 Nextstrain is made up of many different parts that all work together.  Two core
-parts are :doc:`Augur <augur:index>` and :doc:`Auspice <auspice:index>`.
+parts are :term:`Augur` and :term:`Auspice`.
 
 .. graphviz::
     :align: center
@@ -33,7 +33,7 @@ parts are :doc:`Augur <augur:index>` and :doc:`Auspice <auspice:index>`.
         Augur -> Auspice;
     }
 
-**Augur** is a series of composable, modular bioinformatics tools. We use these
+:term:`Augur` is a series of composable, modular bioinformatics tools. We use these
 to create recipes for different pathogens and different analyses, which can be
 reproduced given the same input data and replicated when new data is available.
 
@@ -70,7 +70,7 @@ reproduced given the same input data and replicated when new data is available.
         ellipsis2 [label="…", shape=plain, style=""];
     }
 
-**Auspice** is a web-based visualization program, to present and interact with
+:term:`Auspice` is a web-based visualization program, to present and interact with
 phylogenomic and phylogeographic data. Auspice is what you see when, for
 example, you visit `nextstrain.org/mumps/na
 <https://nextstrain.org/mumps/na>`__.
@@ -79,8 +79,8 @@ example, you visit `nextstrain.org/mumps/na
 
     Auspice displaying Mumps genomes from North America.
 
-Augur produces :doc:`dataset files </reference/data-formats>` which are
-visualized by Auspice.  These files are often referred to as "JSONs"
+Augur produces :term:`datasets<dataset>` which are
+visualized by Auspice.  These files are often referred to as :term:`JSONs`
 colloquially because they use a generic data format called JSON.
 
 .. graphviz::
@@ -111,16 +111,8 @@ colloquially because they use a generic data format called JSON.
 
         Augur -> jsons -> Auspice;
     }
- 
-**Builds** are recipes of code and data that produce result **datasets** for
-visualization and analysis.  Builds run dozens of commands and often use
-`Snakemake <https://snakemake.readthedocs.io>`__ to :doc:`manage the pipeline
-workflow </guides/bioinformatics/augur_snakemake>`, but any workflow system can
-be used, such as `Nextflow <https://nextflow.io>`__ or `WDL
-<https://openwdl.org>`__.  As an example, our core builds are organized as `Git
-repositories <https://git-scm.com>`__ hosted on `GitHub
-<https://github.com/nextstrain>`__ which contain a Snakemake workflow using
-Augur, configuration, and data.
+
+:term:`Builds<build>` are recipes of code and data that produce these :term:`datasets<dataset>`.
 
 .. graphviz::
     :align: center
@@ -164,6 +156,35 @@ Augur, configuration, and data.
         metadata -> filter;
     }
 
+Builds run several commands and are often automated by workflow managers such as `Snakemake <https://snakemake.readthedocs.io>`__, `Nextflow <https://nextflow.io>`__ and `WDL <https://openwdl.org>`__. A :term:`workflow` bundles one or more related :term:`builds<build>` which each produce a :term:`dataset` for visualization with :term:`Auspice`.
+
+As an example, our core workflows are organized as `Git repositories <https://git-scm.com>`__ hosted on `GitHub <https://github.com/nextstrain>`__. Each contains a :doc:`Snakemake workflow </guides/bioinformatics/augur_snakemake>` using Augur, configuration, and data.
+
+.. graphviz::
+    :align: center
+
+    digraph {
+        node [shape=box]
+        rankdir=LR
+
+        subgraph cluster_0 {
+            label = "Zika workflow";
+            build0 [label="zika"]
+        }
+
+        subgraph cluster_1 {
+            label = "SARS-CoV-2 workflow";
+            build1 [label="ncov/global"]
+            build2 [label="ncov/africa"]
+        }
+
+        // invisible edge to arrange clusters on same row
+        {
+            edge[style=invis]
+            build0 -> build1
+        }
+    }
+
 `nextstrain.org <https://nextstrain.org>`__ is a web application to host and
 present the core pathogen builds maintained by the Nextstrain team, as well as
 builds published to :doc:`Nextstrain Groups </guides/share/nextstrain-groups>`
@@ -172,13 +193,13 @@ maintained and :doc:`shared </guides/share/index>` by many other people.  The
 website incorporates a customized version of Auspice for displaying each
 dataset.
 
-You can run :doc:`Augur <augur:index>` and :doc:`Auspice <auspice:index>` on
+You can run :term:`Augur` and :term:`Auspice` on
 your own computer and use them independently or together with your own builds,
 our core builds, or others' group or community builds.  You can even install
 Auspice on :doc:`your own web server <auspice:server/index>` if you don't want
 to host your builds via nextstrain.org.
 
-The :doc:`Nextstrain CLI <cli:index>` (a program called ``nextstrain``) ties
+The :term:`Nextstrain CLI<CLI>` ties
 together all of the above to provide a consistent way to run pathogen builds,
 access Nextstrain tools like Augur and Auspice across computing environments
 such as Docker, Conda, and AWS Batch, and publish datasets to nextstrain.org.

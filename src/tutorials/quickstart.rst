@@ -6,8 +6,8 @@ This tutorial uses the :term:`Nextstrain CLI<CLI>` to help you get started runni
 It assumes you are comfortable using the command line and installing software on your computer.
 If you need help when following this tutorial, please create a post at `discussion.nextstrain.org <https://discussion.nextstrain.org>`_.
 
-In this, you will run the build in `our example Zika analysis workflow <https://github.com/nextstrain/zika-tutorial>`_ and view the results on your computer.
-You will have a basic understanding of how to run builds for other pathogens and a foundation for understanding the Nextstrain ecosystem in more depth.
+In this tutorial, you will run our `example Zika workflow <https://github.com/nextstrain/zika-tutorial>`_ and view the results on your computer.
+You will have a basic understanding of how to run workflows for other pathogens and a foundation for understanding the Nextstrain ecosystem in more depth.
 
 .. contents:: Table of Contents
    :local:
@@ -15,7 +15,7 @@ You will have a basic understanding of how to run builds for other pathogens and
 Prerequisites
 =============
 
-1. :doc:`Install Nextstrain </install>` including the Nextstrain CLI. These instructions will install all of the software you need to complete this tutorial and others.
+1. :doc:`Install Nextstrain </install>`. These instructions will install all of the software you need to complete this tutorial and others.
 
 Setup
 =====
@@ -26,11 +26,10 @@ Activate the ``nextstrain`` conda environment.
 
     conda activate nextstrain
 
-Download the Nextstrain Zika tutorial repository
-================================================
+Download the example Zika workflow repository
+=============================================
 
-We store our pathogen workflows in a version control repository, so we can easily track changes over time.
-Download the `example Zika pathogen repository <https://github.com/nextstrain/zika-tutorial>`_ you're going to :term:`build<build (verb)>`.
+:term:`Pathogen workflows<workflow>` are stored in :term:`workflow repositories<workflow repository>` (version-controlled folders) to track changes over time. Download the `example Zika workflow repository <https://github.com/nextstrain/zika-tutorial>`_.
 
 .. code-block::
 
@@ -40,12 +39,12 @@ Download the `example Zika pathogen repository <https://github.com/nextstrain/zi
 
 When it's done, you'll have a new directory called ``zika-tutorial/``.
 
-Run the build
-=============
+Run the workflow
+================
 
-Nextstrain builds use the :doc:`Augur bioinformatics toolkit <augur:index>` to subsample data, align sequences, build a phylogeny, estimate phylogeographic patterns, and save the results in a format suitable for :doc:`visualization with Auspice <auspice:index>`.
+:term:`Pathogen workflows<workflow>` use the :term:`Augur` bioinformatics toolkit to subsample data, align sequences, build a phylogeny, estimate phylogeographic patterns, and save the results in a format suitable for visualization with :term:`Auspice`.
 
-Run the build with the Nextstrain CLI.
+Run the workflow with the :term:`Nextstrain CLI<CLI>`.
 
 .. code-block::
 
@@ -54,12 +53,12 @@ Run the build with the Nextstrain CLI.
     [...a lot of output...]
 
 This should take just a few minutes to complete.
-To save time, this tutorial build uses an example dataset which is much smaller than `our live Zika analysis <https://nextstrain.org/zika>`_.
+To save time, this tutorial uses example data which is much smaller than `our live Zika analysis <https://nextstrain.org/zika>`_.
 
 Output files will be in the directories ``zika-tutorial/data/``, ``zika-tutorial/results/`` and ``zika-tutorial/auspice/``.
 
-Visualize build results
-=======================
+Visualize results
+=================
 
 View the resulting :term:`dataset` using Nextstrain's visualizations.
 
@@ -68,11 +67,11 @@ View the resulting :term:`dataset` using Nextstrain's visualizations.
     $ nextstrain view zika-tutorial/auspice/
     ——————————————————————————————————————————————————————————————————————————————
         The following datasets should be available in a moment:
-           • http://127.0.0.1:4000/local/zika
+           • http://127.0.0.1:4000/zika
     ——————————————————————————————————————————————————————————————————————————————
     [...more output...]
 
-`Open the link shown <http://127.0.0.1:4000/local/zika>`_ in your browser.
+Open the `dataset URL <http://127.0.0.1:4000/zika>`_ in your web browser.
 
 .. image :: ../images/zika_example.png
    :alt: Screenshot of Zika example dataset viewed in Nextstrain
@@ -80,7 +79,7 @@ View the resulting :term:`dataset` using Nextstrain's visualizations.
 Next steps
 ==========
 
-* :doc:`Learn how to interpret Nextstrain's visualizations </learn/interpret/index>`
-* :doc:`Explore Zika evolution in more detail </tutorials/zika>` or :doc:`explore Tuberculosis evolution </tutorials/tb_tutorial>`.
+* :doc:`Learn how to interpret Nextstrain's visualizations </learn/interpret/index>`.
+* :doc:`Learn how to create the workflow in this tutorial </tutorials/zika>`.
 * Learn more about the CLI by running ``nextstrain --help`` and ``nextstrain <command> --help``.
-* Explore the Nextstrain environment by running ad-hoc commands inside it using ``nextstrain shell zika/``.
+* Explore the :term:`Nextstrain runtime<runtime>` by running ad-hoc commands inside it using ``nextstrain shell zika-tutorial/``.
