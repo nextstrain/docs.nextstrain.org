@@ -44,20 +44,6 @@ Glossary
 
       A modular instruction of a :term:`build` which can be run standalone (e.g. ``augur filter``), often with clear input and output files.
 
-   build script
-
-      A file used to chain together :term:`build steps<build step>`. The script is contained in a folder alongside other necessary files.
-
-      A example is the `Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ in the example Zika workflow.
-
-      In complex workflows, there can be multiple build scripts that work together to run the workflow.
-
-      For SARS-CoV-2, the following build scripts work together:
-
-      - ``Snakefile``
-      - ``workflow/snakemake_rules/*.smk``
-      - ``builds.yaml``
-
    dataset
       A collection of :term:`JSONs` produced by a :term:`build`. It is also the shared file prefix of the JSONs. For example ``flu/seasonal/h3n2/ha/2y`` identifies a dataset which corresponds to the files
       :
