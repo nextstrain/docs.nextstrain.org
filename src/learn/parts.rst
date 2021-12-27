@@ -164,24 +164,47 @@ As an example, our core workflows are organized as `Git repositories <https://gi
     :align: center
 
     digraph {
-        node [shape=box]
+        graph [
+            fontname="Lato, 'Helvetica Neue', sans-serif",
+            fontsize=12,
+        ]
+        node [
+            shape=box,
+            style="rounded, filled",
+            fontname="Lato, 'Helvetica Neue', sans-serif",
+            fontsize=12,
+            height=0.1,
+            colorscheme=paired10,
+        ];
         rankdir=LR
 
         subgraph cluster_0 {
             label = "Zika workflow";
-            build0 [label="zika"]
+            build0 [width=1, label="Zika build"]
+            dataset0 [width=1, label="dataset"]
         }
 
         subgraph cluster_1 {
             label = "SARS-CoV-2 workflow";
-            build1 [label="ncov/global"]
-            build2 [label="ncov/africa"]
+            build1 [width=1, label="Global build"]
+            build2 [width=1, label="Africa build"]
+            build3 [width=1, label="Europe build"]
+            dataset1 [width=1, label="dataset"]
+            dataset2 [width=1, label="dataset"]
+            dataset3 [width=1, label="dataset"]
+            ellipses1 [width=1, label="...", penwidth=0, fillcolor="white"]
+            ellipses2 [width=1, label="...", penwidth=0, fillcolor="white"]
         }
 
-        // invisible edge to arrange clusters on same row
+        build0 -> dataset0
+        build1 -> dataset1
+        build2 -> dataset2
+        build3 -> dataset3
+
         {
             edge[style=invis]
-            build0 -> build1
+            dataset0 -> build1      // arrange clusters on same row
+            ellipses1 -> ellipses2
         }
     }
 
