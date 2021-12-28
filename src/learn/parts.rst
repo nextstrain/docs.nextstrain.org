@@ -79,7 +79,7 @@ example, you visit `nextstrain.org/mumps/na
 
     Auspice displaying Mumps genomes from North America.
 
-Augur produces :term:`datasets<dataset>` which are
+:term:`Datasets<dataset>` are produced by Augur and
 visualized by Auspice.  These files are often referred to as :term:`JSONs`
 colloquially because they use a generic data format called JSON.
 
@@ -218,8 +218,8 @@ As an example, our core workflows are organized as `Git repositories <https://gi
     }
 
 `nextstrain.org <https://nextstrain.org>`__ is a web application to host and
-present the core pathogen builds maintained by the Nextstrain team, as well as
-builds published to :doc:`Nextstrain Groups </guides/share/nextstrain-groups>`
+present the core pathogen datasets maintained by the Nextstrain team, as well as
+datasets published to :doc:`Nextstrain Groups </guides/share/nextstrain-groups>`
 and :doc:`community pages </guides/share/community-builds>` which are
 maintained and :doc:`shared </guides/share/index>` by many other people.  The
 website incorporates a customized version of Auspice for displaying each
@@ -229,10 +229,10 @@ You can run :term:`Augur` and :term:`Auspice` on
 your own computer and use them independently or together with your own builds,
 our core builds, or others' group or community builds.  You can even install
 Auspice on :doc:`your own web server <auspice:server/index>` if you don't want
-to host your builds via nextstrain.org.
+to host your datasets via nextstrain.org.
 
 The :term:`Nextstrain CLI<CLI>` ties
-together all of the above to provide a consistent way to run pathogen builds,
+together all of the above to provide a consistent way to run pathogen workflows,
 access Nextstrain tools like Augur and Auspice across computing environments
 such as Docker, Conda, and AWS Batch, and publish datasets to nextstrain.org.
 
@@ -240,8 +240,8 @@ such as Docker, Conda, and AWS Batch, and publish datasets to nextstrain.org.
 programs (``nextclade`` and ``nextalign``) for performing viral genome
 alignment, mutation calling, clade assignment, quality checks, and phylogenetic
 placement.  Nextclade can be used indepedently of other Nextstrain tools as
-well as integrated into builds.
+well as integrated into workflows.
 
 With this overview, you'll be better prepared to :doc:`install Nextstrain
-</install>` and :doc:`run a build </tutorials/quickstart>` or :doc:`contribute
+</install>` and :doc:`run a workflow </tutorials/quickstart>` or :doc:`contribute
 to development </guides/contribute/index>`.
