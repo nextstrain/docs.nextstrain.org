@@ -107,7 +107,13 @@ colloquially because they use a generic data format called JSON.
 
         Augur [fillcolor=1, color=2];
         Auspice [fillcolor=3, color=4];
-        jsons [label="mumps_na.json\lmumps_na_root-sequence.json"];
+        jsons [label=<
+    Dataset
+    <FONT POINT-SIZE="10">
+    <BR ALIGN="LEFT"/>- mumps_na.json
+    <BR ALIGN="LEFT"/>- mumps_na_root-sequence.json
+    </FONT>
+    >];
 
         Augur -> jsons -> Auspice;
     }
@@ -142,9 +148,12 @@ colloquially because they use a generic data format called JSON.
             filter -> align -> tree -> refine -> export;
         }
 
+        Dataset;
+
         Auspice [fillcolor=3, color=4];
 
-        export -> Auspice;
+        export -> Dataset;
+        Dataset -> Auspice;
 
         subgraph inputs {
             graph [rank=same];
