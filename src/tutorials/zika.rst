@@ -1,8 +1,8 @@
-==================================
-Detailed analysis - Zika evolution
-==================================
+============================
+Creating a pathogen workflow
+============================
 
-This tutorial dissects the :term:`single-build workflow<workflow>` used in the quickstart tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
+This tutorial dissects the :term:`single-build workflow<workflow>` used in the previous tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
 
 .. note::
 
@@ -16,7 +16,7 @@ Prerequisites
 =============
 
 1. :doc:`Install Nextstrain </install>`.
-2. Run through the :doc:`quickstart<quickstart>`. This will verify your installation.
+2. Run through the :doc:`previous tutorial<quickstart>`. This will verify your installation.
 
 Setup
 =====
@@ -27,7 +27,7 @@ Setup
 
       conda activate nextstrain
 
-2. Change directory to the Zika :term:`workflow repository` downloaded in the quickstart.
+2. Change directory to the Zika :term:`workflow repository` downloaded in the previous tutorial.
 
    .. code-block:: bash
 
@@ -272,7 +272,7 @@ To stop Auspice and return to the command line when you are done viewing your da
 Automate the Build with Snakemake
 =================================
 
-While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager. Nextstrain implements these automated builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`quickstart tutorial <quickstart>`.
+While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager. Nextstrain implements these automated builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`previous tutorial <quickstart>`.
 
 From the ``zika-tutorial/`` directory, delete the previously generated results.
 

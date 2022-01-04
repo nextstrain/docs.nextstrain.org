@@ -1,4 +1,4 @@
-# Exploring Tuberculosis evolution
+# Creating a pathogen workflow (VCF)
 
 This tutorial explains how to create a Nextstrain build for Tuberculosis sequences.
 However, much of it will be applicable to any run where you are starting with [VCF](https://en.wikipedia.org/wiki/Variant_Call_Format) files rather than [FASTA](https://en.wikipedia.org/wiki/FASTA_format) files.

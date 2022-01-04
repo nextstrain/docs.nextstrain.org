@@ -1,5 +1,5 @@
 ===========================
-Quickstart - Zika evolution
+Running a pathogen workflow
 ===========================
 
 This tutorial uses the :term:`Nextstrain CLI<CLI>` to help you get started running :term:`pathogen workflows<workflow>` and viewing the :term:`datasets<dataset>` you see on `nextstrain.org <https://nextstrain.org>`_.
