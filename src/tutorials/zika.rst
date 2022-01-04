@@ -60,45 +60,43 @@ Run a Nextstrain Build
 Prepare the Sequences
 ---------------------
 
-.. admonition:: Sequence data overview
-   :class: dropdown, note
 
-   A :term:`Nextstrain build<build>` typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use example data containing 34 virus sequences.
+A :term:`Nextstrain build<build>` typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use example data containing 34 virus sequences.
 
-   Each virus sequence record looks like the following, with the virus's strain ID as the sequence name in the header line followed by the virus sequence.
+Each virus sequence record looks like the following, with the virus's strain ID as the sequence name in the header line followed by the virus sequence.
 
-   ::
+::
 
-      >PAN/CDC_259359_V1_V3/2015
-      gaatttgaagcgaatgctaacaacagtatcaacaggttttattttggatttggaaacgag
-      agtttctggtcatgaaaaacccaaaaaagaaatccggaggattccggattgtcaatatgc
-      taaaacgcggagtagcccgtgtgagcccctttgggggcttgaagaggctgccagccggac
-      ttctgctgggtcatgggcccatcaggatggtcttggcgattctagcctttttgagattca
+   >PAN/CDC_259359_V1_V3/2015
+   gaatttgaagcgaatgctaacaacagtatcaacaggttttattttggatttggaaacgag
+   agtttctggtcatgaaaaacccaaaaaagaaatccggaggattccggattgtcaatatgc
+   taaaacgcggagtagcccgtgtgagcccctttgggggcttgaagaggctgccagccggac
+   ttctgctgggtcatgggcccatcaggatggtcttggcgattctagcctttttgagattca
 
-   Each sequence record's virus strain ID links to the tab-delimited metadata file by the latter's ``strain`` field. The metadata file contains a header of column names followed by one row per virus strain ID in the sequences file. An example metadata file looks like the following.
+Each sequence record's virus strain ID links to the tab-delimited metadata file by the latter's ``strain`` field. The metadata file contains a header of column names followed by one row per virus strain ID in the sequences file. An example metadata file looks like the following.
 
-   ::
+::
 
-      strain  virus   accession   date    region  country division    city    db  segment authors url title   journal paper_url
-      1_0087_PF   zika    KX447509    2013-12-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447509   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
-      1_0181_PF   zika    KX447512    2013-12-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447512   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
-      1_0199_PF   zika    KX447519    2013-11-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447519   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
-      Aedes_aegypti/USA/2016/FL05 zika    KY075937    2016-09-09  north_america   usa usa usa genbank genome  Grubaugh et al  https://www.ncbi.nlm.nih.gov/nuccore/KY075937   Genomic epidemiology reveals multiple introductions of Zika virus into the United States    Nature (2017) In press  https://www.ncbi.nlm.nih.gov/pubmed/28538723
+   strain  virus   accession   date    region  country division    city    db  segment authors url title   journal paper_url
+   1_0087_PF   zika    KX447509    2013-12-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447509   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
+   1_0181_PF   zika    KX447512    2013-12-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447512   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
+   1_0199_PF   zika    KX447519    2013-11-XX  oceania french_polynesia    french_polynesia    french_polynesia    genbank genome  Pettersson et al    https://www.ncbi.nlm.nih.gov/nuccore/KX447519   How Did Zika Virus Emerge in the Pacific Islands and Latin America? MBio 7 (5), e01239-16 (2016)    https://www.ncbi.nlm.nih.gov/pubmed/27729507
+   Aedes_aegypti/USA/2016/FL05 zika    KY075937    2016-09-09  north_america   usa usa usa genbank genome  Grubaugh et al  https://www.ncbi.nlm.nih.gov/nuccore/KY075937   Genomic epidemiology reveals multiple introductions of Zika virus into the United States    Nature (2017) In press  https://www.ncbi.nlm.nih.gov/pubmed/28538723
 
-   A metadata file must have the following columns:
+A metadata file must have the following columns:
 
-   -  Strain
-   -  Virus
-   -  Date
+-  Strain
+-  Virus
+-  Date
 
-   Builds using published data should include the following additional columns, as shown in the example above:
+Builds using published data should include the following additional columns, as shown in the example above:
 
-   -  Accession (e.g., NCBI GenBank, EMBL EBI, etc.)
-   -  Authors
-   -  URL
-   -  Title
-   -  Journal
-   -  Paper_URL
+-  Accession (e.g., NCBI GenBank, EMBL EBI, etc.)
+-  Authors
+-  URL
+-  Title
+-  Journal
+-  Paper_URL
 
 Index the Sequences
 ~~~~~~~~~~~~~~~~~~~
