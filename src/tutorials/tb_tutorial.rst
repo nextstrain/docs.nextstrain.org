@@ -2,65 +2,48 @@
 Creating a pathogen workflow (VCF)
 ==================================
 
-This tutorial explains how to create a Nextstrain build for Tuberculosis sequences. However, much of it will be applicable to any run where you are starting with `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`__ files rather than `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`__ files. We'll build up a Snakefile step-by-step for each step of the analysis.
+This tutorial explains how to create a :term:`single-build Nextstrain workflow<workflow>` for Tuberculosis sequences. However, much of it will be applicable to any run where you are starting with `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`_ files rather than `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ files. We'll create a Snakefile step-by-step for each step of the analysis.
+
+.. contents:: Table of Contents
+   :local:
+   :depth: 2
+
+Prerequisites
+=============
+
+1. :doc:`Install Nextstrain </install>`.
+2. Run through the :doc:`first tutorial<quickstart>`. This will verify your installation.
 
 Setup
 =====
 
-`Install Nextstrain <../install>`__ and `check out the quickstart <./quickstart>`__. These instructions will install all of the software you need to complete this tutorial.
+1. Activate the ``nextstrain`` conda environment.
 
-Once you've installed Nextstrain, activate the Nextstrain environment.
+   .. code-block:: bash
 
-::
+      conda activate nextstrain
 
-   conda activate nextstrain
+2. Download the example :term:`workflow repository` and enter the new directory.
 
-Build steps
-===========
+   .. code-block:: bash
 
-Nextstrain builds typically require the following steps:
+      git clone https://github.com/nextstrain/tb
+      cd tb
 
--  Preparing data
--  Constructing a phylogeny
--  Annotating the phylogeny
--  Exporting the results
+   .. note::
 
-However, the commands that make up each step can vary depending on your pathogen and your analysis. Here, we'll follow these steps:
+      The data in this tutorial is public and is a subset of the data from Lee et al.'s 2015 paper `Population genomics of Mycobacterium tuberculosis in the Inuit <http://www.pnas.org/content/112/44/13609>`_. As location was anonymized in the paper, location data provided here was randomly chosen from the region for illustrative purposes.
 
-1. Prepare pathogen sequences and metadata
+Create the Nextstrain Build
+===========================
 
-   1. Filter the sequences (remove unwanted sequences and/or sample sequences)
-   2. Mask the sequences (exclude regions of the sequence that are unreliable)
+This :term:`build` will have the following :term:`steps<build step>`:
 
-2. Construct a phylogeny
-
-   1. Construct an initial tree (to get topology)
-   2. Convert this into a time-resolved tree (to get accurate branch lengths)
-
-3. Annotate the phylogeny
-
-   1. Infer ancestral sequences
-   2. Translate genes and identify amino-acid changes
-   3. Reconstruct ancestral states (like location or host)
-   4. Identify clades on the tree
-   5. Identify drug resistance mutations
-
-4. Export the final results into auspice-readable format
-
-Download Data
-=============
-
-The data in this tutorial is public and is a subset of the data from Lee et al.'s 2015 paper `Population genomics of Mycobacterium tuberculosis in the Inuit <http://www.pnas.org/content/112/44/13609>`__. As location was anonymized in the paper, location data provided here was randomly chosen from the region for illustrative purposes.
-
-First, download the Tuberculosis (TB) build which includes example data and a pathogen build script. Then enter the directory you just cloned.
-
-.. code:: bash
-
-   git clone https://github.com/nextstrain/tb.git
-   cd tb
+.. contents::
+   :local:
 
 Prepare the Sequences
-=====================
+---------------------
 
 A Nextstrain build with VCF file input starts with:
 
@@ -70,12 +53,12 @@ A Nextstrain build with VCF file input starts with:
 
 There are other files you will need if you want to perform certain steps, like masking. If you are also working with TB sequences, you may be able to use the files provided here on your own data. Otherwise, you'll need to provide files specific to your pathogen.
 
-Here, our input file is compressed with gzip - you can see it ends with ``.vcf.gz``. However, ``augur`` can take gzipped or un-gzipped VCF files. It can also produce either gzipped or un-gzipped VCF files as output (detected from the file ending you provide). Here, we'll usually keep our output VCF files gzipped, by giving our output files endings like ``.vcf.gz``, but you can specify ``.vcf`` instead.
+Here, our input file is compressed with gzip - you can see it ends with ``.vcf.gz``. However, :term:`Augur` can take gzipped or un-gzipped VCF files. It can also produce either gzipped or un-gzipped VCF files as output (detected from the file ending you provide). Here, we'll usually keep our output VCF files gzipped, by giving our output files endings like ``.vcf.gz``, but you can specify ``.vcf`` instead.
 
 All the data you need to make the TB build are in the ``data`` and ``config`` folders.
 
 Filter the Sequences
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 Sometimes you may want to exclude certain sequences from analysis. You may also wish to downsample your data based on certain criteria. ``filter`` lets you do this.
 
@@ -83,7 +66,7 @@ For this example, we'll just exclude sequences in the file ``dropped_strains.txt
 
 We'll need to specify these starting files at the top of our Snakefile:
 
-.. code:: bash
+.. code-block:: bash
 
    seq_file = "data/lee_2015.vcf.gz",
    meta_file = "data/meta.tsv",
@@ -91,7 +74,7 @@ We'll need to specify these starting files at the top of our Snakefile:
 
 And we'll add this as our first rule:
 
-.. code:: bash
+.. code-block:: bash
 
    rule filter:
        input:
@@ -110,18 +93,18 @@ And we'll add this as our first rule:
 
 Now run filter. If you are using the Snakefile included with the TB tutorial, you can run:
 
-.. code:: bash
+.. code-block:: bash
 
    snakemake --cores 1 filter
 
 If you have created your own Snakefile, you'll need to specify its name. For example, if it is called ``TB_snakefile``, you would run:
 
-.. code:: bash
+.. code-block:: bash
 
    snakemake --cores 1 -s TB_snakefile filter
 
 Mask the Sequences
-------------------
+~~~~~~~~~~~~~~~~~~
 
 There may be regions in your pathogen sequences that are unreliable. For example, areas that are hard to map because of repeat regions. Often, these are excluded from analysis so that incorrect calls in these areas don't influence the results. The areas to be masked are specified in a BED-format file. This is a standard, tab-delimited format with five columns: Chrom, ChomStart, ChromEnd, locus tag, and Comment. You can open up ``config/Locus_to_exclude_Mtb.bed`` in the TB tutorial to see the file format.
 
@@ -129,13 +112,13 @@ The first, fourth, and fifth columns (Chrom, locus tag, and Comment) can be blan
 
 We'll need to add this BED-format file to the top of the Snakefile (below the files already there):
 
-.. code:: bash
+.. code-block:: bash
 
    mask_file = "config/Locus_to_exclude_Mtb.bed"
 
 Now we can add the ``mask`` rule:
 
-.. code:: bash
+.. code-block:: bash
 
    rule mask:
        input:
@@ -151,14 +134,14 @@ Now we can add the ``mask`` rule:
            """
 
 Construct the Phylogeny
-=======================
+-----------------------
 
 Now our sequences are ready to start analysis.
 
 With VCF files, we'll do this in two steps that are slightly different from FASTA-input. 1. First, we'll use only the variable sites to construct a tree quickly. This will give us the topology, but the branch lengths will be incorrect. 2. Next, we'll consider the entire sequence to correct our branch lengths. At the same time, the sample date information will be used to create a time-resolved tree.
 
-Get the Topology
-----------------
+Construct an Initial Tree to Get the Topology
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can use different tree-building programs to build your initial tree, and specify some parameters. Here, we'll use IQTree. We specify it here with the argument ``--method``, but it's also the default.
 
@@ -166,14 +149,14 @@ In ``tree``, we pass in the VCF file and the reference it was mapped to. We also
 
 We must add the reference sequence our VCF file was mapped to, and our list of sites to exclude from tree-building to the top of the Snakefile:
 
-.. code:: bash
+.. code-block:: bash
 
    ref_file = "data/ref.fasta"
    sites_file = "config/drm_sites.txt"
 
 And add the ``tree`` rule to the Snakefile:
 
-.. code:: bash
+.. code-block:: bash
 
    rule tree:
        input:
@@ -194,13 +177,13 @@ And add the ``tree`` rule to the Snakefile:
            """
 
 Fix Branch Lengths & Get a Time-Resolved Tree
----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now we'll use the topology from ``tree``, but get more accurate branch lengths and a time-resolved tree. This adjusts branch lengths in the tree to position tips by their sample date and infer the most likely time of their ancestors, using `TreeTime <https://github.com/neherlab/treetime>`__. There are many options that can be specified here in ``refine`` to help you get a good tree.
+Now we'll use the topology from ``tree``, but get more accurate branch lengths and a time-resolved tree. This adjusts branch lengths in the tree to position tips by their sample date and infer the most likely time of their ancestors, using `TreeTime <https://github.com/neherlab/treetime>`_. There are many options that can be specified here in ``refine`` to help you get a good tree.
 
 ``refine`` will produce as output: \* another tree (newick format) \* a JSON format file with the inferred dates and mutations on each node/branch
 
-.. code:: bash
+.. code-block:: bash
 
    rule refine:
        input:
@@ -230,18 +213,18 @@ Now we'll use the topology from ``tree``, but get more accurate branch lengths a
 In addition to assigning times to internal nodes, the ``refine`` command filters tips that are likely outliers. Branch lengths in the resulting Newick tree measure adjusted nucleotide divergence. All other data inferred by TreeTime is stored by strain or internal node name in the JSON file.
 
 Annotate the Phylogeny
-======================
+----------------------
 
 Now that we have an accurate tree and some information about the ancestral sequences, we can annotate some interesting data onto our phylogeny. TreeTime can infer ancestral sequences and ancestral traits from an existing phylogenetic tree and metadata to annotate each tip of the tree.
 
 Infer Ancestral Sequences
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We can reconstruct the ancestral sequences for the internal nodes on our phylogeny and identify any nucleotide mutations on the branches leading to any node in the tree.
 
 For VCF runs, ``ancestral`` will produce another VCF that contains the reconstructed sequence of all the internal nodes and the sequences from the tip nodes, as well as a JSON-format file that contains nucleotide mutation information for each node.
 
-.. code:: bash
+.. code-block:: bash
 
    rule ancestral:
        input:
@@ -264,7 +247,7 @@ For VCF runs, ``ancestral`` will produce another VCF that contains the reconstru
            """
 
 Identify Amino-Acid Mutations
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 With ``translate`` we can identify amino acid mutations from the nucleotide mutations and a GFF file with gene coordinate annotations. The resulting JSON file contains amino acid mutations indexed by strain or internal node name and by gene name. ``translate`` will also produce a VCF-style file with the amino acid changes for each gene and each sequence, and FASTA file with the translated 'reference' genes which the VCF-style file 'maps' to.
 
@@ -272,12 +255,12 @@ Because of the number of genes in TB, we will only translate genes associated wi
 
 We'll need to add the GFF file with the gene annotations and the file with a list of genes to translate to the list of files at the top of the Snakefile:
 
-.. code:: bash
+.. code-block:: bash
 
    generef_file = "config/Mtb_H37Rv_NCBI_Annot.gff",
    genes_file = "config/genes.txt"
 
-.. code:: bash
+.. code-block:: bash
 
    rule translate:
        input:
@@ -302,14 +285,14 @@ We'll need to add the GFF file with the gene annotations and the file with a lis
                --vcf-reference-output {output.vcf_ref}
            """
 
-Reconstruct Ancestral States
-----------------------------
+Reconstruct Ancestral Traits
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``traits`` can reconstruct the probable ancestral state of traits like location and host (or others). This is done by specifying a column or columns in the meta-data file.
+``traits`` can reconstruct the probable ancestral state of traits like location and host (or others). This is done by specifying a column or columns in the metadata file.
 
-``--confidence`` will give confidence estimates for the reconstructed states. The output will be a JSON file with the state (and confidence, if specified) information for each node.
+``--confidence`` will give confidence estimates for the reconstructed traits. The output will be a JSON file with the trait (and confidence, if specified) information for each node.
 
-.. code:: bash
+.. code-block:: bash
 
    rule traits:
        input:
@@ -328,9 +311,9 @@ Reconstruct Ancestral States
            """
 
 Identify Specified Clades
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the `original paper <http://www.pnas.org/content/112/44/13609>`__, the authors identified 'sublineages' within the dataset. We can add these to our dataset as 'clades' by defining the sublineages with amino-acid or nucleotide mutations specific to that sublineage, given here in the file ``config/clades.tsv``. Open it up in a text editor to have a look at the format.
+In the `original paper <http://www.pnas.org/content/112/44/13609>`_, the authors identified 'sublineages' within the dataset. We can add these to our dataset as 'clades' by defining the sublineages with amino-acid or nucleotide mutations specific to that sublineage, given here in the file ``config/clades.tsv``. Open it up in a text editor to have a look at the format.
 
 The ``clades.tsv`` file must be tab-delimited with four columns: clade, gene, site, and alt. The 'clade' column gives the name of the clade being defined - you can have more than one row per clade - it will only be defined from the branch where all criteria are met. The 'gene' and 'site' columns specify the gene (or ``nuc`` for nucleotide) and location (by AA position in the gene, or nucleotide position in the genome) where the branch must have the 'alt' (4th column) value to be considered this clade.
 
@@ -340,11 +323,11 @@ You can specify clades for your own data by first doing a run without clades, th
 
 We'll need to add the file that defines the clades to the top of our Snakefile:
 
-.. code:: bash
+.. code-block:: bash
 
    clades_file = "config/clades.tsv"
 
-.. code:: bash
+.. code-block:: bash
 
    rule clades:
        input:
@@ -363,7 +346,7 @@ We'll need to add the file that defines the clades to the top of our Snakefile:
            """
 
 Identify Drug Resistance Mutations
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``sequence-traits`` can identify any trait associated with particular nucleotide or amino-acid mutations, not just drug resistance mutations (DRMs).
 
@@ -373,7 +356,7 @@ Open up the ``config/DRMs-AAnuc.tsv`` file to see the format of a file that spec
 
 For drug resistance, we list the gene, the AA position in the gene, the AA mutation that confers resistance (you can list a site multiple times if multiple bases give resistance), and the name of the drug this mutation gives resistance to:
 
-.. code:: bash
+.. code-block:: bash
 
    GENE    SITE    ALT DISPLAY_NAME    FEATURE
    gyrB    461 N       Fluoroquinolones
@@ -381,11 +364,11 @@ For drug resistance, we list the gene, the AA position in the gene, the AA mutat
    rpoB    432 E       Rifampicin
    rpoB    432 K       Rifampicin
 
-We can leave DISPLAY_NAME blank, as auspice will by default display the gene, site, and original and alternative base.
+We can leave DISPLAY_NAME blank, as :term:`Auspice` will by default display the gene, site, and original and alternative base.
 
 For mutations outside of protein-coding genes, we can specify their position using nucleotides:
 
-.. code:: bash
+.. code-block:: bash
 
    GENE    SITE    ALT DISPLAY_NAME    FEATURE
    nuc 1472749 A   rrs: C904A  Streptomycin
@@ -393,17 +376,17 @@ For mutations outside of protein-coding genes, we can specify their position usi
    nuc 1673423 T   fabG1: G-17T    Isoniazid Ethionamide
    nuc 1673425 T   fabG1: C-15T    Isoniazid Ethionamide
 
-In the literature, these mutations are still referred to by their position within non-protein-coding genes (``rrs``) or location near genes (``-17 fabG1``), not their nucleotide location. We can ensure auspice displays the more useful common nomenclature by giving entries for the DISPLAY_NAME column.
+In the literature, these mutations are still referred to by their position within non-protein-coding genes (``rrs``) or location near genes (``-17 fabG1``), not their nucleotide location. We can ensure :term:`Auspice` displays the more useful common nomenclature by giving entries for the DISPLAY_NAME column.
 
 ``sequence-traits`` will return a value for each “feature” - for example, all the mutations on the tree that lead to resistance to Streptomycin. It will also generate a count either of the total number of “features” each node has (ex: the total number of drugs a sequence is resistant to), or the total number or mutations specified in the file each node has (ex: the total number of DRMs a sequence has, even if some are for the same drug). You can specify a name for this count using the ``--label`` argument (here: “Drug_Resistance”). The ``--count`` argument value specifies whether to count the number of traits (ex: drugs resistant to) (use ``traits``) or number of overall mutations (use ``mutations``).
 
 We'll need to add the file that defines the sequence traits (DRMs) to the top of our Snakefile:
 
-.. code:: bash
+.. code-block:: bash
 
    drms_file = "config/DRMs-AAnuc.tsv"
 
-.. code:: bash
+.. code-block:: bash
 
    rule seqtraits:
        input:
@@ -431,13 +414,13 @@ We'll need to add the file that defines the sequence traits (DRMs) to the top of
            """
 
 Export the Results
-==================
+------------------
 
-Finally, collect all node annotations and metadata and export it all in auspice's JSON format. The resulting tree and metadata JSON files are the inputs to the auspice visualization tool.
+Finally, collect all node annotations and metadata and export it all in Auspice's JSON format. The resulting tree and metadata JSON files are the inputs to the :term:`Auspice` visualization tool.
 
-The names of the output tree and meta data files are here specified by a rule called ``all`` at the beginning of our Snakefile. It should be even before the list of files, and looks like this:
+The names of the output tree and metadata files are here specified by a rule called ``all`` at the beginning of our Snakefile. It should be even before the list of files, and looks like this:
 
-.. code:: bash
+.. code-block:: bash
 
    rule all:
        input:
@@ -448,21 +431,21 @@ This rule tells Snakemake what the final output of our entire run should look li
 
 We'll need to add a few remaining files to our list of files at the start of our Snakefile:
 
-.. code:: bash
+.. code-block:: bash
 
    colors_file = "config/color.tsv",
    config_file = "config/config.json",
    geo_info_file = "config/lat_longs.tsv"
 
-The ``color.tsv`` file is optional, but allows us to specify our own colors for particular traits. If you open it up, you can see that we choose our own colors for values in 'region', 'country', 'location' and 'clade_membership'. If you don't supply a ``color.tsv`` file, auspice will choose colors for you. This can be the simplest way to start - then you can add colors for any traits where you don't like what auspice has chosen.
+The ``color.tsv`` file is optional, but allows us to specify our own colors for particular traits. If you open it up, you can see that we choose our own colors for values in 'region', 'country', 'location' and 'clade_membership'. If you don't supply a ``color.tsv`` file, :term:`Auspice` will choose colors for you. This can be the simplest way to start - then you can add colors for any traits where you don't like what :term:`Auspice` has chosen.
 
-The ``lat_longs.tsv`` file contains the latitudes and longitudes for the geographic locations of your data, and may or may not be needed for your data. Augur contains many latitudes and longitudes for countries and regions, but if you want to specify data at a different level (state, province, county, city), you can include your own file as well (it will be used in addition to the defaults, so country location can still be retrieved from the augur file, for example). At the bottom of the ``config/lat_longs.tsv`` file in the TB tutorial, notice there are entries for 'location', listing each village.
+The ``lat_longs.tsv`` file contains the latitudes and longitudes for the geographic locations of your data, and may or may not be needed for your data. :term:`Augur` contains many latitudes and longitudes for countries and regions, but if you want to specify data at a different level (state, province, county, city), you can include your own file as well (it will be used in addition to the defaults, so country location can still be retrieved from the Augur file, for example). At the bottom of the ``config/lat_longs.tsv`` file in the TB tutorial, notice there are entries for 'location', listing each village.
 
 Since all the samples come from the region of North America and the country of Canada, we don't include these anywhere in our data - all the samples would be the same. Instead, we have 'location' as a ``color_options`` entry, and also as our ``geo`` (where the samples will be drawn on the map), and as a ``filters`` option.
 
 We also have a ``color_options`` entry for 'clade_membership', since we designated clades with the ``clades`` rule. The trait is added to our tree as ``clade_membership`` which is why this is the name of the option and the ``key`` value, but we could set the ``legendTitle`` and ``menuItem`` to be anything we wish, if we wanted.
 
-.. code:: bash
+.. code-block:: bash
 
    rule export:
        input:
@@ -495,7 +478,7 @@ As mentioned previously, this dataset has no drug resistance, so it's not includ
 
 First, you would want to add a color-by for the total number of drugs each node is resistant to. Since we gave the label 'Drug_Resistance' when we ran the rule, this will be the name of the option, and the ``key``, but we can make the ``menuItem`` and ``legendTitle`` different if we wish:
 
-::
+.. code-block:: json
 
      "Drug_Resistance": {
       "menuItem": "Drug_Resistance",
@@ -508,7 +491,7 @@ If you had given a different label when you ran the rule, you would change this 
 
 You would then need an option for each drug where you have resistance information (or each FEATURE where you have information). For example, to show the mutations present that confer resistance to Streptomycin and Rifampicin:
 
-::
+.. code-block:: json
 
      "Streptomycin": {
       "menuItem": "Streptomycin",
