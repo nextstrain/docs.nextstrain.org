@@ -45,6 +45,8 @@ Glossary
       A modular instruction of a :term:`build` which can be run standalone (e.g. ``augur filter``), often with clear input and output files.
 
    dataset
+      also *Auspice JSONs*
+
       A collection of :term:`JSONs` produced by a :term:`build`. It is also the shared file prefix of the JSONs. For example ``flu/seasonal/h3n2/ha/2y`` identifies a dataset which corresponds to the files
       :
 
