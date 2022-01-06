@@ -68,7 +68,7 @@ Glossary
    runtime
       also *Nextstrain runtime*
 
-      When installing and using Nextstrain, there are different configuration options, or **runtimes**, depending on the operating system.
+      When installing and using the :term:`Nextstrain CLI<CLI>`, there are different configuration options, or **runtimes**, depending on the operating system.
 
       1. Docker runtime
       2. Native runtime
