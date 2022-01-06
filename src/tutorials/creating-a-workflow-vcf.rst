@@ -12,7 +12,7 @@ Prerequisites
 =============
 
 1. :doc:`Install Nextstrain </install>`.
-2. Run through the :doc:`first tutorial<quickstart>`. This will verify your installation.
+2. Run through the :doc:`first tutorial<running-a-workflow>`. This will verify your installation.
 
 Setup
 =====

@@ -273,7 +273,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
 Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``nextstrain build`` on AWS.
 
-Next, try :doc:`tutorials/quickstart`.
+Next, try :doc:`tutorials/running-a-workflow`.
 
 .. note::
 
@@ -318,4 +318,4 @@ Then, repeat the installation instructions above, starting with the update of co
 Next steps
 ==========
 
-With Nextstrain installed, try :doc:`tutorials/quickstart` next.
+With Nextstrain installed, try :doc:`tutorials/running-a-workflow` next.

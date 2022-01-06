@@ -80,6 +80,6 @@ Next steps
 ==========
 
 * :doc:`Learn how to interpret Nextstrain's visualizations </learn/interpret/index>`.
-* :doc:`Learn how to create the workflow in this tutorial </tutorials/zika>`.
+* :doc:`Learn how to create the workflow in this tutorial </tutorials/creating-a-workflow>`.
 * Learn more about the CLI by running ``nextstrain --help`` and ``nextstrain <command> --help``.
 * Explore the :term:`Nextstrain runtime<runtime>` by running ad-hoc commands inside it using ``nextstrain shell zika-tutorial/``.
