@@ -51,7 +51,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Installing <install>
     tutorials/running-a-workflow
     tutorials/creating-a-workflow
-    tutorials/creating-a-workflow-vcf
+    tutorials/creating-a-bacterial-pathogen-workflow
     Exploring SARS-CoV-2 evolution <https://docs.nextstrain.org/projects/ncov/en/latest/index.html>
     Writing a narrative <tutorials/narratives-how-to-write>
     Analyzing genomes with Nextclade <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-web.html>
