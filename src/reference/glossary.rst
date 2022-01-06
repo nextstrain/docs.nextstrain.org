@@ -17,7 +17,7 @@ Glossary
 
       A reproducible process comprised of one or more :term:`builds<build>` producing :term:`datasets<dataset>`, which can be visualized by :term:`Auspice`. Implementation varies per workflow, but generally they are run by workflow managers such as Snakemake.
 
-      Our core workflows can be divided into two types:
+      Our :term:`core workflows<core workflow>` can be divided into two types:
 
       1. Single-build workflow (e.g. Zika workflow): one build producing one dataset.
       2. Multi-build workflow (e.g. SARS-CoV-2 workflow): multiple builds producing multiple datasets.
@@ -25,6 +25,10 @@ Glossary
       .. note::
 
          The individual builds in a multi-build workflow are also "workflows" in the definition of workflow managers like Snakemake.
+
+   core workflow
+
+      A :term:`workflow` maintained by the Nextstrain team.
 
    workflow repository
       also *pathogen workflow repository*
