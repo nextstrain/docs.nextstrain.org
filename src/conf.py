@@ -21,8 +21,9 @@ subprocess.check_call([sys.executable or "python", './fetch-docs.py'])
 
 # -- Project information -----------------------------------------------------
 
+from datetime import datetime
 project = 'Nextstrain'
-copyright = '2021, Trevor Bedford and Richard Neher'
+copyright = f'{datetime.now().year}, Trevor Bedford and Richard Neher'
 author = 'The Nextstrain Team'
 
 
