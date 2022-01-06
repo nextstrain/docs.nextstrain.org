@@ -55,7 +55,7 @@ Glossary
       Some :term:`workflows<workflow>` produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce many datasets.
 
    JSONs
-      Special ``.json`` files produced and consumed by :term:`Augur` and visualized by :term:`Auspice`. These files make up a :term:`dataset`.
+      Special ``.json`` files produced by :term:`Augur` and visualized by :term:`Auspice`. These files make up a :term:`dataset`.
       See :doc:`data formats<data-formats>`.
 
    CLI
