@@ -56,18 +56,14 @@ It uses [our readthedocs.yml](https://github.com/nextstrain/docs.nextstrain.org/
 You can adjust settings for the live version of the docs on [the Read The Docs dashboard for this project](https://readthedocs.org/dashboard/nextstrain/edit/). 
 This includes:
 
-#### Configuring [redirects](https://docs.readthedocs.io/en/stable/user-defined-redirects.html)
-To do this you must choose the following options for the redirect in [the redirects tab for this project](https://readthedocs.org/dashboard/nextstrain/redirects/):
-- type of redirect (we often use "Page redirects" when a page has been moved or we want to point from an old page to a new one)
-- From URL
-- To URL
+#### Configuring redirects
 
-Here is an example:
-```
-Page Redirect
-From URL: /install-nextstrain.html
-To URL: /install.html
-````
+Read The Docs supports [user-defined redirects](https://docs.readthedocs.io/en/stable/user-defined-redirects.html) which we make use of when moving doc pages.
+Putting redirects in place ensures that people don't get lost when following saved links.
+
+Redirects for this RTD project are exclusively defined in the [_redirects.yml_](redirects.yml) file in this repo and synced to RTD using a [GitHub Actions workflow](.github/workflows/sync-redirects.yaml).
+Syncing happens automatically on any push to `master` which changes the file.
+If you need to sync on demand, you can [manually trigger a workflow run](https://github.com/nextstrain/docs.nextstrain.org/actions/workflows/sync-redirects.yaml) or run the `rtd` command in the workflow on your local machine.
 
 A useful tip for Page redirects is that you may configure them while the From URL still is a valid page.
 This won't do anything until that page begins returning a 404, at which point the redirect will take effect.
