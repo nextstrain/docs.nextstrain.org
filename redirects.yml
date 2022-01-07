@@ -1,0 +1,156 @@
+# Authoritative list of redirects we have configured in RTD.  See this repo's
+# README.md¹ for more information on maintaining redirects.
+#
+# ¹ https://github.com/nextstrain/docs.nextstrain.org#configuring-redirects
+---
+- type: page
+  from_url: /reference/formats/
+  to_url: /reference/data-formats.html
+
+- type: page
+  from_url: /reference/
+  to_url: /
+
+- type: page
+  from_url: /guides/
+  to_url: /
+
+- type: page
+  from_url: /tutorials/
+  to_url: /
+
+- type: page
+  from_url: /learn/
+  to_url: /
+
+- type: page
+  from_url: /reference/index.html
+  to_url: /index.html
+
+- type: page
+  from_url: /guides/index.html
+  to_url: /index.html
+
+- type: page
+  from_url: /tutorials/index.html
+  to_url: /index.html
+
+- type: page
+  from_url: /learn/index.html
+  to_url: /index.html
+
+- type: page
+  from_url: /reference/formats/index.html
+  to_url: /reference/data-formats.html
+
+- type: page
+  from_url: /reference/formats/data-formats.html
+  to_url: /reference/data-formats.html
+
+- type: page
+  from_url: /learn/about-nextstrain.html
+  to_url: /learn/about.html
+
+- type: page
+  from_url: /install-nextstrain.html
+  to_url: /install.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/metadata-fields
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/reference/metadata-fields.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/multiple_inputs
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/reference/multiple_inputs.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/configuration
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/reference/configuration.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/narratives.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/visualization/narratives.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/interpretation.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/visualization/interpretation.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/sharing.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/visualization/sharing.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/naming_clades.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/advanced/naming_clades.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/customizing-visualization.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/analysis/customizing-visualization.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/customizing-analysis.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/analysis/customizing-analysis.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/running.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/analysis/running.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/orientation-files.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/analysis/orientation-files.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/orientation-workflow.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/analysis/orientation-workflow.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/data-prep.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/analysis/data-prep.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/setup.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/analysis/setup.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/steps/index.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/index.html
+
+- type: page
+  from_url: /tutorials/SARS-CoV-2/index.html
+  to_url: https://docs.nextstrain.org/projects/ncov/en/latest/index.html
+
+- type: page
+  from_url: /guides/install/cli-install.html
+  to_url: https://docs.nextstrain.org/projects/cli/en/latest/installation/
+
+- type: page
+  from_url: /guides/install/auspice-install.html
+  to_url: https://docs.nextstrain.org/projects/auspice/en/stable/introduction/install.html
+
+- type: page
+  from_url: /guides/install/augur_install.html
+  to_url: https://docs.nextstrain.org/projects/augur/en/stable/installation/installation.html
+
+- type: page
+  from_url: /guides/install/auspice-install
+  to_url: https://docs.nextstrain.org/projects/auspice/en/stable/introduction/install.html
+
+- type: page
+  from_url: /guides/install/windows-help.html
+  to_url: install-nextstrain.html
+
+- type: page
+  from_url: /guides/install/local-installation.html
+  to_url: install-nextstrain.html
+
+- type: page
+  from_url: /guides/install/index.html
+  to_url: install-nextstrain.html
+
+- type: page
+  from_url: /guides/install/
+  to_url: install-nextstrain.html
+
+- type: page
+  from_url: /tutorials/zika_tutorial.html
+  to_url: /tutorials/zika.html
