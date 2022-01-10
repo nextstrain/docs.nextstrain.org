@@ -154,3 +154,15 @@
 - type: page
   from_url: /tutorials/zika_tutorial.html
   to_url: /tutorials/zika.html
+
+- type: page
+  from_url: /tutorials/quickstart.html
+  to_url: /tutorials/running-a-workflow.html
+
+- type: page
+  from_url: /tutorials/zika.html
+  to_url: /tutorials/creating-a-workflow.html
+
+- type: page
+  from_url: /tutorials/tb_tutorial.html
+  to_url: /tutorials/creating-a-bacterial-pathogen-workflow.html
