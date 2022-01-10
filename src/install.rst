@@ -100,39 +100,29 @@ These instructions will install the Nextstrain CLI and tools to run and view you
          b. Scroll down to the **Latest Miniconda Installer Links** section and click the Windows platform link relevant to your machine.
          c. Open the downloaded file and follow through installation prompts.
 
-      2. Install Visual C++ build tools (`we are investigating options to eliminate this step <https://github.com/nextstrain/cli/issues/31>`_):
-
-         a. Go to `this page <https://visualstudio.microsoft.com/visual-cpp-build-tools/>`_ and click the download button.
-         b. Open the download file and follow through installation prompts.
-         c. Once the Visual Studio Installer opens, click **Modify** next to **Launch**, **More**, etc.
-         d. Select **Desktop development with C++**.
-         e. Go to the Individual components tab.
-         f. Search for and select **Windows 10 SDK** and the entry that ends with **C++ x64/x86 build tools (Latest)**.
-         g. Click **Modify** and follow through prompts.
-
-      3. Open an Anaconda PowerShell Prompt, which can be found in the Start menu.
-      4. Install mamba on the ``base`` conda environment:
+      2. Open an Anaconda PowerShell Prompt, which can be found in the Start menu.
+      3. Install mamba on the ``base`` conda environment:
 
          .. code-block:: bash
 
             conda install -n base -c conda-forge mamba --yes
             conda activate base
 
-      5. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+      4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
          .. code-block:: none
 
             mamba create -n nextstrain -c bioconda nextstrain-cli --yes
             conda activate nextstrain
 
-      6. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
+      5. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
          .. note::
 
             You may have to restart your machine when configuring WSL (Windows Subsystem for Linux).
             If so, remember to open a new Anaconda PowerShell Prompt and run ``conda activate nextstrain`` before the next step.
 
-      7. Confirm that the installation worked.
+      6. Confirm that the installation worked.
 
          .. code-block:: none
 
