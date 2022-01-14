@@ -22,7 +22,7 @@ See the table below for examples.
 
 **Listing of all datasets and narratives**
 If a dataset file exists at `auspice/<REPO>.json` (i.e. there are no dataset specific names in the filename) then visiting `nextstrain.org/community/<ORG>/<REPO>` will automatically load that dataset.
-If such a file does not exist (i.e. all the datasets have at least one `<NAME>` in their filenames) then visiting that URL will list the avialable datasets and narratives.
+If such a file does not exist (i.e. all the datasets have at least one `<NAME>` in their filenames) then visiting that URL will list the available datasets and narratives.
 
 **Narratives**
 The above naming scheme is the same for narratives, with a few small changes.
