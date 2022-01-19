@@ -60,6 +60,15 @@ Glossary
 
       Some :term:`workflows<workflow>` produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce many datasets.
 
+   narrative
+
+      A method of data-driven storytelling with interactive views of :term:`datasets <dataset>` displayed alongside multiple pages (or slides) of text and images.
+      Saved as a Markdown file with extended syntax to support additional displays.
+
+      Viewable on nextstrain.org or with :term:`Auspice` via the :doc:`cli:commands/view` or :doc:`auspice view <auspice:introduction/how-to-run>` commands.
+
+      See also :doc:`/guides/communicate/narratives-intro` and :doc:`/tutorials/narratives-how-to-write`.
+
    JSONs
       Special ``.json`` files produced by :term:`Augur` and visualized by :term:`Auspice`. These files make up a :term:`dataset`.
       See :doc:`data formats<data-formats>`.
