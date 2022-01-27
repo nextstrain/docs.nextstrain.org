@@ -73,8 +73,7 @@ Glossary
       Special ``.json`` files produced by :term:`Augur` and visualized by :term:`Auspice`. These files make up a :term:`dataset`.
       See :doc:`data formats<data-formats>`.
 
-   CLI
-      also *Nextstrain CLI*
+   Nextstrain CLI
 
       The Nextstrain command-line interface (**Nextstrain CLI**) provides a consistent way to run and visualize :term:`pathogen builds<Build>` and access Nextstrain components like :term:`Augur` and :term:`Auspice` across :term:`runtimes<runtime>` such as Docker, Native, and AWS Batch.
 
@@ -83,7 +82,7 @@ Glossary
    runtime
       also *Nextstrain runtime*
 
-      When installing and using the :term:`Nextstrain CLI<CLI>`, there are different configuration options, or **runtimes**, depending on the operating system.
+      When installing and using the :term:`Nextstrain CLI`, there are different configuration options, or **runtimes**, depending on the operating system.
 
       1. Docker runtime
       2. Native runtime
