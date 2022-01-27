@@ -2,7 +2,7 @@
 Running a pathogen workflow
 ===========================
 
-This tutorial uses the :term:`Nextstrain CLI<CLI>` to help you get started running :term:`pathogen workflows<workflow>` and viewing the :term:`datasets<dataset>` you see on `nextstrain.org <https://nextstrain.org>`_.
+This tutorial uses the :term:`Nextstrain CLI` to help you get started running :term:`pathogen workflows<workflow>` and viewing the :term:`datasets<dataset>` you see on `nextstrain.org <https://nextstrain.org>`_.
 It assumes you are comfortable using the command line and installing software on your computer.
 If you need help when following this tutorial, please create a post at `discussion.nextstrain.org <https://discussion.nextstrain.org>`_.
 
@@ -44,7 +44,7 @@ Run the workflow
 
 :term:`Pathogen workflows<workflow>` use the :term:`Augur` bioinformatics toolkit to subsample data, align sequences, build a phylogeny, estimate phylogeographic patterns, and save the results in a format suitable for visualization with :term:`Auspice`.
 
-Run the workflow with the :term:`Nextstrain CLI<CLI>`.
+Run the workflow with the :term:`Nextstrain CLI`.
 
 .. code-block::
 

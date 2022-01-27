@@ -231,7 +231,7 @@ our core builds, or others' group or community builds.  You can even install
 Auspice on :doc:`your own web server <auspice:server/index>` if you don't want
 to host your datasets via nextstrain.org.
 
-The :term:`Nextstrain CLI<CLI>` ties
+The :term:`Nextstrain CLI` ties
 together all of the above to provide a consistent way to run pathogen workflows,
 access Nextstrain tools like Augur and Auspice across computing environments
 such as Docker, Conda, and AWS Batch, and publish datasets to nextstrain.org.
