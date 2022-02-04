@@ -64,7 +64,8 @@ html_static_path = ['static']
 
 html_theme_options = {
     'display_version': False,
-    'logo_only': True,
+    'subproject': False, # For new theme versions
+    'logo_only': True,   # For old theme versions
     'collapse_navigation': False,
     'titles_only': True,
 }
