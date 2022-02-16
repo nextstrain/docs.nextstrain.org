@@ -12,7 +12,7 @@ If this guide doesn't answer your questions or you aren't familiar with git, [op
 
 In the example above, a dataset is being added for Washington State, USA.
 This is a dataset maintained by the Bedford Lab, focused on sequences from that area.
-All information about this dataset is represented in the [YAML format](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html) file in the nextstrain.org repository - [static-site/content/allSARS-CoV-2-Datasets.yaml](https://github.com/nextstrain/nextstrain.org/blob/master/static-site/content/allSARS-CoV-2-Datasets.yaml) - that contains the list of SARS-CoV-2 datasets.
+All information about this dataset is represented in the [YAML format](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html) file in the nextstrain.org repository - [static-site/content/SARS-CoV-2-Datasets.yaml](https://github.com/nextstrain/nextstrain.org/blob/master/static-site/content/SARS-CoV-2-Datasets.yaml) - that contains the list of SARS-CoV-2 datasets.
 
 In this case, this looks like the following:
 
@@ -54,7 +54,7 @@ Hierarchy entries in the list are just there to define this hierarchy with a `ge
     org: null
 ```
 Since Washington is in the USA, its `parentGeo` is `usa`.
-At the [top of the hierarchy](https://github.com/nextstrain/nextstrain.org/blob/master/static-site/content/allSARS-CoV-2-Datasets.yaml#L4) are hierarchy entries with the `parentGeo` value of `null`.
+At the [top of the hierarchy](https://github.com/nextstrain/nextstrain.org/blob/master/static-site/content/SARS-CoV-2-Datasets.yaml#L4) are hierarchy entries with the `parentGeo` value of `null`.
 We add this entry since there already existed one for `usa`, but not for `washington` which is the `geo` level of the dataset entry we are adding.
 The `url` and `org` fields are `null` since those only apply for dataset entries, but you no longer need to add these two extra fields as `null` anymore and can just leave them out like this:
 ```yaml
