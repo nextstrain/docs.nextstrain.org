@@ -7,10 +7,10 @@ dependencies:
   - recommonmark
   - requests
   - sphinx
+  - sphinx-markdown-tables
+  - sphinx-argparse
   - sphinx-tabs
   - pip
   - docutils<0.17 # https://github.com/nextstrain/ncov/issues/891
   - pip:
     - nextstrain-sphinx-theme>=2020.2
-    - sphinx-markdown-tables
-    - sphinx-argparse
