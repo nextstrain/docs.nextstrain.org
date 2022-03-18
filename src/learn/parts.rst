@@ -118,7 +118,7 @@ colloquially because they use a generic data format called JSON.
         Augur -> jsons -> Auspice;
     }
 
-:term:`Builds<build>` are recipes of code and data that produce these :term:`datasets<dataset>`.
+:term:`Workflows<workflow>` are recipes of code and data that produce these :term:`datasets<dataset>`.
 
 .. graphviz::
     :align: center
@@ -165,9 +165,9 @@ colloquially because they use a generic data format called JSON.
         metadata -> filter;
     }
 
-Builds run several commands and are often automated by workflow managers such as `Snakemake <https://snakemake.readthedocs.io>`__, `Nextflow <https://nextflow.io>`__ and `WDL <https://openwdl.org>`__. A :term:`workflow` bundles one or more related :term:`builds<build>` which each produce a :term:`dataset` for visualization with :term:`Auspice`.
+Workflows run several commands and are often automated by workflow managers such as `Snakemake <https://snakemake.readthedocs.io>`__, `Nextflow <https://nextflow.io>`__ and `WDL <https://openwdl.org>`__. A :term:`workflow` produces one or more related :term:`datasets<dataset>` for visualization with :term:`Auspice`.
 
-As an example, our core workflows are organized as `Git repositories <https://git-scm.com>`__ hosted on `GitHub <https://github.com/nextstrain>`__. Each contains a :doc:`Snakemake workflow </guides/bioinformatics/augur_snakemake>` using Augur, configuration, and data.
+As an example, our :term:`core workflows<core workflow>` are organized as `Git repositories <https://git-scm.com>`__ hosted on `GitHub <https://github.com/nextstrain>`__. Each contains a :doc:`Snakemake workflow </guides/bioinformatics/augur_snakemake>` using Augur, configuration, and data.
 
 .. graphviz::
     :align: center
@@ -189,31 +189,20 @@ As an example, our core workflows are organized as `Git repositories <https://gi
 
         subgraph cluster_0 {
             label = "Zika workflow";
-            build0 [width=1, label="Zika build"]
-            dataset0 [width=1, label="dataset"]
+            dataset0 [width=1, label="Zika dataset"]
         }
 
         subgraph cluster_1 {
             label = "SARS-CoV-2 workflow";
-            build1 [width=1, label="Global build"]
-            build2 [width=1, label="Africa build"]
-            build3 [width=1, label="Europe build"]
-            dataset1 [width=1, label="dataset"]
-            dataset2 [width=1, label="dataset"]
-            dataset3 [width=1, label="dataset"]
+            dataset1 [width=1, label="Global dataset"]
+            dataset2 [width=1, label="Africa dataset"]
+            dataset3 [width=1, label="Europe dataset"]
             ellipses1 [width=1, label="...", penwidth=0, fillcolor="white"]
-            ellipses2 [width=1, label="...", penwidth=0, fillcolor="white"]
         }
-
-        build0 -> dataset0
-        build1 -> dataset1
-        build2 -> dataset2
-        build3 -> dataset3
 
         {
             edge[style=invis]
-            dataset0 -> build1      // arrange clusters on same row
-            ellipses1 -> ellipses2
+            dataset0 -> dataset1      // arrange clusters on same row
         }
     }
 
@@ -226,8 +215,8 @@ website incorporates a customized version of Auspice for displaying each
 dataset.
 
 You can run :term:`Augur` and :term:`Auspice` on
-your own computer and use them independently or together with your own builds,
-our core builds, or others' group or community builds.  You can even install
+your own computer and use them independently or together with your own workflows,
+our core workflows, or others' group or community builds.  You can even install
 Auspice on :doc:`your own web server <auspice:server/index>` if you don't want
 to host your datasets via nextstrain.org.
 

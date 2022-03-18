@@ -70,7 +70,7 @@ Customize your group's page
 You can customize the content of your group's page by uploading two files to the group's S3 bucket:
 
 * ``group-logo.png``: logo to display at the top of the page
-* ``group-overview.md``: a description of your group and the Nextstrain builds your group provides
+* ``group-overview.md``: a description of your group and the Nextstrain datasets your group provides
 
 Create a new file named ``group-overview.md`` that will contain information about your group.
 At the top of this file, provide a title for the page, a list of people who maintain the data, a website, and/or whether to show datasets and narratives from your group.
@@ -104,25 +104,25 @@ Upload your logo and description to your group’s S3 bucket with :doc:`the next
 
 To update your logo, description, or any other data in your group’s S3 bucket, run the ``nextstrain remote upload`` command again and the uploaded data will replace the previous contents in the bucket.
 
-Upload a Nextstrain build
-=========================
+Upload a Nextstrain dataset
+===========================
 
 .. warning::
 
-   Do not upload personally identifiable information (PII) as part of your build data.
+   Do not upload personally identifiable information (PII) as part of your dataset.
    This restriction applies for public and private groups.
 
-Next, upload one or more Nextstrain builds for your group.
+Next, upload one or more :term:`Nextstrain datasets<dataset>` for your group.
 
 .. code-block:: bash
 
    nextstrain remote upload s3://nextstrain-<group>/ \
-     auspice/ncov_<your-build-name>.json \
-     auspice/ncov_<your-build-name>_tip-frequencies.json \
-     auspice/ncov_<your-build-name>_root-sequence.json
+     auspice/ncov_<your-dataset-name>.json \
+     auspice/ncov_<your-dataset-name>_tip-frequencies.json \
+     auspice/ncov_<your-dataset-name>_root-sequence.json
 
-After the upload completes, navigate to your groups page from `https://nextstrain.org/groups/ <https://nextstrain.org/groups/>`_ to see the build you uploaded.
-Alternately, upload multiple build files at once with wildcard syntax.
+After the upload completes, navigate to your groups page from `https://nextstrain.org/groups/ <https://nextstrain.org/groups/>`_ to see the dataset you uploaded.
+Alternately, upload multiple dataset files at once with wildcard syntax.
 
 .. code-block:: bash
 
@@ -140,13 +140,13 @@ For example, the following command removes your group logo and overview files.
    nextstrain remote delete s3://nextstrain-<group>/group-overview.md
 
 Alternately, you can remove multiple files with the same prefix.
-For example, the following command removes all files associated with a specific build's prefix.
+For example, the following command removes all files associated with a specific dataset's prefix.
 
 .. code-block:: bash
 
    nextstrain remote delete \
      --recursively \
-     s3://nextstrain-<group>/ncov_<your-build-name>
+     s3://nextstrain-<group>/ncov_<your-dataset-name>
 
 Learn more about the Nextstrain command line interface
 ======================================================

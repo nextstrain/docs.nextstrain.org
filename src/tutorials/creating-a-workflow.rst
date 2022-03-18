@@ -2,11 +2,7 @@
 Creating a pathogen workflow
 ============================
 
-This tutorial dissects the :term:`single-build workflow<workflow>` used in the previous tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
-
-.. note::
-
-   The difference between a :term:`workflow` and :term:`build` isn't obvious with single-build workflows such as this example Zika workflow, but will become more distinct in multi-build workflows such as the SARS-CoV-2 workflow.
+This tutorial dissects the :term:`workflow` used in the previous tutorial. We will first run steps individually. Then we will automate this stepwise process using a workflow manager.
 
 .. contents:: Table of Contents
    :local:
@@ -49,10 +45,10 @@ Setup
 
       The dot (``.``) as the last argument indicates that your current directory (``zika-tutorial/``) is the working directory. Your command prompt will change to indicate you are in the Docker runtime. If you want to leave the runtime, run the command ``exit``.
 
-Run a Nextstrain Build
-======================
+Run a Nextstrain Workflow
+=========================
 
-:term:`Nextstrain builds<build>` typically require the following steps:
+:term:`Nextstrain workflows<workflow>` typically require the following steps:
 
 .. contents::
    :local:
@@ -61,7 +57,7 @@ Prepare the Sequences
 ---------------------
 
 
-A :term:`Nextstrain build<build>` typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use example data containing 34 virus sequences.
+A :term:`Nextstrain workflows<workflow>` typically starts with a collection of pathogen sequences in a single `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ file and a corresponding table of metadata describing those sequences in a tab-delimited text file. For this tutorial, we will use example data containing 34 virus sequences.
 
 Each virus sequence record looks like the following, with the virus's strain ID as the sequence name in the header line followed by the virus sequence.
 
@@ -89,7 +85,7 @@ A metadata file must have the following columns:
 -  Virus
 -  Date
 
-Builds using published data should include the following additional columns, as shown in the example above:
+Workflows using published data should include the following additional columns, as shown in the example above:
 
 -  Accession (e.g., NCBI GenBank, EMBL EBI, etc.)
 -  Authors
@@ -269,10 +265,10 @@ While Auspice is running, navigate to http://127.0.0.1:4000/zika in your browser
 
 To stop Auspice and return to the command line when you are done viewing your data, press CTRL+C.
 
-Automate the Build with Snakemake
-=================================
+Automate the Workflow with Snakemake
+====================================
 
-While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager. Nextstrain implements these automated builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`previous tutorial <running-a-workflow>`.
+While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager. Nextstrain implements these automated workflows with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`previous tutorial <running-a-workflow>`.
 
 From the ``zika-tutorial/`` directory, delete the previously generated results.
 
@@ -280,7 +276,7 @@ From the ``zika-tutorial/`` directory, delete the previously generated results.
 
    rm -rf results/ auspice/
 
-Run the automated build.
+:term:`Build<build (verb)>` the automated workflow.
 
 .. code-block:: bash
 

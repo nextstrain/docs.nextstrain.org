@@ -1,6 +1,6 @@
 # Manually Labeling Clades on a Nextstrain Tree
 
-If you look at the [Nextstrain Seasonal Influenza tree](https://nextstrain.org/flu/seasonal/h3n2/ha/3y), you'll see that the clades are labelled (for example, `3c2`, `3c2.A`, `3c3` etc.). However labelled clades are not a default in Nextstrain builds. You may want to add clade labelling to your Nextstrain trees to more easily describe certain aspects of the tree, point out agreed-upon groups that are accepted by the field, or to facilitate zoomed views on the tree when using [Nextstrain narratives](https://nextstrain.org/docs/narratives/introduction). This bit of documentation describes how to add clade labeling to your Nextstrain build.
+If you look at the [Nextstrain Seasonal Influenza tree](https://nextstrain.org/flu/seasonal/h3n2/ha/3y), you'll see that the clades are labelled (for example, `3c2`, `3c2.A`, `3c3` etc.). However labelled clades are not a default in Nextstrain workflows. You may want to add clade labelling to your Nextstrain trees to more easily describe certain aspects of the tree, point out agreed-upon groups that are accepted by the field, or to facilitate zoomed views on the tree when using [Nextstrain narratives](https://nextstrain.org/docs/narratives/introduction). This bit of documentation describes how to add clade labeling to your Nextstrain workflow.
 
 ## Finding Clade Defining Nucleotide Mutations
 
@@ -21,7 +21,7 @@ The header of this TSV file should have the following entries: clade`\t`gene`\t`
 
 * `clade` is the name of your clade, whatever you want to refer to it as.
 
-* `gene` should be entered as `nuc` if you are using nucleotide mutations. If you are using amino acid mutations, it would be the gene the amino acid mutation is in, as that gene is defined within the build.
+* `gene` should be entered as `nuc` if you are using nucleotide mutations. If you are using amino acid mutations, it would be the gene the amino acid mutation is in, as that gene is defined within the workflow.
 
 * `site` is the position in the genome where the mutation occurred.
 

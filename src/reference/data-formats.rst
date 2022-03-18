@@ -4,11 +4,11 @@ Data formats
 
 Nextstrain uses a few different kinds of `JSON
 <https://en.wikipedia.org/wiki/JSON>`__ files at various stages in a typical
-build.
+workflow.
 
 The primary JSON files used by Nextstrain are those consumed by Auspice to
 display a dataset.  Without these **dataset files**, Auspice has nothing to
-display.  These files are typically the final output of a build and produced by
+display.  These files are typically the final output of a workflow and produced by
 the Augur command :doc:`augur export <augur:usage/cli/export>`.  They come in
 two versions:
 
@@ -56,9 +56,9 @@ are:
 Node data files have a :doc:`generic structure <augur:usage/json_format>` to
 allow them to contain all kinds of data about your tree.
 
-In advanced builds, custom node data files are often produced by build-specific
+In advanced workflows, custom node data files are often produced by workflow-specific
 scripts in addition to the ones produced by Augur commands.  For example, our
-`ncov build <https://github.com/nextstrain/ncov>`__ produces a custom
+`ncov workflow <https://github.com/nextstrain/ncov>`__ produces a custom
 ``epiweeks.json`` node data file using `this workflow step
 <https://github.com/nextstrain/ncov/blob/cee806f/workflow/snakemake_rules/main_workflow.smk#L1127-L1143>`__
 and `this script

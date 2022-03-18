@@ -2,7 +2,7 @@
 Creating a bacterial pathogen workflow
 ======================================
 
-This tutorial explains how to create a :term:`single-build Nextstrain workflow<workflow>` for Tuberculosis sequences. However, much of it will be applicable to any run where you are starting with `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`_ files rather than `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ files. We'll create a Snakefile step-by-step for each step of the analysis.
+This tutorial explains how to create a :term:`Nextstrain workflow<workflow>` for Tuberculosis sequences. However, much of it will be applicable to any run where you are starting with `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`_ files rather than `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ files. We'll create a Snakefile step-by-step for each step of the analysis.
 
 .. contents:: Table of Contents
    :local:
@@ -34,10 +34,10 @@ Setup
 
       The data in this tutorial is public and is a subset of the data from Lee et al.'s 2015 paper `Population genomics of Mycobacterium tuberculosis in the Inuit <http://www.pnas.org/content/112/44/13609>`_. As location was anonymized in the paper, location data provided here was randomly chosen from the region for illustrative purposes.
 
-Create the Nextstrain Build
-===========================
+Create the Nextstrain Workflow
+==============================
 
-This :term:`build` will have the following :term:`steps<build step>`:
+This :term:`workflow` will have the following steps:
 
 .. contents::
    :local:
@@ -45,7 +45,7 @@ This :term:`build` will have the following :term:`steps<build step>`:
 Prepare the Sequences
 ---------------------
 
-A Nextstrain build with VCF file input starts with:
+A Nextstrain workflow with VCF file input starts with:
 
 -  A VCF file containing all the sequences you want to include (variable sites only)
 -  A FASTA file of the reference sequence to which your VCF was mapped
@@ -55,7 +55,7 @@ There are other files you will need if you want to perform certain steps, like m
 
 Here, our input file is compressed with gzip - you can see it ends with ``.vcf.gz``. However, :term:`Augur` can take gzipped or un-gzipped VCF files. It can also produce either gzipped or un-gzipped VCF files as output (detected from the file ending you provide). Here, we'll usually keep our output VCF files gzipped, by giving our output files endings like ``.vcf.gz``, but you can specify ``.vcf`` instead.
 
-All the data you need to make the TB build are in the ``data`` and ``config`` folders.
+All the data you need to make the TB workflow are in the ``data`` and ``config`` folders.
 
 Filter the Sequences
 ~~~~~~~~~~~~~~~~~~~~

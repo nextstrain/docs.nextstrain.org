@@ -4,7 +4,7 @@ One of [the ways](./index) we allow researchers to share their analyses through 
 This allows dataset JSONs and/or narrative markdown files to be stored in your own GitHub repos and accessed through [nextstrain.org/community](https://nextstrain.org/community) URLs.
 This gives you complete control, ownership, and discretion over your data.
 All that is required for this funcitonality is for files to conform to a specific naming scheme (see below).
-There is no need to get in touch with the Nextstrain team to allow access to the dataset, but if you would like your dataset featured on the [front page](https://nextstrain.org/community) or to be listed along with all available [SARS-CoV-2 builds](https://nextstrain.org/sars-cov-2/) then please [let us know!](mailto:hello@nextstrain.org)
+There is no need to get in touch with the Nextstrain team to allow access to the dataset, but if you would like your dataset featured on the [front page](https://nextstrain.org/community) or to be listed along with all available [SARS-CoV-2 datasets](https://nextstrain.org/sars-cov-2/) then please [let us know!](mailto:hello@nextstrain.org)
 
 P.S. For help with running your analysis, [see the bioinformatics introduction](https://docs.nextstrain.org/projects/augur/en/stable/index.html).
 
@@ -59,6 +59,6 @@ See "zika-colombia" in the table below as an example.
 ESR-NZ | GenomicsNarrativeSARSCoV2 | [master](https://github.com/ESR-NZ/GenomicsNarrativeSARSCoV2/tree/master) | [narratives/GenomicsNarrativeSARSCoV2_2020-10-01.md](https://github.com/ESR-NZ/GenomicsNarrativeSARSCoV2/blob/master/narratives/GenomicsNarrativeSARSCoV2_2020-10-01.md) | https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01
 [blab](github.com/blab/) | [ebola-narrative-ms](https://github.com/blab/ebola-narrative-ms/) | master | [narratives/ebola-narrative-ms_2019-09-13-sit-rep-ENGLISH.md](https://github.com/blab/ebola-narrative-ms/blob/master/narratives/ebola-narrative-ms_2019-09-13-sit-rep-ENGLISH.md) | https://nextstrain.org/community/narratives/blab/ebola-narrative-ms/2019-09-13-sit-rep-ENGLISH
 
-For more examples please see the [Nextstrain front page](https://nextstrain.org/community) and the listing of all [SARS-CoV-2 builds](https://nextstrain.org/sars-cov-2/).
+For more examples please see the [Nextstrain front page](https://nextstrain.org/community) and the listing of all [SARS-CoV-2 datasets](https://nextstrain.org/sars-cov-2/).
 
 
