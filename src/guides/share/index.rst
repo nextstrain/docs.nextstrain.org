@@ -76,11 +76,10 @@ See `this page <nextstrain-groups.html>`__ for more information.
 auspice.us
 -------------
 
-If you have an auspice dataset (i.e. the JSON file to be visualised) then `auspice.us`_ allows you to simply drag and drop the file onto the browser and have a fully-functioning interactive visualisation similar to those you've seen on nextstrain.org.
+`auspice.us`_ allows you to simply drag and drop files onto the browser and have a fully-functioning interactive visualisation similar to those you've seen on nextstrain.org.
 Since the data never leaves your computer (it's all done client-side) this can be a useful way to visualise sensitive data without needing to run auspice locally or manage your own server.
 
-  *Narratives don't yet work with `auspice.us`_ but we're hoping to allow this functionality in the future!*
-
+Please visit `auspice.us`_ to see the full list of currently supported file types.
 
 Custom Auspice Servers
 ----------------------
