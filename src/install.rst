@@ -60,29 +60,47 @@ These instructions will install the Nextstrain CLI and tools to run and view you
             conda install -n base -c conda-forge mamba --yes
             conda activate base
 
-      4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+      4. Install the Nextstrain components. There are two options:
 
-         .. code-block:: bash
+         .. tabs::
 
-            mamba create -n nextstrain -c bioconda nextstrain-cli --yes
-            conda activate nextstrain
+            .. group-tab:: Docker (recommended)
 
-      5. Install the remaining Nextstrain components. There are two options:
+               .. warning::
 
-         a. Docker (recommended) – install Docker Desktop using `the official guide <https://docs.docker.com/desktop/mac/install/>`_.
+                  If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), **Native** installation is recommended due to slowness with the Docker installation. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
 
-            .. warning::
+               1. Install Docker Desktop using `the official guide <https://docs.docker.com/desktop/mac/install/>`_.
+               2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-               If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), **Native** installation is recommended due to slowness with the Docker installation. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
+                  .. code-block:: bash
 
+                     mamba create -n nextstrain -c bioconda nextstrain-cli --yes
 
-         b. Native – install all the necessary software using mamba:
+               3. Activate the conda environment:
 
-            .. code-block:: bash
+                  .. code-block:: bash
 
-               mamba install -c conda-forge -c bioconda augur auspice nextalign snakemake git --yes
+                     conda activate nextstrain
 
-      6. Confirm that the installation worked.
+            .. group-tab:: Native
+
+               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
+
+                  .. code-block:: bash
+
+                     mamba create -n nextstrain \
+                       -c conda-forge -c bioconda \
+                       nextstrain-cli augur auspice nextalign snakemake git \
+                       --yes
+
+               2. Activate the conda environment:
+
+                  .. code-block:: bash
+
+                     conda activate nextstrain
+
+      5. Confirm that the installation worked.
 
          .. code-block:: bash
 
@@ -164,26 +182,47 @@ These instructions will install the Nextstrain CLI and tools to run and view you
             conda install -n base -c conda-forge mamba --yes
             conda activate base
 
-      5. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+      5. Install the Nextstrain components. There are two options:
 
-         .. code-block:: bash
+         .. tabs::
 
-            mamba create -n nextstrain -c bioconda nextstrain-cli --yes
-            conda activate nextstrain
+            .. group-tab:: Docker (recommended)
 
-      6. Install the remaining Nextstrain components. There are two options:
+               1. On Windows, `install Docker Desktop for WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
-         a. Docker (recommended) – on Windows, `install Docker Desktop for WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
+                  - Make sure to follow through the last step of enabling **WSL Integration**.
 
-            - Make sure to follow through the last step of enabling **WSL Integration**.
+               2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-         b. Native – install all the necessary software using mamba:
+                  .. code-block:: bash
 
-            .. code-block:: bash
+                     mamba create -n nextstrain -c bioconda nextstrain-cli --yes
 
-               mamba install -c conda-forge -c bioconda augur auspice nextalign snakemake git --yes
+               3. Activate the conda environment:
 
-      7. Confirm that the installation worked.
+                  .. code-block:: bash
+
+                     conda activate nextstrain
+
+            .. group-tab:: Native
+
+               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
+
+                  .. code-block:: bash
+
+                     mamba create -n nextstrain \
+                       -c conda-forge -c bioconda \
+                       nextstrain-cli augur auspice nextalign snakemake git \
+                       --yes
+
+               2. Activate the conda environment:
+
+                  .. code-block:: bash
+
+                     conda activate nextstrain
+
+
+      6. Confirm that the installation worked.
 
          .. code-block:: bash
 
@@ -217,45 +256,58 @@ These instructions will install the Nextstrain CLI and tools to run and view you
             conda install -n base -c conda-forge mamba --yes
             conda activate base
 
-      3. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+      3. Install the Nextstrain components. There are two options:
 
-         .. code-block:: bash
+         .. tabs::
 
-            mamba create -n nextstrain -c bioconda nextstrain-cli --yes
-            conda activate nextstrain
+            .. group-tab:: Docker (recommended)
 
-      4. Install the remaining Nextstrain components. There are two options:
+               1. Install Docker Engine for Ubuntu using the `convenience script <https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script>`_:
 
-         a. Docker (recommended):
+                  .. code-block:: bash
 
-            1. Install Docker Engine for Ubuntu using the `convenience script <https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script>`_:
+                     curl -fsSL https://get.docker.com -o get-docker.sh
+                     sudo sh get-docker.sh
+                     # follow through installation prompts
+                     rm get-docker.sh
 
-               .. code-block:: bash
+               2. Add your user to the `docker` group:
 
-                  curl -fsSL https://get.docker.com -o get-docker.sh
-                  sudo sh get-docker.sh
-                  # follow through installation prompts
-                  rm get-docker.sh
+                  .. code-block:: bash
 
-            2. Add your user to the `docker` group:
+                     sudo usermod -aG docker $USER
 
-               .. code-block:: bash
+               3. Restart your machine.
+               4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-                  sudo usermod -aG docker $USER
+                  .. code-block:: bash
 
-            3. Restart your machine and activate the conda environment:
+                     mamba create -n nextstrain -c bioconda nextstrain-cli --yes
 
-               .. code-block:: bash
+               5. Activate the conda environment:
 
-                  conda activate nextstrain
+                  .. code-block:: bash
 
-         b. Native – install all the necessary software using mamba:
+                     conda activate nextstrain
 
-            .. code-block:: bash
+            .. group-tab:: Native
 
-                  mamba install -c conda-forge -c bioconda augur auspice nextalign snakemake git --yes
+               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
 
-      5. Confirm that the installation worked.
+                  .. code-block:: bash
+
+                     mamba create -n nextstrain \
+                       -c conda-forge -c bioconda \
+                       nextstrain-cli augur auspice nextalign snakemake git \
+                       --yes
+
+               2. Activate the conda environment:
+
+                  .. code-block:: bash
+
+                     conda activate nextstrain
+
+      4. Confirm that the installation worked.
 
          .. code-block:: bash
 
