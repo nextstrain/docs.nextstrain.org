@@ -55,7 +55,7 @@ Community Maintained Datasets
 To make supporting this philosophy as easy as possible, we have created a "community builds" functionality, whereby GitHub is used to store the results of your analyses and the results are available for everyone via nextstrain.org.
 This is behind the `community builds <https://nextstrain.org/#community>`__ which you can see on the main page.
 
-See `this page <community-builds.html>`__ for more information, including a step-by-step guide on how you can get your datasets up as a community build.
+See :doc:`community-builds` for more information, including a step-by-step guide on how you can get your datasets up as a community build.
 
 Nextstrain Groups
 -----------------
@@ -66,7 +66,7 @@ Private groups will only be visible to people who have a login to nextstrain.org
 
 Nextstrain Groups are more scalable than community managed datasets, especially if you have many large datasets, and we're excited with the future possibilities that this opens up.
 
-See `this page <nextstrain-groups.html>`__ for more information.
+See :doc:`nextstrain-groups` for more information.
 
 auspice.us
 -------------
@@ -85,9 +85,9 @@ Please see the :doc:`the auspice docs <auspice:index>` for more information on h
 
 
 .. _Nextstrain-maintained pathogens: https://nextstrain.org/pathogens
-.. _Nextstrain Community: ./community-builds.html
-.. _Nextstrain Groups: ./nextstrain-groups.html
-.. _Custom auspice servers: https://nextstrain.github.io/auspice/server/introduction
-.. _Public URLs: ./fetch-via-urls.html
+.. _Nextstrain Community: community-builds
+.. _Nextstrain Groups: nextstrain-groups
+.. _Custom auspice servers: auspice:server/index
+.. _Public URLs: fetch-via-urls
 .. _auspice.us: https://auspice.us
 .. _nextstrain.org: http://nextstrain.org
