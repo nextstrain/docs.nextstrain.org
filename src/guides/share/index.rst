@@ -24,21 +24,16 @@ Every situation is different and over time we've tried to develop a range of dif
 Here is a summary of the different ways one can share data through `nextstrain.org`_ or using the tools which are behind Nextstrain:
 
 
-+---------------------------------+-----------------------------+---------------------------+--------------------+
-| Name                            | Data lives where?           |  Accessed via             |  Access            |
-+=================================+=============================+===========================+====================+
-| Nextstrain-maintained pathogens | S3 bucket (which we manage) | `nextstrain.org`_         | Public             |
-+---------------------------------+-----------------------------+---------------------------+--------------------+
-| `Nextstrain Community`_         | Your own github repo        | nextstrain.org/community/ | Public             |
-+---------------------------------+-----------------------------+---------------------------+--------------------+
-| `Nextstrain Groups`_            | S3 bucket which you manage  | nextstrain.org/groups/... | Public or private  |
-+---------------------------------+-----------------------------+---------------------------+--------------------+
-| `Public URLs`_                  | Anywhere https-accessible   | nextstrain.org/fetch/...  | Public             |
-+---------------------------------+-----------------------------+---------------------------+--------------------+
-| `auspice.us`_                   | On your computer            | `auspice.us`_             | Private            |
-+---------------------------------+-----------------------------+---------------------------+--------------------+
-| `Custom auspice servers`_       | Wherever you choose         | your own server's URL     | Your choice        |
-+---------------------------------+-----------------------------+---------------------------+--------------------+
+================================ =========================== ========================= ===================
+Name                             Data lives where?           Accessed via              Access
+================================ =========================== ========================= ===================
+Nextstrain-maintained pathogens  S3 bucket (which we manage) `nextstrain.org`_         Public
+`Nextstrain Community`_          Your own github repo        nextstrain.org/community/ Public
+`Nextstrain Groups`_             S3 bucket which you manage  nextstrain.org/groups/... Public or private
+`Public URLs`_                   Anywhere https-accessible   nextstrain.org/fetch/...  Public
+`auspice.us`_                    On your computer            `auspice.us`_             Private
+`Custom auspice servers`_        Wherever you choose         your own server's URL     Your choice
+================================ =========================== ========================= ===================
 
 
 We are always excited to help you contribute to Nextstrain, no matter what shape this takes.
