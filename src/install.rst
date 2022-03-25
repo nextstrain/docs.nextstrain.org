@@ -44,7 +44,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       .. note::
 
-         If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for augur <augur:installation/installation>` and :doc:`install auspice via npm <auspice:introduction/install>`.
+         If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for Augur <augur:installation/installation>` and :doc:`install Auspice via npm <auspice:introduction/install>`.
 
       1. Install Miniconda:
 
@@ -162,7 +162,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       .. note::
 
-         If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for augur <augur:installation/installation>` and :doc:`install auspice via npm <auspice:introduction/install>`.
+         If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for Augur <augur:installation/installation>` and :doc:`install Auspice via npm <auspice:introduction/install>`.
 
       1. `Install WSL 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
       2. Open a WSL terminal by running **wsl** from the Start menu.
@@ -238,7 +238,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       .. note::
 
-         If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for augur <augur:installation/installation>` and :doc:`install auspice via npm <auspice:introduction/install>`.
+         If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for Augur <augur:installation/installation>` and :doc:`install Auspice via npm <auspice:introduction/install>`.
 
       1. Install Miniconda:
 

@@ -85,7 +85,7 @@ auspice.us ("auspicious")
 -------------------------
 
 `auspice.us <https://auspice.us>`_ allows you to simply drag and drop files onto the browser and have a fully-functioning interactive visualisation similar to those you've seen on nextstrain.org.
-Since the data never leaves your computer (it's all done client-side) this can be a useful way to visualise sensitive data without needing to run auspice locally or manage your own server.
+Since the data never leaves your computer (it's all done client-side) this can be a useful way to visualise sensitive data without needing to run Auspice locally or manage your own server.
 
 See `auspice.us`_ for more information.
 
