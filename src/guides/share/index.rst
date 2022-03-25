@@ -90,4 +90,4 @@ Please see the :doc:`the auspice docs <auspice:index>` for more information on h
 .. _Custom auspice servers: auspice:server/index
 .. _Public URLs: fetch-via-urls
 .. _auspice.us: https://auspice.us
-.. _nextstrain.org: http://nextstrain.org
+.. _nextstrain.org: https://nextstrain.org
