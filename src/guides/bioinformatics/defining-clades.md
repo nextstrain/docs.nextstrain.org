@@ -33,7 +33,7 @@ Note that some clades will be defined by more than one mutation. To avoid any co
 
 > The `∆` and `¬` characters are displayed by the [Atom text editor](https://atom.io/) to represent "tab" and "(unix) end of line" characters, respectively.
 
-It doesn't really matter where you save your `clades.tsv` file (as long as you know the path to the file), we usually save this file within the `config` directory of our workflows, as this is where other files such as `colors.tsv` are usually kept within nextstrain analysis directories.
+It doesn't really matter where you save your `clades.tsv` file (as long as you know the path to the file), we usually save this file within the `config` directory of our workflows, as this is where other files such as `colors.tsv` are usually kept within Nextstrain analysis directories.
 
 > _Side note_: Please avoid numerical labelling for the clades, which currently cause issues.
 I.e. instead of using `1`, `2`, `3` etc, add a letter ahead of the number - for instance `c1`, `c2`, `c3`.

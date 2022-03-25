@@ -1,6 +1,6 @@
 # Add your dataset to the collection of SARS-CoV-2 datasets
 
-The nextstrain team maintains [nextstrain.org/sars-cov-2](https://nextstrain.org/sars-cov-2) to provide a resource for easy access to a variety of public analyses and interpretations by the Nextstrain team and the scientific community.
+The Nextstrain team maintains [nextstrain.org/sars-cov-2](https://nextstrain.org/sars-cov-2) to provide a resource for easy access to a variety of public analyses and interpretations by the Nextstrain team and the scientific community.
 
 > During the pandemic we are focused on the SARS-CoV-2 page, but may generalize our approach in the future to provide similar resources for other pathogens.
 
