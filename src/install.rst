@@ -330,7 +330,7 @@ Next, try :doc:`tutorials/running-a-workflow`.
 Update an existing installation
 ================================
 
-Update the `nextstrain` conda environment.
+Update the ``nextstrain`` conda environment.
 
 .. code-block:: bash
 
