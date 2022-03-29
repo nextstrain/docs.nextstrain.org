@@ -75,7 +75,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                   .. code-block:: bash
 
-                     mamba create -n nextstrain -c bioconda nextstrain-cli --yes
+                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
 
                3. Activate the conda environment:
 
@@ -136,7 +136,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          .. code-block:: none
 
-            mamba create -n nextstrain -c bioconda nextstrain-cli --yes
+            mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
             conda activate nextstrain
 
       5. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
@@ -196,7 +196,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                   .. code-block:: bash
 
-                     mamba create -n nextstrain -c bioconda nextstrain-cli --yes
+                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
 
                3. Activate the conda environment:
 
@@ -282,7 +282,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                   .. code-block:: bash
 
-                     mamba create -n nextstrain -c bioconda nextstrain-cli --yes
+                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
 
                5. Activate the conda environment:
 
