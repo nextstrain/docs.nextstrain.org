@@ -2,158 +2,141 @@
 Share via Nextstrain Groups
 ===========================
 
-We want to enable research labs, public health entities and others to share their datasets and narratives through Nextstrain with complete control of their data and audience. Nextstrain Groups is more scalable than :doc:`community builds </guides/share/community-builds>` in both data storage and viewing permissions.
-Each group manages its own AWS S3 Bucket to store datasets and narratives, allowing many large datasets. Data of a public group are accessible to the general public via nextstrain.org, while private group data are only visible to logged in users with permissions to see the data. A single entity can manage both a public and a private group in order to share data with different audiences.
+.. toctree::
+    :hidden:
 
-.. note::
+    Customize your page <customize>
+    Migrate from S3 <migrate-from-s3>
 
-   Nextstrain Groups is still in the early stages and require a Nextstrain team member to set up and add users.
-   Please `get in touch with us <mailto:hello@nextstrain.org>`_ and we'd be happy to set up a group for you.
+.. hint::
+    This how-to guide assumes familiarity with the :doc:`Nextstrain Groups
+    </learn/groups/index>` feature and the :doc:`Nextstrain dataset files
+    </reference/data-formats>` produced by :doc:`running a pathogen workflow
+    </tutorials/running-a-workflow>`.  We recommend reading about those first
+    if you're not familiar with them.
 
-.. contents:: Table of Contents
-   :local:
-   :depth: 1
-
-How does it work?
-=================
-
-  1. Run your analysis locally (:doc:`see the bioinformatics introduction <augur:index>`)
-  2. Upload the datasets or narratives you've produced to the group's AWS S3 Bucket
-
-     * There are no naming restrictions of the dataset JSONs (see :doc:`expected formats </reference/data-formats>`)
-     * Narrative Markdown files cannot be named ``group-overview.md`` but otherwise there are no naming restrictions
-
-  3. Access your data via the group's splash page at "nextstrain.org/groups/" + "group name". Example: `nextstrain.org/groups/blab <https://nextstrain.org/groups/blab>`_.
-
-Configure your AWS credentials
+Log in with the Nextstrain CLI
 ==============================
 
-Before you can upload data to your Nextstrain Group, you need to define your AWS credentials, so the Nextstrain CLI knows how to access your AWS resources.
-
-Create a new directory to store your AWS credentials and other configuration details.
+Before you can upload data to your Nextstrain Group, you need to log into nextstrain.org with the Nextstrain CLI's :doc:`cli:commands/login` command so it knows how to access your group's data.
 
 .. code-block:: bash
 
-   # Creates a new hidden directory in your home directory
-   # and does not throw an error if the directory already exists.
-   mkdir -p ~/.aws
+    nextstrain login
 
-Next, create a new file to store your AWS credentials.
+Confirm that you have access to your group by running :doc:`cli:commands/whoami`.
 
 .. code-block:: bash
 
-   nano ~/.aws/credentials
+    nextstrain whoami
 
-Define your credentials in this file like so, replacing the “…” values with the corresponding key id and secret access key provided to you by the Nextstrain team. In the same file, we also define the default AWS region for your Nextstrain Groups data.
+You should see your group name in the output.
 
-.. code-block:: ini
-
-   [default]
-   aws_access_key_id=...
-   aws_secret_access_key=...
-   region=us-east-1
-
-Save this file and return to the command line.
-
-Confirm that you have access to your Nextstrain Groups AWS resources, by listing the contents of your group’s S3 bucket with :doc:`the nextstrain remote list command <cli:commands/remote/list>`.
-Replace ``<group>`` below with your group name.
+You can also try listing your group's datasets and narratives with :doc:`cli:commands/remote/list`.
+Replace ``${GROUPNAME}`` below with your group name.
 
 .. code-block:: bash
 
-   nextstrain remote list s3://nextstrain-<group>
+   nextstrain remote list nextstrain.org/groups/${GROUPNAME}
 
-This command should list all the files in your bucket. Your bucket will likely be empty by default.
+This will likely return nothing for now since groups start without any datasets or narratives.
+However, the lack of an error is useful to see.
 
-Customize your group's page
+
+Upload a Nextstrain dataset
 ===========================
 
-You can customize the content of your group's page by uploading two files to the group's S3 bucket:
-
-* ``group-logo.png``: logo to display at the top of the page
-* ``group-overview.md``: a description of your group and the Nextstrain builds your group provides
-
-Create a new file named ``group-overview.md`` that will contain information about your group.
-At the top of this file, provide a title for the page, a list of people who maintain the data, a website, and/or whether to show datasets and narratives from your group.
-This information is technically known as the `YAML front matter <https://jekyllrb.com/docs/front-matter/>`_ for the file.
-
-.. code-block:: yaml
-
-   ---
-   title: "Your Department of Health and Human Services"
-   byline: "Your Name Here"
-   website: https://
-   showDatasets: true
-   showNarratives: true
-   ---
-
-   A description of your organization goes here.
-
-All fields are optional and either have generic defaults (like the title) or are omitted from the page by default (like the byline and website link).
-Dataset and narrative listings are both shown (i.e. ``true``) by default if not specified otherwise in this file with a value of ``false``.
-
-After the front matter (in the lines following the last ``---`` characters), write a description of your organization to provide context for users who can access your groups page.
-Use `Markdown syntax <https://www.markdownguide.org/basic-syntax/>`_ to format the contents of your group description with headers, lists, links, etc.
-This content will appear between the title/byline/website heading and the list of available datasets on the group's page.
-
-Upload your logo and description to your group’s S3 bucket with :doc:`the nextstrain remote upload command <cli:commands/remote/upload>`.
-
-.. code-block:: bash
-
-   nextstrain remote upload s3://nextstrain-<group>/ \
-     group-logo.png group-overview.md
-
-To update your logo, description, or any other data in your group’s S3 bucket, run the ``nextstrain remote upload`` command again and the uploaded data will replace the previous contents in the bucket.
-
-Upload a Nextstrain build
-=========================
-
 .. warning::
-
-   Do not upload personally identifiable information (PII) as part of your build data.
+   Do not upload any files containing personally identifiable information (PII).
    This restriction applies for public and private groups.
 
-Next, upload one or more Nextstrain builds for your group.
+Upload one or more Nextstrain datasets for your group using the :doc:`cli:commands/remote/upload` command.
+An example using a dataset produced by our :doc:`ncov workflow <ncov:index>`.
+The pattern of your dataset and sidecar filenames and desired display URL to upload may be different.
 
 .. code-block:: bash
 
-   nextstrain remote upload s3://nextstrain-<group>/ \
-     auspice/ncov_<your-build-name>.json \
-     auspice/ncov_<your-build-name>_tip-frequencies.json \
-     auspice/ncov_<your-build-name>_root-sequence.json
+   nextstrain remote upload \
+     nextstrain.org/groups/${GROUPNAME}/ncov/${YOUR_BUILD_NAME} \
+       auspice/ncov_${YOUR_BUILD_NAME}.json \
+       auspice/ncov_${YOUR_BUILD_NAME}_tip-frequencies.json \
+       auspice/ncov_${YOUR_BUILD_NAME}_root-sequence.json
 
-After the upload completes, navigate to your groups page from `https://nextstrain.org/groups/ <https://nextstrain.org/groups/>`_ to see the build you uploaded.
-Alternately, upload multiple build files at once with wildcard syntax.
-
-.. code-block:: bash
-
-   nextstrain remote upload s3://nextstrain-<group>/ auspice/*.json
-
-Remove files from your group
-============================
-
-You can remove specific files from your group's S3 bucket using :doc:`the nextstrain remote delete command <cli:commands/remote/delete>`.
-For example, the following command removes your group logo and overview files.
+After the upload completes, it'll appear in the group listing when you run:
 
 .. code-block:: bash
 
-   nextstrain remote delete s3://nextstrain-<group>/group-logo.png
-   nextstrain remote delete s3://nextstrain-<group>/group-overview.md
+   nextstrain remote list nextstrain.org/groups/${GROUPNAME}
 
-Alternately, you can remove multiple files with the same prefix.
-For example, the following command removes all files associated with a specific build's prefix.
+You can also navigate to your groups page on the web to see the dataset listed there.
 
-.. code-block:: bash
-
-   nextstrain remote delete \
-     --recursively \
-     s3://nextstrain-<group>/ncov_<your-build-name>
-
-Learn more about the Nextstrain command line interface
-======================================================
-
-:doc:`See the Nextstrain CLI's documentation <cli:commands/remote/index>`, to learn more about how to work with your group’s S3 bucket.
-You can also learn more by viewing the help for this command.
+If you have multiple datasets to upload, you can do so with one command if their filenames match the URLs you want.
 
 .. code-block:: bash
 
-   nextstrain remote -h
+   nextstrain remote upload nextstrain.org/groups/${GROUPNAME} auspice/*.json
+
+Remove a dataset
+================
+
+Use the :doc:`cli:commands/remote/delete` command to remove a dataset or narrative you've uploaded.
+
+.. code-block:: bash
+
+   nextstrain remote delete nextstrain.org/groups/${GROUPNAME}/ncov/${YOUR_BUILD_NAME}
+
+Example
+=======
+
+Below is an example of what the steps above look like for a user ``trs`` and group ``test``:
+
+.. code-block:: console
+
+    $ nextstrain login
+    Logging into Nextstrain.org…
+
+    Username: trs
+    Password:
+
+    Credentials saved to /home/tom/.nextstrain/secrets.
+
+    Logged into nextstrain.org as trs.
+    Log out with `nextstrain logout`.
+
+    $ nextstrain whoami
+    username: trs
+    email: tsibley@…
+    groups:
+      - test/editors
+
+    $ nextstrain remote list nextstrain.org/groups/test
+
+    $ nextstrain remote upload \
+        nextstrain.org/groups/test/ncov/example \
+          auspice/ncov_example.json \
+          auspice/ncov_example_tip-frequencies.json \
+          auspice/ncov_example_root-sequence.json
+    Uploading auspice/ncov_example.json as https://nextstrain.org/groups/test/ncov/example
+    Uploading auspice/ncov_example_root-sequence.json as https://nextstrain.org/groups/test/ncov/example (root-sequence)
+    Uploading auspice/ncov_example_tip-frequencies.json as https://nextstrain.org/groups/test/ncov/example (tip-frequencies)
+
+    $ nextstrain remote list nextstrain.org/groups/test
+    https://nextstrain.org/groups/test/ncov/example
+
+    $ nextstrain remote delete nextstrain.org/groups/test/ncov/example
+    Deleting nextstrain.org/groups/test/ncov/example
+
+You'll of course have to login as yourself, and be sure to replace ``test`` with your group's name when you try it!
+
+
+Learn more
+==========
+
+Learn more about the above commands and parameters in the following reference material:
+
+* :doc:`cli:commands/remote/index`
+* :doc:`cli:commands/remote/list`
+* :doc:`cli:commands/remote/upload`
+* :doc:`cli:commands/remote/download`
+* :doc:`cli:commands/remote/delete`
+* :doc:`cli:remotes/nextstrain.org`

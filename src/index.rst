@@ -41,6 +41,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     learn/parts
     learn/interpret/index
     Pathogens <learn/pathogens/index>
+    learn/groups/index
 
 .. toctree::
     :maxdepth: 1
