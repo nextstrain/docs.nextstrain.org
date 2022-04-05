@@ -8,11 +8,11 @@ Sharing Analyses through Nextstrain
    :titlesonly:
    :hidden:
 
-   groups/index
-   community-builds
-   fetch-via-urls
-   sars-cov-2
-   Download data <download-data>
+   Nextstrain Groups <groups/index>
+   Nextstrain Community <community-builds>
+   Public URLs <fetch-via-urls>
+   SARS-CoV-2 datasets <sars-cov-2>
+   Downloading data <download-data>
 
 
 Our Philosophy: Facilitating Open-Science & Sharing of Results
