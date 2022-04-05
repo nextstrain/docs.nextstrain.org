@@ -8,7 +8,7 @@ Sharing Analyses through Nextstrain
    :titlesonly:
    :hidden:
 
-   nextstrain-groups
+   groups/index
    community-builds
    fetch-via-urls
    sars-cov-2
@@ -69,7 +69,7 @@ Private groups will only be visible to people who have a login to nextstrain.org
 
 Nextstrain Groups are more scalable than community managed datasets, especially if you have many large datasets, and we're excited with the future possibilities that this opens up.
 
-See :doc:`nextstrain-groups` for more information.
+See :doc:`groups/index` for more information.
 
 
 Public URLs

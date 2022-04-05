@@ -1,7 +1,7 @@
 # Fetch datasets & narratives accessible via a public URL
 
 We want to allow researchers the maximum amount of control over where their data lives and who controls it.
-To facilitate this, we promote a couple of easy-to-use methods to facilitating this - [Nextstrain Groups](./nextstrain-groups), where the data are stored on Amazon AWS S3 and [Nextstrain Community](./community-builds) where the data lives within your own GitHub repos. 
+To facilitate this, we promote a couple of easy-to-use methods to facilitating this - [Nextstrain Groups](./groups/index), where the data are stored on nextstrain.org, and [Nextstrain Community](./community-builds), where the data lives within your own GitHub repos.
 This page describes a third way:
 
 **Datasets or narratives which are accessible via a public URL can be accessed through a `nextstrain.org/fetch/...` URL**
@@ -32,7 +32,7 @@ Formally, only the [hier-part](https://tools.ietf.org/html/rfc3986#section-3) of
 **Sidecar files** (such as tip-frequency JSONs) are fetched similarly to other sources -- e.g. if the dataset is at `https://A/B.json` then a subsequent request to `https://A/B_tip-frequencies.json` will be made. 
 If the fetch URL doesn't end in `.json` then the GET request would be to `https://A/B_tip-frequencies`.
 
-**Authentication** is not currently supported. Please see [Nextstrain Groups](./nextstrain-groups) for this!
+**Authentication** is not currently supported. Please see [Nextstrain Groups](./groups/index) for this!
 
 
 
