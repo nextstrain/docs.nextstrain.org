@@ -1,4 +1,4 @@
-# Fetch datasets & narratives accessible via a public URL
+# Share via public URLs
 
 We want to allow researchers the maximum amount of control over where their data lives and who controls it.
 To facilitate this, we promote a couple of easy-to-use methods to facilitating this - [Nextstrain Groups](./groups/index), where the data are stored on nextstrain.org, and [Nextstrain Community](./community-builds), where the data lives within your own GitHub repos.

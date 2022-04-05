@@ -1,6 +1,6 @@
 
 ======================================
-Sharing Analyses through Nextstrain
+Share Analyses through Nextstrain
 ======================================
 
 .. toctree::

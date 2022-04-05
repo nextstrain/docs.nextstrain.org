@@ -1,6 +1,6 @@
-=======================================
-Scalable Sharing with Nextstrain Groups
-=======================================
+===========================
+Share via Nextstrain Groups
+===========================
 
 We want to enable research labs, public health entities and others to share their datasets and narratives through Nextstrain with complete control of their data and audience. Nextstrain Groups is more scalable than :doc:`community builds </guides/share/community-builds>` in both data storage and viewing permissions.
 Each group manages its own AWS S3 Bucket to store datasets and narratives, allowing many large datasets. Data of a public group are accessible to the general public via nextstrain.org, while private group data are only visible to logged in users with permissions to see the data. A single entity can manage both a public and a private group in order to share data with different audiences.
