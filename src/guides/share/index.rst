@@ -15,10 +15,7 @@ Share Analyses through Nextstrain
    Downloading data <download-data>
 
 
-Our Philosophy: Facilitating Open-Science & Sharing of Results
-==============================================================
-
-From the beginning, Nextstrain has focused on open, real-time, pre-publication sharing of results.
+From the beginning, :doc:`our motivations and philosophy </learn/about>` for Nextstrain have focused on open, real-time, pre-publication sharing of results.
 Every situation is different and over time we've tried to develop a range of different approaches to take steps in this direction wherever possible.
 
 Here is a summary of the different ways one can share data through `nextstrain.org <https://nextstrain.org>`_ or using the tools which are behind Nextstrain:
