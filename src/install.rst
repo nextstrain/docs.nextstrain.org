@@ -36,7 +36,19 @@ When you use Docker to run Nextstrain components, you don’t need to manage any
 Installation Steps
 ==================
 
-These instructions will install the Nextstrain CLI and tools to run and view your own Nextstrain analyses. Configuration options vary by operating system.
+These instructions will install the Nextstrain CLI and tools to run and view your own Nextstrain analyses. Configuration options vary by platform.
+
+.. note::
+
+   For each operating system, there are two options:
+
+   1. **Docker**: use if you plan to use Nextstrain without other bioinformatics tools. Docker provides the most predictable environment.
+   2. **Native**: use if you plan to use other bioinformatics tools alongside Nextstrain. Native installation is done via conda, allowing flexibility in managing your own conda environments.
+
+   For Windows users, you may pick between:
+
+   1. **Windows** direct install: use if you choose **Docker** above, or prefer a PowerShell interface.
+   2. **WSL on Windows**: use if you choose **Native** above, or prefer a UNIX-like interface.
 
 .. tabs::
 
@@ -64,7 +76,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          .. tabs::
 
-            .. group-tab:: Docker (recommended)
+            .. group-tab:: Docker
 
                .. warning::
 
@@ -186,7 +198,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          .. tabs::
 
-            .. group-tab:: Docker (recommended)
+            .. group-tab:: Docker
 
                1. On Windows, `install Docker Desktop for WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
@@ -260,7 +272,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          .. tabs::
 
-            .. group-tab:: Docker (recommended)
+            .. group-tab:: Docker
 
                1. Install Docker Engine for Ubuntu using the `convenience script <https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script>`_:
 
