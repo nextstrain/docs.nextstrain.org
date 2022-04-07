@@ -11,7 +11,9 @@ Customize your group's page
 
     We'll update this page once self-service customization is restored for
     groups that have migrated.  In the meantime, please `email us`__ if you
-    need to update your group's customizations.
+    need to update your group's customizations.  Note that per :ref:`group
+    roles <groups-roles>`, we'll only accept updates from :term:`owners` of the
+    group.
 
     __ mailto:hello@nextstrain.org?subject=Group%20customizations%20request
 
