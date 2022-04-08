@@ -1,4 +1,4 @@
-# Downloading the data displayed through nextstrain.org
+# Download the data displayed through nextstrain.org
 
 
 We make it possible to download the derived data behind the visualisations on nextstrain.org for your own further analysis.

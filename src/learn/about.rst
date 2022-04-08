@@ -41,7 +41,7 @@ same tools we do.
 
 nextstrain.org_ is not just our platform: we're dedicated to supporting the
 work of the community through :doc:`Nextstrain Groups
-</guides/share/nextstrain-groups>` and :doc:`other sharing mechanisms
+</guides/share/groups/index>` and :doc:`other sharing mechanisms
 </guides/share/index>`.  Our intent is to lower the barriers for public health
 organizations and research labs to both share their results publicly and
 collaborate privately.

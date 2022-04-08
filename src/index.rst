@@ -41,6 +41,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     learn/parts
     learn/interpret/index
     Pathogens <learn/pathogens/index>
+    learn/groups/index
 
 .. toctree::
     :maxdepth: 1
@@ -80,3 +81,4 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Nextstrain CLI <https://docs.nextstrain.org/projects/cli/en/stable/>
     Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-cli.html>
     Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextalign-cli.html>
+    reference/style

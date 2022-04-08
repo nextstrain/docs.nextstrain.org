@@ -1,4 +1,4 @@
-# Community Sharing of Results Via GitHub
+# Share via Community on GitHub
 
 One of [the ways](./index) we allow researchers to share their analyses through Nextstrain is via [GitHub](https://github.com).
 This allows dataset JSONs and/or narrative markdown files to be stored in your own GitHub repos and accessed through [nextstrain.org/community](https://nextstrain.org/community) URLs.
