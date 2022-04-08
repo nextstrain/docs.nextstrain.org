@@ -36,6 +36,8 @@ You can view them by running:
 Leave the environment with:
 
     conda deactivate
+
+> See below for how to build the docs for each subproject
     
 ## Building the docs with Docker
 
@@ -145,6 +147,18 @@ Documents which we've kept in subprojects, as opposed to including them in this 
 Another example is the tutorial for the SARS-CoV-2 workflow, which lives alongside the workflow in its repository, https://github.com/nextstrain/ncov, and shows up as a subproject at https://docs.nextstrain.org/projects/ncov/en/latest/index.html.
 Subprojects necessitate a distinct URL, such as https://docs.nextstrain.org/projects/augur as opposed to just https://docs.nextstrain.org.
 By default, this means a distinct set of headings / links in the sidebar navigation, making navigating back to https://docs.nextstrain.org more difficult once you have navigated to a subproject.
+
+## Building the Subproject docs
+
+The documentation for each subproject is built from within the corresponding GitHub repo, also using sphinx.
+
+For full details, see the respective how-to-build-docs sections:
+
+- [Augur](https://github.com/nextstrain/augur/blob/master/docs/contribute/DEV_DOCS.md#building-documentation)
+- [Auspice](https://github.com/nextstrain/auspice/blob/master/DEV_DOCS.md#contributing-to-documentation)
+- [Nextclade (includes Nextclade Web, Nextclade CLI, Nextalign CLI)](https://github.com/nextstrain/nextclade/tree/master/docs#building-the-docs-locally)
+- [ncov (SARS-CoV-2 Workflow)](https://github.com/nextstrain/ncov/tree/master/docs#building-the-docs)
+
 
 ### Fetching of documents from other repositories
 
