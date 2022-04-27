@@ -43,7 +43,7 @@ Additionally, possible locations of internal nodes can be inferred using mathema
 Interpreting these should, however, be done with caution, as the sampling and sequencing or lack thereof can significantly influence the interpretation,
 
 In the following example, we first show fully sampled phylogenetic tree, with samples from two different locations denoted by orange and blue.
-In the fully sampled case on the right, our interpretation of what happened, was that there were three different introductions from orange to blue.
+In the fully sampled case on the left, our interpretation of what happened, was that there were three different introductions from orange to blue.
 When removing the one orange sequence in the middle, our interpretation is now that there was one introduction into blue that happened much earlier.
 In the last example, we have only one sequence from orange, which could lead us to think that there was one introduction from orange into blue.
 
