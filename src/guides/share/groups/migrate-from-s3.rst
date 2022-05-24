@@ -166,18 +166,19 @@ Timeline
 :March 2022: New groups created after this point manage their data through
              nextstrain.org instead of S3.
 
-:April: `Notification`_ sent to groups created prior to March.
+:TBD: `Notification`_ sent to groups created prior to March.
 
-:April—June: Groups migrated one-by-one in coordination with group owners.
+:TBD: Groups migrated one-by-one in coordination with group owners.
 
-:end of June: *Tentatively.* Nextstrain team's desired deadline for migrating all
-            groups.
+:TBD: Nextstrain team's desired deadline for migrating all groups.
 
 
 Notification
 ============
 
-In April 2022, we emailed the contacts for all groups created before March 2022
+.. note:: Notifications have not yet been sent out.
+
+In *[TBD]* 2022, we emailed the contacts for all groups created before March 2022
 to inform them of these changes.  A copy of the email is below.
 
     **Subject:** Action requested: Improvements to how you manage your
