@@ -182,3 +182,7 @@
 - type: page
   from_url: /guides/contribute/cli-develop.html
   to_url: https://github.com/nextstrain/cli/tree/master/doc/development.md#readme
+
+- type: page
+  from_url: /guides/contribute/documentation.html
+  to_url: /guides/contribute/index.html
