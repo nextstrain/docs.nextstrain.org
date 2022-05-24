@@ -170,3 +170,19 @@
 - type: page
   from_url: /guides/share/nextstrain-groups.html
   to_url: /guides/share/groups/index.html
+
+- type: page
+  from_url: /guides/contribute/augur_develop.html
+  to_url: https://github.com/nextstrain/augur/tree/master/docs/contribute/DEV_DOCS.md#readme
+
+- type: page
+  from_url: /guides/contribute/auspice-develop.html
+  to_url: https://github.com/nextstrain/auspice/tree/master/DEV_DOCS.md#readme
+
+- type: page
+  from_url: /guides/contribute/cli-develop.html
+  to_url: https://github.com/nextstrain/cli/tree/master/doc/development.md#readme
+
+- type: page
+  from_url: /guides/contribute/documentation.html
+  to_url: /guides/contribute/index.html

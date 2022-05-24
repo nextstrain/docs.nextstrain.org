@@ -7,7 +7,7 @@ Auspice is written in JavaScript and is the app that powers all the phylogenomic
 
 > This section is in need of work!
 If you are able to, we'd really appreciate contributions to improve the content here (or anywhere else in the docs).
-Please see [this page](../../guides/contribute/documentation) for how you can help.
+Please see [this page](../../guides/contribute/index) for how you can help.
 
 
 
