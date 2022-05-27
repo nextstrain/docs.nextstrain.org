@@ -85,6 +85,21 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. group-tab:: Native
 
+               .. warning::
+
+                  If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), first run these commands to ensure Conda creates the environment with ``osx-64`` emulation:
+
+                  .. code-block:: bash
+
+                     # Create a new environment using Intel packages called base_osx-64
+                     CONDA_SUBDIR=osx-64 conda create -n base_osx-64 python
+
+                     # Activate new Intel-based environment
+                     conda activate base_osx-64
+
+                     # Ensure future Conda commands in this environment use Intel packages too.
+                     conda config --env --set subdir osx-64
+
                1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
 
                   .. code-block:: bash
