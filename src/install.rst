@@ -336,7 +336,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
 Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``nextstrain build`` on AWS.
 
-Next, try :doc:`tutorials/running-a-workflow`.
+Next, try :doc:`tutorials/running-a-workflow`. Or, if you want to run a particular pathogen workflow, please check specific docs for additional installation steps (e.g. :doc:`setup steps for SARS-CoV-2 workflow <ncov:tutorial/setup>`).
 
 .. note::
 
