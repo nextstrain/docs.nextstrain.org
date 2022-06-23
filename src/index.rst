@@ -39,9 +39,11 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Introduction <self>
     learn/about
     learn/parts
+    learn/exporting-data-for-auspice
     learn/interpret/index
     Pathogens <learn/pathogens/index>
     learn/groups/index
+
 
 .. toctree::
     :maxdepth: 1
