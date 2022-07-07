@@ -106,7 +106,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                      mamba create -n nextstrain \
                        -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign snakemake git \
+                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
                        --yes
 
                2. Activate the conda environment:
@@ -227,7 +227,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                      mamba create -n nextstrain \
                        -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign snakemake git \
+                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
                        --yes
 
                2. Activate the conda environment:
@@ -313,7 +313,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                      mamba create -n nextstrain \
                        -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign snakemake git \
+                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
                        --yes
 
                2. Activate the conda environment:
