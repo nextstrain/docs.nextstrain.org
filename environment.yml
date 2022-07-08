@@ -4,12 +4,13 @@ channels:
 dependencies:
   - graphviz
   - make
-  - recommonmark
-  - requests
-  - sphinx
   - pip
   - pip:
     - nextstrain-sphinx-theme>=2020.2
+    - docutils<0.18
+    - recommonmark
+    - requests
+    - sphinx
     - sphinx-markdown-tables
     - sphinx-argparse
     - sphinx-tabs
