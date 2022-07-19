@@ -73,9 +73,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                1. Install Docker Desktop using `the official guide <https://docs.docker.com/desktop/mac/install/>`_.
                2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-                  .. code-block:: bash
-
-                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
+                  .. include:: snippets/conda-install-minimal.rst
 
                3. Activate the conda environment:
 
@@ -102,12 +100,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
 
-                  .. code-block:: bash
-
-                     mamba create -n nextstrain \
-                       -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
-                       --yes
+                  .. include:: snippets/conda-install-full.rst
 
                2. Activate the conda environment:
 
@@ -149,19 +142,22 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-         .. code-block:: none
+         .. include:: snippets/conda-install-minimal.rst
 
-            mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
+      5. Activate the conda environment:
+
+         .. code-block:: bash
+
             conda activate nextstrain
 
-      5. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
+      6. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
          .. note::
 
             You may have to restart your machine when configuring WSL (Windows Subsystem for Linux).
             If so, remember to open a new Anaconda PowerShell Prompt and run ``conda activate nextstrain`` before the next step.
 
-      6. Confirm that the installation worked.
+      7. Confirm that the installation worked.
 
          .. code-block:: none
 
@@ -209,9 +205,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-                  .. code-block:: bash
-
-                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
+                  .. include:: snippets/conda-install-minimal.rst
 
                3. Activate the conda environment:
 
@@ -223,12 +217,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
 
-                  .. code-block:: bash
-
-                     mamba create -n nextstrain \
-                       -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
-                       --yes
+                  .. include:: snippets/conda-install-full.rst
 
                2. Activate the conda environment:
 
@@ -295,9 +284,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                3. Restart your machine.
                4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-                  .. code-block:: bash
-
-                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
+                  .. include:: snippets/conda-install-minimal.rst
 
                5. Activate the conda environment:
 
@@ -309,12 +296,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
 
-                  .. code-block:: bash
-
-                     mamba create -n nextstrain \
-                       -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
-                       --yes
+                  .. include:: snippets/conda-install-full.rst
 
                2. Activate the conda environment:
 
