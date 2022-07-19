@@ -333,7 +333,7 @@ Update the ``nextstrain`` conda environment.
 
    mamba update -n base conda mamba
    conda activate nextstrain
-   mamba update --all -c conda-forge -c bioconda
+   mamba update --all -c conda-forge -c bioconda -c defaults --strict-channel-priority
 
 [Docker] Download the latest image with the Nextstrain CLI.
 
