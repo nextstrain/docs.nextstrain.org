@@ -139,7 +139,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
          b. Scroll down to the **Latest Miniconda Installer Links** section and click the Windows platform link relevant to your machine.
          c. Open the downloaded file and follow through installation prompts.
 
-      2. Open an Anaconda PowerShell Prompt, which can be found in the Start menu.
+      2. Open an Anaconda PowerShell Prompt, which can be found in the Start menu. Note that you should not use the *administrator* prompt.
       3. Install mamba on the ``base`` conda environment:
 
          .. code-block:: bash
