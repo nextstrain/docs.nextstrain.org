@@ -73,7 +73,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                1. Install Docker Desktop using `the official guide <https://docs.docker.com/desktop/mac/install/>`_.
                2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-                  .. include:: snippets/conda-install-minimal.rst
+                  .. include:: snippets/conda-install-minimal-bash.rst
 
                3. Activate the conda environment:
 
@@ -100,7 +100,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
 
-                  .. include:: snippets/conda-install-full.rst
+                  .. include:: snippets/conda-install-full-bash.rst
 
                2. Activate the conda environment:
 
@@ -135,18 +135,18 @@ These instructions will install the Nextstrain CLI and tools to run and view you
       2. Open an Anaconda PowerShell Prompt, which can be found in the Start menu. Note that you should not use the *administrator* prompt.
       3. Install mamba on the ``base`` conda environment:
 
-         .. code-block:: bash
+         .. code-block:: powershell
 
             conda install -n base -c conda-forge mamba --yes
             conda activate base
 
       4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-         .. include:: snippets/conda-install-minimal.rst
+         .. include:: snippets/conda-install-minimal-powershell.rst
 
       5. Activate the conda environment:
 
-         .. code-block:: bash
+         .. code-block:: powershell
 
             conda activate nextstrain
 
@@ -159,7 +159,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       7. Confirm that the installation worked.
 
-         .. code-block:: none
+         .. code-block:: powershell
 
             nextstrain check-setup --set-default
 
@@ -205,7 +205,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-                  .. include:: snippets/conda-install-minimal.rst
+                  .. include:: snippets/conda-install-minimal-bash.rst
 
                3. Activate the conda environment:
 
@@ -217,7 +217,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
 
-                  .. include:: snippets/conda-install-full.rst
+                  .. include:: snippets/conda-install-full-bash.rst
 
                2. Activate the conda environment:
 
@@ -284,7 +284,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                3. Restart your machine.
                4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
 
-                  .. include:: snippets/conda-install-minimal.rst
+                  .. include:: snippets/conda-install-minimal-bash.rst
 
                5. Activate the conda environment:
 
@@ -296,7 +296,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
 
-                  .. include:: snippets/conda-install-full.rst
+                  .. include:: snippets/conda-install-full-bash.rst
 
                2. Activate the conda environment:
 
