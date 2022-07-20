@@ -71,15 +71,15 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                   If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), **Native** installation is recommended due to slowness with the Docker installation. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
 
                1. Install Docker Desktop using `the official guide <https://docs.docker.com/desktop/mac/install/>`_.
-               2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+               2. Create a conda environment named ``nextstrain``:
 
-                  .. include:: snippets/conda-install-minimal-bash.rst
+                  .. include:: snippets/conda-create-bash.rst
 
-               3. Activate the conda environment:
+               3. Install the Nextstrain CLI:
 
                   .. code-block:: bash
 
-                     conda activate nextstrain
+                     mamba install --yes nextstrain-cli
 
             .. group-tab:: Native
 
@@ -98,15 +98,13 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                      # Ensure future Conda commands in this environment use Intel packages too.
                      conda config --env --set subdir osx-64
 
-               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
+               1. Create a conda environment named ``nextstrain``:
+
+                  .. include:: snippets/conda-create-bash.rst
+
+               2. Install all the necessary software:
 
                   .. include:: snippets/conda-install-full-bash.rst
-
-               2. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
 
       5. Confirm that the installation worked.
 
@@ -140,15 +138,15 @@ These instructions will install the Nextstrain CLI and tools to run and view you
             conda install -n base -c conda-forge mamba --yes
             conda activate base
 
-      4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+      4. Create a conda environment named ``nextstrain``:
 
-         .. include:: snippets/conda-install-minimal-powershell.rst
+         .. include:: snippets/conda-create-powershell.rst
 
-      5. Activate the conda environment:
+      5. Install the Nextstrain CLI:
 
          .. code-block:: powershell
 
-            conda activate nextstrain
+            mamba install --yes nextstrain-cli
 
       6. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
@@ -203,28 +201,25 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                   - Make sure to follow through the last step of enabling **WSL Integration**.
 
-               2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+               2. Create a conda environment named ``nextstrain``:
 
-                  .. include:: snippets/conda-install-minimal-bash.rst
+                  .. include:: snippets/conda-create-bash.rst
 
-               3. Activate the conda environment:
+               3. Install the Nextstrain CLI:
 
                   .. code-block:: bash
 
-                     conda activate nextstrain
+                     mamba install --yes nextstrain-cli
 
             .. group-tab:: Native
 
-               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
+               1. Create a conda environment named ``nextstrain``:
+
+                  .. include:: snippets/conda-create-bash.rst
+
+               2. Install all the necessary software:
 
                   .. include:: snippets/conda-install-full-bash.rst
-
-               2. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
-
 
       6. Confirm that the installation worked.
 
@@ -282,27 +277,25 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                      sudo usermod -aG docker $USER
 
                3. Restart your machine.
-               4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+               4. Create a conda environment named ``nextstrain``:
 
-                  .. include:: snippets/conda-install-minimal-bash.rst
+                  .. include:: snippets/conda-create-bash.rst
 
-               5. Activate the conda environment:
+               5. Install the Nextstrain CLI:
 
                   .. code-block:: bash
 
-                     conda activate nextstrain
+                     mamba install --yes nextstrain-cli
 
             .. group-tab:: Native
 
-               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
+               1. Create a conda environment named ``nextstrain``:
+
+                  .. include:: snippets/conda-create-bash.rst
+
+               2. Install all the necessary software:
 
                   .. include:: snippets/conda-install-full-bash.rst
-
-               2. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
 
       4. Confirm that the installation worked.
 
@@ -333,7 +326,7 @@ Update the ``nextstrain`` conda environment.
 
    mamba update -n base conda mamba
    conda activate nextstrain
-   mamba update --all -c conda-forge -c bioconda -c defaults --strict-channel-priority
+   mamba update --all
 
 [Docker] Download the latest image with the Nextstrain CLI.
 
