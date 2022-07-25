@@ -14,7 +14,7 @@ The following instructions describe how to install Nextstrain's software tools, 
 
 .. note::
 
-    If you want to :doc:`contribute to the development of Nextstrain </guides/contribute/index>` or if you prefer to manage your own custom environment (e.g., a conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, and :doc:`Auspice <auspice:introduction/install>`.
+    If you want to :doc:`contribute to the development of Nextstrain </guides/contribute/index>` or if you prefer to manage your own custom environment (e.g., a Conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, and :doc:`Auspice <auspice:introduction/install>`.
 
 .. contents:: Table of Contents
    :local:
@@ -25,10 +25,10 @@ Background
 ==========
 
 `Conda <https://docs.conda.io/en/latest/>`_ is a package and environment management system that allows you to install Python and other software into controlled environments without disrupting other software you have installed (e.g., on your computer, your shared cluster, etc.).
-Conda provides an appropriate version of Python required by all approaches to installing Nextstrain tools. Miniconda is the minimal installation of the command-line interface to conda.
+Conda provides an appropriate version of Python required by all approaches to installing Nextstrain tools. Miniconda is the minimal installation of the command-line interface to Conda.
 
 `Mamba <https://github.com/mamba-org/mamba>`_ is a drop-in replacement for most ``conda`` functionality that implements a faster dependency solving algorithm in C++ and multithreaded downloads.
-As a result, mamba can install conda packages much faster and more accurately than the original conda installer.
+As a result, Mamba can install Conda packages much faster and more accurately than the original Conda installer.
 
 `Docker <https://docker.com/>`_ is a container system freely-available for all platforms.
 When you use Docker to run Nextstrain components, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
@@ -53,7 +53,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
          c. Open the downloaded file and follow through installation prompts.
 
       2. Open a terminal window.
-      3. Install mamba on the ``base`` conda environment:
+      3. Install Mamba on the ``base`` Conda environment:
 
          .. code-block:: bash
 
@@ -71,17 +71,15 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                   If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), **Native** installation is recommended due to slowness with the Docker installation. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
 
                1. Install Docker Desktop using `the official guide <https://docs.docker.com/desktop/mac/install/>`_.
-               2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+               2. Create a Conda environment named ``nextstrain``:
+
+                  .. include:: snippets/conda-create-bash.rst
+
+               3. Install the Nextstrain CLI:
 
                   .. code-block:: bash
 
-                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
-
-               3. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
+                     mamba install --yes nextstrain-cli
 
             .. group-tab:: Native
 
@@ -100,20 +98,13 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                      # Ensure future Conda commands in this environment use Intel packages too.
                      conda config --env --set subdir osx-64
 
-               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
+               1. Create a Conda environment named ``nextstrain``:
 
-                  .. code-block:: bash
+                  .. include:: snippets/conda-create-bash.rst
 
-                     mamba create -n nextstrain \
-                       -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
-                       --yes
+               2. Install all the necessary software:
 
-               2. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
+                  .. include:: snippets/conda-install-full-bash.rst
 
       5. Confirm that the installation worked.
 
@@ -139,31 +130,34 @@ These instructions will install the Nextstrain CLI and tools to run and view you
          b. Scroll down to the **Latest Miniconda Installer Links** section and click the Windows platform link relevant to your machine.
          c. Open the downloaded file and follow through installation prompts.
 
-      2. Open an Anaconda PowerShell Prompt, which can be found in the Start menu.
-      3. Install mamba on the ``base`` conda environment:
+      2. Open an Anaconda PowerShell Prompt, which can be found in the Start menu. Note that you should not use the *administrator* prompt.
+      3. Install Mamba on the ``base`` Conda environment:
 
-         .. code-block:: bash
+         .. code-block:: powershell
 
             conda install -n base -c conda-forge mamba --yes
             conda activate base
 
-      4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+      4. Create a Conda environment named ``nextstrain``:
 
-         .. code-block:: none
+         .. include:: snippets/conda-create-powershell.rst
 
-            mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
-            conda activate nextstrain
+      5. Install the Nextstrain CLI:
 
-      5. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
+         .. code-block:: powershell
+
+            mamba install --yes nextstrain-cli
+
+      6. Install the remaining Nextstrain components by `installing Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
          .. note::
 
             You may have to restart your machine when configuring WSL (Windows Subsystem for Linux).
             If so, remember to open a new Anaconda PowerShell Prompt and run ``conda activate nextstrain`` before the next step.
 
-      6. Confirm that the installation worked.
+      7. Confirm that the installation worked.
 
-         .. code-block:: none
+         .. code-block:: powershell
 
             nextstrain check-setup --set-default
 
@@ -190,7 +184,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
             # follow through installation prompts
             rm Miniconda3-latest-Linux-x86_64.sh
 
-      4. Install mamba on the ``base`` conda environment:
+      4. Install Mamba on the ``base`` Conda environment:
 
          .. code-block:: bash
 
@@ -207,35 +201,25 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                   - Make sure to follow through the last step of enabling **WSL Integration**.
 
-               2. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+               2. Create a Conda environment named ``nextstrain``:
+
+                  .. include:: snippets/conda-create-bash.rst
+
+               3. Install the Nextstrain CLI:
 
                   .. code-block:: bash
 
-                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
-
-               3. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
+                     mamba install --yes nextstrain-cli
 
             .. group-tab:: Native
 
-               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
+               1. Create a Conda environment named ``nextstrain``:
 
-                  .. code-block:: bash
+                  .. include:: snippets/conda-create-bash.rst
 
-                     mamba create -n nextstrain \
-                       -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
-                       --yes
+               2. Install all the necessary software:
 
-               2. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
-
+                  .. include:: snippets/conda-install-full-bash.rst
 
       6. Confirm that the installation worked.
 
@@ -264,7 +248,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
             # follow through installation prompts
             rm Miniconda3-latest-Linux-x86_64.sh
 
-      2. Install mamba on the ``base`` conda environment:
+      2. Install Mamba on the ``base`` Conda environment:
 
          .. code-block:: bash
 
@@ -293,34 +277,25 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                      sudo usermod -aG docker $USER
 
                3. Restart your machine.
-               4. Create a conda environment named ``nextstrain`` and install the Nextstrain CLI:
+               4. Create a Conda environment named ``nextstrain``:
+
+                  .. include:: snippets/conda-create-bash.rst
+
+               5. Install the Nextstrain CLI:
 
                   .. code-block:: bash
 
-                     mamba create -n nextstrain -c conda-forge -c bioconda nextstrain-cli --yes
-
-               5. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
+                     mamba install --yes nextstrain-cli
 
             .. group-tab:: Native
 
-               1. Create a conda environment named ``nextstrain`` and install all the necessary software using mamba:
+               1. Create a Conda environment named ``nextstrain``:
 
-                  .. code-block:: bash
+                  .. include:: snippets/conda-create-bash.rst
 
-                     mamba create -n nextstrain \
-                       -c conda-forge -c bioconda \
-                       nextstrain-cli augur auspice nextalign nextclade snakemake git epiweeks pangolin pangolearn \
-                       --yes
+               2. Install all the necessary software:
 
-               2. Activate the conda environment:
-
-                  .. code-block:: bash
-
-                     conda activate nextstrain
+                  .. include:: snippets/conda-install-full-bash.rst
 
       4. Confirm that the installation worked.
 
@@ -340,18 +315,18 @@ Next, try :doc:`tutorials/running-a-workflow`.
 
 .. note::
 
-   Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the conda environment with ``conda activate nextstrain``.
+   Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Conda environment with ``conda activate nextstrain``.
 
 Update an existing installation
 ================================
 
-Update the ``nextstrain`` conda environment.
+Update the ``nextstrain`` Conda environment.
 
 .. code-block:: bash
 
    mamba update -n base conda mamba
    conda activate nextstrain
-   mamba update --all -c conda-forge -c bioconda
+   mamba update --all
 
 [Docker] Download the latest image with the Nextstrain CLI.
 
@@ -362,13 +337,13 @@ Update the ``nextstrain`` conda environment.
 Troubleshoot a broken installation
 ==================================
 
-If conda fails to install or update Nextstrain using the commands above, it's possible that conda itself is out-of-date or that conda cannot figure out how to resolve the environment's dependencies.
+If Conda fails to install or update Nextstrain using the commands above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
 Try the following approaches, to fix these broken installations.
 
 Remove your environment and start from scratch
 ----------------------------------------------
 
-Starting from scratch often fixes problems with conda environments.
+Starting from scratch often fixes problems with Conda environments.
 To start over with a new Nextstrain environment, delete your current environment.
 
 .. code-block:: bash
@@ -376,7 +351,7 @@ To start over with a new Nextstrain environment, delete your current environment
     conda activate base
     conda env remove -n nextstrain
 
-Then, repeat the installation instructions above, starting with the update of conda itself.
+Then, repeat the installation instructions above, starting with the update of Conda itself.
 
 Next steps
 ==========
