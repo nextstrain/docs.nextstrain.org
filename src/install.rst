@@ -262,14 +262,15 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. group-tab:: Docker (recommended)
 
-               1. Install Docker Engine for Ubuntu using the `convenience script <https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script>`_:
+               1. Install Docker Engine using the standard Ubuntu package:
 
                   .. code-block:: bash
 
-                     curl -fsSL https://get.docker.com -o get-docker.sh
-                     sudo sh get-docker.sh
-                     # follow through installation prompts
-                     rm get-docker.sh
+                     sudo apt install docker.io
+
+                  .. note::
+
+                     See `Docker's installation documentation <https://docs.docker.com/engine/install/ubuntu/>`__ for alternative installation methods.
 
                2. Add your user to the `docker` group:
 
