@@ -262,6 +262,8 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. group-tab:: Docker (recommended)
 
+               .. note:: Steps for other Linux distributions (Debian, CentOS, RHEL, etc.) will be similar, though specific commands may vary slightly.
+
                1. Install Docker Engine using the standard Ubuntu package:
 
                   .. code-block:: bash
@@ -290,6 +292,8 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                      mamba install --yes nextstrain-cli
 
             .. group-tab:: Native
+
+               .. note:: Steps for other Linux distributions (Debian, CentOS, RHEL, etc.) should be identical or very similar.
 
                1. Create a Conda environment named ``nextstrain``:
 
