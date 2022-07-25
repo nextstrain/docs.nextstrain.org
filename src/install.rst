@@ -199,7 +199,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                1. On Windows, `install Docker Desktop for WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
-                  - Make sure to follow through the last step of enabling **WSL Integration**.
+                  .. note:: Make sure to follow through the last step of enabling **WSL Integration**.
 
                2. Create a Conda environment named ``nextstrain``:
 
