@@ -122,7 +122,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       .. note::
 
-         Due to installation constraints, there is no way to use the native Nextstrain components on Windows directly. Follow steps for **WSL on Windows** if the native environment is desired.
+         Due to installation constraints, there is no way to use the native Nextstrain components on Windows directly. Follow steps for **WSL on Windows** if the native environment is desired, or use the **Docker**-based steps instead.
 
       1. `Install Windows Subsystem for Linux (WSL) 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
 
