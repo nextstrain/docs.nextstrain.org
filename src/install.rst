@@ -275,7 +275,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                   .. code-block:: bash
 
-                     sudo usermod -aG docker $USER
+                     sudo gpasswd --add $USER docker
 
                3. Restart your machine.
                4. Create a Conda environment named ``nextstrain``:
