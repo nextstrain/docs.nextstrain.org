@@ -70,7 +70,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
                   If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), **Native** installation is recommended due to slowness with the Docker installation. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
 
-               1. `Install Docker Desktop using the official guide <https://docs.docker.com/desktop/mac/install/>`_.
+               1. `Install Docker Desktop using the official guide <https://docs.docker.com/desktop/install/mac-install/>`_.
                2. Create a Conda environment named ``nextstrain``:
 
                   .. include:: snippets/conda-create-bash.rst
