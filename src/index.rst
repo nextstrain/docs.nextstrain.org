@@ -81,4 +81,5 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Nextstrain CLI <https://docs.nextstrain.org/projects/cli/en/stable/>
     Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-cli.html>
     Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextalign-cli.html>
+    FAQ <reference/faq>
     reference/style
