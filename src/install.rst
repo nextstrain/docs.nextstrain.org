@@ -48,9 +48,15 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       1. Install Miniconda:
 
-         a. Go to the `installation page <https://docs.conda.io/en/latest/miniconda.html>`_.
-         b. Scroll down to the **Latest Miniconda Installer Links** section and click the MacOSX platform link that ends with **pkg**.
-         c. Open the downloaded file and follow through installation prompts.
+         .. The installer link is taken from https://docs.conda.io/en/latest/miniconda.html.
+
+         a. `Download the installer <https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg>`_.
+
+            .. note::
+
+                  This is the Intel x86 64-bit installer, :ref:`which we recommend even for Mac computers with Apple silicon (e.g. M1) <why-intel-miniconda-installer-on-apple-silicon>`.
+
+         b. Open the downloaded file and follow through installation prompts.
 
       2. Open a terminal window.
       3. Install Mamba on the ``base`` Conda environment:
@@ -82,21 +88,6 @@ These instructions will install the Nextstrain CLI and tools to run and view you
                      mamba install --yes nextstrain-cli
 
             .. group-tab:: Native
-
-               .. warning::
-
-                  If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), first run these commands to ensure Conda creates the environment with ``osx-64`` emulation:
-
-                  .. code-block:: bash
-
-                     # Create a new environment using Intel packages called base_osx-64
-                     CONDA_SUBDIR=osx-64 conda create -n base_osx-64 python
-
-                     # Activate new Intel-based environment
-                     conda activate base_osx-64
-
-                     # Ensure future Conda commands in this environment use Intel packages too.
-                     conda config --env --set subdir osx-64
 
                1. Create a Conda environment named ``nextstrain``:
 
