@@ -46,7 +46,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for Augur <augur:installation/installation>` and :doc:`install Auspice via npm <auspice:introduction/install>`.
 
-      1. Install Miniconda:
+      1. Install Miniconda if you don't have ``conda`` yet:
 
          .. The installer link is taken from https://docs.conda.io/en/latest/miniconda.html.
 
@@ -89,6 +89,10 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
             .. group-tab:: Native
 
+               .. warning::
+
+                  If you already had Conda installed prior to following these steps **and** are using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), please :ref:`read this FAQ section to see if you should run an extra step before proceeding <check-existing-conda-installation>`.
+
                1. Create a Conda environment named ``nextstrain``:
 
                   .. include:: snippets/conda-create-bash.rst
@@ -120,7 +124,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
          .. note:: You may have to restart your machine when configuring WSL.
 
       2. `Install Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
-      3. Install Miniconda:
+      3. Install Miniconda if you don't have ``conda`` yet:
 
          a. Go to the `installation page <https://docs.conda.io/en/latest/miniconda.html>`_.
          b. Scroll down to the **Latest Miniconda Installer Links** section and click the Windows platform link relevant to your machine.
@@ -167,7 +171,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
          .. note:: You may have to restart your machine when configuring WSL.
 
       2. Open a WSL terminal by running **wsl** from the Start menu.
-      3. Install Miniconda:
+      3. Install Miniconda if you don't have ``conda`` yet:
 
          .. code-block:: bash
 
@@ -231,7 +235,7 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
          If you are an experienced user, you can replace ``conda`` with ``pip`` but :doc:`note the extra installation steps for Augur <augur:installation/installation>` and :doc:`install Auspice via npm <auspice:introduction/install>`.
 
-      1. Install Miniconda:
+      1. Install Miniconda if you don't have ``conda`` yet:
 
          .. code-block:: bash
 
