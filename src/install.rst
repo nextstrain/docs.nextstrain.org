@@ -227,16 +227,15 @@ These instructions will install the Nextstrain CLI and tools to run and view you
 
       .. hint::
 
-         By default, your Windows home directory will not be directly accessible under your WSL home directory. When run in a WSL prompt, the following command fixes that by creating a symlink to it in your WSL home directory. This allows you to use Windows-based text editors and Linux commands all on the same files. Before running,
-
-         1. Replace ``<user>`` with your Windows username.
-         2. Optionally, change the ``windows_home`` folder name or only link to a specific directory under your windows user (e.g. ``ln -s /mnt/c/Users/<user>/Documents ~/windows_documents``).
+         By default, your Windows home directory will not be directly accessible under your WSL home directory. When run in a WSL prompt, the following command fixes that by creating a symlink to it in your WSL home directory. This allows you to use Windows-based text editors and Linux commands all on the same files.
 
          .. code-block:: bash
 
-               ln -ws /mnt/c/Users/<user> ~/windows_home
+               ln -ws "$(wslpath "$(wslvar USERPROFILE)")" ~/windows_home
 
-         If your computer's language is set to something other than English, be sure to change the directory names in the path to correspond. For example, on a German-language machine, the path may be ``/mnt/c/Benutzer/<user>``
+         Optionally, you can customize the ``windows_home`` folder name or only link to a specific directory under your windows user (e.g. ``ln -ws "$(wslpath "$(wslvar USERPROFILE)")/Documents" ~/windows_documents``).
+
+         If the command does not work, you may have to first run ``sudo apt install wslu``.
 
    .. group-tab:: Ubuntu Linux
 
