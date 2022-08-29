@@ -19,6 +19,15 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
+# Generating --ignore options from .gitignore means that src/fetch-docs.py,
+# which runs on build and produces files in src/, doesn't trigger an endless
+# loop of autobuilds.  The syntax of .gitignore patterns is not actually
+# identical to sphinx-autobuild's --ignore patterns (which use Python's
+# fnmatch(), where "*" means something other than a normal glob, for example),
+# but our usage is limited enough for this to work as much as necessary.
+livehtml:
+	sphinx-autobuild -b html $(patsubst %,--ignore "*/%",$(file < .gitignore)) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
 .ONESHELL:
 docker-html:
 	set -euox

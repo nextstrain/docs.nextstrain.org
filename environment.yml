@@ -11,6 +11,7 @@ dependencies:
     - recommonmark
     - requests
     - sphinx
+    - sphinx-autobuild
     - sphinx-markdown-tables
     - sphinx-argparse
     - sphinx-tabs
