@@ -52,7 +52,7 @@ First, install a Nextstrain runtime.
 
                .. note:: You may have to restart your machine when configuring WSL.
 
-            2. `Install Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
+            2. `Install Docker Desktop <https://docs.docker.com/desktop/install/windows-install/>`_ with the `WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
             3. Open a PowerShell prompt (not a WSL prompt) as your own user (not as an administrator).
             4. Install the Nextstrain CLI.
 
@@ -67,7 +67,7 @@ First, install a Nextstrain runtime.
 
                .. note:: You may have to restart your machine when configuring WSL.
 
-            2. `Install Docker Desktop with WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
+            2. `Install Docker Desktop`_ with the `WSL 2 backend`_.
 
                .. note:: Make sure to follow through the last step of enabling **WSL Integration**.
 
