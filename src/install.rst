@@ -292,6 +292,34 @@ Alternate installation methods
 
 If you want to :doc:`contribute to the development of Nextstrain </guides/contribute/index>` or if you prefer to manage your own custom environment (e.g., a Conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, and :doc:`Auspice <auspice:introduction/install>`.
 
+Uninstall
+=========
+
+We do not have an automated uninstall process currently.
+Instead, follow these manual steps:
+
+.. tabs::
+
+   .. group-tab:: Docker
+
+      1. If the directory :file:`~/.nextstrain` exists, remove it.
+      2. Remove all ``nextstrain/…`` Docker images::
+
+            docker image rm $(docker image ls -q "nextstrain/*")
+
+      3. Optionally, uninstall Docker if only used for Nextstrain.
+      4. On Windows, optionally, uninstall WSL if only used for Nextstrain.
+
+   .. group-tab:: Native
+
+      1. If the directory :file:`~/.nextstrain` exists, remove it.
+      2. Remove the ``nextstrain`` Conda environment::
+
+            conda env remove -n nextstrain
+
+      3. Optionally, uninstall Conda if only used for Nextstrain.
+      4. On Windows, optionally, uninstall WSL if only used for Nextstrain.
+
 Next steps
 ==========
 
