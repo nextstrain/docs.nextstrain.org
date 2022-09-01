@@ -63,7 +63,7 @@ First, install a Nextstrain runtime.
 
          .. group-tab:: WSL on Windows
 
-            1. `Install Windows Subsystem for Linux (WSL) 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
+            1. `Install Windows Subsystem for Linux (WSL) 2`_.
 
                .. note:: You may have to restart your machine when configuring WSL.
 
@@ -151,7 +151,7 @@ First, install a Nextstrain runtime.
 
          .. group-tab:: WSL on Windows
 
-            1. `Install WSL 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
+            1. `Install Windows Subsystem for Linux (WSL) 2`_.
             2. Open a WSL terminal by running **wsl** from the Start menu.
             3. Install Miniconda:
 
