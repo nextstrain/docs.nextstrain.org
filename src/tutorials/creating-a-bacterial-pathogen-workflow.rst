@@ -17,13 +17,7 @@ Prerequisites
 Setup
 =====
 
-1. Activate the ``nextstrain`` conda environment.
-
-   .. code-block:: bash
-
-      conda activate nextstrain
-
-2. Download the example :term:`workflow repository` and enter the new directory.
+1. Download the example :term:`workflow repository` and enter the new directory.
 
    .. code-block:: bash
 

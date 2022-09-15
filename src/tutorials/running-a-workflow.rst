@@ -17,15 +17,6 @@ Prerequisites
 
 1. :doc:`Install Nextstrain </install>`. These instructions will install all of the software you need to complete this tutorial and others.
 
-Setup
-=====
-
-Activate the ``nextstrain`` conda environment.
-
-.. code-block::
-
-    conda activate nextstrain
-
 Download the example Zika workflow repository
 =============================================
 
