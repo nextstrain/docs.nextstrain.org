@@ -271,21 +271,37 @@ Update an existing installation
 Troubleshoot a broken installation
 ==================================
 
-If Conda fails to install or update Nextstrain using the commands above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
-Try the following approaches, to fix these broken installations.
+.. tabs::
 
-Remove your environment and start from scratch
-----------------------------------------------
+   .. group-tab:: Docker
 
-Starting from scratch often fixes problems with Conda environments.
-To start over with a new Nextstrain environment, delete your current environment.
+      The Docker runtime requires that the Docker service is running on your computer behind the scenes.
+      If you see a message like::
 
-.. code-block:: bash
+         Cannot connect to the Docker daemon at […]. Is the docker daemon running?
 
-    conda activate base
-    conda env remove -n nextstrain
+      Then it is likely that the Docker service is not running.
+      On macOS and Windows, try quitting Docker Desktop (if it's open) and restarting it.
+      On Linux, try running ``sudo systemctl restart docker``.
 
-Then, repeat the installation instructions above, starting with the update of Conda itself.
+      Running ``nextstrain check-setup`` will also report potential issues.
+      Make sure there are no errors or warnings reported for the Docker runtime.
+
+
+   .. group-tab:: Native
+
+      If Conda fails to install or update Nextstrain using the commands above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
+      Starting from scratch often fixes problems with Conda environments.
+      To start over with a new Nextstrain environment, delete your current environment.
+
+      .. code-block:: bash
+
+          conda activate base
+          conda env remove -n nextstrain
+
+      Then, repeat the installation instructions above, starting with the update of Conda itself.
+
+If you the above isn't sufficient and you need more help troubleshooting, please post to our `discussion forum <https://discussion.nextstrain.org/c/help-and-getting-started/6>`__ where members of the community and the Nextstrain team can help out.
 
 Alternate installation methods
 ==============================
