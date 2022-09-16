@@ -78,6 +78,8 @@ First, install a Nextstrain runtime.
 
                   curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
 
+            .. include:: snippets/wsl-home-dir.rst
+
 
          .. group-tab:: Ubuntu Linux
 
@@ -177,6 +179,8 @@ First, install a Nextstrain runtime.
 
                .. include:: snippets/conda-install-full-bash.rst
 
+            .. include:: snippets/wsl-home-dir.rst
+
 
          .. group-tab:: Ubuntu Linux
 
@@ -206,6 +210,12 @@ First, install a Nextstrain runtime.
 
                .. include:: snippets/conda-install-full-bash.rst
 
+      .. admonition:: For native runtime installs
+         :class: hint
+
+         Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Conda environment with ``conda activate nextstrain``.
+
+
 
 Then, confirm that the installation worked.
 
@@ -223,23 +233,6 @@ Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``ne
 
 Next, try :doc:`tutorials/running-a-workflow`.
 
-.. admonition:: For native runtime installs
-   :class: hint
-
-   Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Conda environment with ``conda activate nextstrain``.
-
-.. admonition:: For WSL on Windows installs
-   :class: hint
-
-   By default, your Windows home directory will not be directly accessible under your WSL home directory. When run in a WSL prompt, the following command fixes that by creating a symlink to it in your WSL home directory. This allows you to use Windows-based text editors and Linux commands all on the same files.
-
-   .. code-block:: bash
-
-         ln -ws "$(wslpath "$(wslvar USERPROFILE)")" ~/windows_home
-
-   Optionally, you can customize the ``windows_home`` folder name or only link to a specific directory under your windows user (e.g. ``ln -ws "$(wslpath "$(wslvar USERPROFILE)")/Documents" ~/windows_documents``).
-
-   If the command does not work, you may have to first run ``sudo apt install wslu``.
 
 Update an existing installation
 ================================
