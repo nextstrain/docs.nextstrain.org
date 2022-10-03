@@ -2,7 +2,9 @@
 Frequently Asked Questions (FAQ)
 ================================
 
-.. TODO: Add a table of contents once there are more sections. Doesn't seem necessary at the time of writing.
+.. contents:: Table of Contents
+   :local:
+   :depth: 2
 
 Installation
 ============
