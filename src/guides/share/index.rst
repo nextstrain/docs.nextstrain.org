@@ -93,4 +93,4 @@ Custom Auspice servers
 Auspice can be run on your own server, including customizations to the appearance and functionality.
 This may be appropriate when you want or need full control over how the website is deployed and where the data is stored.
 
-See :doc:`auspice:server/index` for more information on how to set this up.
+See :doc:`auspice:server/overview` for more information on how to set this up.
