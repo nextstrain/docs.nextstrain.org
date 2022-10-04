@@ -228,7 +228,7 @@ dataset.
 You can run :term:`Augur` and :term:`Auspice` on
 your own computer and use them independently or together with your own builds,
 our core builds, or others' group or community builds.  You can even install
-Auspice on :doc:`your own web server <auspice:server/index>` if you don't want
+Auspice on :doc:`your own web server <auspice:server/overview>` if you don't want
 to host your datasets via nextstrain.org.
 
 The :term:`Nextstrain CLI` ties
