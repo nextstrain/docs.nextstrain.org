@@ -45,6 +45,8 @@ First, install a Nextstrain runtime.
 
                   curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/mac | bash
 
+            3. Follow the installer's final instructions to setup your shell config.
+
 
          .. group-tab:: Windows
 
@@ -78,6 +80,8 @@ First, install a Nextstrain runtime.
 
                   curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
 
+            5. Follow the installer's final instructions to setup your shell config.
+
             .. include:: snippets/wsl-home-dir.rst
 
 
@@ -107,6 +111,8 @@ First, install a Nextstrain runtime.
                .. code-block:: bash
 
                   curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
+
+            5. Follow the installer's final instructions to setup your shell config.
 
 
    .. group-tab:: Native
