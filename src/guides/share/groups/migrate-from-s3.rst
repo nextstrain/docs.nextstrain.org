@@ -41,7 +41,9 @@ With the new way, group data is still stored in S3 with access controlled by
 Nextstrain, but now you no longer need to setup or pass around AWS credentials
 provided to you by Nextstrain.  Instead, you will :doc:`login
 <cli:commands/login>` using the same nextstrain.org username and password you
-use to login to the website.
+use to login to the website.  Each CLI login session is valid for at most 30
+days, after which you'll need to login again.  Commands requiring login will
+prompt you to do so when necessary.
 
 
 Why
