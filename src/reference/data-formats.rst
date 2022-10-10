@@ -24,7 +24,7 @@ Secondary JSON files used by Nextstrain come in two flavors: **sidecar** files
 and **node data** files.
 
 **Sidecar files** are produced by Augur for direct consumption by Auspice,
-alongside the primary JSON files described above.  They come in two types with
+alongside the primary JSON files described above.  They come in three types with
 filenames enforced by convention:
 
 root-sequence
@@ -35,6 +35,10 @@ tip-frequencies
   Filenames like ``${name}_tip-frequencies.json``, produced by :doc:`augur
   frequencies <augur:usage/cli/frequencies>` with the ``--output-format auspice
   --output …`` options.
+
+measurements
+  Filenames like ``${name}_measurements.json``, produced by one of the :doc:`augur
+  measurements <augur:usage/cli/measurements>` subcommands, ``export`` or ``concat``.
 
 **Node data** files are typically produced by various Augur commands such as
 :doc:`augur traits <augur:usage/cli/traits>` or :doc:`augur ancestral
