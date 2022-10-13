@@ -212,9 +212,10 @@ Exporting data via Augur
 ========================
 
 We now consider how information flows through Augur, specifically
-``augur export v2`` which produces the dataset (Auspice) JSON described above.
-This process combines data inputs with parameters configuring aspects of the
-visualisation and produces a dataset file for Auspice to visualise.
+``augur export v2`` which produces the :term:`dataset (Auspice) JSON <dataset>`
+described above.  This process combines data inputs with parameters configuring
+aspects of the visualisation and produces :term:`dataset files <dataset>` for
+Auspice to visualise.
 
 .. image:: ../images/augur-export.jpg
 
