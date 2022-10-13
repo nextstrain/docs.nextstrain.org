@@ -39,7 +39,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Introduction <self>
     learn/about
     learn/parts
-    learn/exporting-data-for-auspice
+    Augur → Auspice <learn/augur-to-auspice>
     learn/interpret/index
     Pathogens <learn/pathogens/index>
     learn/groups/index
