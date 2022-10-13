@@ -218,14 +218,14 @@ visualisation and produces a dataset file for Auspice to visualise.
 
 .. image:: ../images/augur-export.jpg
 
-This guide will explain the functionality using an **auspice-config
+This guide will explain the functionality using an **Auspice config
 JSON** to control which data is exported and how it is presented in Auspice,
 however it is possible to use command-line arguments to specify
 a subset of this configuration instead; please run ``augur export v2 --help``
 to see the available options here.
 The most comprehensive description of this file is via
 `its schema <https://nextstrain.org/schemas/auspice/config/v2>`__, however to
-introduce this file here's a snippet of the `auspice config JSON for the
+introduce this file here's a snippet of the `Auspice config JSON for the
 measles dataset presented above <https://github.com/nextstrain/measles/blob/main/config/auspice_config.json>`__:
 
 .. code-block:: json
@@ -547,7 +547,7 @@ header to identify who created or maintains the dataset.
 
 As an example, here's how the `measles auspice-config uses these
 keys <https://github.com/nextstrain/measles/blob/main/config/auspice_config.json>`__
-and you can `see here <https://nextstrain.org/measles>`__ how auspice
+and you can `see here <https://nextstrain.org/measles>`__ how Auspice
 renders these:
 
 .. code-block:: json
