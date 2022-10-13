@@ -24,8 +24,8 @@ Auspice (visualization) components
 
 It's helpful to start in Auspice and then work backwards to Augur. The
 following (annotated) screenshot shows the components of a typical
-visualisation, which is based on a :term:`dataset JSON (sometimes called an
-Auspice JSON)<dataset>`.
+visualisation, which is based on a :term:`dataset JSON <dataset>` (sometimes
+called an Auspice JSON).
 
 We'll use the following annotated screenshot of the `measles virus
 tree <https://nextstrain.org/measles>`__ (built using `this Augur
@@ -134,7 +134,7 @@ and defined across the entire tree. As this feature is still experimental,
 we currently use the defined colorings (:ref:`see [a2], above <auspice-component-sidebar-filter>`)
 excluding any which use a continuous scale and excluding genotypes.
 Use this feature with caution — you are responsible for choosing sensible
-attributes on which to explode the tree on!
+attributes on which to explode the tree!
 
 [a7] Geographic resolutions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -226,7 +226,7 @@ to see the available options here.
 The most comprehensive description of this file is via
 `its schema <https://nextstrain.org/schemas/auspice/config/v2>`__, however to
 introduce this file here's a snippet of the `auspice config JSON for the
-measles dataset presented above <https://github.com/nextstrain/measles/blob/main/config/auspice_config.json>`__.
+measles dataset presented above <https://github.com/nextstrain/measles/blob/main/config/auspice_config.json>`__:
 
 .. code-block:: json
 
@@ -280,7 +280,7 @@ but currently these keys include:
   exported <auspice-config-how-branch-mutations-are-exported>`, below)
 - ``mutation_length`` and ``branch_length`` are converted to the tree’s
   divergence values [#f4]_ and exported as ``node.div`` (float); with the
-  first matching key being used. This is optional – time only trees are
+  first matching key being used. This is optional — time only trees are
   just fine.
 - key ``hidden`` is only exported if its value is one of
   “always”, “divtree”, “timetree”. We don't cover this behavior here, and
