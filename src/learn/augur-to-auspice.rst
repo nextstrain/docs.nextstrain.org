@@ -217,7 +217,58 @@ described above.  This process combines data inputs with parameters configuring
 aspects of the visualisation and produces :term:`dataset files <dataset>` for
 Auspice to visualise.
 
-.. image:: ../images/augur-export.jpg
+.. graphviz::
+    :align: center
+
+    digraph {
+        graph [
+            rankdir=LR,
+            ranksep=0.25,
+        ];
+
+        node [
+            shape=box,
+            style="rounded, filled",
+            fontname="Lato, 'Helvetica Neue', sans-serif",
+            fontsize=12,
+            height=0.1,
+            colorscheme=paired10,
+        ];
+
+        edge [
+            arrowhead=open,
+            arrowsize=0.75,
+        ];
+
+        inputs [
+            shape=record,
+            label="Data inputs|"
+                 +"- tree (Newick, required)\l"
+                 +"- metadata TSV\l"
+                 +"- node-data JSONs\l"
+                 +"- colors TSV\l"
+                 +"- lat-longs TSV\l",
+            fillcolor=9,
+            color=10,
+        ];
+
+        config [
+            shape=record,
+            label="Configuration|"
+                 +"- Auspice config JSON\l"
+                 +"- command-line arguments\l",
+            fillcolor=7,
+            color=8,
+        ];
+
+        augur [label="augur export v2", fillcolor=1, color=2];
+        auspice [label="Auspice", fillcolor=3, color=4];
+        dataset [label="Dataset JSONs"];
+
+        inputs -> augur [headport=nw];
+        config -> augur [headport=sw];
+        augur -> dataset -> auspice;
+    }
 
 This guide will explain the functionality using an **Auspice config
 JSON** to control which data is exported and how it is presented in Auspice,
