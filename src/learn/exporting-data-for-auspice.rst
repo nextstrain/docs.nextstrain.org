@@ -109,9 +109,9 @@ and mutations (``branch_attrs.mutations``).
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If ``num_date`` is set on *all* nodes (including internal nodes) then the
-“TIME” branch metric and the “Date Range” selector is available.
+:guilabel:`TIME` branch metric and the :guilabel:`Date Range` selector is available.
 Note that to colour the tree by this a corresponding entry in the colorings is required.
-Conversely, for “DIVERGENCE” then ``div`` (cumulative) must be set on all nodes in the tree.
+Conversely, for :guilabel:`DIVERGENCE` then ``div`` (cumulative) must be set on all nodes in the tree.
 
 [a4] Branch Labels
 ~~~~~~~~~~~~~~~~~~
