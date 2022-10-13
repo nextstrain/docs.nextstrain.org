@@ -20,7 +20,7 @@ for any salient changes.
   :depth: 1
 
 Auspice (visualization) components
-----------------------------------
+==================================
 
 It's helpful to start in Auspice and then work backwards to Augur. The
 following (annotated) screenshot shows the components of a typical
@@ -84,7 +84,7 @@ highlighted in the screenshot above <https://nextstrain.org/measles?s=London.GBR
 .. _auspice-component-colorings:
 
 [a1] Colorings
-~~~~~~~~~~~~~~
+--------------
 
 The available colorings are defined by ``meta.colorings`` (array of dictionaries),
 where each coloring specifies a key which accesses the relevant data in the
@@ -94,7 +94,7 @@ what the user will see), as well as information about the scale used.
 .. _auspice-component-sidebar-filter:
 
 [a2] sidebar data filtering
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 Currently the ``node_attrs`` available for filtering are the union of those
 defined in ``meta.filters`` (array of strings), strain names (``node.name``)
@@ -106,7 +106,7 @@ and mutations (``branch_attrs.mutations``).
   to track progress here.
 
 [a3] Temporal display of the tree
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 If ``num_date`` is set on *all* nodes (including internal nodes) then the
 :guilabel:`TIME` branch metric and the :guilabel:`Date Range` selector is available.
@@ -114,20 +114,20 @@ Note that to colour the tree by this a corresponding entry in the colorings is r
 Conversely, for :guilabel:`DIVERGENCE` then ``div`` (cumulative) must be set on all nodes in the tree.
 
 [a4] Branch Labels
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Any keys pair defined in ``node.branch_attr.labels`` (dictionary of strings)
 anywhere in the tree will be available in the branch labels dropdown.
 
 [a5] Tip labels
-~~~~~~~~~~~~~~~
+---------------
 
 This uses the same data as colorings, as well as ``node.name`` (“Sample
 name”, which is the default labelling).
 Note that genotypes (``key: “gt”``) can’t be used as tip labels (future improvement).
 
 [a6] Explode tree choices (experimental)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------
 
 Generally, exploding a tree requires an attribute that is both discrete
 and defined across the entire tree. As this feature is still experimental,
@@ -137,7 +137,7 @@ Use this feature with caution — you are responsible for choosing sensible
 attributes on which to explode the tree!
 
 [a7] Geographic resolutions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 These are defined via ``metadata.geo_resolutions`` (array of dictionaries) in
 the same format as colorings, and thus an optional “title” may be specified.
@@ -152,7 +152,7 @@ is defined on internal nodes (as well as terminal nodes).
   This has no effect on the tree, unlike all other blocks described here.
 
 [a8] Legend Swatches
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 For a given coloring (:ref:`see [a1], above <auspice-component-colorings>`) the
 set of values observed for this coloring across the tree is displayed as a
@@ -162,7 +162,7 @@ For continuous and temporal scales, the values are grouped into bins
 automatically (unless specified in the scale).
 
 [a9] What's shown when clicking on a node?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------
 
 For the selected node Auspice displays the following information, as
 applicable:
@@ -197,7 +197,7 @@ applicable:
       category, as applicable.
 
 [a10] listed filters in the footer of the page
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------------
 
 Filters in the bottom of the page are specified by ``meta.filters``
 (array of strings). The values should correspond to keys in ``node_attrs``,
@@ -209,7 +209,7 @@ sidebar data filtering (:ref:`see [a2], above <auspice-component-sidebar-filter>
 --------------
 
 Exporting data via Augur
-------------------------
+========================
 
 We now consider how information flows through Augur, specifically
 ``augur export v2`` which produces the dataset (Auspice) JSON described above.
@@ -244,7 +244,7 @@ measles dataset presented above <https://github.com/nextstrain/measles/blob/main
   }
 
 What metadata is exported
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 Augur has two main types of “metadata” which we'll refer to as
 “TSV-data” (provided with the ``--metadata`` argument) and “node-data”
@@ -267,7 +267,7 @@ Auspice uses the entropy value to influence the saturation of the color and
 the confidence data is shown when hovering / clicking on the branch/node.
 
 Special cases (keys which are excluded or behave differently)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 To maintain backwards compatibility a number of keys are excluded or
 special-cased here and should be treated with caution. If you need to
@@ -311,7 +311,7 @@ but currently these keys include:
   ``clock_length``, ``sequence``, ``aa_sequences``, ``dTiter``, ``dTiterSub``
 
 How conflicting metadata is resolved
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 Node-data JSONs are combined using a deep-merge approach, where we
 recurse into dictionaries. For non-dictionary values we will overwrite
@@ -332,7 +332,7 @@ As a contrived example:
    nodes: {NODE_NAME: {country: "Canada", region: "North America", serotype: "ABC"}}
 
 Configuring coloring names and types
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 The colorings in the auspice-config JSON typically link the key (where the
 metadata is to be found) to a title (how the key is to be presented in Auspice)
@@ -347,7 +347,7 @@ this is not necessary, but if in doubt it's safest to provide this information
 in the auspice-config JSON.
 
 Configuring color scales and legends
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 A colors TSV file may be provided to ``augur export v2`` which is the
 most common way to associate (discrete) values with actual colors. Such
@@ -417,7 +417,7 @@ gray in the tree and the “unknown” values will not be present in the color l
 .. _auspice-config-how-branch-mutations-are-exported:
 
 How branch mutations are exported
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 Nucleotide and amino-acid mutations are provided via node-data JSONs
 under the keys ``muts`` (list) and ``aa_muts`` (dictionary), along with
@@ -436,7 +436,7 @@ panel in Auspice.
 .. _auspice-config-branch-labels:
 
 Branch Labels
-~~~~~~~~~~~~~
+-------------
 
 Currently branch labels are unable to be specified beyond two special
 cases, and there is no way to customize their appearance via the
@@ -448,7 +448,7 @@ auspice-config JSON. We are in the process of improving this.
    automatically created.
 
 Geographic resolutions and lat-longs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 The map (geographic) panel in Auspice works by associating certain
 metadata with lat-long values. The metadata keys used for this are
@@ -501,7 +501,7 @@ it will not be shown in Auspice. In these cases ``augur export v2`` will
 print a warning.
 
 Specifying which colorings are available as filters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------
 
 Select (discrete) colorings are available for filtering in Auspice (both
 via the sidebar UI and listed in the footer) if they are defined in the
@@ -520,7 +520,7 @@ available in Auspice’s sidebar UI for filtering.
   metadata should be searchable via Auspice's sidebar filtering UI.
 
 Customizing the Auspice defaults and available panels
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------------
 
 There are a number of other sections of the auspice-config JSON which
 can configure how Auspice presents the exported data.
