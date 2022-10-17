@@ -102,6 +102,23 @@ There are some set of special features of Sphinx / Read The Docs which require u
 
 [reStructuredText formatting reference](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html).
 
+Our convention for rST titles and sections is:
+
+```rst
+=====
+Title
+=====
+
+Level 1
+=======
+
+Level 2
+-------
+
+Level 3
+~~~~~~~
+```
+
 ### File Hierarchy
 The hierarchy of the table of contents as seen in the sidebar can be thought of as a tree of documents.
 The root is `src/index.rst` a reStructuredText (see [Restructured Text](#restructured-text)) file which dictates what the top-level headings in the sidebar will be.

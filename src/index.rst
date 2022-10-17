@@ -39,9 +39,11 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Introduction <self>
     learn/about
     learn/parts
+    Augur → Auspice <learn/augur-to-auspice>
     learn/interpret/index
     Pathogens <learn/pathogens/index>
     learn/groups/index
+
 
 .. toctree::
     :maxdepth: 1
