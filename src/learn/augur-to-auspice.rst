@@ -3,7 +3,7 @@ How data is exported by Augur for visualisation in Auspice
 ==========================================================
 
 This page is intended to describe which data underpins the different parts of
-an Auspice visualisation, and how this data can be produced via Augur. It is
+an Auspice visualisation, and how this data can be produced and exported via Augur. It is
 not a comprehensive guide for how to generate the data in the first place, nor
 how to interpret them in Auspice, but it should help understand how to export
 your data and how to customize the visualization.
@@ -271,7 +271,7 @@ Auspice to visualise.
     }
 
 This guide will explain the functionality using an **Auspice config
-JSON** to control which data is exported and how it is presented in Auspice,
+JSON**, usually named ``auspice_config.json``, to control which data is exported and how it is presented in Auspice,
 however it is possible to use command-line arguments to specify
 a subset of this configuration instead; please run ``augur export v2 --help``
 to see the available options here.
@@ -311,7 +311,7 @@ following process:
    has the effect that data provided in node-data JSONs will form a
    coloring and thus be exported in the dataset JSON.
 -  Command-line provided colorings (not covered in this guide)
--  Colorings specified in the auspice-config JSON (see below)
+-  Colorings specified in the ``auspice_config.json`` (see below)
 
 Metadata keys ``<X>_entropy`` (numeric) or ``<X>_confidence`` (dictionary),
 assuming key ``<X>`` exists, will be combined into the same ``node.node_attrs.X`` data structure.
