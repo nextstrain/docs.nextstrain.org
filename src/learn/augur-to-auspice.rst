@@ -359,8 +359,9 @@ but currently these keys include:
   see the `the dataset schema <https://nextstrain.org/schemas/dataset/v2>`__
   for full details. Auspice uses this to render crosses over certain tips in the
   tree. This means that ``vaccine`` cannot be a coloring itself.
-- The following keys are simply ignored: ``date``, ``raw_date``,
-  ``clock_length``, ``sequence``, ``aa_sequences``, ``dTiter``, ``dTiterSub``
+- The following keys are typically ignored: ``date``, ``raw_date``,
+  ``clock_length``, ``sequence``, ``aa_sequences``, ``dTiter``, ``dTiterSub``.
+  If you wish to export them then you must specify them in your auspice config.
 
 How conflicting metadata is resolved
 ------------------------------------
