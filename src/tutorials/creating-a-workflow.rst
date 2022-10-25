@@ -21,25 +21,19 @@ Prerequisites
 Setup
 =====
 
-1. Activate the ``nextstrain`` conda environment.
-
-   .. code-block:: bash
-
-      conda activate nextstrain
-
-2. Change directory to the Zika :term:`workflow repository` downloaded in the previous tutorial.
+1. Change directory to the Zika :term:`workflow repository` downloaded in the previous tutorial.
 
    .. code-block:: bash
 
       cd zika-tutorial
 
-3. Create a folder for results.
+2. Create a folder for results.
 
    .. code-block:: bash
 
       mkdir -p results/
 
-4. Additionally, if you installed Nextstrain with the :term:`Docker runtime<runtime>`, start Docker and enter the runtime.
+3. Additionally, if you installed Nextstrain with the :term:`Docker runtime<runtime>`, start Docker and enter the runtime.
 
    .. code-block:: bash
 
