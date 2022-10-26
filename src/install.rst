@@ -22,6 +22,7 @@ For help choosing, refer to our :doc:`/reference/faq`, such as:
 
   * :ref:`what-are-docker-conda-mamba-wsl-etc`
   * :ref:`choosing-a-runtime`
+  * :ref:`what-happened-to-the-native-runtime`
   * :ref:`when-to-use-wsl`
 
 First, install a Nextstrain runtime.
