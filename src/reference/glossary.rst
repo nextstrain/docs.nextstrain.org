@@ -75,7 +75,7 @@ Glossary
 
    Nextstrain CLI
 
-      The Nextstrain command-line interface (**Nextstrain CLI**) provides a consistent way to run and visualize :term:`pathogen builds<Build>` and access Nextstrain components like :term:`Augur` and :term:`Auspice` across :term:`runtimes<runtime>` such as Docker, Native, and AWS Batch.
+      The Nextstrain command-line interface (**Nextstrain CLI**) provides a consistent way to run and visualize :term:`pathogen builds<Build>` and access Nextstrain components like :term:`Augur` and :term:`Auspice` across :term:`runtimes<runtime>` such as Docker, Conda, and AWS Batch.
 
       :doc:`Documentation <cli:index>`
 
@@ -85,5 +85,6 @@ Glossary
       When installing and using the :term:`Nextstrain CLI`, there are different configuration options, or **runtimes**, depending on the operating system.
 
       1. Docker runtime
-      2. Native runtime
-      3. AWS Batch runtime (only for ``nextstrain build``)
+      2. Conda runtime
+      3. Ambient runtime (:ref:`formerly "native" <what-happened-to-the-native-runtime>`)
+      4. AWS Batch runtime (only for ``nextstrain build``)

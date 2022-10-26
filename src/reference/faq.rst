@@ -29,8 +29,8 @@ Nextstrain's installation guide works with WSL 2 but not WSL 1.
 
 .. _choosing-a-runtime:
 
-Should I choose the Docker or native runtime?
----------------------------------------------
+Should I choose the Docker or Ambient runtime?
+----------------------------------------------
 
 The two runtimes provide the same experience running Nextstrain workflows with ``nextstrain build`` (and most other ``nextstrain`` commands) but vary in installation and update methods and predictability/stability over time.
 
@@ -41,12 +41,12 @@ The Nextstrain team uses both runtimes extensively.
 Your preference is perhaps the best reason to choose one vs. the other.
 
    - If you have a preference for containers, then choose the Docker runtime.
-   - If you have a preference for Conda, then choose the native runtime.
+   - If you have a preference for Conda, then choose the ambient runtime.
    - If you don't have a preference, choose the one you have the most past experience with.
    - If you have neither preference nor experience, we recommend choosing the Docker runtime because it has less to manage and is more predictable/stable over time.
 
 You can also install and use both runtimes on the same computer, if you want to use them contextually.
-For example, ``nextstrain`` commands let you select a different runtime than your default using command-line options (``--docker`` or ``--native``).
+For example, ``nextstrain`` commands let you select a different runtime than your default using command-line options (``--docker`` or ``--ambient``).
 
 If you pick one and later realize you want to switch, you can go back and install the other and make it your default.
 
@@ -61,8 +61,8 @@ This makes the choice mostly hinge on if you prefer a GNU/Linux `Bash shell <htt
 If you don't have a preference (e.g. perhaps you're new to both), we suggest choosing the Bash shell.
 Learning Bash will likely be useful in other work, as it is very widely used in bioinformatics and computing at large.
 
-The other deciding factor is if you're unable to install Docker (e.g. for adminstrative or organizational reasons), then you'll need to use the **Native** runtime with **WSL on Windows**.
-The native runtime is not available without WSL.
+The other deciding factor is if you're unable to install Docker (e.g. for adminstrative or organizational reasons), then you'll need to use the **ambient** runtime with **WSL on Windows**.
+The ambient runtime is not available without WSL.
 
 
 .. _why-intel-miniconda-installer-on-apple-silicon:
