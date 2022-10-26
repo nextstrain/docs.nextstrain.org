@@ -17,11 +17,12 @@ When completed, you'll be ready to run Nextstrain :term:`workflows <workflow>`.
 Installation steps
 ==================
 
-Steps vary by runtime option (Docker, native) and operating system (macOS, Windows, WSL on Windows, Linux).
+Steps vary by runtime option (Docker, ambient) and operating system (macOS, Windows, WSL on Windows, Linux).
 For help choosing, refer to our :doc:`/reference/faq`, such as:
 
   * :ref:`what-are-docker-conda-mamba-wsl-etc`
   * :ref:`choosing-a-runtime`
+  * :ref:`what-happened-to-the-native-runtime`
   * :ref:`when-to-use-wsl`
 
 First, install a Nextstrain runtime.
@@ -36,7 +37,7 @@ First, install a Nextstrain runtime.
 
             .. warning::
 
-               If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), the **native** runtime is recommended due to slowness with the Docker runtime. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
+               If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), the **ambient** runtime is recommended due to slowness with the Docker runtime. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
 
             1. `Install Docker Desktop using the official guide <https://docs.docker.com/desktop/install/mac-install/>`_.
             2. Install the Nextstrain CLI:
@@ -115,7 +116,7 @@ First, install a Nextstrain runtime.
             5. Follow the installer's final instructions to setup your shell config.
 
 
-   .. group-tab:: Native
+   .. group-tab:: Ambient
 
       .. tabs::
 
@@ -154,7 +155,7 @@ First, install a Nextstrain runtime.
 
             .. note::
 
-               Due to installation constraints, there is no way to use the native runtime on Windows directly. Follow steps for **WSL on Windows** if the native runtime is desired, or use the **Docker**-based steps instead.
+               Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Follow steps for **WSL on Windows** if the ambient runtime is desired, or use the **Docker**-based steps instead.
 
 
          .. group-tab:: WSL on Windows
@@ -216,7 +217,7 @@ First, install a Nextstrain runtime.
 
                .. include:: snippets/conda-install-full-bash.rst
 
-      .. admonition:: For native runtime installs
+      .. admonition:: For ambient runtime installs
          :class: hint
 
          Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Conda environment with ``conda activate nextstrain``.
@@ -229,7 +230,7 @@ Then, confirm that the installation worked.
 
   nextstrain check-setup --set-default
 
-The final output from the last command should look like this, where ``<runtime>`` is the runtime option (e.g. ``docker`` or ``native``) chosen in the first step:
+The final output from the last command should look like this, where ``<runtime>`` is the runtime option (e.g. ``docker`` or ``ambient``) chosen in the first step:
 
 .. code-block:: none
 
@@ -256,7 +257,7 @@ Update an existing installation
       If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
 
 
-   .. group-tab:: Native
+   .. group-tab:: Ambient
 
       Update the ``nextstrain`` Conda environment.
 
@@ -287,7 +288,7 @@ Troubleshoot a broken installation
       Make sure there are no errors or warnings reported for the Docker runtime.
 
 
-   .. group-tab:: Native
+   .. group-tab:: Ambient
 
       If Conda fails to install or update Nextstrain using the commands above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
       Starting from scratch often fixes problems with Conda environments.
@@ -325,7 +326,7 @@ Instead, follow these manual steps:
       3. Optionally, uninstall Docker if only used for Nextstrain.
       4. On Windows, optionally, uninstall WSL if only used for Nextstrain.
 
-   .. group-tab:: Native
+   .. group-tab:: Ambient
 
       1. If the directory :file:`~/.nextstrain` exists, remove it.
       2. Remove the ``nextstrain`` Conda environment::
