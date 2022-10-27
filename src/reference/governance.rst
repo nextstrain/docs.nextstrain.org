@@ -35,6 +35,7 @@ Organizational structure
 
     Community Contributors
         Occasional contributors including those from `Bedford Lab <https://bedford.io>`__, `Neher Lab <https://neherlab.org>`__, alumni, or other external groups.
+        Influences decision-making but does not directly participate in it.
 
 
 Decision-making
