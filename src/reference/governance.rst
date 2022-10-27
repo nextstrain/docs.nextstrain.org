@@ -8,6 +8,9 @@
 Governance
 ==========
 
+The governance of the Nextstrain project is relatively informal.
+The structure and processes that do exist are briefly described below in the interests of transparency.
+
 Organizational structure
 ========================
 
