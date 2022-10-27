@@ -100,7 +100,7 @@ Before migration
        migrate until we've added support for updating these files yourself when
        not using a separate S3 bucket.
 
-4. **Upgrade the version of the Nextstrain CLI you're using to at least 3.2.3.**
+4. **Upgrade the version of the Nextstrain CLI you're using to at least 5.0.0.**
 
    It's best to do this in advance of the migration so you're set to keep using
    your group afterwards without having to upgrade later, but you may choose to
@@ -111,9 +111,9 @@ Before migration
    .. code-block:: console
 
         $ nextstrain version
-        nextstrain.cli 3.2.3
+        nextstrain.cli 5.0.0
 
-   If you see a version older than 3.2.3, please :doc:`upgrade your copy of the
+   If you see a version older than 5.0.0, please :doc:`upgrade your copy of the
    Nextstrain CLI <cli:upgrading>`.
 
 
