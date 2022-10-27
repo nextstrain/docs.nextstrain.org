@@ -56,7 +56,7 @@ Code review
 ===========
 
 Code review often informally triggers a request for a decision from the Core Team.
-The informal nature of this process can result in a lack of feedback from the Core Team causing the corresponding Pull Request (PR) to stall on review without conclusion.
+The informal nature of this process can result in a lack of feedback from the Core Team causing the corresponding Pull Request (PR) to stall on review without conclusion [#warnock]_.
 The stalling means the people involved in the PR (author and reviewers) have spent time on something that's now in an ambiguous state of "reviewed, needs more work" and is effectively blocked indefinitely.
 Both PR authors and other team members can benefit from a more concrete decision of:
 
@@ -73,3 +73,7 @@ This governance document is inspired by the following related documents.
   - `Producing Open Source Software: Social and Political Infrastructure <https://producingoss.com/en/producingoss.html#social-infrastructure>`_
   - `Matplotlib Main Governance Document <https://matplotlib.org/governance/governance.html>`_
   - `NumPy project governance and decision-making <https://numpy.org/doc/stable/dev/governance/governance.html>`_
+
+.. rubric:: Footnotes
+
+.. [#warnock] `Similar to Warnock's dilemma <https://en.wikipedia.org/wiki/Warnock%27s_dilemma>`_.
