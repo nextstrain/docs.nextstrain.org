@@ -23,16 +23,16 @@ dataset to a Nextstrain Group:
     # Old way
     nextstrain remote upload \
       s3://nextstrain-${GROUPNAME}/ \
-        auspice/ncov_${YOUR_BUILD_NAME}.json \
-        auspice/ncov_${YOUR_BUILD_NAME}_tip-frequencies.json \
-        auspice/ncov_${YOUR_BUILD_NAME}_root-sequence.json
+        auspice/${YOUR_BUILD_NAME}.json \
+        auspice/${YOUR_BUILD_NAME}_tip-frequencies.json \
+        auspice/${YOUR_BUILD_NAME}_root-sequence.json
 
     # New way
     nextstrain remote upload \
-      nextstrain.org/groups/${GROUPNAME}/ncov/${YOUR_BUILD_NAME} \
-        auspice/ncov_${YOUR_BUILD_NAME}.json \
-        auspice/ncov_${YOUR_BUILD_NAME}_tip-frequencies.json \
-        auspice/ncov_${YOUR_BUILD_NAME}_root-sequence.json
+      nextstrain.org/groups/${GROUPNAME} \
+        auspice/${YOUR_BUILD_NAME}.json \
+        auspice/${YOUR_BUILD_NAME}_tip-frequencies.json \
+        auspice/${YOUR_BUILD_NAME}_root-sequence.json
 
 Each group must undergo a short migration (performed by us) in order to use the
 new way.  Groups which haven't been migrated will continue to use the old way.
