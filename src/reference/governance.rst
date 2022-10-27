@@ -61,7 +61,7 @@ The stalling means the people involved in the PR (author and reviewers) have spe
 Both PR authors and other team members can benefit from a more concrete decision of:
 
   1. yes, this should be pushed to finish soon while it's fresh in our minds
-  2. no, let's close this (with the option to re-open later)
+  2. no, let's close this (label as "shelved" with the option to re-open later)
 
 We use the decision-making process described above to break a deadlock or move forward on a stalled PR.
 
