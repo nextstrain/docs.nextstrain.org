@@ -94,7 +94,8 @@ This will ensure that all commands in the active Conda environment are run using
 What happened to the "native" runtime?
 ----------------------------------------
 
-Up until Nextstrain CLI version 5.0.0, the name of the "native" runtime has been debated internally. In CLI version 5.0.0, **it was renamed to "ambient"** and we will use the new name going forwards.
+The "native" runtime was **renamed to "ambient"** in Nextstrain CLI version 5.0.0, and we will use the new name going forwards.
+The suitability of the "native" name had long been discussed within the Nextstrain team.
 
 "Native" as a software term is typically used to describe software that can run without emulation, in other words optimized for your computer's processor.
 
