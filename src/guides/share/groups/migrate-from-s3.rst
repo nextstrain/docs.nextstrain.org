@@ -124,7 +124,8 @@ We'll email you when your group's migration is complete.  From that point
 forward, everyone managing your group's datasets and narratives will need to
 use :doc:`"nextstrain remote" commands <cli:commands/remote/index>` which
 reference your group's nextstrain.org URL instead of your previous S3 bucket
-URL.
+URL.  You will no longer have access to your previous S3 bucket, and after a
+grace period of at least 30 days, it will be completely deleted.
 
 It's a good idea to give these new commands a try shortly after the migration
 to make sure everything works as expected for you.  For example, you might try
