@@ -114,8 +114,8 @@ The ambient runtime is still a good option for users who wish to customize their
 How is the new Conda runtime different from the old "native" runtime?
 ---------------------------------------------------------------------------
 
-Summary: The Conda runtime, like the Docker runtime, is fully managed by the Nextstrain CLI.
+The Conda runtime, like the Docker runtime, is fully managed by the Nextstrain CLI.
+The CLI manages the versioning of an isolated Conda environment separate from any existing Conda installation (if present).
+It ensures all the software tools used for Nextstrain-related analysis are available and handles updates to them via the ``nextstrain update`` command (like the Docker runtime).
 
-In Docker, the CLI manages versioning of the ``nextstrain/base`` Docker image, which comes packaged with common software tools used for Nextstrain-related analysis.
-
-In Conda, the CLI manages the versioning of an isolated Conda environment separate from any existing Conda installation (if present). If you wish to use your existing Conda environment from the old native runtime or set up a new Conda environment, please refer to the ambient runtime usage instructions on the installation page.
+If you wish to use your existing ``nextstrain`` Conda environment from the previously-named native runtime or set up a new Conda environment yourself, please refer to the ambient runtime usage instructions on the installation page.
