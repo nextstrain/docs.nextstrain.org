@@ -101,7 +101,7 @@ Up until Nextstrain CLI version 5.0.0, the name of the ``native`` runtime has be
 The ``ambient`` runtime is "native" in that sense, but it puts all the software maintenance burden on the user. This means:
 
 1. There is a lengthy setup process which requires installing external software (Conda, Mamba). Additionally, there is no way for us to provide accurate setup steps for users who already have Conda installed, as there are various methods of installing Conda.
-2. It is up to you as the creator of the ``nextstrain`` Conda environment to know (1) how to activate it, (2) when to update it, and (3) how to update it.
+2. It is up to you as the creator of the ``nextstrain`` Conda environment to know (a) how to activate it, (b) when to update it, and (c) how to update it.
 
 So really, the ``ambient`` runtime is any environment that has been set up with all of the required software available on your local ``PATH``. We chose Conda in the installation instructions since some users may already be familiar with it, and it is simpler than using individual package managers for the various required software (e.g. ``pip``, ``npm``).
 
