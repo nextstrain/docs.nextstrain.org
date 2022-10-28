@@ -17,11 +17,13 @@ There are many ways to install Nextstrain, and we aim to simplify the installati
 What are Docker, Conda, Mamba, WSL, etc.?
 -----------------------------------------
 
-`Docker <https://docker.com/>`_ is a container system available for all platforms.
-When you use Docker to run Nextstrain components, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
+`Docker <https://docker.com/>`_ is a container management system that allows you to run isolated software images without disrupting or *being* disrupted by other software you have installed (e.g., on your computer, your shared cluster, etc.).
+When you use Nextstrain's Docker runtime, you need to install Docker yourself but don't need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`__.
 
-`Conda <https://docs.conda.io/en/latest/>`_ is a package and environment management system that allows you to install Python and other software into controlled environments without disrupting other software you have installed (e.g., on your computer, your shared cluster, etc.).
+`Conda <https://docs.conda.io/en/latest/>`_ is a package and environment management system that allows you to install Python and other software into controlled environments without disrupting other software you have installed.
 Miniconda is the minimal installation of the ``conda`` command, the command-line interface to Conda.
+When you use Nextstrain's Conda runtime, you don't need to install Conda yourself or manage any other Nextstrain software dependencies as validated versions are already locked into `a package by the Nextstrain team <https://github.com/nextstrain/conda-base/>`__.
+When you use Nextstrain's ambient runtime, we provide an example of how to set it up using Conda.
 
 `Mamba <https://github.com/mamba-org/mamba>`_ is a drop-in replacement for most ``conda`` functionality that provides faster installation times, especially for complex environments like the one Nextstrain requires.
 
@@ -31,24 +33,25 @@ Nextstrain's installation guide works with WSL 2 but not WSL 1.
 
 .. _choosing-a-runtime:
 
-Should I choose the Docker or Ambient runtime?
-----------------------------------------------
+Should I choose the Docker, Conda, or ambient runtime?
+------------------------------------------------------
 
-The two runtimes provide the same experience running Nextstrain workflows with ``nextstrain build`` (and most other ``nextstrain`` commands) but vary in installation and update methods and predictability/stability over time.
+The three runtimes provide the same experience running Nextstrain workflows with ``nextstrain build`` (and most other ``nextstrain`` commands) but vary in installation and update methods and predictability/stability over time.
 
 There's not one right answer for everyone or every situation.
-That's why we provide both options (and will potentially provide more in the future).
-The Nextstrain team uses both runtimes extensively.
+That's why we provide runtime options (and will potentially provide more in the future).
+The Nextstrain team uses all runtimes extensively.
 
 Your preference is perhaps the best reason to choose one vs. the other.
 
    - If you have a preference for containers, then choose the Docker runtime.
-   - If you have a preference for Conda, then choose the ambient runtime.
+   - If you have a preference for Conda (or dispreference for containers), then choose the Conda runtime.
+   - If you have a preference for managing software environments yourself, then choose the ambient runtime.
    - If you don't have a preference, choose the one you have the most past experience with.
-   - If you have neither preference nor experience, we recommend choosing the Docker runtime because it has less to manage and is more predictable/stable over time.
+   - If you have neither preference nor experience, we recommend choosing the Docker runtime because it is the most stable and reproducible over time.
 
-You can also install and use both runtimes on the same computer, if you want to use them contextually.
-For example, ``nextstrain`` commands let you select a different runtime than your default using command-line options (``--docker`` or ``--ambient``).
+You can also install and use multiple runtimes on the same computer, if you want to use them contextually.
+For example, ``nextstrain`` commands let you select a different runtime than your default using command-line options (``--docker``, ``--conda``, or ``--ambient``).
 
 If you pick one and later realize you want to switch, you can go back and install the other and make it your default.
 

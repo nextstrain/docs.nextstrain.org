@@ -17,7 +17,7 @@ When completed, you'll be ready to run Nextstrain :term:`workflows <workflow>`.
 Installation steps
 ==================
 
-Steps vary by runtime option (Docker, ambient) and operating system (macOS, Windows, WSL on Windows, Linux).
+Steps vary by runtime option (Docker, Conda, ambient) and operating system (macOS, Windows, WSL on Windows, Linux).
 For help choosing, refer to our :doc:`/reference/faq`, such as:
 
   * :ref:`what-are-docker-conda-mamba-wsl-etc`
@@ -25,216 +25,271 @@ For help choosing, refer to our :doc:`/reference/faq`, such as:
   * :ref:`what-happened-to-the-native-runtime`
   * :ref:`when-to-use-wsl`
 
-First, install a Nextstrain runtime.
+First, install Nextstrain CLI.
+
+.. tabs::
+
+   .. group-tab:: macOS
+
+      In a Terminal, run:
+
+      .. code-block:: bash
+
+         curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/mac | bash
+
+      You can launch a Terminal by clicking the Launchpad icon in the Dock, typing ``terminal`` in the search field, and clicking Terminal.
+
+
+   .. group-tab:: Windows
+
+      In a PowerShell terminal, run:
+
+      .. code-block:: powershell
+
+         Invoke-RestMethod https://nextstrain.org/cli/installer/windows | Invoke-Expression
+
+      You can launch a PowerShell terminal by clicking the Start menu, typing ``powershell``, and pressing enter.
+      Make sure to choose the item that is **not** marked "(Adminstrator)".
+
+
+   .. group-tab:: WSL on Windows
+
+      `Install Windows Subsystem for Linux (WSL) 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
+      You may have to restart your machine when configuring WSL.
+
+      In a WSL terminal, run:
+
+      .. code-block:: bash
+
+         curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
+
+      You can launch a WSL terminal by clicking the Start menu, typing ``wsl``, and pressing enter.
+
+
+   .. group-tab:: Ubuntu Linux
+
+      In a terminal, run:
+
+      .. code-block:: bash
+
+         curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
+
+      You can launch a terminal by clicking the "Show applications" icon in the Dock, typing ``terminal`` in the search field, and clicking Terminal.
+
+
+Make sure to follow the installer's final instructions to setup your shell config.
+
+
+Then, install a Nextstrain runtime.
 
 .. tabs::
 
    .. group-tab:: Docker
 
-      .. tabs::
+      1. Install Docker on your computer.
 
-         .. group-tab:: macOS
+         .. tabs::
 
-            .. warning::
+            .. group-tab:: macOS
 
-               If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), the **ambient** runtime is recommended due to slowness with the Docker runtime. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
+               .. warning::
 
-            1. `Install Docker Desktop using the official guide <https://docs.docker.com/desktop/install/mac-install/>`_.
-            2. Install the Nextstrain CLI:
+                  If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), the **Conda** runtime is recommended due to slowness with the Docker runtime. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
 
-               .. code-block:: bash
-
-                  curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/mac | bash
-
-            3. Follow the installer's final instructions to setup your shell config.
+               `Install Docker Desktop for macOS <https://docs.docker.com/desktop/install/mac-install/>`_.
 
 
-         .. group-tab:: Windows
+            .. group-tab:: Windows
 
-            1. `Install Windows Subsystem for Linux (WSL) 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
+               `Install Windows Subsystem for Linux (WSL) 2`_.
+               You may have to restart your machine when configuring WSL.
 
-               .. note:: You may have to restart your machine when configuring WSL.
-
-            2. `Install Docker Desktop <https://docs.docker.com/desktop/install/windows-install/>`_ with the `WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
-            3. Open a PowerShell prompt (not a WSL prompt) as your own user (not as an administrator).
-            4. Install the Nextstrain CLI.
-
-               .. code-block:: powershell
-
-                  Invoke-RestMethod https://nextstrain.org/cli/installer/windows | Invoke-Expression
+               `Install Docker Desktop for Windows <https://docs.docker.com/desktop/install/windows-install/>`_ with the `WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
 
-         .. group-tab:: WSL on Windows
+            .. group-tab:: WSL on Windows
 
-            1. `Install Windows Subsystem for Linux (WSL) 2`_.
-
-               .. note:: You may have to restart your machine when configuring WSL.
-
-            2. `Install Docker Desktop`_ with the `WSL 2 backend`_.
-
-               .. note:: Make sure to follow through the last step of enabling **WSL Integration**.
-
-            3. Open a WSL terminal by running **wsl** from the Start menu.
-            4. Install the Nextstrain CLI:
-
-               .. code-block:: bash
-
-                  curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
-
-            5. Follow the installer's final instructions to setup your shell config.
-
-            .. include:: snippets/wsl-home-dir.rst
-
-
-         .. group-tab:: Ubuntu Linux
-
-            .. note:: Steps for other Linux distributions (Debian, CentOS, RHEL, etc.) will be similar, though specific commands may vary slightly.
-
-            1. Install Docker Engine using the standard Ubuntu package:
-
-               .. code-block:: bash
-
-                  sudo apt install docker.io
+               `Install Docker Desktop for Windows`_ with the `WSL 2 backend`_.
 
                .. note::
 
-                  See `Docker's installation documentation <https://docs.docker.com/engine/install/ubuntu/>`__ for alternative installation methods.
+                  Make sure to follow through to the **Enabling Docker support in WSL 2 distros** section and the last step of enabling **WSL Integration**.
+                  If you forget to do this, ``docker`` won't work in the WSL terminal.
 
-            2. Add your user to the `docker` group:
+               .. include:: snippets/wsl-home-dir.rst
 
-               .. code-block:: bash
 
-                  sudo gpasswd --add $USER docker
+            .. group-tab:: Ubuntu Linux
 
-            3. Restart your machine.
-            4. Install the Nextstrain CLI:
+               .. note:: Steps for other Linux distributions (Debian, CentOS, RHEL, etc.) will be similar, though specific commands may vary slightly.
 
-               .. code-block:: bash
+               Install Docker Engine using the standard Ubuntu package:
 
-                  curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
+                  .. code-block:: bash
 
-            5. Follow the installer's final instructions to setup your shell config.
+                     sudo apt install docker.io
+
+               or see `Docker Engine's installation documentation <https://docs.docker.com/engine/install/ubuntu/>`__ for alternative methods.
+
+               Add your user to the ``docker`` group:
+
+                  .. code-block:: bash
+
+                     sudo gpasswd --add $USER docker
+
+               Log out and back in again for the group change to take effect.
+
+
+      2. Set up the runtime:
+
+         .. code-block:: none
+
+            nextstrain setup --set-default docker
+
+
+   .. group-tab:: Conda
+
+      .. note::
+
+         Due to installation constraints, there is no way to use Nextstrain's Conda runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the Conda runtime is desired, or use the **Docker** runtime instead.
+
+      Set up the runtime:
+
+      .. code-block:: none
+
+         nextstrain setup --set-default conda
 
 
    .. group-tab:: Ambient
 
-      .. tabs::
+      .. We use the phrase "custom Conda environment" to refer to the Conda environment managed by the user for use with the ambient runtime.
 
-         .. group-tab:: macOS
+      .. note:: The ambient runtime does not require a particular installation method; it will work as long as the programs required by Nextstrain are available.
+         The following describes how to accomplish this using a custom Conda environment as an example.
 
-            1. Install Miniconda:
+         If you already have Conda or Mamba installed and use it for other projects, you may need to adjust the instructions below.
 
-               .. The installer link is taken from https://docs.conda.io/en/latest/miniconda.html.
+      1. Install the necessary programs into a custom Conda environment you manage.
 
-               a. `Download the installer <https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg>`_.
+         .. tabs::
 
-                  .. note::
+            .. group-tab:: macOS
 
-                        This is the Intel x86 64-bit installer, :ref:`which we recommend even for Mac computers with Apple silicon (e.g. M1) <why-intel-miniconda-installer-on-apple-silicon>`.
+               1. Install Miniconda:
 
-               b. Open the downloaded file and follow through installation prompts.
+                  .. The installer link is taken from https://docs.conda.io/en/latest/miniconda.html.
 
-            2. Open a terminal window.
-            3. Install Mamba on the ``base`` Conda environment:
+                  a. `Download the installer <https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg>`_.
 
-               .. code-block:: bash
+                     .. note::
 
-                  conda install -n base -c conda-forge mamba --yes
-                  conda activate base
+                           This is the Intel x86 64-bit installer, :ref:`which we recommend even for Mac computers with Apple silicon (e.g. M1) <why-intel-miniconda-installer-on-apple-silicon>`.
 
-            4. Create a Conda environment named ``nextstrain``:
+                  b. Open the downloaded file and follow through installation prompts.
 
-               .. include:: snippets/conda-create-bash.rst
+               2. Open a new terminal window.
+               3. Install Mamba on the ``base`` Conda environment:
 
-            5. Install all the necessary software:
+                  .. code-block:: bash
 
-               .. include:: snippets/conda-install-full-bash.rst
+                     conda install -n base -c conda-forge mamba --yes
+                     conda activate base
 
+               4. Create a custom Conda environment named ``nextstrain``:
 
-         .. group-tab:: Windows
+                  .. include:: snippets/conda-create-bash.rst
 
-            .. note::
+               5. Install all the necessary software:
 
-               Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Follow steps for **WSL on Windows** if the ambient runtime is desired, or use the **Docker**-based steps instead.
-
-
-         .. group-tab:: WSL on Windows
-
-            1. `Install Windows Subsystem for Linux (WSL) 2`_.
-            2. Open a WSL terminal by running **wsl** from the Start menu.
-            3. Install Miniconda:
-
-               .. code-block:: bash
-
-                  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-                  bash Miniconda3-latest-Linux-x86_64.sh
-                  # follow through installation prompts
-                  rm Miniconda3-latest-Linux-x86_64.sh
-
-            3. Install Mamba on the ``base`` Conda environment:
-
-               .. code-block:: bash
-
-                  conda install -n base -c conda-forge mamba --yes
-                  conda activate base
-
-            4. Create a Conda environment named ``nextstrain``:
-
-               .. include:: snippets/conda-create-bash.rst
-
-            5. Install all the necessary software:
-
-               .. include:: snippets/conda-install-full-bash.rst
-
-            .. include:: snippets/wsl-home-dir.rst
+                  .. include:: snippets/conda-install-full-bash.rst
 
 
-         .. group-tab:: Ubuntu Linux
+            .. group-tab:: Windows
 
-            .. note:: Steps for other Linux distributions (Debian, CentOS, RHEL, etc.) should be identical or very similar.
+               .. note::
 
-            1. Install Miniconda:
+                  Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the ambient runtime is desired, or use the **Docker** runtime instead.
 
-               .. code-block:: bash
 
-                  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-                  bash Miniconda3-latest-Linux-x86_64.sh
-                  # follow through installation prompts
-                  rm Miniconda3-latest-Linux-x86_64.sh
+            .. group-tab:: WSL on Windows
 
-            2. Install Mamba on the ``base`` Conda environment:
+               1. Install Miniconda:
 
-               .. code-block:: bash
+                  .. code-block:: bash
 
-                  conda install -n base -c conda-forge mamba --yes
-                  conda activate base
+                     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+                     bash Miniconda3-latest-Linux-x86_64.sh
+                     # follow through installation prompts
+                     rm Miniconda3-latest-Linux-x86_64.sh
 
-            3. Create a Conda environment named ``nextstrain``:
+               2. Install Mamba on the ``base`` Conda environment:
 
-               .. include:: snippets/conda-create-bash.rst
+                  .. code-block:: bash
 
-            4. Install all the necessary software:
+                     conda install -n base -c conda-forge mamba --yes
+                     conda activate base
 
-               .. include:: snippets/conda-install-full-bash.rst
+               3. Create a custom Conda environment named ``nextstrain``:
+
+                  .. include:: snippets/conda-create-bash.rst
+
+               4. Install all the necessary software:
+
+                  .. include:: snippets/conda-install-full-bash.rst
+
+               .. include:: snippets/wsl-home-dir.rst
+
+
+            .. group-tab:: Ubuntu Linux
+
+               .. note:: Steps for other Linux distributions (Debian, CentOS, RHEL, etc.) should be identical or very similar.
+
+               1. Install Miniconda:
+
+                  .. code-block:: bash
+
+                     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+                     bash Miniconda3-latest-Linux-x86_64.sh
+                     # follow through installation prompts
+                     rm Miniconda3-latest-Linux-x86_64.sh
+
+               2. Install Mamba on the ``base`` Conda environment:
+
+                  .. code-block:: bash
+
+                     conda install -n base -c conda-forge mamba --yes
+                     conda activate base
+
+               3. Create a custom Conda environment named ``nextstrain``:
+
+                  .. include:: snippets/conda-create-bash.rst
+
+               4. Install all the necessary software:
+
+                  .. include:: snippets/conda-install-full-bash.rst
+
+
+      2. Set up the runtime:
+
+         .. code-block:: none
+
+            nextstrain setup --set-default ambient
+
 
       .. admonition:: For ambient runtime installs
          :class: hint
 
-         Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the Conda environment with ``conda activate nextstrain``.
+         Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the custom Conda environment with ``conda activate nextstrain``.
 
 
 
-Then, confirm that the installation worked.
-
-.. code-block:: bash
-
-  nextstrain check-setup --set-default
-
-The final output from the last command should look like this, where ``<runtime>`` is the runtime option (e.g. ``docker`` or ``ambient``) chosen in the first step:
+The final output from the last command should look like this, where ``<runtime>`` is the runtime option (e.g. Docker, Conda, or ambient) chosen in the first step:
 
 .. code-block:: none
 
   Setting default environment to <runtime>.
+
+  All good!  Set up of <runtime> complete.
 
 Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``nextstrain build`` on AWS.
 
@@ -248,24 +303,38 @@ Update an existing installation
 
    .. group-tab:: Docker
 
-      Download the latest image with the Nextstrain CLI.
+      Update the Docker runtime:
 
       .. code-block:: bash
 
-         nextstrain update
+         nextstrain update docker
+
+      If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
+
+
+   .. group-tab:: Conda
+
+      Update the Conda runtime:
+
+      .. code-block:: bash
+
+         nextstrain update conda
 
       If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
 
 
    .. group-tab:: Ambient
 
-      Update the ``nextstrain`` Conda environment.
+      Update the ``nextstrain`` custom Conda environment.
 
       .. code-block:: bash
 
          mamba update -n base conda mamba
          conda activate nextstrain
          mamba update --all
+         nextstrain check-setup ambient
+
+      If the output of the final command notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
 
 
 Troubleshoot a broken installation
@@ -274,6 +343,9 @@ Troubleshoot a broken installation
 .. tabs::
 
    .. group-tab:: Docker
+
+      Running ``nextstrain check-setup docker`` will also report potential issues.
+      Make sure there are no errors or warnings reported.
 
       The Docker runtime requires that the Docker service is running on your computer behind the scenes.
       If you see a message like::
@@ -284,13 +356,29 @@ Troubleshoot a broken installation
       On macOS and Windows, try quitting Docker Desktop (if it's open) and restarting it.
       On Linux, try running ``sudo systemctl restart docker``.
 
-      Running ``nextstrain check-setup`` will also report potential issues.
-      Make sure there are no errors or warnings reported for the Docker runtime.
+
+   .. group-tab:: Conda
+
+      Running ``nextstrain check-setup conda`` will report potential issues.
+      Make sure there are no errors or warnings reported.
+
+      You can forcibly setup the Conda runtime again by running:
+
+      .. code-block:: bash
+
+         nextstrain setup --force conda
+
+      This should rarely be necessary, but may help if you find yourself with a broken runtime.
 
 
    .. group-tab:: Ambient
 
-      If Conda fails to install or update Nextstrain using the commands above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
+      Running ``nextstrain check-setup ambient`` will report potential issues.
+      Make sure there are no errors or warnings reported.
+
+      Ensure that you've activated your custom Conda environment with ``conda activate nextstrain``.
+
+      If Conda fails to install or update Nextstrain using the commands in the other sections above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
       Starting from scratch often fixes problems with Conda environments.
       To start over with a new Nextstrain environment, delete your current environment.
 
@@ -314,27 +402,18 @@ Uninstall
 We do not have an automated uninstall process currently.
 Instead, follow these manual steps:
 
-.. tabs::
+   1. If the directory :file:`~/.nextstrain` exists, remove it.
+   2. If using the Docker runtime, remove all ``nextstrain/…`` Docker images::
 
-   .. group-tab:: Docker
+         docker image rm $(docker image ls -q "nextstrain/*")
 
-      1. If the directory :file:`~/.nextstrain` exists, remove it.
-      2. Remove all ``nextstrain/…`` Docker images::
+      Optionally, uninstall Docker if only used for Nextstrain.
+   3. If using the ambient runtime, remove the ``nextstrain`` custom Conda environment::
 
-            docker image rm $(docker image ls -q "nextstrain/*")
+         conda env remove -n nextstrain
 
-      3. Optionally, uninstall Docker if only used for Nextstrain.
-      4. On Windows, optionally, uninstall WSL if only used for Nextstrain.
-
-   .. group-tab:: Ambient
-
-      1. If the directory :file:`~/.nextstrain` exists, remove it.
-      2. Remove the ``nextstrain`` Conda environment::
-
-            conda env remove -n nextstrain
-
-      3. Optionally, uninstall Conda if only used for Nextstrain.
-      4. On Windows, optionally, uninstall WSL if only used for Nextstrain.
+      Optionally, uninstall Conda if only used for Nextstrain.
+   4. On Windows, optionally, uninstall WSL if only used for Nextstrain.
 
 Next steps
 ==========
