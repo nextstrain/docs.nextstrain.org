@@ -59,7 +59,7 @@ Hold an informal vote to gauge opinion on difficult or subjective decisions (e.g
 
 Bypass consensus with a decision by a single Core Team member who has expertise in the matter at hand.
    - Use for uncontroversial decisions or decisions on matters where the Core Team lacks expertise or strong opinions.
-   - Provide the Core Team an opportunity to register their lack of a strong opinion. Err on the side of "over-communicating" to the team.
+   - Provide the Core Team an opportunity to register their lack of a strong opinion. Err on the side of "over-communicating" to the team (e.g., "this will be merged on Tuesday if there are no objections").
    - Document the final decision publicly.
 
 Request tie-breaking or overruling vote from Project Leads.
@@ -69,7 +69,7 @@ Request tie-breaking or overruling vote from Project Leads.
 Code review
 ===========
 
-Our `practice of code review <https://wiki.nextstrain.org/t/code+review>`__ (internal doc) often informally trigger a request for a decision from the Core Team.
+Our `practice of code review <https://wiki.nextstrain.org/t/code+review>`__ (internal doc) often informally triggers a request for a decision from the Core Team.
 The informal nature of this process can result in a lack of feedback from the Core Team causing the corresponding Pull Request (PR) to stall on review without conclusion [#warnock]_.
 The stalling means the people involved in the PR (author and reviewers) have spent time on something that's now in an ambiguous state of "reviewed, needs more work" and is effectively blocked indefinitely.
 Both PR authors and other team members can benefit from a more concrete decision of:
