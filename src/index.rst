@@ -85,3 +85,4 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextalign-cli.html>
     FAQ <reference/faq>
     reference/style
+    reference/governance
