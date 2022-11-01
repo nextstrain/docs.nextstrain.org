@@ -149,16 +149,25 @@ Then, install a Nextstrain runtime.
 
    .. group-tab:: Conda
 
-      .. note::
+      .. tabs::
 
-         Due to installation constraints, there is no way to use Nextstrain's Conda runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the Conda runtime is desired, or use the **Docker** runtime instead.
+         .. group-tab:: macOS
 
-      Set up the runtime:
+            .. include:: snippets/nextstrain-setup-conda.rst
 
-      .. code-block:: none
+         .. group-tab:: Windows
 
-         nextstrain setup --set-default conda
+            .. note::
 
+               Due to installation constraints, there is no way to use Nextstrain's Conda runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the Conda runtime is desired, or use the **Docker** runtime instead.
+
+         .. group-tab:: WSL on Windows
+
+            .. include:: snippets/nextstrain-setup-conda.rst
+
+         .. group-tab:: Ubuntu Linux
+
+            .. include:: snippets/nextstrain-setup-conda.rst
 
    .. group-tab:: Ambient
 
