@@ -17,11 +17,13 @@ There are many ways to install Nextstrain, and we aim to simplify the installati
 What are Docker, Conda, Mamba, WSL, etc.?
 -----------------------------------------
 
-`Docker <https://docker.com/>`_ is a container system available for all platforms.
-When you use Docker to run Nextstrain components, you don’t need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`_.
+`Docker <https://docker.com/>`_ is a container management system that allows you to run isolated software images without disrupting or *being* disrupted by other software you have installed (e.g., on your computer, your shared cluster, etc.).
+When you use Nextstrain's Docker runtime, you need to install Docker yourself but don't need to manage any other Nextstrain software dependencies as validated versions are already bundled into `a container image by the Nextstrain team <https://github.com/nextstrain/docker-base/>`__.
 
-`Conda <https://docs.conda.io/en/latest/>`_ is a package and environment management system that allows you to install Python and other software into controlled environments without disrupting other software you have installed (e.g., on your computer, your shared cluster, etc.).
+`Conda <https://docs.conda.io/en/latest/>`_ is a package and environment management system that allows you to install Python and other software into controlled environments without disrupting other software you have installed.
 Miniconda is the minimal installation of the ``conda`` command, the command-line interface to Conda.
+When you use Nextstrain's Conda runtime, you don't need to install Conda yourself or manage any other Nextstrain software dependencies as validated versions are already locked into `a package by the Nextstrain team <https://github.com/nextstrain/conda-base/>`__.
+When you use Nextstrain's ambient runtime, we provide an example of how to set it up using Conda.
 
 `Mamba <https://github.com/mamba-org/mamba>`_ is a drop-in replacement for most ``conda`` functionality that provides faster installation times, especially for complex environments like the one Nextstrain requires.
 
@@ -31,24 +33,25 @@ Nextstrain's installation guide works with WSL 2 but not WSL 1.
 
 .. _choosing-a-runtime:
 
-Should I choose the Docker or Ambient runtime?
-----------------------------------------------
+Should I choose the Docker, Conda, or ambient runtime?
+------------------------------------------------------
 
-The two runtimes provide the same experience running Nextstrain workflows with ``nextstrain build`` (and most other ``nextstrain`` commands) but vary in installation and update methods and predictability/stability over time.
+The three runtimes provide the same experience running Nextstrain workflows with ``nextstrain build`` (and most other ``nextstrain`` commands) but vary in installation and update methods and predictability/stability over time.
 
 There's not one right answer for everyone or every situation.
-That's why we provide both options (and will potentially provide more in the future).
-The Nextstrain team uses both runtimes extensively.
+That's why we provide runtime options (and will potentially provide more in the future).
+The Nextstrain team uses all runtimes extensively.
 
 Your preference is perhaps the best reason to choose one vs. the other.
 
    - If you have a preference for containers, then choose the Docker runtime.
-   - If you have a preference for Conda, then choose the ambient runtime.
+   - If you have a preference for Conda (or dispreference for containers), then choose the Conda runtime.
+   - If you have a preference for managing software environments yourself, then choose the ambient runtime.
    - If you don't have a preference, choose the one you have the most past experience with.
-   - If you have neither preference nor experience, we recommend choosing the Docker runtime because it has less to manage and is more predictable/stable over time.
+   - If you have neither preference nor experience, we recommend choosing the Docker runtime because it is the most stable and reproducible over time.
 
-You can also install and use both runtimes on the same computer, if you want to use them contextually.
-For example, ``nextstrain`` commands let you select a different runtime than your default using command-line options (``--docker`` or ``--ambient``).
+You can also install and use multiple runtimes on the same computer, if you want to use them contextually.
+For example, ``nextstrain`` commands let you select a different runtime than your default using command-line options (``--docker``, ``--conda``, or ``--ambient``).
 
 If you pick one and later realize you want to switch, you can go back and install the other and make it your default.
 
@@ -88,31 +91,32 @@ This will ensure that all commands in the active Conda environment are run using
 
 .. _what-happened-to-the-native-runtime:
 
-What happened to the ``native`` runtime?
+What happened to the "native" runtime?
 ----------------------------------------
 
-Up until Nextstrain CLI version 5.0.0, the name of the ``native`` runtime has been debated internally. In CLI version 5.0.0, **it was renamed to** ``ambient`` and we will use the new name going forwards.
+The "native" runtime was **renamed to "ambient"** in Nextstrain CLI version 5.0.0, and we will use the new name going forwards.
+The suitability of the "native" name had long been discussed within the Nextstrain team.
 
 "Native" as a software term is typically used to describe software that can run without emulation, in other words optimized for your computer's processor.
 
-The ``ambient`` runtime is "native" in that sense, but it puts all the software maintenance burden on the user. This means:
+The ambient runtime is native in that sense, but it puts all the software maintenance burden on the user. This means:
 
 1. There is a lengthy setup process which requires installing external software (Conda, Mamba). Additionally, there is no way for us to provide accurate setup steps for users who already have Conda installed, as there are various methods of installing Conda.
-2. It is up to you as the creator of the ``nextstrain`` Conda environment to know (1) how to activate it, (2) when to update it, and (3) how to update it.
+2. It is up to you as the creator of the ``nextstrain`` Conda environment to know (a) how to activate it, (b) when to update it, and (c) how to update it.
 
-So really, the ``ambient`` runtime is any environment that has been set up with all of the required software available on your local ``PATH``. We chose Conda in the installation instructions since some users may already be familiar with it, and it is simpler than using individual package managers for the various required software (e.g. ``pip``, ``npm``).
+So really, the ambient runtime is any environment that has been set up with all of the required software available on your local ``PATH``. We chose Conda in the installation instructions since some users may already be familiar with it, and it is simpler than using individual package managers for the various required software (e.g. ``pip``, ``npm``).
 
-Most importantly, Nextstrain CLI version 5.0.0 provides a **new** ``conda`` **runtime that runs natively** without putting all of the software maintenance burden on users. This means the ``ambient`` runtime is no longer the only "native" runtime, and we will recommend new users to use the ``conda`` runtime instead of ``ambient``.
+Most importantly, Nextstrain CLI version 5.0.0 provides a **new Conda runtime that runs natively** without putting all of the software maintenance burden on users. This means the ambient runtime is no longer the only "native" runtime, and we will recommend new users to use the Conda runtime instead of ambient.
 
-``ambient`` is still a good option for users who wish to customize their environment to include other software used in their workflows.
+The ambient runtime is still a good option for users who wish to customize their environment to include other software used in their workflows.
 
 .. _new-conda-runtime-vs-old-native-runtime:
 
-How is the new ``conda`` runtime different from the old ``native`` runtime?
+How is the new Conda runtime different from the old "native" runtime?
 ---------------------------------------------------------------------------
 
-Summary: ``conda``, like ``docker``, is fully managed by the Nextstrain CLI.
+The Conda runtime, like the Docker runtime, is fully managed by the Nextstrain CLI.
+The CLI manages the versioning of an isolated Conda environment separate from any existing Conda installation (if present).
+It ensures all the software tools used for Nextstrain-related analysis are available and handles updates to them via the ``nextstrain update`` command (like the Docker runtime).
 
-In ``docker``, the CLI manages versioning of the ``nextstrain/base`` Docker image, which comes packaged with common software tools used for Nextstrain-related analysis.
-
-In ``conda``, the CLI manages the versioning of an isolated Conda environment separate from any existing Conda installation (if present). If you wish to use your existing Conda environment from the old ``native`` runtime or set up a new Conda environment, please refer to the ``ambient`` runtime usage instructions on the installation page.
+If you wish to use your existing ``nextstrain`` Conda environment from the previously-named native runtime or set up a new Conda environment yourself, please refer to the ambient runtime usage instructions on the installation page.
