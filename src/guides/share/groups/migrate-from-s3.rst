@@ -193,10 +193,10 @@ to inform them of these changes.  A copy of the email is below.
     about the changes, including the actions requested of you. **Please review
     the details there and reply to this email with the information requested.**
 
-    You're receiving this email because you're a contact for one or more
+    You're receiving this email because you're an owner of one or more
     Nextstrain Groups:
 
-      - https://nextstrain.org/groups/${*GROUPNAME*}
+      - nextstrain.org/groups/${*GROUPNAME*}
 
     Thank you for being an early adopter of Nextstrain Groups!  We're excited
     to keep improving the functionality of Groups.  If you have any feedback,
