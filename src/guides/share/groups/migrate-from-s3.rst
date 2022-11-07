@@ -23,16 +23,16 @@ dataset to a Nextstrain Group:
     # Old way
     nextstrain remote upload \
       s3://nextstrain-${GROUPNAME}/ \
-        auspice/ncov_${YOUR_BUILD_NAME}.json \
-        auspice/ncov_${YOUR_BUILD_NAME}_tip-frequencies.json \
-        auspice/ncov_${YOUR_BUILD_NAME}_root-sequence.json
+        auspice/${YOUR_BUILD_NAME}.json \
+        auspice/${YOUR_BUILD_NAME}_tip-frequencies.json \
+        auspice/${YOUR_BUILD_NAME}_root-sequence.json
 
     # New way
     nextstrain remote upload \
-      nextstrain.org/groups/${GROUPNAME}/ncov/${YOUR_BUILD_NAME} \
-        auspice/ncov_${YOUR_BUILD_NAME}.json \
-        auspice/ncov_${YOUR_BUILD_NAME}_tip-frequencies.json \
-        auspice/ncov_${YOUR_BUILD_NAME}_root-sequence.json
+      nextstrain.org/groups/${GROUPNAME} \
+        auspice/${YOUR_BUILD_NAME}.json \
+        auspice/${YOUR_BUILD_NAME}_tip-frequencies.json \
+        auspice/${YOUR_BUILD_NAME}_root-sequence.json
 
 Each group must undergo a short migration (performed by us) in order to use the
 new way.  Groups which haven't been migrated will continue to use the old way.
@@ -100,7 +100,7 @@ Before migration
        migrate until we've added support for updating these files yourself when
        not using a separate S3 bucket.
 
-4. **Upgrade the version of the Nextstrain CLI you're using to at least 3.2.3.**
+4. **Upgrade the version of the Nextstrain CLI you're using to at least 5.0.0.**
 
    It's best to do this in advance of the migration so you're set to keep using
    your group afterwards without having to upgrade later, but you may choose to
@@ -111,9 +111,9 @@ Before migration
    .. code-block:: console
 
         $ nextstrain version
-        nextstrain.cli 3.2.3
+        nextstrain.cli 5.0.0
 
-   If you see a version older than 3.2.3, please :doc:`upgrade your copy of the
+   If you see a version older than 5.0.0, please :doc:`upgrade your copy of the
    Nextstrain CLI <cli:upgrading>`.
 
 
@@ -124,7 +124,8 @@ We'll email you when your group's migration is complete.  From that point
 forward, everyone managing your group's datasets and narratives will need to
 use :doc:`"nextstrain remote" commands <cli:commands/remote/index>` which
 reference your group's nextstrain.org URL instead of your previous S3 bucket
-URL.
+URL.  You will no longer have access to your previous S3 bucket, and after a
+grace period of at least 30 days, it will be completely deleted.
 
 It's a good idea to give these new commands a try shortly after the migration
 to make sure everything works as expected for you.  For example, you might try
@@ -168,19 +169,17 @@ Timeline
 :March 2022: New groups created after this point manage their data through
              nextstrain.org instead of S3.
 
-:TBD: `Notification`_ sent to groups created prior to March.
+:early November: `Notification`_ sent to groups created prior to March.
 
-:TBD: Groups migrated one-by-one in coordination with group owners.
+:November onwards: Groups start migrating one-by-one in coordination with group owners.
 
-:TBD: Nextstrain team's desired deadline for migrating all groups.
+:end of February 2023: Nextstrain team's desired deadline for migrating all groups.
 
 
 Notification
 ============
 
-.. note:: Notifications have not yet been sent out.
-
-In *[TBD]* 2022, we emailed the contacts for all groups created before March 2022
+In November 2022, we emailed the contacts for all groups created before March 2022
 to inform them of these changes.  A copy of the email is below.
 
     **Subject:** Action requested: Improvements to how you manage your
@@ -189,16 +188,15 @@ to inform them of these changes.  A copy of the email is below.
     Hello!
 
     It's the Nextstrain team.  We're writing to let you know about improvements
-    we've made to how you manage your data in Nextstrain Groups.  You're
-    receiving this email because you're a contact for one or more Nextstrain
-    Groups:
+    we've made to how you manage your data in Nextstrain Groups.  We've put
+    together :doc:`a documentation page <migrate-from-s3>` with information
+    about the changes, including the actions requested of you. **Please review
+    the details there and reply to this email with the information requested.**
 
-      - https://nextstrain.org/groups/${*GROUPNAME*}
+    You're receiving this email because you're an owner of one or more
+    Nextstrain Groups:
 
-    We've put together :doc:`a documentation page <migrate-from-s3>` with
-    information about the changes, including the actions requested of you.
-    Please review the details there and reply to this email with the
-    information requested.
+      - nextstrain.org/groups/${*GROUPNAME*}
 
     Thank you for being an early adopter of Nextstrain Groups!  We're excited
     to keep improving the functionality of Groups.  If you have any feedback,
