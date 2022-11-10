@@ -391,8 +391,12 @@ The colorings in the auspice-config JSON typically link the key (where the
 metadata is to be found) to a title (how the key is to be presented in Auspice)
 and a type (how should the color scale be constructed).
 Setting the type to one of “continuous”, “temporal”, “ordinal”, “categorical”
-or “boolean” lets Auspice use the appropriate color scale, but if this is not
-provided “categorical” is the default.
+or “boolean” lets Auspice use the appropriate color scale.
+If the type is not provided, it will be inferred in this order:
+
+#. "boolean" if all values are within ``["false", "true", "1.0", "0.0", "1", "0", "yes", "no"]``.
+#. "continuous" if all values are numeric.
+#. "categorical" if none of the above are satisfied.
 
 The provided colorings in the auspice-config JSON will result in corresponding
 metadata being exported. As mentioned above, for node-data provided metadata
@@ -415,6 +419,8 @@ used in the measles build:
    region  west asia   #ADBD51
    region  africa  #CEB541
    region  europe  #E39B39
+
+See :doc:`the guide on custom trait colors </guides/bioinformatics/colors>` for more details on how to use the colors TSV.
 
 Augur itself provides `a default set of colors <https://github.com/nextstrain/augur/blob/master/augur/data/colors.tsv>`__,
 currently only for “region”. This means that if you don't specify any colors
