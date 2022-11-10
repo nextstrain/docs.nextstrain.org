@@ -13,7 +13,6 @@ auspice_url = f'{auspice_base_url}docs/'
 docs = {
     f'{auspice_url}narratives/create-pdf.md': 'guides/communicate/create-pdf.md',
     f'{auspice_url}narratives/introduction.md': 'guides/communicate/narratives-intro.md',
-    f'{auspice_url}narratives/how-to-write.md': 'tutorials/narratives-how-to-write.md',
     f'{augur_url}usage/augur_snakemake.md': 'guides/bioinformatics/augur_snakemake.md',
     f'{augur_url}faq/translate_ref.md': 'guides/bioinformatics/translate_ref.md',
     f'{augur_url}faq/import-beast.md': 'guides/bioinformatics/import-beast.md',
