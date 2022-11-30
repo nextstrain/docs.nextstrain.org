@@ -186,7 +186,7 @@ The possible content which can be rendered is listed below, in the order they wo
 Normal slides
 -------------
 
-The rest of the Markdown file defines one or more slides, where each slide is defined by a level 1 heading which is also a link to a dataset on nextstrain.org [#f2]_ and a section of Markdown which represents the slide's content:
+The rest of the Markdown file defines one or more slides, where each slide is defined by a level 1 heading which is also a link to a dataset and a section of Markdown which represents the slide's content:
 
 
 .. code-block:: markdown
@@ -272,7 +272,7 @@ Publicaly accessible images can be embedded using normal Markdown syntax, for ex
   ![Y pestis SEM](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Yersinia_pestis.jpg/800px-Yersinia_pestis.jpg)
 
 
-If the image is not publicly accessible via a URL, you can also embed it in the Markdown file itself using base64 encoding [#f3]_ (see `here <https://www.base64-image.de/>`__ for a drag-and-drop utility to convert images to base64):
+If the image is not publicly accessible via a URL, you can also embed it in the Markdown file itself using base64 encoding [#f2]_ (see `here <https://www.base64-image.de/>`__ for a drag-and-drop utility to convert images to base64):
 
 .. code-block:: markdown
 
@@ -284,7 +284,7 @@ Differences between localhost (Auspice) and nextstrain.org
 ----------------------------------------------------------
 
 It's possible to run a local instance of Auspice (the phylogenetic visualisation app used in nextstrain.org) and view narratives locally, however there are some differences between this and nextstrain.org which are really easy to get tripped up on!
-Specifically the hostname is *not* used [#f2]_ -- only the pathname is used, and the way the dataset pathname is interpreted is different: Auspice can only access datasets on your computer (in the directory you supply via ``--datasetDir``) whereas nextstrain.org accesses data from :doc:`a range of places </guides/share/index>`.
+Specifically the hostname is *not* used -- only the pathname is used, and the way the dataset pathname is interpreted is different: Auspice can only access datasets on your computer (in the directory you supply via ``--datasetDir``) whereas nextstrain.org accesses data from :doc:`a range of places </guides/share/index>`.
 
 The following example of a narrative slide may make this difference clearer:
 
@@ -344,6 +344,4 @@ You can submit an `issue on GitHub <https://github.com/nextstrain/nextstrain.org
 .. [#f1] The provided string is actually rendered as ``### <abstract>``, so the first line will appear as a h3 heading!
   Multiple line strings are possible in YAML and we suggest using these.
 
-.. [#f2] In practice, the URL path component is what is used to access the dataset relative to the current hostname, however for historical reasons the protocol and hostname must be either ``http://localhost:4000`` or ``https://nextstrain.org``. 
-
-.. [#f3] This isn't great from a file-size point of view, and the Markdown file isn't nice to look at itself, but it gets around the problem of where to store images by embedding them in the file itself.
+.. [#f2] This isn't great from a file-size point of view, and the Markdown file isn't nice to look at itself, but it gets around the problem of where to store images by embedding them in the file itself.
