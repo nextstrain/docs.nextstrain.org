@@ -323,10 +323,9 @@ The eventual aim is to be able to write & publish an entire narrative from withi
 Next steps
 ==========
 
-The aim is to author your own narratives, so we suggest adapting the Markdown files introduced below to
-form your own narrative once you've worked through the tutorial. For this you'll need:
+Create your own narrative with:
 
-* One or more datasets that you wish to visualise, and these should be accessible via `nextstrain.org <https://nextstrain.org>`__. See :doc:`/guides/share/index` for more information.
+* One or more datasets that you wish to visualise. These should be accessible via `nextstrain.org <https://nextstrain.org>`__. See :doc:`/guides/share/index` for more information.
 * An idea of what you wish to write for each slide (you can always start with a single slide and add more as you go).
 
 Bugs? Improvements? Suggestions?
