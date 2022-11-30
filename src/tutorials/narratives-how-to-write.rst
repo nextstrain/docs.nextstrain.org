@@ -3,7 +3,7 @@ Writing a narrative
 ===================
 
 The following will walk you through writing a Nextstrain narrative.
-We'll start with a basic 2-slide narrative and then gradually add further slides with the intention
+We'll start with a basic 3-slide narrative and then gradually add further slides with the intention
 of describing the functionality of narratives. The aim is for you to feel comfortable with
 the technical aspects of creating and troubleshooting narratives.
 
