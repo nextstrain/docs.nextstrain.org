@@ -10,7 +10,7 @@ and troubleshooting narratives.
 
 For an introduction to the concept of Narratives, please see :doc:`/guides/communicate/narratives-intro` or take a look at this example narrative,  `Twenty years of West Nile virus <https://nextstrain.org/narratives/twenty-years-of-WNV>`__.
 
-This tutorial will rely on the new `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ which allows you to drag & drop the Markdown files we'll introduce here and see an instant summary of the narrative.
+This tutorial will rely on the new `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ which allows you to drag & drop the Markdown files introduced here and instantly see a summary of the narrative.
 
 .. contents:: Sections in this document
   :local:
@@ -163,7 +163,7 @@ There are plenty of ways to approach the task, but we find the following workflo
         debugger -> md [label="repeat" fontcolor="#1d91c0" fillcolor="#1d91c0" color="#1d91c0" splines=curved]
     }
 
-In the future we plan to add more and more editing capability into the debugger, but for now any changes to the narrative must be made in the Markdown file itself.
+In the future, we plan to expand the debugger with editing capability. For now, any changes to the narrative must be made in the Markdown file itself.
 When you are happy with the end result, :ref:`see below for how to publish it on nextstrain.org <sharing>`.
 
 
@@ -191,7 +191,7 @@ The possible content which can be rendered is listed below, in the order they wo
 Normal slides
 -------------
 
-The rest of the Markdown file defines one or more slides, where each slide is defined by a level 1 heading which is also a link to a dataset and a section of Markdown which represents the slide's content:
+The rest of the Markdown file defines one or more slides. Each slide is defined by a level 1 heading which must link to a dataset, followed by a section of Markdown which represents the slide's content:
 
 
 .. code-block:: markdown
@@ -200,7 +200,7 @@ The rest of the Markdown file defines one or more slides, where each slide is de
 
   Markdown content of the slide
 
-As a real example (taken from above), we have:
+This is the third slide from the example narrative above:
 
 .. code-block:: markdown
 
@@ -216,17 +216,17 @@ The dataset URL :ref:`is detailed below<linking-view-to-url>` and defines the vi
 Linking the view into the data to the URL
 -----------------------------------------
 
-At the heart of narratives is the ability for Nextstrain dataset URLs to encode the view settings, such as the coloring used, via the `URL query <https://en.wikipedia.org/wiki/Query_string>`__.  
+At the heart of narratives is the ability for Nextstrain dataset URLs to encode the view settings (e.g. coloring) via the `URL query <https://en.wikipedia.org/wiki/Query_string>`__.
 You can see this in action by changing the view settings of a dataset on nextstrain.org and observing the URL query changing.
 The available query parameters are detailed in Auspice's :doc:`auspice:advanced-functionality/view-settings` docs, however in most cases it's easier to manipulate the visualisation in-browser and then copy the resulting URL into your narrative.
 
-Using our example narrative introduced :ref:`above<example>` we can see that the three slides use the following dataset URLs:
+The slides in the :ref:`example narrative<example>` use the following dataset URLs:
 
 #. https://nextstrain.org/monkeypox/hmpxv1?d=map&p=full&c=region
 #. https://nextstrain.org/monkeypox/hmpxv1?d=tree&p=full&c=region
 #. https://nextstrain.org/flu/seasonal/h3n2/ha/12y?d=tree,frequencies&p=full
 
-The only difference between 1 & 2 is the change from ``d=map`` to ``d=tree`` and so when we change between these slides in the narrative we simply change the map for the tree panel (or vice versa). Slide 3 uses a different dataset, and specifies both the tree and frequency panels.
+The only difference between 1 & 2 is ``d=map`` vs. ``d=tree``. This means that when navigating between these slides in the narrative, we change between the map and tree panels. Slide 3 uses a different dataset with both the tree and frequency panels.
 
 
 
