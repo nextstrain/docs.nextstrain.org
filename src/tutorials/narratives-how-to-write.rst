@@ -3,9 +3,9 @@ Writing a narrative
 ===================
 
 The following will walk you through writing a Nextstrain narrative.
-We'll start with a basic 3-slide narrative and then gradually add further slides with the intention
-of describing the functionality of narratives. The aim is for you to feel comfortable with
-the technical aspects of creating and troubleshooting narratives.
+We'll look at a basic 3-slide narrative to explore the functionality of narratives.
+The aim is for you to feel comfortable with the technical aspects of creating
+and troubleshooting narratives.
 
 
 For an introduction to the concept of Narratives, please see :doc:`/guides/communicate/narratives-intro` or take a look at this example narrative,  `Twenty years of West Nile virus <https://nextstrain.org/narratives/twenty-years-of-WNV>`__.
