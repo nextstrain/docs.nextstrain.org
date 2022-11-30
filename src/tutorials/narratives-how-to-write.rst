@@ -24,12 +24,12 @@ This tutorial will rely on the new `Narratives Debugger <https://nextstrain.org/
 Prerequisites
 =============
 
-In order to make sense of this tutorial we are going to need:
+To follow this tutorial, you will need:
 
 * A (basic) understanding of writing Markdown `(here is good introduction) <https://learnxinyminutes.com/docs/markdown/>`__.
 * Familiarity with the general concept of Nextstrain Narratives (see :doc:`/guides/communicate/narratives-intro` to get started).
-* Be comfortable editing a Markdown file on your computer (in your editor of choice) and then dragging that file onto the browser.
-* The `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ open in a separate browser window
+* Ability to edit a Markdown file on your computer (in any text editor).
+* The `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ open in an internet browser.
 
 The aim is to author your own narratives, so we suggest adapting the Markdown files introduced below to
 form your own narrative once you've worked through the tutorial. For this you'll need:
