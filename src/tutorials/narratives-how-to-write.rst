@@ -107,19 +107,24 @@ You can see a copy of this Markdown file `on GitHub <https://github.com/nextstra
 
 
 This tutorial will make use of our narratives debugger, which is available at `nextstrain.org/edit/narratives <https://nextstrain.org/edit/narratives>`__.
-To introduce this functionality, let's copy / download the above Markdown to a file on your computer (the filename doesn't matter, as long as it finishes with ``.md``).
-We can then drag the Markdown file onto the Narrative Debugger page and you should see something like the top half of this figure:
+To introduce this functionality,
+
+1. Copy/download the above Markdown to a file on your computer. The filename must end with ``.md``.
+2. Drag the Markdown file onto the Narrative Debugger page. You should see something like the top half of this figure:
 
 
-.. image :: ../images/narratives_debugger_screenshot.jpg
-   :alt: Screenshot of the example narrative loaded in the narratives debugger and a preview of the opening slide
+  .. image :: ../images/narratives_debugger_screenshot.jpg
+     :alt: Screenshot of the example narrative loaded in the narratives debugger and a preview of the opening slide
 
 
-We can see the titles of the three slides & their associated datasets (see the following section for details on how titles are defined), and hovering over these should show you the full appearance of the slide.
-To the right of the titles are their associate datasets, each with a series of icons next to them representing the main + sidecar JSONs associated with this dataset.
+You can see the titles of the three slides and their associated datasets. Hover over one to see the full appearance of the slide.
+
+To the right of each title is the associate :term:`dataset` and a series of icons representing the main + sidecar :term:`JSONs` associated with the dataset.
 The icons represent whether the dataset exists on nextstrain.org -- in this case, they are all green (success) or grey (not attempted).
-When debugging a narrative it's easy to make syntax errors resulting in datasets which don't load -- you could try changing the URLs in the Markdown file and dragging the file back onto the debugger to see this.
-Clicking on the title of a slide will jump into the narrative at that slide, or you can click the "View Narrative" button to start from the beginning.
+
+When writing a narrative, it's easy to make syntax errors that result in invalid datasets. To observe this, try changing a dataset URL in the Markdown file and dragging the file back onto the debugger.
+
+Clicking on the title of a slide will jump into the narrative at that slide, or you can click the **View Narrative** button to start from the beginning.
 
 
 .. note::
