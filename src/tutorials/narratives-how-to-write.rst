@@ -34,7 +34,7 @@ To follow this tutorial, you will need:
 The basics of how a narrative works
 ===================================
 
-The content of a narrative is all within a single Markdown file, and this file contains nextstrain.org URLs from which the interactive visualisations are sourced.
+The content of a narrative is all within a single Markdown file, and this file contains Nextstrain dataset URLs from which the interactive visualisations are sourced.
 We'll introduce the basic functionality via an example Markdown file below, which describes three slides:
 
 1. The title slide (the section surrounded by ``---`` lines)
@@ -211,7 +211,7 @@ The dataset URL :ref:`is detailed below<linking-view-to-url>` and defines the vi
 Linking the view into the data to the URL
 -----------------------------------------
 
-At the heart of narratives is the ability for URLs on nextstrain.org to encode not only the dataset to display but also the view settings, such as the coloring used, via the `URL query <https://en.wikipedia.org/wiki/Query_string>`__.  
+At the heart of narratives is the ability for Nextstrain dataset URLs to encode the view settings, such as the coloring used, via the `URL query <https://en.wikipedia.org/wiki/Query_string>`__.  
 You can see this in action by changing the view settings of a dataset on nextstrain.org and observing the URL query changing.
 The available query parameters are detailed in Auspice's :doc:`auspice:advanced-functionality/view-settings` docs, however in most cases it's easier to manipulate the visualisation in-browser and then copy the resulting URL into your narrative.
 
