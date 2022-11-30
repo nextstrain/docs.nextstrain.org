@@ -31,13 +31,6 @@ To follow this tutorial, you will need:
 * Ability to edit a Markdown file on your computer (in any text editor).
 * The `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ open in an internet browser.
 
-The aim is to author your own narratives, so we suggest adapting the Markdown files introduced below to
-form your own narrative once you've worked through the tutorial. For this you'll need:
-
-* One or more datasets that you wish to visualise, and these should be accessible via `nextstrain.org <https://nextstrain.org>`__. See :doc:`/guides/share/index` for more information.
-* An idea of what you wish to write for each slide (you can always start with a single slide and add more as you go).
-
-
 The basics of how a narrative works
 ===================================
 
@@ -327,6 +320,14 @@ The app used to test narratives is in its infancy.
 We hope to incrementally add features such as Markdown editing, changing the dataset view settings, and the ability to publish the narrative to :doc:`Nextstrain Groups </learn/groups/index>`.
 The eventual aim is to be able to write & publish an entire narrative from within the app, without needing to know any specifics of the Markdown language behind it.
 
+Next steps
+==========
+
+The aim is to author your own narratives, so we suggest adapting the Markdown files introduced below to
+form your own narrative once you've worked through the tutorial. For this you'll need:
+
+* One or more datasets that you wish to visualise, and these should be accessible via `nextstrain.org <https://nextstrain.org>`__. See :doc:`/guides/share/index` for more information.
+* An idea of what you wish to write for each slide (you can always start with a single slide and add more as you go).
 
 Bugs? Improvements? Suggestions?
 ================================
