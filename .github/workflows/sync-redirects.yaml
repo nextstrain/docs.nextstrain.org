@@ -13,18 +13,10 @@ on:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-
-      - name: Upgrade Python toolchain
-        run: python3 -m pip install --upgrade pip setuptools wheel
-
-      - name: Install readthedocs-cli
-        run: python3 -m pip install readthedocs-cli
-
-      - name: Sync redirects
-        run: rtd projects nextstrain redirects sync -f redirects.yml --wet-run
-        env:
-          RTD_TOKEN: ${{ secrets.RTD_TOKEN }}
+    name: rtd redirects
+    uses: nextstrain/.github/.github/workflows/sync-rtd-redirects.yaml@master
+    with:
+      project: nextstrain
+      file: redirects.yml
+    secrets:
+      RTD_TOKEN: ${{ secrets.RTD_TOKEN }}
