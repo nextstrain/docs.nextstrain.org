@@ -3,14 +3,14 @@ Writing a narrative
 ===================
 
 The following will walk you through writing a Nextstrain narrative.
-We'll start with a basic 2-slide narrative and then gradually add further slides with the intention
-of describing the functionality of narratives. The aim is for you to feel comfortable with
-the technical aspects of creating and troubleshooting narratives.
+We'll look at a basic 3-slide narrative to explore the functionality of narratives.
+The aim is for you to feel comfortable with the technical aspects of creating
+and troubleshooting narratives.
 
 
 For an introduction to the concept of Narratives, please see :doc:`/guides/communicate/narratives-intro` or take a look at this example narrative,  `Twenty years of West Nile virus <https://nextstrain.org/narratives/twenty-years-of-WNV>`__.
 
-This tutorial will rely on the new `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ which allows you to drag & drop the Markdown files we'll introduce here and see an instant summary of the narrative.
+This tutorial will rely on the new `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ which allows you to drag & drop the Markdown files introduced here and instantly see a summary of the narrative.
 
 .. contents:: Sections in this document
   :local:
@@ -24,24 +24,17 @@ This tutorial will rely on the new `Narratives Debugger <https://nextstrain.org/
 Prerequisites
 =============
 
-In order to make sense of this tutorial we are going to need:
+To follow this tutorial, you will need:
 
 * A (basic) understanding of writing Markdown `(here is good introduction) <https://learnxinyminutes.com/docs/markdown/>`__.
 * Familiarity with the general concept of Nextstrain Narratives (see :doc:`/guides/communicate/narratives-intro` to get started).
-* Be comfortable editing a Markdown file on your computer (in your editor of choice) and then dragging that file onto the browser.
-* The `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ open in a separate browser window
-
-The aim is to author your own narratives, so we suggest adapting the Markdown files introduced below to
-form your own narrative once you've worked through the tutorial. For this you'll need:
-
-* One or more datasets that you wish to visualise, and these should be accessible via `nextstrain.org <https://nextstrain.org>`__. See :doc:`/guides/share/index` for more information.
-* An idea of what you wish to write for each slide (you can always start with a single slide and add more as you go).
-
+* Ability to edit a Markdown file on your computer (in any text editor).
+* The `Narratives Debugger <https://nextstrain.org/edit/narratives>`__ open in an internet browser.
 
 The basics of how a narrative works
 ===================================
 
-The content of a narrative is all within a single Markdown file, and this file contains nextstrain.org URLs from which the interactive visualisations are sourced.
+The content of a narrative is all within a single Markdown file, and this file contains Nextstrain dataset URLs from which the interactive visualisations are sourced.
 We'll introduce the basic functionality via an example Markdown file below, which describes three slides:
 
 1. The title slide (the section surrounded by ``---`` lines)
@@ -114,19 +107,24 @@ You can see a copy of this Markdown file `on GitHub <https://github.com/nextstra
 
 
 This tutorial will make use of our narratives debugger, which is available at `nextstrain.org/edit/narratives <https://nextstrain.org/edit/narratives>`__.
-To introduce this functionality, let's copy / download the above Markdown to a file on your computer (the filename doesn't matter, as long as it finishes with ``.md``).
-We can then drag the Markdown file onto the Narrative Debugger page and you should see something like the top half of this figure:
+To introduce this functionality,
+
+1. Copy/download the above Markdown to a file on your computer. The filename must end with ``.md``.
+2. Drag the Markdown file onto the Narrative Debugger page. You should see something like the top half of this figure:
 
 
-.. image :: ../images/narratives_debugger_screenshot.jpg
-   :alt: Screenshot of the example narrative loaded in the narratives debugger and a preview of the opening slide
+  .. image :: ../images/narratives_debugger_screenshot.jpg
+     :alt: Screenshot of the example narrative loaded in the narratives debugger and a preview of the opening slide
 
 
-We can see the titles of the three slides & their associated datasets (see the following section for details on how titles are defined), and hovering over these should show you the full appearance of the slide.
-To the right of the titles are their associate datasets, each with a series of icons next to them representing the main + sidecar JSONs associated with this dataset.
+You can see the titles of the three slides and their associated datasets. Hover over one to see the full appearance of the slide.
+
+To the right of each title is the associate :term:`dataset` and a series of icons representing the main + sidecar :term:`JSONs` associated with the dataset.
 The icons represent whether the dataset exists on nextstrain.org -- in this case, they are all green (success) or grey (not attempted).
-When debugging a narrative it's easy to make syntax errors resulting in datasets which don't load -- you could try changing the URLs in the Markdown file and dragging the file back onto the debugger to see this.
-Clicking on the title of a slide will jump into the narrative at that slide, or you can click the "View Narrative" button to start from the beginning.
+
+When writing a narrative, it's easy to make syntax errors that result in invalid datasets. To observe this, try changing a dataset URL in the Markdown file and dragging the file back onto the debugger.
+
+Clicking on the title of a slide will jump into the narrative at that slide, or you can click the **View Narrative** button to start from the beginning.
 
 
 .. note::
@@ -165,7 +163,7 @@ There are plenty of ways to approach the task, but we find the following workflo
         debugger -> md [label="repeat" fontcolor="#1d91c0" fillcolor="#1d91c0" color="#1d91c0" splines=curved]
     }
 
-In the future we plan to add more and more editing capability into the debugger, but for now any changes to the narrative must be made in the Markdown file itself.
+In the future, we plan to expand the debugger with editing capability. For now, any changes to the narrative must be made in the Markdown file itself.
 When you are happy with the end result, :ref:`see below for how to publish it on nextstrain.org <sharing>`.
 
 
@@ -193,7 +191,7 @@ The possible content which can be rendered is listed below, in the order they wo
 Normal slides
 -------------
 
-The rest of the Markdown file defines one or more slides, where each slide is defined by a level 1 heading which is also a link to a dataset on nextstrain.org [#f2]_ and a section of Markdown which represents the slide's content:
+The rest of the Markdown file defines one or more slides. Each slide is defined by a level 1 heading which must link to a dataset, followed by a section of Markdown which represents the slide's content:
 
 
 .. code-block:: markdown
@@ -202,7 +200,7 @@ The rest of the Markdown file defines one or more slides, where each slide is de
 
   Markdown content of the slide
 
-As a real example (taken from above), we have:
+This is the third slide from the example narrative above:
 
 .. code-block:: markdown
 
@@ -218,17 +216,17 @@ The dataset URL :ref:`is detailed below<linking-view-to-url>` and defines the vi
 Linking the view into the data to the URL
 -----------------------------------------
 
-At the heart of narratives is the ability for URLs on nextstrain.org to encode not only the dataset to display but also the view settings, such as the coloring used, via the `URL query <https://en.wikipedia.org/wiki/Query_string>`__.  
+At the heart of narratives is the ability for Nextstrain dataset URLs to encode the view settings (e.g. coloring) via the `URL query <https://en.wikipedia.org/wiki/Query_string>`__.
 You can see this in action by changing the view settings of a dataset on nextstrain.org and observing the URL query changing.
 The available query parameters are detailed in Auspice's :doc:`auspice:advanced-functionality/view-settings` docs, however in most cases it's easier to manipulate the visualisation in-browser and then copy the resulting URL into your narrative.
 
-Using our example narrative introduced :ref:`above<example>` we can see that the three slides use the following dataset URLs:
+The slides in the :ref:`example narrative<example>` use the following dataset URLs:
 
 #. https://nextstrain.org/monkeypox/hmpxv1?d=map&p=full&c=region
 #. https://nextstrain.org/monkeypox/hmpxv1?d=tree&p=full&c=region
 #. https://nextstrain.org/flu/seasonal/h3n2/ha/12y?d=tree,frequencies&p=full
 
-The only difference between 1 & 2 is the change from ``d=map`` to ``d=tree`` and so when we change between these slides in the narrative we simply change the map for the tree panel (or vice versa). Slide 3 uses a different dataset, and specifies both the tree and frequency panels.
+The only difference between 1 & 2 is ``d=map`` vs. ``d=tree``. This means that when navigating between these slides in the narrative, we change between the map and tree panels. Slide 3 uses a different dataset with both the tree and frequency panels.
 
 
 
@@ -279,7 +277,7 @@ Publicaly accessible images can be embedded using normal Markdown syntax, for ex
   ![Y pestis SEM](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Yersinia_pestis.jpg/800px-Yersinia_pestis.jpg)
 
 
-If the image is not publicly accessible via a URL, you can also embed it in the Markdown file itself using base64 encoding [#f3]_ (see `here <https://www.base64-image.de/>`__ for a drag-and-drop utility to convert images to base64):
+If the image is not publicly accessible via a URL, you can also embed it in the Markdown file itself using base64 encoding [#f2]_ (see `here <https://www.base64-image.de/>`__ for a drag-and-drop utility to convert images to base64):
 
 .. code-block:: markdown
 
@@ -291,7 +289,7 @@ Differences between localhost (Auspice) and nextstrain.org
 ----------------------------------------------------------
 
 It's possible to run a local instance of Auspice (the phylogenetic visualisation app used in nextstrain.org) and view narratives locally, however there are some differences between this and nextstrain.org which are really easy to get tripped up on!
-Specifically the hostname is *not* used [#f2]_ -- only the pathname is used, and the way the dataset pathname is interpreted is different: Auspice can only access datasets on your computer (in the directory you supply via ``--datasetDir``) whereas nextstrain.org accesses data from :doc:`a range of places </guides/share/index>`.
+Specifically the hostname is *not* used -- only the pathname is used, and the way the dataset pathname is interpreted is different: Auspice can only access datasets on your computer (in the directory you supply via ``--datasetDir``) whereas nextstrain.org accesses data from :doc:`a range of places </guides/share/index>`.
 
 The following example of a narrative slide may make this difference clearer:
 
@@ -327,6 +325,13 @@ The app used to test narratives is in its infancy.
 We hope to incrementally add features such as Markdown editing, changing the dataset view settings, and the ability to publish the narrative to :doc:`Nextstrain Groups </learn/groups/index>`.
 The eventual aim is to be able to write & publish an entire narrative from within the app, without needing to know any specifics of the Markdown language behind it.
 
+Next steps
+==========
+
+Create your own narrative with:
+
+* One or more datasets that you wish to visualise. These should be accessible via `nextstrain.org <https://nextstrain.org>`__. See :doc:`/guides/share/index` for more information.
+* An idea of what you wish to write for each slide (you can always start with a single slide and add more as you go).
 
 Bugs? Improvements? Suggestions?
 ================================
@@ -344,6 +349,4 @@ You can submit an `issue on GitHub <https://github.com/nextstrain/nextstrain.org
 .. [#f1] The provided string is actually rendered as ``### <abstract>``, so the first line will appear as a h3 heading!
   Multiple line strings are possible in YAML and we suggest using these.
 
-.. [#f2] In practice, the URL path component is what is used to access the dataset relative to the current hostname, however for historical reasons the protocol and hostname must be either ``http://localhost:4000`` or ``https://nextstrain.org``. 
-
-.. [#f3] This isn't great from a file-size point of view, and the Markdown file isn't nice to look at itself, but it gets around the problem of where to store images by embedding them in the file itself.
+.. [#f2] This isn't great from a file-size point of view, and the Markdown file isn't nice to look at itself, but it gets around the problem of where to store images by embedding them in the file itself.
