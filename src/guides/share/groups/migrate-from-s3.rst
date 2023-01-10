@@ -204,3 +204,38 @@ to inform them of these changes.  A copy of the email is below.
     <https://discussions.nextstrain.org>`__.
 
     —the Nextstrain team
+
+On 10 January 2023, we emailed a reminder to the contacts for groups not yet
+migrated.
+
+    **Subject:** Action required: Upgrade of your Nextstrain Group
+
+    Hello!
+
+    It's the Nextstrain team.  We previously emailed you on 7 November 2022
+    about improvements we've made to how Nextstrain Groups are managed.  This
+    is a reminder since we haven't heard back from you yet and would like your
+    co-operation when upgrading your Groups.
+
+    If we don't hear back from you by the **end of February 2023**, we will
+    proceed with upgrading your Groups **without your involvement**.  Upgrading
+    without your involvement will **disrupt your ability to upload new datasets
+    and manage existing datasets** until you complete your own part of the
+    upgrade.
+
+    We've put together :doc:`a documentation page <migrate-from-s3>` with
+    information about the changes, including the actions required of you.
+    **Please review the details there and reply to this email with the
+    information required before the end of February 2023.**
+
+    You're receiving this email because you're an owner of one or more
+    Nextstrain Groups:
+
+      - nextstrain.org/groups/${*GROUPNAME*}
+
+    Thank you for being an early adopter of Nextstrain Groups!  We're excited
+    to keep improving the functionality of Groups.  If you have any feedback,
+    please don't hesitate to `email us`_ or post to `discussions.nextstrain.org
+    <https://discussions.nextstrain.org>`__.
+
+    —the Nextstrain team
