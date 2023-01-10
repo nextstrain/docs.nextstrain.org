@@ -39,18 +39,11 @@ First, install Nextstrain CLI.
 
       You can launch a Terminal by clicking the Launchpad icon in the Dock, typing ``terminal`` in the search field, and clicking Terminal.
 
-      .. warning::
+      .. note::
 
-         If the installation errors with the message "**Bad CPU type in executable**", then you're likely using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1).
-
-         `Enable Rosetta 2 <https://support.apple.com/en-us/HT211861>`__ with:
-
-         .. code-block:: bash
-
-            softwareupdate --install-rosetta
-
-         and then retry the installation.
-         Rosetta 2 is required for both Nextstrain CLI itself and our runtimes.
+         On newer Macs with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), `Rosetta 2 <https://support.apple.com/en-us/HT211861>`__ is required for both Nextstrain CLI itself and our runtimes.
+         Most of the time, Rosetta 2 will already be enabled.
+         If not, the installer will ask you to first enable Rosetta 2 and then retry the installation.
 
    .. group-tab:: Windows
 
