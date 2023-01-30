@@ -73,16 +73,23 @@ team and other Nextstrain users provide assistance.  For private inquiries,
 .. toctree::
     :maxdepth: 1
     :titlesonly:
-    :caption: Reference
+    :caption: Components
     :hidden:
 
-    reference/glossary
-    reference/data-formats
     Augur <https://docs.nextstrain.org/projects/augur/>
     Auspice <https://docs.nextstrain.org/projects/auspice/>
     Nextstrain CLI <https://docs.nextstrain.org/projects/cli/>
     Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-cli.html>
     Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextalign-cli.html>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :caption: Reference
+    :hidden:
+
+    reference/glossary
+    reference/data-formats
     FAQ <reference/faq>
     reference/style
     reference/governance
