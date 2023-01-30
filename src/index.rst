@@ -81,6 +81,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Nextstrain CLI <https://docs.nextstrain.org/projects/cli/>
     Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-cli.html>
     Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextalign-cli.html>
+    nextstrain.org <https://docs.nextstrain.org/projects/nextstrain-dot-org/>
 
 .. toctree::
     :maxdepth: 1
