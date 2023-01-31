@@ -54,10 +54,10 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Installing <install>
     tutorials/running-a-workflow
     tutorials/creating-a-workflow
-    Exploring SARS-CoV-2 evolution <https://docs.nextstrain.org/projects/ncov/en/latest/index.html>
+    Exploring SARS-CoV-2 evolution <https://docs.nextstrain.org/projects/ncov/page/index.html>
     tutorials/creating-a-bacterial-pathogen-workflow
     tutorials/narratives-how-to-write
-    Analyzing genomes with Nextclade <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-web.html>
+    Analyzing genomes with Nextclade <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-web.html>
 
 .. toctree::
     :maxdepth: 1
@@ -73,16 +73,24 @@ team and other Nextstrain users provide assistance.  For private inquiries,
 .. toctree::
     :maxdepth: 1
     :titlesonly:
+    :caption: Components
+    :hidden:
+
+    Augur <https://docs.nextstrain.org/projects/augur/>
+    Auspice <https://docs.nextstrain.org/projects/auspice/>
+    Nextstrain CLI <https://docs.nextstrain.org/projects/cli/>
+    Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-cli.html>
+    Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextalign-cli.html>
+    nextstrain.org <https://docs.nextstrain.org/projects/nextstrain-dot-org/>
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
     :caption: Reference
     :hidden:
 
     reference/glossary
     reference/data-formats
-    Augur <https://docs.nextstrain.org/projects/augur/en/stable/index.html>
-    Auspice <https://docs.nextstrain.org/projects/auspice/en/stable/>
-    Nextstrain CLI <https://docs.nextstrain.org/projects/cli/en/stable/>
-    Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-cli.html>
-    Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextalign-cli.html>
     FAQ <reference/faq>
     reference/style
     reference/governance
