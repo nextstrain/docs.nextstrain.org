@@ -79,9 +79,9 @@ graphviz_output_format = "svg"
 # -- Cross-project references ------------------------------------------------
 
 intersphinx_mapping = {
-    'augur': ('https://docs.nextstrain.org/projects/augur/en/stable', None),
-    'auspice': ('https://docs.nextstrain.org/projects/auspice/en/stable', None),
-    'cli': ('https://docs.nextstrain.org/projects/cli/en/stable/', None),
-    'nextclade': ('https://docs.nextstrain.org/projects/nextclade/en/stable/', None),
-    'ncov': ('https://docs.nextstrain.org/projects/ncov/en/latest/', None)
+    'augur': ('https://docs.nextstrain.org/projects/augur/page/', None),
+    'auspice': ('https://docs.nextstrain.org/projects/auspice/page/', None),
+    'cli': ('https://docs.nextstrain.org/projects/cli/page/', None),
+    'nextclade': ('https://docs.nextstrain.org/projects/nextclade/page/', None),
+    'ncov': ('https://docs.nextstrain.org/projects/ncov/page/', None)
 }
