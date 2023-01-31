@@ -91,6 +91,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
 
     reference/glossary
     reference/data-formats
+    reference/data-files
     FAQ <reference/faq>
     reference/style
     reference/governance
