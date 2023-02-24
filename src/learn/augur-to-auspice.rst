@@ -17,20 +17,22 @@ for any salient changes.
 
 .. contents:: Sections in this document
   :local:
-  :depth: 1
+  :depth: 2
 
 Auspice (visualization) components
 ==================================
 
-It's helpful to start in Auspice and then work backwards to Augur. The
-following (annotated) screenshot shows the components of a typical
-visualisation, which is based on a :term:`dataset JSON <dataset>` (sometimes
-called an Auspice JSON).
+It's helpful to start in Auspice and then work backwards to Augur.
+In this section, we will walk through various components of Auspice and how
+they relate to the :term:`dataset JSON <dataset>` (sometimes called an Auspice JSON).
+
+Phylogeny Tree Panel and Core Controls
+--------------------------------------
 
 We'll use the following annotated screenshot of the `measles virus
 tree <https://nextstrain.org/measles>`__ (built using `this Augur
 pipeline <https://github.com/nextstrain/measles>`__) to introduce the
-various components:
+various components of the phylogeny tree panel and the core controls:
 
 .. image:: ../images/auspice-components.png
   :alt: Annotated screenshot of Auspice
@@ -84,7 +86,7 @@ highlighted in the screenshot above <https://nextstrain.org/measles?s=London.GBR
 .. _auspice-component-colorings:
 
 [a1] Colorings
---------------
+~~~~~~~~~~~~~~
 
 The available colorings are defined by ``meta.colorings`` (array of dictionaries),
 where each coloring specifies a key which accesses the relevant data in the
@@ -94,7 +96,7 @@ what the user will see), as well as information about the scale used.
 .. _auspice-component-sidebar-filter:
 
 [a2] sidebar data filtering
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Currently the ``node_attrs`` available for filtering are the union of those
 defined in ``meta.filters`` (array of strings), strain names (``node.name``)
@@ -106,7 +108,7 @@ and mutations (``branch_attrs.mutations``).
   to track progress here.
 
 [a3] Temporal display of the tree
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If ``num_date`` is set on *all* nodes (including internal nodes) then the
 :guilabel:`TIME` branch metric and the :guilabel:`Date Range` selector is available.
@@ -114,20 +116,20 @@ Note that to colour the tree by this a corresponding entry in the colorings is r
 Conversely, for :guilabel:`DIVERGENCE` then ``div`` (cumulative) must be set on all nodes in the tree.
 
 [a4] Branch Labels
-------------------
+~~~~~~~~~~~~~~~~~~
 
 Any keys pair defined in ``node.branch_attr.labels`` (dictionary of strings)
 anywhere in the tree will be available in the branch labels dropdown.
 
 [a5] Tip labels
----------------
+~~~~~~~~~~~~~~~
 
 This uses the same data as colorings, as well as ``node.name`` (“Sample
 name”, which is the default labelling).
 Note that genotypes (``key: “gt”``) can’t be used as tip labels (future improvement).
 
 [a6] Explode tree choices (experimental)
-----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Generally, exploding a tree requires an attribute that is both discrete
 and defined across the entire tree. As this feature is still experimental,
@@ -137,7 +139,7 @@ Use this feature with caution — you are responsible for choosing sensible
 attributes on which to explode the tree!
 
 [a7] Geographic resolutions
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These are defined via ``metadata.geo_resolutions`` (array of dictionaries) in
 the same format as colorings, and thus an optional “title” may be specified.
@@ -152,7 +154,7 @@ is defined on internal nodes (as well as terminal nodes).
   This has no effect on the tree, unlike all other blocks described here.
 
 [a8] Legend Swatches
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 For a given coloring (:ref:`see [a1], above <auspice-component-colorings>`) the
 set of values observed for this coloring across the tree is displayed as a
@@ -162,7 +164,7 @@ For continuous and temporal scales, the values are grouped into bins
 automatically (unless specified in the scale).
 
 [a9] What's shown when clicking on a node?
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the selected node Auspice displays the following information, as
 applicable:
@@ -197,7 +199,7 @@ applicable:
       category, as applicable.
 
 [a10] listed filters in the footer of the page
-----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Filters in the bottom of the page are specified by ``meta.filters``
 (array of strings). The values should correspond to keys in ``node_attrs``,
