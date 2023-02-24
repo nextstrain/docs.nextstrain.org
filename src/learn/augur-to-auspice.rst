@@ -213,6 +213,100 @@ If a coloring was provided for this key then Auspice will attempt to display
 the title rather than the key. Selecting filters here behaves the same was as
 sidebar data filtering (:ref:`see [a2], above <auspice-component-sidebar-filter>`).
 
+.. _auspice-component-diversity-panel:
+
+Diversity (Entropy) Panel
+---------------------------------
+
+We'll use the following annotated screenshot of the diversity (entropy) panel
+of the  `measles virus tree <https://nextstrain.org/measles>`__ (built using
+`this Augur pipeline <https://github.com/nextstrain/measles>`__) to introduce the
+various components:
+
+.. image:: ../images/auspice-components-diversity-panel.png
+  :alt: Annotated screenshot of Auspice's diversity (entropy) panel
+
+The diversity panel is enabled by data in the :term:`dataset JSON <dataset>`.
+The top-level ``meta.genome_annotations`` provides the genome annotations
+displayed and the individual tree nodes provide the mutations
+via ``node.branch_attrs.mutations``, which are used to calculate the entropy
+and to count the mutation events.
+
+Gaps (``-``), masked nucleotides (``N``), and unknown amino acids (``X``) are
+excluded from the calculations and counts. Only mutations from visible tree
+nodes are included in the calculations for the diversity panel, so the entropy values
+and event counts will change when you turn on a filter or zoom into a subtree.
+
+.. _auspice-component-diversity-panel-entropy-event-toggle:
+
+[b1] Toggle between Entropy and Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:guilabel:`ENTROPY` represents normalized `Shannon entropy <https://en.wikipedia.org/wiki/Entropy_\(information_theory\)>`__,
+measuring the "uncertainty" inherent in the possible nucleotides or codons
+at a given position.
+
+:guilabel:`EVENTS` represent a count of changes in the nucleotide or codon at that
+position across the visible tree.
+
+Mutations are counted by traversing the entire visible tree and adding the
+changes provided via ``node.branch_attrs.mutations``. The entropy calculation
+is performed within Auspice using these observed mutations.
+
+[b2] Toggle between Amino Acids (AA) and Nucleotides (NT)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Both the entropy and events plots can be toggled between the amino acids (AA)
+and nucleotides (NT) views. When set to :guilabel:`AA`, entropy and events are
+calculated **per gene** provided via ``meta.genome_annotations.<gene_name>``.
+The mutations for the matching ``<gene_name>`` provided via ``node.branch_attrs.mutations.<gene_name>``
+are included in the calculations. When set to :guilabel:`NT`, entropy and events
+use the nucleotide mutations provided via ``node.branch_attrs.mutations.nuc``.
+
+[b3] What happens when you interact with the bars on the plot?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Hovering over a vertical bar will bring up an information panel that displays:
+
+1. Codon position within the gene and nucleotide position within the sequence.
+
+  * In the :guilabel:`AA` view, the codon position is based on the mutation position
+    provided in ``node.branch_attrs.mutations.<gene_name>``. The nucleotide
+    positions are calculated using the codon position, the ``meta.genome_annotations.<gene_name>.start``
+    value, and the ``meta.genome_annotations.<gene_name>.end`` value.
+  * In the :guilabel:`NT` view, the nucleotide position is based on the mutation
+    position provided in ``node.branch_attrs.mutations.nuc``. If the nucleotide
+    position is within a gene in the ``meta.genome_annotations``, then the codon
+    position is calculated using the nucleotide position, the ``meta.genome_annotations.<gene_name>.start``
+    value, and the ``meta.genome_annotations.<gene_name>.end`` value.
+
+2. If the bar is within a gene, the information panel will include whether it's
+   positive or negative strand from the description provided in
+   ``meta.genome_annotations.<gene_name>.strand``.
+3. Entropy or events value calculated for in view tree nodes as
+   described :ref:`above <auspice-component-diversity-panel-entropy-event-toggle>`.
+
+Clicking on a vertical bar will change the :ref:`coloring <auspice-component-colorings>`
+to color by :guilabel:`Genotype`. In the :guilabel:`AA` view,
+colors will be set to genotype at the codon site of the gene. In the :guilabel:`NT` view,
+colors will be set to genotype at the nucleotide position.
+
+[b4] Genome Annotations
+~~~~~~~~~~~~~~~~~~~~~~~
+The x-axis shows the nucleotide positions and the genome annotations with one-based
+starting positions. The lower x-axis shows the entire genome with all provided
+genome annotations from the top-level ``meta.genome_annotations``. The upper
+x-axis shows a view of the currently zoomed in section of the genome.
+
+[b5] Zoom in the plot
+~~~~~~~~~~~~~~~~~~~~~
+By default, the diversity panel shows the entire genome. Users can drag either
+side of the grey box to zoom into specific sections of the genome.
+For example, the annotated image shows a zoomed in view of the hemagglutinin (H) gene.
+The grey box can also be dragged across the x-axis to zoom into a different
+section of genome while preserving the zoomed length. This zoomed view
+cannot be set within the dataset JSON, but it can be set with the
+`URL parameters <https://docs.nextstrain.org/projects/auspice/en/stable/advanced-functionality/view-settings.html#url-query-options>`_
+``gmin`` and ``gmax``.
+
 --------------
 
 Exporting data via Augur
@@ -496,8 +590,8 @@ If these metadata are available, then a special coloring is created in
 the exported dataset JSON: ``{"key": "gt", "title": "Genotype", "type": "categorical"}``
 which is used by Auspice to allow coloring by genotype.
 You can also define this in the auspice-config JSON if you wish to use a
-different title. The presence of these metadata will also enable the entropy
-panel in Auspice.
+different title. The presence of these metadata will also enable the
+:ref:`diversity panel in Auspice <auspice-component-diversity-panel>`.
 
 .. _auspice-config-branch-labels:
 
