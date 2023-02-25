@@ -90,8 +90,13 @@ highlighted in the screenshot above <https://nextstrain.org/measles?s=London.GBR
 
 The available colorings are defined by ``meta.colorings`` (array of dictionaries),
 where each coloring specifies a key which accesses the relevant data in the
-``node_attrs``. [#f1]_ As well as a key, a title can be specified (which is
-what the user will see), as well as information about the scale used.
+``node_attrs``. As well as a key, a title can be specified (which is what the user will see),
+as well as information about the scale used.
+
+The :guilabel:`Genotype` coloring is a special case that requires the mutations
+to be provided via ``branch_attrs.mutations``. [#f1]_ For Auspice to color the
+tree even when mutations are not present, the :ref:`root-sequence sidecar file <data-formats-root-sequence>`
+must be provided.
 
 .. _auspice-component-sidebar-filter:
 
