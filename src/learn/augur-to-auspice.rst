@@ -232,7 +232,7 @@ displayed and the individual tree nodes provide the mutations
 via ``node.branch_attrs.mutations``, which are used to calculate the entropy
 and to count the mutation events.
 
-Gaps (``-``), masked nucleotides (``N``), and unknown amino acids (``X``) are
+Gaps in nucleotides (``-``), masked nucleotides (``N``), and unknown amino acids (``X``) are
 excluded from the calculations and counts. Only mutations from visible tree
 nodes are included in the calculations for the diversity panel, so the entropy values
 and event counts will change when you turn on a filter or zoom into a subtree.
@@ -247,11 +247,35 @@ measuring the "uncertainty" inherent in the possible nucleotides or codons
 at a given position.
 
 :guilabel:`EVENTS` represent a count of changes in the nucleotide or codon at that
-position across the visible tree.
+position across the visible tree. Changes **to** and **from** the excluded characters
+(``-`` and ``N`` for nucleotides; ``X`` for amino acids) are ignored in the counts.
 
 Mutations are counted by traversing the entire visible tree and adding the
 changes provided via ``node.branch_attrs.mutations``. The entropy calculation
-is performed within Auspice using these observed mutations.
+is performed within Auspice using these observed mutations and the number of
+visible tips with each mutation.
+
+Suppose the tree has the following codons at a single position:
+
++--------+--------+
+| codons | tips   |
++========+========+
+| H      | 1378   |
++--------+--------+
+| L      | 1      |
++--------+--------+
+| P      | 643    |
++--------+--------+
+| R      | 1177   |
++--------+--------+
+| Total  | 3199   |
++--------+--------+
+
+The entropy calculation for the position would be:
+
+.. math::
+
+  -\frac{1378}{3199} \ln{(\frac{1378}{3199})} - \frac{1}{3199} \ln{(\frac{1}{3199})} - \frac{643}{3199} \ln{(\frac{643}{3199})} - \frac{1177}{3199} \ln{(\frac{1177}{3199})} \approx 1.056
 
 [b2] Toggle between Amino Acids (AA) and Nucleotides (NT)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
