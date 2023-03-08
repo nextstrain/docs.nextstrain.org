@@ -4,27 +4,40 @@
 Customize your group's page
 ===========================
 
-.. hint::
-    This guide currently only applies to :doc:`Nextstrain Groups
-    </learn/groups/index>` which have not yet :doc:`migrated from S3
-    <migrate-from-s3>`.
+You can customize the content of your group's page thru two files:
 
-    We'll update this page once self-service customization is restored for
-    groups that have migrated.  In the meantime, please `email us`__ if you
-    need to update your group's customizations.  Note that per :ref:`group
-    roles <groups-roles>`, we'll only accept updates from :term:`owners` of the
-    group.
+:file:`group-overview.md`
+    A title, byline, website, and/or description of your group.  Displayed at the top of your group's splash page.
 
-    __ mailto:hello@nextstrain.org?subject=Group%20customizations%20request
+:file:`group-logo.png`
+    A logo for your group.  Displayed at the top of your group's splash page.
 
-You can customize the content of your group's page by uploading two files to the group's S3 bucket:
+The names of these files do not matter, so you may use whatever makes most sense to to you.
+This guide will use the names above in examples.
 
-* ``group-logo.png``: logo to display at the top of the page
-* ``group-overview.md``: a description of your group and the Nextstrain builds your group provides
+.. note::
+    This guide currently uses ``curl`` to make direct API requests.  In the
+    future, there will be a web interface for managing your group's
+    customizations (and possibly also Nextstrain CLI commands).
 
-Create a new file named ``group-overview.md`` that will contain information about your group.
-At the top of this file, provide a title for the page, a list of people who maintain the data, a website, and/or whether to show datasets and narratives from your group.
-This information is technically known as the `YAML front matter <https://jekyllrb.com/docs/front-matter/>`_ for the file.
+Log in with the Nextstrain CLI
+==============================
+
+Before you can customize your group's page, you need to log into nextstrain.org with the Nextstrain CLI's :doc:`cli:commands/login` command so we can use its :doc:`cli:commands/authorization` command::
+
+    nextstrain login
+
+Confirm that you have access to your group by running :doc:`cli:commands/whoami`::
+
+    nextstrain whoami
+
+You should see your group name in the output.
+You must have the :term:`owners role <owners>` within a group to change its customizations.
+
+Adding
+======
+
+Create a new file named :file:`group-overview.md` that will contain information about your group:
 
 .. code-block:: yaml
 
@@ -38,28 +51,67 @@ This information is technically known as the `YAML front matter <https://jekyllr
 
    A description of your organization goes here.
 
+The top of this file provides a title for the page, a list of people who maintain the data, a website, and/or whether to show datasets and narratives from your group.
+This information is technically known as the `YAML front matter <https://jekyllrb.com/docs/front-matter/>`__ for the file.
+
 All fields are optional and either have generic defaults (like the title) or are omitted from the page by default (like the byline and website link).
 Dataset and narrative listings are both shown (i.e. ``true``) by default if not specified otherwise in this file with a value of ``false``.
 
 After the front matter (in the lines following the last ``---`` characters), write a description of your organization to provide context for users who can access your groups page.
-Use `Markdown syntax <https://www.markdownguide.org/basic-syntax/>`_ to format the contents of your group description with headers, lists, links, etc.
+Use `Markdown syntax <https://www.markdownguide.org/basic-syntax/>`__ to format the contents of your group description with headers, lists, links, etc.
 This content will appear between the title/byline/website heading and the list of available datasets on the group's page.
 
-Upload your logo and description to your group’s S3 bucket with :doc:`the nextstrain remote upload command <cli:commands/remote/upload>`.
+.. highlight:: bash
 
-.. code-block:: bash
+.. role:: bash(code)
+   :language: bash
 
-   nextstrain remote upload s3://nextstrain-<group>/ \
-     group-logo.png group-overview.md
+With this :file:`group-overview.md` file, you can now update your group's overview settings::
 
-To update your logo, description, or any other data in your group’s S3 bucket, run the ``nextstrain remote upload`` command again and the uploaded data will replace the previous contents in the bucket.
+    curl -fsS https://nextstrain.org/groups/${GROUPNAME}/settings/overview \
+        --header @<(nextstrain authorization) \
+        --header "Content-Type: text/markdown" \
+        --upload-file group-overview.md
+
+Make sure to replace :bash:`${GROUPNAME}` with your group's actual name.
+
+If you have a logo image in `PNG format <https://en.wikipedia.org/wiki/PNG>`__, you can use that too::
+
+    curl -fsS https://nextstrain.org/groups/${GROUPNAME}/settings/logo \
+        --header @<(nextstrain authorization) \
+        --header "Content-Type: image/png" \
+        --upload-file group-logo.png
+
+Changing
+========
+
+Edit your local files and repeat the ``curl`` commands above to make changes to your existing customizations.
+
+If you no longer have the customization files locally, you can download the :file:`group-overview.md` file::
+
+    curl -fsS https://nextstrain.org/groups/${GROUPNAME}/settings/overview \
+        --header @<(nextstrain authorization) \
+        --header "Accept: text/markdown" \
+        > group-overview.md
+
+and/or the :file:`group-logo.png` file::
+
+    curl -fsS https://nextstrain.org/groups/${GROUPNAME}/settings/logo \
+        --header @<(nextstrain authorization) \
+        --header "Accept: image/png" \
+        > group-logo.md
 
 Removing
 ========
 
-To remove the customizations, delete one or both of the files.
+To remove the overview customizations::
 
-.. code-block:: bash
+    curl -fsS https://nextstrain.org/groups/${GROUPNAME}/settings/overview \
+        --header @<(nextstrain authorization) \
+        --request DELETE
 
-   nextstrain remote delete s3://nextstrain-<group>/group-logo.png
-   nextstrain remote delete s3://nextstrain-<group>/group-overview.md
+and/or the logo::
+
+    curl -fsS https://nextstrain.org/groups/${GROUPNAME}/settings/logo \
+        --header @<(nextstrain authorization) \
+        --request DELETE
