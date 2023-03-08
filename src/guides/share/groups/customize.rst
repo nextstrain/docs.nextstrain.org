@@ -24,7 +24,7 @@ You can customize the content of your group's page by uploading two files to the
 
 Create a new file named ``group-overview.md`` that will contain information about your group.
 At the top of this file, provide a title for the page, a list of people who maintain the data, a website, and/or whether to show datasets and narratives from your group.
-This information is technically known as the `YAML front matter <https://jekyllrb.com/docs/front-matter/>`_ for the file.
+This information is technically known as the `YAML front matter <https://jekyllrb.com/docs/front-matter/>`__ for the file.
 
 .. code-block:: yaml
 
@@ -42,7 +42,7 @@ All fields are optional and either have generic defaults (like the title) or are
 Dataset and narrative listings are both shown (i.e. ``true``) by default if not specified otherwise in this file with a value of ``false``.
 
 After the front matter (in the lines following the last ``---`` characters), write a description of your organization to provide context for users who can access your groups page.
-Use `Markdown syntax <https://www.markdownguide.org/basic-syntax/>`_ to format the contents of your group description with headers, lists, links, etc.
+Use `Markdown syntax <https://www.markdownguide.org/basic-syntax/>`__ to format the contents of your group description with headers, lists, links, etc.
 This content will appear between the title/byline/website heading and the list of available datasets on the group's page.
 
 Upload your logo and description to your group’s S3 bucket with :doc:`the nextstrain remote upload command <cli:commands/remote/upload>`.
