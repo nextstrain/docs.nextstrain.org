@@ -27,6 +27,8 @@ and **node data** files.
 alongside the primary JSON files described above.  They come in three types with
 filenames enforced by convention:
 
+.. _data-formats-root-sequence:
+
 root-sequence
   Filenames like ``${name}_root-sequence.json``, produced by ``augur export
   v2``'s ``--include-root-sequence`` option.

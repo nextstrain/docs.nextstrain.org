@@ -17,20 +17,22 @@ for any salient changes.
 
 .. contents:: Sections in this document
   :local:
-  :depth: 1
+  :depth: 2
 
 Auspice (visualization) components
 ==================================
 
-It's helpful to start in Auspice and then work backwards to Augur. The
-following (annotated) screenshot shows the components of a typical
-visualisation, which is based on a :term:`dataset JSON <dataset>` (sometimes
-called an Auspice JSON).
+It's helpful to start in Auspice and then work backwards to Augur.
+In this section, we will walk through various components of Auspice and how
+they relate to the :term:`dataset JSON <dataset>` (sometimes called an Auspice JSON).
+
+Phylogeny Tree Panel and Core Controls
+--------------------------------------
 
 We'll use the following annotated screenshot of the `measles virus
 tree <https://nextstrain.org/measles>`__ (built using `this Augur
 pipeline <https://github.com/nextstrain/measles>`__) to introduce the
-various components:
+various components of the phylogeny tree panel and the core controls:
 
 .. image:: ../images/auspice-components.png
   :alt: Annotated screenshot of Auspice
@@ -84,17 +86,22 @@ highlighted in the screenshot above <https://nextstrain.org/measles?s=London.GBR
 .. _auspice-component-colorings:
 
 [a1] Colorings
---------------
+~~~~~~~~~~~~~~
 
 The available colorings are defined by ``meta.colorings`` (array of dictionaries),
 where each coloring specifies a key which accesses the relevant data in the
-``node_attrs``. [#f1]_ As well as a key, a title can be specified (which is
-what the user will see), as well as information about the scale used.
+``node_attrs``. As well as a key, a title can be specified (which is what the user will see),
+as well as information about the scale used.
+
+The :guilabel:`Genotype` coloring is a special case that requires the mutations
+to be provided via ``branch_attrs.mutations``. [#f1]_ For Auspice to color the
+tree even when mutations are not present, the :ref:`root-sequence sidecar file <data-formats-root-sequence>`
+must be provided.
 
 .. _auspice-component-sidebar-filter:
 
 [a2] sidebar data filtering
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Currently the ``node_attrs`` available for filtering are the union of those
 defined in ``meta.filters`` (array of strings), strain names (``node.name``)
@@ -106,7 +113,7 @@ and mutations (``branch_attrs.mutations``).
   to track progress here.
 
 [a3] Temporal display of the tree
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If ``num_date`` is set on *all* nodes (including internal nodes) then the
 :guilabel:`TIME` branch metric and the :guilabel:`Date Range` selector is available.
@@ -114,20 +121,20 @@ Note that to colour the tree by this a corresponding entry in the colorings is r
 Conversely, for :guilabel:`DIVERGENCE` then ``div`` (cumulative) must be set on all nodes in the tree.
 
 [a4] Branch Labels
-------------------
+~~~~~~~~~~~~~~~~~~
 
 Any keys pair defined in ``node.branch_attr.labels`` (dictionary of strings)
 anywhere in the tree will be available in the branch labels dropdown.
 
 [a5] Tip labels
----------------
+~~~~~~~~~~~~~~~
 
 This uses the same data as colorings, as well as ``node.name`` (“Sample
 name”, which is the default labelling).
 Note that genotypes (``key: “gt”``) can’t be used as tip labels (future improvement).
 
 [a6] Explode tree choices (experimental)
-----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Generally, exploding a tree requires an attribute that is both discrete
 and defined across the entire tree. As this feature is still experimental,
@@ -137,7 +144,7 @@ Use this feature with caution — you are responsible for choosing sensible
 attributes on which to explode the tree!
 
 [a7] Geographic resolutions
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These are defined via ``metadata.geo_resolutions`` (array of dictionaries) in
 the same format as colorings, and thus an optional “title” may be specified.
@@ -152,7 +159,7 @@ is defined on internal nodes (as well as terminal nodes).
   This has no effect on the tree, unlike all other blocks described here.
 
 [a8] Legend Swatches
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 For a given coloring (:ref:`see [a1], above <auspice-component-colorings>`) the
 set of values observed for this coloring across the tree is displayed as a
@@ -162,7 +169,7 @@ For continuous and temporal scales, the values are grouped into bins
 automatically (unless specified in the scale).
 
 [a9] What's shown when clicking on a node?
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the selected node Auspice displays the following information, as
 applicable:
@@ -197,7 +204,7 @@ applicable:
       category, as applicable.
 
 [a10] listed filters in the footer of the page
-----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Filters in the bottom of the page are specified by ``meta.filters``
 (array of strings). The values should correspond to keys in ``node_attrs``,
@@ -205,6 +212,124 @@ and Auspice traverses the tree to find the set of all values.
 If a coloring was provided for this key then Auspice will attempt to display
 the title rather than the key. Selecting filters here behaves the same was as
 sidebar data filtering (:ref:`see [a2], above <auspice-component-sidebar-filter>`).
+
+.. _auspice-component-diversity-panel:
+
+Diversity (Entropy) Panel
+---------------------------------
+
+We'll use the following annotated screenshot of the diversity (entropy) panel
+of the  `measles virus tree <https://nextstrain.org/measles>`__ (built using
+`this Augur pipeline <https://github.com/nextstrain/measles>`__) to introduce the
+various components:
+
+.. image:: ../images/auspice-components-diversity-panel.png
+  :alt: Annotated screenshot of Auspice's diversity (entropy) panel
+
+The diversity panel is enabled by data in the :term:`dataset JSON <dataset>`.
+The top-level ``meta.genome_annotations`` provides the genome annotations
+displayed and the individual tree nodes provide the mutations
+via ``node.branch_attrs.mutations``, which are used to calculate the entropy
+and to count the mutation events.
+
+Gaps in nucleotides (``-``), masked nucleotides (``N``), and unknown amino acids (``X``) are
+excluded from the calculations and counts. Only mutations from visible tree
+nodes are included in the calculations for the diversity panel, so the entropy values
+and event counts will change when you turn on a filter or zoom into a subtree.
+
+.. _auspice-component-diversity-panel-entropy-event-toggle:
+
+[b1] Toggle between Entropy and Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:guilabel:`ENTROPY` represents normalized `Shannon entropy <https://en.wikipedia.org/wiki/Entropy_\(information_theory\)>`__,
+measuring the "uncertainty" inherent in the possible nucleotides or codons
+at a given position.
+
+:guilabel:`EVENTS` represent a count of changes in the nucleotide or codon at that
+position across the visible tree. Changes **to** and **from** the excluded characters
+(``-`` and ``N`` for nucleotides; ``X`` for amino acids) are ignored in the counts.
+
+Mutations are counted by traversing the entire visible tree and adding the
+changes provided via ``node.branch_attrs.mutations``. The entropy calculation
+is performed within Auspice using these observed mutations and the number of
+visible tips with each mutation.
+
+Suppose the tree has the following codons at a single position:
+
++--------+--------+
+| codons | tips   |
++========+========+
+| H      | 1378   |
++--------+--------+
+| L      | 1      |
++--------+--------+
+| P      | 643    |
++--------+--------+
+| R      | 1177   |
++--------+--------+
+| Total  | 3199   |
++--------+--------+
+
+The entropy calculation for the position would be:
+
+.. math::
+
+  -\frac{1378}{3199} \ln{(\frac{1378}{3199})} - \frac{1}{3199} \ln{(\frac{1}{3199})} - \frac{643}{3199} \ln{(\frac{643}{3199})} - \frac{1177}{3199} \ln{(\frac{1177}{3199})} \approx 1.056
+
+[b2] Toggle between Amino Acids (AA) and Nucleotides (NT)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Both the entropy and events plots can be toggled between the amino acids (AA)
+and nucleotides (NT) views. When set to :guilabel:`AA`, entropy and events are
+calculated **per gene** provided via ``meta.genome_annotations.<gene_name>``.
+The mutations for the matching ``<gene_name>`` provided via ``node.branch_attrs.mutations.<gene_name>``
+are included in the calculations. When set to :guilabel:`NT`, entropy and events
+use the nucleotide mutations provided via ``node.branch_attrs.mutations.nuc``.
+
+[b3] What happens when you interact with the bars on the plot?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Hovering over a vertical bar will bring up an information panel that displays:
+
+1. Codon position within the gene and nucleotide position within the sequence.
+
+  * In the :guilabel:`AA` view, the codon position is based on the mutation position
+    provided in ``node.branch_attrs.mutations.<gene_name>``. The nucleotide
+    positions are calculated using the codon position, the ``meta.genome_annotations.<gene_name>.start``
+    value, and the ``meta.genome_annotations.<gene_name>.end`` value.
+  * In the :guilabel:`NT` view, the nucleotide position is based on the mutation
+    position provided in ``node.branch_attrs.mutations.nuc``. If the nucleotide
+    position is within a gene in the ``meta.genome_annotations``, then the codon
+    position is calculated using the nucleotide position, the ``meta.genome_annotations.<gene_name>.start``
+    value, and the ``meta.genome_annotations.<gene_name>.end`` value.
+
+2. If the bar is within a gene, the information panel will include whether it's
+   positive or negative strand from the description provided in
+   ``meta.genome_annotations.<gene_name>.strand``.
+3. Entropy or events value calculated for in view tree nodes as
+   described :ref:`above <auspice-component-diversity-panel-entropy-event-toggle>`.
+
+Clicking on a vertical bar will change the :ref:`coloring <auspice-component-colorings>`
+to color by :guilabel:`Genotype`. In the :guilabel:`AA` view,
+colors will be set to genotype at the codon site of the gene. In the :guilabel:`NT` view,
+colors will be set to genotype at the nucleotide position.
+
+[b4] Genome Annotations
+~~~~~~~~~~~~~~~~~~~~~~~
+The x-axis shows the nucleotide positions and the genome annotations with one-based
+starting positions. The lower x-axis shows the entire genome with all provided
+genome annotations from the top-level ``meta.genome_annotations``. The upper
+x-axis shows a view of the currently zoomed in section of the genome.
+
+[b5] Zoom in the plot
+~~~~~~~~~~~~~~~~~~~~~
+By default, the diversity panel shows the entire genome. Users can drag either
+side of the grey box to zoom into specific sections of the genome.
+For example, the annotated image shows a zoomed in view of the hemagglutinin (H) gene.
+The grey box can also be dragged across the x-axis to zoom into a different
+section of genome while preserving the zoomed length. This zoomed view
+cannot be set within the dataset JSON, but it can be set with the
+`URL parameters <https://docs.nextstrain.org/projects/auspice/en/stable/advanced-functionality/view-settings.html#url-query-options>`_
+``gmin`` and ``gmax``.
 
 --------------
 
@@ -329,7 +454,7 @@ but currently these keys include:
 
 - any key which ends with ``_confidence`` or ``_entropy`` (see previous section)
 - ``annotations``, ``aa_muts`` and ``muts`` (see :ref:`How branch mutations are
-  exported <auspice-config-how-branch-mutations-are-exported>`, below)
+  exported <auspice-config-branch-mutations-and-diversity-panel>`, below)
 - ``mutation_length`` and ``branch_length`` are converted to the tree’s
   divergence values [#f4]_ and exported as ``node.div`` (float); with the
   first matching key being used. This is optional — time only trees are
@@ -349,7 +474,7 @@ but currently these keys include:
   ``numdate`` → ``num_date``
 - key ``gt`` gets the title ``Genotype``; this is
   automatically created if annotations are defined (see :ref:`How branch
-  mutations are exported <auspice-config-how-branch-mutations-are-exported>` section below)
+  mutations are exported <auspice-config-branch-mutations-and-diversity-panel>` section below)
   but you can supply your own title if you like.
   Note that metadata provided under the key ``gt`` may be exported, but it
   won't actually be used by Auspice!
@@ -473,24 +598,51 @@ following example may illustrate what's possible:
 Finally, nodes with missing or unknown data [#f6]_ are automatically set to
 gray in the tree and the “unknown” values will not be present in the color legend.
 
-.. _auspice-config-how-branch-mutations-are-exported:
+.. _auspice-config-branch-mutations-and-diversity-panel:
 
-How branch mutations are exported
----------------------------------
+Branch Mutations and Diversity (Entropy) Panel
+----------------------------------------------
 
-Nucleotide and amino-acid mutations are provided via node-data JSONs
-under the keys ``muts`` (list) and ``aa_muts`` (dictionary), along with
-``annotations`` (dictionary). These are typically produced by
-``augur ancestral`` or ``augur translate`` and so aren't detailed here.
-These metadata are exported as ``node.branch_attrs.mutations`` and
-``meta.genome_annotations``.
+The branch mutations and the diversity (entropy) panel are enabled by the same
+nucleotide mutations, amino acid mutations, and genome annotations provided
+via the dataset JSON. The genome annotations are **required** for the
+:ref:`diversity panel in Auspice <auspice-component-diversity-panel>`.
 
 If these metadata are available, then a special coloring is created in
 the exported dataset JSON: ``{"key": "gt", "title": "Genotype", "type": "categorical"}``
 which is used by Auspice to allow coloring by genotype.
 You can also define this in the auspice-config JSON if you wish to use a
-different title. The presence of these metadata will also enable the entropy
-panel in Auspice.
+different title.
+
+Nucleotide Mutations
+~~~~~~~~~~~~~~~~~~~~
+The nucleotide mutations are assigned to internal nodes via ``augur ancestral``.
+The mutations are output to a node-data JSON as ``nodes.<node_name>.muts``.
+The node-data JSON is passed to ``augur export v2`` via the ``--node-data`` option
+and the nucleotide mutations are exported as ``node.branch_attrs.mutations.nuc``.
+
+See :doc:`augur ancestral <augur:usage/cli/ancestral>` for more details on
+how the nucleotide mutations are assigned.
+
+Amino Acid Mutations
+~~~~~~~~~~~~~~~~~~~~
+The node-data JSON output from ``augur ancestral`` includes the nucleotide sequences
+for internal nodes as ``nodes.<node_name>.sequence``, which are passed to ``augur translate``
+to translate and generate the amino acid mutations. The mutations are output to
+a node-data JSON as ``nodes.<node_name>.aa_muts.<gene_name>``.
+The node-data JSON is passed to ``augur export v2`` via the ``--node-data`` option
+and the amino acid mutations are exported as ``node.branch_attrs.mutations.<gene_name>``.
+
+See :doc:`augur translate <augur:usage/cli/translate>` for more details on
+how the amino acid mutations are generated.
+
+Genome Annotations
+~~~~~~~~~~~~~~~~~~
+The genome annotations are also generated by ``augur translate``.
+The features of the reference sequence, provided via ``--reference-sequence``,
+are formatted according to the `annotations schema <https://github.com/nextstrain/augur/blob/master/augur/data/schema-annotations.json>`_
+and output to the node-data JSON as ``annotations``. ``augur export v2`` directly exports
+these annotations as ``meta.genome_annotations``.
 
 .. _auspice-config-branch-labels:
 
