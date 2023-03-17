@@ -97,10 +97,6 @@ Then, install a Nextstrain runtime.
 
             .. group-tab:: macOS
 
-               .. warning::
-
-                  If using a newer Mac with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), the **Conda** runtime is recommended due to slowness with the Docker runtime. `We are considering ways to improve this <https://github.com/nextstrain/docker-base/issues/35>`_.
-
                `Install Docker Desktop for macOS <https://docs.docker.com/desktop/install/mac-install/>`_.
 
 
