@@ -65,7 +65,7 @@ We'll introduce the basic functionality via an example Markdown file below, whic
   
   # [Monkeypox](https://nextstrain.org/monkeypox/hmpxv1?d=tree&p=full&c=region)
 
-  We've now changed the view from the map to the phylogenic tree.
+  We've now changed the view from the map to the phylogenetic tree.
   This was achieved by changing the dataset URL to indicate that
   the display panel should change from the map to the tree.
 
@@ -268,7 +268,7 @@ It's possible to replace the right-hand side view into the data with a full page
 Embedding images
 ----------------
 
-Publicaly accessible images can be embedded using normal Markdown syntax, for example using `this SEM photo of Yersinia Pestis <https://commons.wikimedia.org/wiki/File:Yersinia_pestis.jpg>`__:
+Publicly accessible images can be embedded using normal Markdown syntax, for example using `this SEM photo of Yersinia Pestis <https://commons.wikimedia.org/wiki/File:Yersinia_pestis.jpg>`__:
 
 .. code-block:: markdown
 
