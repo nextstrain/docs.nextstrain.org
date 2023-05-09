@@ -12,9 +12,12 @@ Installation
 There are many ways to install Nextstrain, and we aim to simplify the installation guide so it is easy to follow along. Here, you will find answers to some common questions about the installation process.
 
 
+.. old anchors
 .. _what-are-docker-conda-mamba-wsl-etc:
 
-What are Docker, Conda, Mamba, WSL, etc.?
+.. _what-are-docker-conda-wsl-etc:
+
+What are Docker, Conda, WSL, etc.?
 -----------------------------------------
 
 `Docker <https://docker.com/>`_ is a container management system that allows you to run isolated software images without disrupting or *being* disrupted by other software you have installed (e.g., on your computer, your shared cluster, etc.).
@@ -24,8 +27,6 @@ When you use Nextstrain's Docker runtime, you need to install Docker yourself bu
 Miniconda is the minimal installation of the ``conda`` command, the command-line interface to Conda.
 When you use Nextstrain's Conda runtime, you don't need to install Conda yourself or manage any other Nextstrain software dependencies as validated versions are already locked into `a package by the Nextstrain team <https://github.com/nextstrain/conda-base/>`__.
 When you use Nextstrain's ambient runtime, we provide an example of how to set it up using Conda.
-
-`Mamba <https://github.com/mamba-org/mamba>`_ is a drop-in replacement for most ``conda`` functionality that provides faster installation times, especially for complex environments like the one Nextstrain requires.
 
 `WSL <https://docs.microsoft.com/en-us/windows/wsl/about>`__ is Windows Subsystem for Linux, a full Linux environment integrated into Windows without the need for awkward virtual machines.
 Nextstrain's installation guide works with WSL 2 but not WSL 1.
@@ -70,24 +71,56 @@ The other deciding factor is if you're unable to install Docker (e.g. for admins
 The ambient runtime is not available without WSL.
 
 
+.. old anchors
 .. _why-intel-miniconda-installer-on-apple-silicon:
 
-Why recommend the Intel Miniconda installer for Mac computers with Apple silicon (e.g. M1)?
--------------------------------------------------------------------------------------------
+.. _why-conda-install-errors-on-apple-silicon:
 
-.. note::
+Why do I get an error when installing to my Conda environment on a Mac computer with Apple silicon (e.g. M1)?
+-------------------------------------------------------------------------------------------------------------
 
-   `How to tell if your Mac has an Apple silicon chip <https://support.apple.com/en-us/HT211814>`_
+An example error:
 
-Apple silicon chips are great and efficient. However, many existing packages have not yet added support to run on these chips natively. An easy way to identify support on the `Bioconda packages page <https://anaconda.org/bioconda>`_ is to look for ``noarch`` or ``osx-arm64`` under the **Installers** section of a package. Without any of those, a package is not able to be installed natively on Apple silicon. This is the case for packages such as `MAFFT <https://anaconda.org/bioconda/mafft>`_ (a dependency of :term:`Augur`) and many other bioinformatics packages. For this reason, using an Apple silicon Miniconda installation for the average bioinformatics researcher can result in a difficult experience. To circumvent this, one may enable ``osx-64`` emulation using the ``subdir`` config on each Conda environment, but it is easier to install with emulation by default.
+.. code-block:: text
+   :emphasize-lines: 9,10,11,12,13
 
-For those who really want to use the ``arm64`` Miniconda installer, it is still possible to set up the ``nextstrain`` Conda environment by configuring it to run with emulation. Run this after setting up the empty Conda environment and before the ``mamba install`` command:
+   (your-environment-name) $ mamba install augur
 
-.. code-block:: bash
+   Looking for: ['augur']
 
-   conda config --env --set subdir osx-64
+   bioconda/osx-arm64
 
-This will ensure that all commands in the active Conda environment are run using ``osx-64`` emulation, making it possible to install all the software required for Nextstrain to run.
+   …
+
+   Could not solve for environment specs
+   Encountered problems while solving:
+     - nothing provides mafft needed by augur-10.0.0-py_0
+
+   The environment can't be solved, aborting the operation
+
+This happens when using an ARM64-based Conda installation on a `computer with Apple silicon <https://support.apple.com/en-us/HT211814>`__, but there are workarounds.
+
+Apple silicon chips are great and efficient. They are based on a different chip architecture, ARM64/AArch64, and come with performance improvements compared to the x64-based Intel chips in older Macs.
+
+However, many existing packages have not yet added support to run on these chips natively. An easy way to identify support on the `Bioconda packages page <https://anaconda.org/bioconda>`_ is to look for ``noarch`` or ``osx-arm64`` under the **Installers** section of a package. Without any of those, a package is not able to be installed natively on Apple silicon. This is the case for packages such as `MAFFT <https://anaconda.org/bioconda/mafft>`_ (a dependency of :term:`Augur`) and many other bioinformatics packages. For this reason, using an ARM64-based Conda installation for the average bioinformatics researcher can result in a difficult experience.
+
+There are two ways to work around this:
+
+1. Uninstall Conda, delete all existing environments, and re-install with an `Intel-based installer <https://docs.conda.io/en/latest/miniconda.html>`__. With an Intel-based installation, all environments are forced to use emulation.
+
+   This provides easy compatibility with a broader set of bioinformatics packages, but comes at the cost of relatively longer run times for packages that have native ARM64 support.
+
+2. Create a custom Conda environment that installs and runs packages under `Intel emulation <https://conda-forge.org/docs/user/tipsandtricks.html#installing-apple-intel-packages-on-apple-silicon>`__. Run this after setting up an **empty** Conda environment and before installing any packages to it:
+
+   .. code-block:: bash
+
+      conda config --env --set subdir osx-64
+
+   This will ensure that all commands in the active Conda environment are run using Intel emulation, making it possible to install Nextstrain software such as Augur. You only need to run this once per Conda environment.
+
+   .. warning::
+
+      This should only be done on an empty Conda environment (otherwise you may encounter low-level errors) and does not automatically apply to other new or existing environments.
 
 .. _what-happened-to-the-native-runtime:
 

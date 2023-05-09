@@ -44,15 +44,14 @@ Update an existing installation
       If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
 
 
-   .. group-tab:: Ambient
+   .. group-tab:: Ambient (advanced)
 
-      Update the ``nextstrain`` custom Conda environment.
+      Update a custom Conda environment.
 
       .. code-block:: bash
 
-         mamba update -n base conda mamba
-         conda activate nextstrain
-         mamba update --all
+         conda activate <your-environment-name>
+         conda update --all
          nextstrain check-setup ambient
 
       If the output of the final command notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
@@ -92,12 +91,12 @@ Troubleshoot a broken installation
       This should rarely be necessary, but may help if you find yourself with a broken runtime.
 
 
-   .. group-tab:: Ambient
+   .. group-tab:: Ambient (advanced)
 
       Running ``nextstrain check-setup ambient`` will report potential issues.
       Make sure there are no errors or warnings reported.
 
-      Ensure that you've activated your custom Conda environment with ``conda activate nextstrain``.
+      If tools were installed into a custom Conda environment, ensure that it's activated with ``conda activate <your-environment-name>``.
 
       If Conda fails to install or update Nextstrain using the commands in the other sections above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
       Starting from scratch often fixes problems with Conda environments.
@@ -105,10 +104,9 @@ Troubleshoot a broken installation
 
       .. code-block:: bash
 
-          conda activate base
-          conda env remove -n nextstrain
+          conda env remove -n <your-environment-name>
 
-      Then, repeat the installation instructions above, starting with the update of Conda itself.
+      Then, repeat the Ambient runtime setup instructions above.
 
 If you the above isn't sufficient and you need more help troubleshooting, please post to our `discussion forum <https://discussion.nextstrain.org/c/help-and-getting-started/6>`__ where members of the community and the Nextstrain team can help out.
 
@@ -125,9 +123,9 @@ Instead, follow these manual steps:
          docker image rm $(docker image ls -q "nextstrain/*")
 
       Optionally, uninstall Docker if only used for Nextstrain.
-   3. If using the ambient runtime, remove the ``nextstrain`` custom Conda environment::
+   3. If using the ambient runtime, remove the custom Conda environment::
 
-         conda env remove -n nextstrain
+         conda env remove -n <your-environment-name>
 
       Optionally, uninstall Conda if only used for Nextstrain.
    4. On Windows, optionally, uninstall WSL if only used for Nextstrain.

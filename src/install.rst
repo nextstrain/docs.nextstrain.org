@@ -25,7 +25,7 @@ Installation steps
 Steps vary by runtime option (Docker, Conda, ambient) and operating system (macOS, Windows, WSL on Windows, Linux).
 For help choosing, refer to our :doc:`/reference/faq`, such as:
 
-  * :ref:`what-are-docker-conda-mamba-wsl-etc`
+  * :ref:`what-are-docker-conda-wsl-etc`
   * :ref:`choosing-a-runtime`
   * :ref:`what-happened-to-the-native-runtime`
   * :ref:`when-to-use-wsl`
@@ -178,126 +178,40 @@ Set up a Nextstrain runtime
 
             .. include:: snippets/nextstrain-setup-conda.rst
 
-   .. group-tab:: Ambient
+   .. group-tab:: Ambient (advanced)
 
-      .. We use the phrase "custom Conda environment" to refer to the Conda environment managed by the user for use with the ambient runtime.
+      .. We use the phrase "custom Conda environment" to refer to a Conda environment managed by the user for use with the ambient runtime.
 
-      .. note:: The ambient runtime does not require a particular setup method; it will work as long as the programs required by Nextstrain are available.
-         The following describes how to accomplish this using a custom Conda environment as an example.
+      The ambient runtime does not require a particular setup method; it will work as long as the programs you wish to use are available.
 
-         If you already have Conda or Mamba installed and use it for other projects, you may need to adjust the instructions below.
+      The following describes how to accomplish this using a custom Conda environment as an example. You should be familiar with the `basics of Conda <https://conda.io/projects/conda/en/latest/user-guide/getting-started.html>`__ before proceeding.
 
-      1. Install the necessary programs into a custom Conda environment you manage.
+      .. tabs::
 
-         .. tabs::
+         .. group-tab:: macOS
 
-            .. group-tab:: macOS
+            .. warning::
 
-               1. Install Miniconda:
+               If step 2 fails, you might have an Apple silicon version of Conda installed. See :ref:`this FAQ section <why-conda-install-errors-on-apple-silicon>` for workarounds.
 
-                  .. The installer link is taken from https://docs.conda.io/en/latest/miniconda.html.
-
-                  a. `Download the installer <https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg>`_.
-
-                     .. note::
-
-                           This is the Intel x86 64-bit installer, :ref:`which we recommend even for Mac computers with Apple silicon (e.g. M1) <why-intel-miniconda-installer-on-apple-silicon>`.
-
-                  b. Open the downloaded file and follow through installation prompts.
-
-               2. Open a new terminal window.
-               3. Install Mamba on the ``base`` Conda environment:
-
-                  .. code-block:: bash
-
-                     conda install -n base -c conda-forge mamba --yes
-                     conda activate base
-
-               4. Create a custom Conda environment named ``nextstrain``:
-
-                  .. include:: snippets/conda-create-bash.rst
-
-               5. Install all the necessary software:
-
-                  .. include:: snippets/conda-install-full-bash.rst
+            .. include:: snippets/ambient-setup.rst
 
 
-            .. group-tab:: Windows
+         .. group-tab:: Windows
 
-               .. note::
+            .. note::
 
-                  Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the ambient runtime is desired, or use the **Docker** runtime instead.
-
-
-            .. group-tab:: WSL on Windows
-
-               1. Install Miniconda:
-
-                  .. code-block:: bash
-
-                     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-                     bash Miniconda3-latest-Linux-x86_64.sh
-                     # follow through installation prompts
-                     rm Miniconda3-latest-Linux-x86_64.sh
-
-               2. Install Mamba on the ``base`` Conda environment:
-
-                  .. code-block:: bash
-
-                     conda install -n base -c conda-forge mamba --yes
-                     conda activate base
-
-               3. Create a custom Conda environment named ``nextstrain``:
-
-                  .. include:: snippets/conda-create-bash.rst
-
-               4. Install all the necessary software:
-
-                  .. include:: snippets/conda-install-full-bash.rst
-
-               .. include:: snippets/wsl-home-dir.rst
+               Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the ambient runtime is desired, or use the **Docker** runtime instead.
 
 
-            .. group-tab:: Ubuntu Linux
+         .. group-tab:: WSL on Windows
 
-               .. note:: Steps for other Linux distributions (Debian, CentOS, RHEL, etc.) should be identical or very similar.
-
-               1. Install Miniconda:
-
-                  .. code-block:: bash
-
-                     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-                     bash Miniconda3-latest-Linux-x86_64.sh
-                     # follow through installation prompts
-                     rm Miniconda3-latest-Linux-x86_64.sh
-
-               2. Install Mamba on the ``base`` Conda environment:
-
-                  .. code-block:: bash
-
-                     conda install -n base -c conda-forge mamba --yes
-                     conda activate base
-
-               3. Create a custom Conda environment named ``nextstrain``:
-
-                  .. include:: snippets/conda-create-bash.rst
-
-               4. Install all the necessary software:
-
-                  .. include:: snippets/conda-install-full-bash.rst
+            .. include:: snippets/ambient-setup.rst
 
 
-      2. Set up the runtime:
+         .. group-tab:: Ubuntu Linux
 
-         .. code-block:: none
-
-            nextstrain setup --set-default ambient
-
-
-      .. admonition:: For ambient runtime installs
-         :class: hint
-
-         Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the custom Conda environment with ``conda activate nextstrain``.
+            .. include:: snippets/ambient-setup.rst
 
 
 
@@ -371,7 +285,7 @@ Try running Augur and Auspice
             exit
 
 
-   .. group-tab:: Ambient
+   .. group-tab:: Ambient (advanced)
 
       .. note::
 
