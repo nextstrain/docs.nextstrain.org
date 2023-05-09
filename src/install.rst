@@ -303,6 +303,94 @@ The final output from the last command should look like this, where ``<runtime>`
 
 Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``nextstrain build`` on AWS.
 
+Finally, try running Augur and Auspice.
+
+.. tabs::
+
+   .. group-tab:: Docker
+
+      1. Enter an interactive Nextstrain shell in the current directory (``.``).
+
+         .. code-block:: bash
+
+            nextstrain shell .
+
+      2. Run Augur.
+
+         .. code-block:: bash
+
+            augur --help
+
+      3. Run Auspice.
+
+         .. code-block:: bash
+
+            auspice --help
+
+      4. Exit the Nextstrain shell.
+
+         .. code-block:: bash
+
+            exit
+
+
+   .. group-tab:: Conda
+
+      1. Enter an interactive Nextstrain shell in the current directory (``.``).
+
+         .. code-block:: bash
+
+            nextstrain shell .
+
+      2. Run Augur.
+
+         .. code-block:: bash
+
+            augur --help
+
+      3. Run Auspice.
+
+         .. code-block:: bash
+
+            auspice --help
+
+      4. Exit the Nextstrain shell.
+
+         .. code-block:: bash
+
+            exit
+
+
+   .. group-tab:: Ambient
+
+      .. note::
+
+         This will vary depending on how your ambient runtime is set up.
+
+      1. If using a custom Conda environment, activate it.
+
+         .. code-block:: bash
+
+            conda activate <your-environment-name>
+
+      2. Run Augur.
+
+         .. code-block:: bash
+
+            augur --help
+
+      3. Run Auspice.
+
+         .. code-block:: bash
+
+            auspice --help
+
+      4. Deactivate the custom Conda environment.
+
+         .. code-block:: bash
+
+            conda deactivate
+
 Next, try :doc:`tutorials/running-a-workflow`.
 
 
