@@ -8,9 +8,9 @@ Installing Nextstrain
 
 The following instructions describe how to install the full suite of Nextstrain's software tools, including:
 
+  * Nextstrain CLI, for access to other tools and management of workflows
   * Augur, for bioinformatic analysis of pathogen genomes
   * Auspice, for interactive visualization of pathogen evolution
-  * Nextstrain CLI, for management of analysis workflows and environments
 
 When completed, you'll be ready to run Nextstrain :term:`workflows <workflow>`.
 
@@ -85,7 +85,7 @@ First, install Nextstrain CLI.
 Make sure to follow the installer's final instructions to setup your shell config.
 
 
-Then, install a Nextstrain runtime.
+Then, set up a Nextstrain runtime.
 
 .. tabs::
 
@@ -174,7 +174,7 @@ Then, install a Nextstrain runtime.
 
       .. We use the phrase "custom Conda environment" to refer to the Conda environment managed by the user for use with the ambient runtime.
 
-      .. note:: The ambient runtime does not require a particular installation method; it will work as long as the programs required by Nextstrain are available.
+      .. note:: The ambient runtime does not require a particular setup method; it will work as long as the programs required by Nextstrain are available.
          The following describes how to accomplish this using a custom Conda environment as an example.
 
          If you already have Conda or Mamba installed and use it for other projects, you may need to adjust the instructions below.
