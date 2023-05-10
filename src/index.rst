@@ -68,6 +68,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Bioinformatics <guides/bioinformatics/index>
     Sharing analyses <guides/share/index>
     Communicating scientific insights <guides/communicate/index>
+    Managing an installation <guides/manage-installation>
     Contributing <guides/contribute/index>
 
 .. toctree::

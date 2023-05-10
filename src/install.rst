@@ -14,6 +14,11 @@ The following instructions describe how to install the full suite of Nextstrain'
 
 When completed, you'll be ready to run Nextstrain :term:`workflows <workflow>`.
 
+
+.. contents:: Table of Contents
+   :local:
+
+
 Installation steps
 ==================
 
@@ -25,7 +30,9 @@ For help choosing, refer to our :doc:`/reference/faq`, such as:
   * :ref:`what-happened-to-the-native-runtime`
   * :ref:`when-to-use-wsl`
 
-First, install Nextstrain CLI.
+
+Install Nextstrain CLI
+----------------------
 
 .. tabs::
 
@@ -85,7 +92,8 @@ First, install Nextstrain CLI.
 Make sure to follow the installer's final instructions to setup your shell config.
 
 
-Then, set up a Nextstrain runtime.
+Set up a Nextstrain runtime
+---------------------------
 
 .. tabs::
 
@@ -303,7 +311,9 @@ The final output from the last command should look like this, where ``<runtime>`
 
 Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``nextstrain build`` on AWS.
 
-Finally, try running Augur and Auspice.
+
+Try running Augur and Auspice
+-----------------------------
 
 .. tabs::
 
@@ -391,129 +401,20 @@ Finally, try running Augur and Auspice.
 
             conda deactivate
 
-Next, try :doc:`tutorials/running-a-workflow`.
 
+Next steps
+==========
 
-Update an existing installation
-================================
+With Nextstrain installed, try :doc:`tutorials/running-a-workflow` next.
 
-.. tabs::
-
-   .. group-tab:: Docker
-
-      Update the Docker runtime:
-
-      .. code-block:: bash
-
-         nextstrain update docker
-
-      If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
-
-
-   .. group-tab:: Conda
-
-      Update the Conda runtime:
-
-      .. code-block:: bash
-
-         nextstrain update conda
-
-      If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
-
-
-   .. group-tab:: Ambient
-
-      Update the ``nextstrain`` custom Conda environment.
-
-      .. code-block:: bash
-
-         mamba update -n base conda mamba
-         conda activate nextstrain
-         mamba update --all
-         nextstrain check-setup ambient
-
-      If the output of the final command notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
-
-
-Troubleshoot a broken installation
-==================================
-
-.. tabs::
-
-   .. group-tab:: Docker
-
-      Running ``nextstrain check-setup docker`` will also report potential issues.
-      Make sure there are no errors or warnings reported.
-
-      The Docker runtime requires that the Docker service is running on your computer behind the scenes.
-      If you see a message like::
-
-         Cannot connect to the Docker daemon at […]. Is the docker daemon running?
-
-      Then it is likely that the Docker service is not running.
-      On macOS and Windows, try quitting Docker Desktop (if it's open) and restarting it.
-      On Linux, try running ``sudo systemctl restart docker``.
-
-
-   .. group-tab:: Conda
-
-      Running ``nextstrain check-setup conda`` will report potential issues.
-      Make sure there are no errors or warnings reported.
-
-      You can forcibly setup the Conda runtime again by running:
-
-      .. code-block:: bash
-
-         nextstrain setup --force conda
-
-      This should rarely be necessary, but may help if you find yourself with a broken runtime.
-
-
-   .. group-tab:: Ambient
-
-      Running ``nextstrain check-setup ambient`` will report potential issues.
-      Make sure there are no errors or warnings reported.
-
-      Ensure that you've activated your custom Conda environment with ``conda activate nextstrain``.
-
-      If Conda fails to install or update Nextstrain using the commands in the other sections above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
-      Starting from scratch often fixes problems with Conda environments.
-      To start over with a new Nextstrain environment, delete your current environment.
-
-      .. code-block:: bash
-
-          conda activate base
-          conda env remove -n nextstrain
-
-      Then, repeat the installation instructions above, starting with the update of Conda itself.
-
-If you the above isn't sufficient and you need more help troubleshooting, please post to our `discussion forum <https://discussion.nextstrain.org/c/help-and-getting-started/6>`__ where members of the community and the Nextstrain team can help out.
 
 Alternate installation methods
 ==============================
 
 If you want to :doc:`contribute to the development of Nextstrain </guides/contribute/index>` or if you prefer to manage your own custom environment (e.g., a Conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, and :doc:`Auspice <auspice:introduction/install>`.
 
-Uninstall
-=========
 
-We do not have an automated uninstall process currently.
-Instead, follow these manual steps:
+Managing an existing installation
+=================================
 
-   1. If the directory :file:`~/.nextstrain` exists, remove it.
-   2. If using the Docker runtime, remove all ``nextstrain/…`` Docker images::
-
-         docker image rm $(docker image ls -q "nextstrain/*")
-
-      Optionally, uninstall Docker if only used for Nextstrain.
-   3. If using the ambient runtime, remove the ``nextstrain`` custom Conda environment::
-
-         conda env remove -n nextstrain
-
-      Optionally, uninstall Conda if only used for Nextstrain.
-   4. On Windows, optionally, uninstall WSL if only used for Nextstrain.
-
-Next steps
-==========
-
-With Nextstrain installed, try :doc:`tutorials/running-a-workflow` next.
+See :doc:`guides/manage-installation` for steps to update, troubleshoot, or uninstall Nextstrain tools.
