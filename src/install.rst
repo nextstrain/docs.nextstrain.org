@@ -8,11 +8,16 @@ Installing Nextstrain
 
 The following instructions describe how to install the full suite of Nextstrain's software tools, including:
 
+  * Nextstrain CLI, for access to other tools and management of workflows
   * Augur, for bioinformatic analysis of pathogen genomes
   * Auspice, for interactive visualization of pathogen evolution
-  * Nextstrain CLI, for management of analysis workflows and environments
 
 When completed, you'll be ready to run Nextstrain :term:`workflows <workflow>`.
+
+
+.. contents:: Table of Contents
+   :local:
+
 
 Installation steps
 ==================
@@ -20,12 +25,14 @@ Installation steps
 Steps vary by runtime option (Docker, Conda, ambient) and operating system (macOS, Windows, WSL on Windows, Linux).
 For help choosing, refer to our :doc:`/reference/faq`, such as:
 
-  * :ref:`what-are-docker-conda-mamba-wsl-etc`
+  * :ref:`what-are-docker-conda-wsl-etc`
   * :ref:`choosing-a-runtime`
   * :ref:`what-happened-to-the-native-runtime`
   * :ref:`when-to-use-wsl`
 
-First, install Nextstrain CLI.
+
+Install Nextstrain CLI
+----------------------
 
 .. tabs::
 
@@ -85,7 +92,8 @@ First, install Nextstrain CLI.
 Make sure to follow the installer's final instructions to setup your shell config.
 
 
-Then, install a Nextstrain runtime.
+Set up a Nextstrain runtime
+---------------------------
 
 .. tabs::
 
@@ -170,126 +178,40 @@ Then, install a Nextstrain runtime.
 
             .. include:: snippets/nextstrain-setup-conda.rst
 
-   .. group-tab:: Ambient
+   .. group-tab:: Ambient (advanced)
 
-      .. We use the phrase "custom Conda environment" to refer to the Conda environment managed by the user for use with the ambient runtime.
+      .. We use the phrase "custom Conda environment" to refer to a Conda environment managed by the user for use with the ambient runtime.
 
-      .. note:: The ambient runtime does not require a particular installation method; it will work as long as the programs required by Nextstrain are available.
-         The following describes how to accomplish this using a custom Conda environment as an example.
+      The ambient runtime does not require a particular setup method; it will work as long as the programs you wish to use are available.
 
-         If you already have Conda or Mamba installed and use it for other projects, you may need to adjust the instructions below.
+      The following describes how to accomplish this using a custom Conda environment as an example. You should be familiar with the `basics of Conda <https://conda.io/projects/conda/en/latest/user-guide/getting-started.html>`__ before proceeding.
 
-      1. Install the necessary programs into a custom Conda environment you manage.
+      .. tabs::
 
-         .. tabs::
+         .. group-tab:: macOS
 
-            .. group-tab:: macOS
+            .. warning::
 
-               1. Install Miniconda:
+               If step 2 fails, you might have an Apple silicon version of Conda installed. See :ref:`this FAQ section <why-conda-install-errors-on-apple-silicon>` for workarounds.
 
-                  .. The installer link is taken from https://docs.conda.io/en/latest/miniconda.html.
-
-                  a. `Download the installer <https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg>`_.
-
-                     .. note::
-
-                           This is the Intel x86 64-bit installer, :ref:`which we recommend even for Mac computers with Apple silicon (e.g. M1) <why-intel-miniconda-installer-on-apple-silicon>`.
-
-                  b. Open the downloaded file and follow through installation prompts.
-
-               2. Open a new terminal window.
-               3. Install Mamba on the ``base`` Conda environment:
-
-                  .. code-block:: bash
-
-                     conda install -n base -c conda-forge mamba --yes
-                     conda activate base
-
-               4. Create a custom Conda environment named ``nextstrain``:
-
-                  .. include:: snippets/conda-create-bash.rst
-
-               5. Install all the necessary software:
-
-                  .. include:: snippets/conda-install-full-bash.rst
+            .. include:: snippets/ambient-setup.rst
 
 
-            .. group-tab:: Windows
+         .. group-tab:: Windows
 
-               .. note::
+            .. note::
 
-                  Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the ambient runtime is desired, or use the **Docker** runtime instead.
-
-
-            .. group-tab:: WSL on Windows
-
-               1. Install Miniconda:
-
-                  .. code-block:: bash
-
-                     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-                     bash Miniconda3-latest-Linux-x86_64.sh
-                     # follow through installation prompts
-                     rm Miniconda3-latest-Linux-x86_64.sh
-
-               2. Install Mamba on the ``base`` Conda environment:
-
-                  .. code-block:: bash
-
-                     conda install -n base -c conda-forge mamba --yes
-                     conda activate base
-
-               3. Create a custom Conda environment named ``nextstrain``:
-
-                  .. include:: snippets/conda-create-bash.rst
-
-               4. Install all the necessary software:
-
-                  .. include:: snippets/conda-install-full-bash.rst
-
-               .. include:: snippets/wsl-home-dir.rst
+               Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the ambient runtime is desired, or use the **Docker** runtime instead.
 
 
-            .. group-tab:: Ubuntu Linux
+         .. group-tab:: WSL on Windows
 
-               .. note:: Steps for other Linux distributions (Debian, CentOS, RHEL, etc.) should be identical or very similar.
-
-               1. Install Miniconda:
-
-                  .. code-block:: bash
-
-                     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-                     bash Miniconda3-latest-Linux-x86_64.sh
-                     # follow through installation prompts
-                     rm Miniconda3-latest-Linux-x86_64.sh
-
-               2. Install Mamba on the ``base`` Conda environment:
-
-                  .. code-block:: bash
-
-                     conda install -n base -c conda-forge mamba --yes
-                     conda activate base
-
-               3. Create a custom Conda environment named ``nextstrain``:
-
-                  .. include:: snippets/conda-create-bash.rst
-
-               4. Install all the necessary software:
-
-                  .. include:: snippets/conda-install-full-bash.rst
+            .. include:: snippets/ambient-setup.rst
 
 
-      2. Set up the runtime:
+         .. group-tab:: Ubuntu Linux
 
-         .. code-block:: none
-
-            nextstrain setup --set-default ambient
-
-
-      .. admonition:: For ambient runtime installs
-         :class: hint
-
-         Whenever you open a new terminal window to work on a Nextstrain analysis, remember to activate the custom Conda environment with ``conda activate nextstrain``.
+            .. include:: snippets/ambient-setup.rst
 
 
 
@@ -303,129 +225,110 @@ The final output from the last command should look like this, where ``<runtime>`
 
 Optionally, :doc:`configure AWS Batch <cli:aws-batch>` if you'd like to run ``nextstrain build`` on AWS.
 
-Next, try :doc:`tutorials/running-a-workflow`.
 
-
-Update an existing installation
-================================
+Try running Augur and Auspice
+-----------------------------
 
 .. tabs::
 
    .. group-tab:: Docker
 
-      Update the Docker runtime:
+      1. Enter an interactive Nextstrain shell in the current directory (``.``).
 
-      .. code-block:: bash
+         .. code-block:: bash
 
-         nextstrain update docker
+            nextstrain shell .
 
-      If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
+      2. Run Augur.
 
+         .. code-block:: bash
 
-   .. group-tab:: Conda
+            augur --help
 
-      Update the Conda runtime:
+      3. Run Auspice.
 
-      .. code-block:: bash
+         .. code-block:: bash
 
-         nextstrain update conda
+            auspice --help
 
-      If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
+      4. Exit the Nextstrain shell.
 
+         .. code-block:: bash
 
-   .. group-tab:: Ambient
-
-      Update the ``nextstrain`` custom Conda environment.
-
-      .. code-block:: bash
-
-         mamba update -n base conda mamba
-         conda activate nextstrain
-         mamba update --all
-         nextstrain check-setup ambient
-
-      If the output of the final command notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
-
-
-Troubleshoot a broken installation
-==================================
-
-.. tabs::
-
-   .. group-tab:: Docker
-
-      Running ``nextstrain check-setup docker`` will also report potential issues.
-      Make sure there are no errors or warnings reported.
-
-      The Docker runtime requires that the Docker service is running on your computer behind the scenes.
-      If you see a message like::
-
-         Cannot connect to the Docker daemon at […]. Is the docker daemon running?
-
-      Then it is likely that the Docker service is not running.
-      On macOS and Windows, try quitting Docker Desktop (if it's open) and restarting it.
-      On Linux, try running ``sudo systemctl restart docker``.
+            exit
 
 
    .. group-tab:: Conda
 
-      Running ``nextstrain check-setup conda`` will report potential issues.
-      Make sure there are no errors or warnings reported.
+      1. Enter an interactive Nextstrain shell in the current directory (``.``).
 
-      You can forcibly setup the Conda runtime again by running:
+         .. code-block:: bash
 
-      .. code-block:: bash
+            nextstrain shell .
 
-         nextstrain setup --force conda
+      2. Run Augur.
 
-      This should rarely be necessary, but may help if you find yourself with a broken runtime.
+         .. code-block:: bash
+
+            augur --help
+
+      3. Run Auspice.
+
+         .. code-block:: bash
+
+            auspice --help
+
+      4. Exit the Nextstrain shell.
+
+         .. code-block:: bash
+
+            exit
 
 
-   .. group-tab:: Ambient
+   .. group-tab:: Ambient (advanced)
 
-      Running ``nextstrain check-setup ambient`` will report potential issues.
-      Make sure there are no errors or warnings reported.
+      .. note::
 
-      Ensure that you've activated your custom Conda environment with ``conda activate nextstrain``.
+         This will vary depending on how your ambient runtime is set up.
 
-      If Conda fails to install or update Nextstrain using the commands in the other sections above, it's possible that Conda itself is out-of-date or that Conda cannot figure out how to resolve the environment's dependencies.
-      Starting from scratch often fixes problems with Conda environments.
-      To start over with a new Nextstrain environment, delete your current environment.
+      1. If using a custom Conda environment, activate it.
 
-      .. code-block:: bash
+         .. code-block:: bash
 
-          conda activate base
-          conda env remove -n nextstrain
+            conda activate <your-environment-name>
 
-      Then, repeat the installation instructions above, starting with the update of Conda itself.
+      2. Run Augur.
 
-If you the above isn't sufficient and you need more help troubleshooting, please post to our `discussion forum <https://discussion.nextstrain.org/c/help-and-getting-started/6>`__ where members of the community and the Nextstrain team can help out.
+         .. code-block:: bash
+
+            augur --help
+
+      3. Run Auspice.
+
+         .. code-block:: bash
+
+            auspice --help
+
+      4. Deactivate the custom Conda environment.
+
+         .. code-block:: bash
+
+            conda deactivate
+
+
+Next steps
+==========
+
+With Nextstrain installed, try :doc:`tutorials/running-a-workflow` next.
+
 
 Alternate installation methods
 ==============================
 
 If you want to :doc:`contribute to the development of Nextstrain </guides/contribute/index>` or if you prefer to manage your own custom environment (e.g., a Conda environment, Docker image, environment modules on a cluster, etc.), see the individual installation documentation for :doc:`Nextstrain CLI <cli:installation>`, :doc:`Augur <augur:installation/installation>`, and :doc:`Auspice <auspice:introduction/install>`.
 
-Uninstall
-=========
 
-We do not have an automated uninstall process currently.
-Instead, follow these manual steps:
+Managing an existing installation
+=================================
 
-   1. If the directory :file:`~/.nextstrain` exists, remove it.
-   2. If using the Docker runtime, remove all ``nextstrain/…`` Docker images::
-
-         docker image rm $(docker image ls -q "nextstrain/*")
-
-      Optionally, uninstall Docker if only used for Nextstrain.
-   3. If using the ambient runtime, remove the ``nextstrain`` custom Conda environment::
-
-         conda env remove -n nextstrain
-
-      Optionally, uninstall Conda if only used for Nextstrain.
-   4. On Windows, optionally, uninstall WSL if only used for Nextstrain.
-
-Next steps
-==========
-
-With Nextstrain installed, try :doc:`tutorials/running-a-workflow` next.
+See :doc:`guides/manage-installation` for steps to update, troubleshoot, or uninstall Nextstrain tools.
