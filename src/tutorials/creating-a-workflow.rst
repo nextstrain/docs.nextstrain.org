@@ -33,15 +33,27 @@ Setup
 
       mkdir -p results/
 
-3. Additionally, if you installed Nextstrain with the :term:`Docker runtime<runtime>`, start Docker and enter the runtime.
+3. Enter a prompt with Nextstrain tools available. This varies by runtime.
 
-   .. code-block:: bash
+   .. tabs::
 
-      nextstrain shell .
+      .. group-tab:: Docker, Conda
 
-   .. note::
+         .. code-block:: bash
 
-      The dot (``.``) as the last argument indicates that your current directory (``zika-tutorial/``) is the working directory. Your command prompt will change to indicate you are in the Docker runtime. If you want to leave the runtime, run the command ``exit``.
+            nextstrain shell .
+
+         .. note::
+
+            The dot (``.``) as the last argument indicates that your current directory (``zika-tutorial/``) is the working directory. Your command prompt will change to indicate you are in a Nextstrain shell, which provides access to commands such as ``augur`` and ``auspice``. If you want to leave the Nextstrain shell, run the command ``exit``.
+
+      .. group-tab:: Ambient (advanced)
+
+         This varies depending on how your ambient runtime is set up. If you've installed tools into a custom Conda environment, activate it.
+
+         .. code-block:: bash
+
+            conda activate <your-environment-name>
 
 Run a Nextstrain Build
 ======================
