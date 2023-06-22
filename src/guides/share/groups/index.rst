@@ -6,7 +6,6 @@ Share via Nextstrain Groups
     :hidden:
 
     Customize your page <customize>
-    Migrate from S3 <migrate-from-s3>
 
 .. hint::
     This how-to guide assumes familiarity with the :doc:`Nextstrain Groups

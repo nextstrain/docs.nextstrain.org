@@ -1,10 +1,21 @@
+:orphan:
+
+..
+    This page is no longer linked from within our docs, but I'm keeping it
+    around so as not to break direct links we've previously distributed and to
+    provide a record of the migration.
+        -trs, 22 June 2023
+
 ========================================================================
 Migrate data management for a Nextstrain Group from S3 to nextstrain.org
 ========================================================================
 
 .. hint::
-    This guide only applies to :doc:`Nextstrain Groups </learn/groups/index>`
+    This guide only applied to :doc:`Nextstrain Groups </learn/groups/index>`
     created **before March 2022**.
+
+    As of June 2023, all such groups have been migrated.  This guide is
+    preserved only as a record.
 
 What
 ====
@@ -175,6 +186,8 @@ Timeline
 
 :end of February 2023: Nextstrain team's desired deadline for migrating all groups.
 
+:June 2023: All affected groups have been migrated.
+
 
 Notification
 ============
@@ -239,3 +252,9 @@ migrated.
     <https://discussions.nextstrain.org>`__.
 
     —the Nextstrain team
+
+On 15 February 2023, a `final reminder email <https://github.com/nextstrain/email/tree/19ad4396b2559b9b2dcf03e3c903b1164a4ad2f5/sent/2023-02-15-groups-migration-reminder-final>`__
+was sent to the contacts of several remaining groups.
+
+On 10 March 2023, the bulk of the several remaining groups were migrated
+without the involvement of their contacts, and they were `notified via email <https://github.com/nextstrain/email/tree/19ad4396b2559b9b2dcf03e3c903b1164a4ad2f5/sent/2023-03-10-groups-migration-performed>`__.

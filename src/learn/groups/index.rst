@@ -123,13 +123,9 @@ determines the permissions they have within the group.
         Owners have full control over the group.
 
         This includes the same permissions as :term:`editors` plus the ability
-        to manage the group's description and logo [#owners1]_, invite and
-        remove group members, change the roles of group members, and even
-        delete the group entirely [#owners2]_.
+        to manage the group's description and logo, invite and remove group
+        members, change the roles of group members, and even delete the group
+        entirely [#owners2]_.
 
-
-.. [#owners1] Self-service for groups using their own S3 buckets; currently
-              requires contacting the Nextstrain team for groups which have
-              :doc:`migrated from S3 </guides/share/groups/migrate-from-s3>`.
 
 .. [#owners2] Currently requires contacting the Nextstrain team.
