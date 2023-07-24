@@ -1,6 +1,6 @@
-===========
-Style guide
-===========
+=========================
+Documentation style guide
+=========================
 
 This is the (fledgling) style guide for Nextstrain's documentation.
 
