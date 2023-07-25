@@ -186,3 +186,7 @@
 - type: page
   from_url: /guides/contribute/documentation.html
   to_url: /guides/contribute/index.html
+
+- type: page
+  from_url: /reference/style.html
+  to_url: /reference/documentation-style-guide.html

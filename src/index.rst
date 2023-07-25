@@ -94,5 +94,6 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     reference/data-formats
     reference/data-files
     FAQ <reference/faq>
-    reference/style
+    reference/snakemake-style-guide
+    reference/documentation-style-guide
     reference/governance
