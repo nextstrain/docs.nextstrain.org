@@ -188,22 +188,6 @@ Example:
            --output-metadata {output.metadata:q}
        """
 
-Provide descriptive messages for each rule
-==========================================
-
-Rules support a ``message:`` block which defines a string to print when
-the rule is run. This is very helpful for tracking build progress and in
-general describing what's happening. Note that you can use interpolation
-within the message, so you can surface important parameter values or
-conditional inputs or anything else that might be useful.
-
-Example:
-
-::
-
-   rule traits:
-       message: "Inferring ancestral traits {params.columns!s}"
-
 Always use relative paths
 =========================
 
