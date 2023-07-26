@@ -46,3 +46,18 @@ Avoid the ``message`` rule attribute
 -  When the ``message`` attribute is defined, Snakemake suppresses other
    critical details that otherwise get displayed by default (e.g., job
    id, rule name, input, output, etc.).
+
+Access ``config`` values appropriately
+======================================
+
+Use the appropriate method to access configuration in the ``config``
+global variable. 3 ways are supported, but only 2 should be used:
+
+1. ``config[key]``: Use this when the key is required, or a default is
+   specified in a pre-loaded configuration file.
+
+2. ``config.get(key, default)``: Use this when the key is optional.
+
+3. ``config.get(key)``: Never use this. All use cases should be covered
+   by (1) and (2). Using this will only mask errors that may be due to a
+   missing required key.
