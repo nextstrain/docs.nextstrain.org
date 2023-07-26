@@ -194,3 +194,7 @@ Always use relative paths
 Relative paths (paths that don't start with ``/``) mean that anyone can
 run the build without running into portability issues caused by paths
 specific to your computer.
+
+See the `Snakemake documentation
+<https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-interpret-relative-paths>`__
+for how relative paths are interpreted depending on context.
