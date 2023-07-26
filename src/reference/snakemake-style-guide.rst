@@ -88,22 +88,17 @@ line:
 
 and then using the ``config`` dictionary provided in scope afterwards.
 
-Allow for easy local config overrides
-=====================================
+Allow for easy config overrides
+===============================
 
 By including the following snippet in your Snakefile, you can allow for
-optional, local configuration overrides which are more persistent than
-using ``--config`` options to ``snakemake``.
+optional configuration overrides using the ``--configfile`` option to
+``snakemake``.
 
-::
+.. code-block:: python
 
-   from pathlib import Path
-
-   if Path("config_local.yaml").is_file():
-       configfile: "config_local.yaml"
-
-If you do this, you should also add a ``/config_local.yaml`` line to
-your repository's top-level ``.gitignore`` file.
+   if not config:
+       configfile: "config.yaml"
 
 Use Snakemake ``params:`` block to map into ``config`` dictionary
 =================================================================
