@@ -82,7 +82,7 @@ Configuration is data and should live inside a YAML file named
 ``config.yaml``. You can access it in your Snakefile by including the
 line:
 
-::
+.. code-block:: python
 
    configfile: "config.yaml"
 
@@ -105,7 +105,7 @@ Use Snakemake ``params:`` block to map into ``config`` dictionary
 
 For example, do this:
 
-::
+.. code-block:: python
 
    params:
        name = config["name"]
@@ -140,7 +140,7 @@ Standard best practice in any language or environment is to always quote
 parameters in generated shell commands. Snakemake supports this using
 the ``:q`` modifier for interpolation:
 
-::
+.. code-block:: python
 
    params:
        file = "filename with spaces.txt"
@@ -155,7 +155,7 @@ as a parameter listing three filenames. In this case, however, it's
 recommended that you make the parameter a list instead of a single
 string. Snakemake will interpolate it correctly:
 
-::
+.. code-block:: python
 
    params:
        files = ["a.txt", "b.txt", "c.txt"]
@@ -172,7 +172,7 @@ double quotes in your command.
 
 Example:
 
-::
+.. code-block:: python
 
    shell:
        """
