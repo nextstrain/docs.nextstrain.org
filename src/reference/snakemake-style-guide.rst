@@ -194,7 +194,3 @@ Always use relative paths
 Relative paths (paths that don't start with ``/``) mean that anyone can
 run the build without running into portability issues caused by paths
 specific to your computer.
-
-Our convention for builds is that Nextstrain components are available
-locally if needed as sibling directories, for example ``../fauna/`` and
-``../auspice/``.
