@@ -61,3 +61,16 @@ global variable. 3 ways are supported, but only 2 should be used:
 3. ``config.get(key)``: Never use this. All use cases should be covered
    by (1) and (2). Using this will only mask errors that may be due to a
    missing required key.
+
+Use lambda on ``params`` that may have ``{`` or ``}`` in the value
+==================================================================
+
+If the value passed to a param contains curly braces, Snakemake will attempt to
+resolve it as a wildcard. To keep the value as-is, `use a lambda expression <https://github.com/snakemake/snakemake/issues/2166#issuecomment-1464202922>`__.
+
+Example:
+
+.. code-block:: python
+
+   params:
+       key=lambda w: config["value_may_contain_curlies"]
