@@ -52,6 +52,7 @@ Install Nextstrain CLI
          Most of the time, Rosetta 2 will already be enabled.
          If not, the installer will ask you to first enable Rosetta 2 and then retry the installation.
 
+
    .. group-tab:: Windows (PowerShell)
 
       In a PowerShell terminal, run:
@@ -164,19 +165,23 @@ Set up a Nextstrain runtime
 
             .. include:: snippets/nextstrain-setup-conda.rst
 
+
          .. group-tab:: Windows (PowerShell)
 
             .. note::
 
                Due to installation constraints, there is no way to use Nextstrain's Conda runtime on Windows directly. Starting from the beginning, follow steps for **Windows (WSL)** if the Conda runtime is desired, or use the **Docker** runtime instead.
 
+
          .. group-tab:: Windows (WSL)
 
             .. include:: snippets/nextstrain-setup-conda.rst
 
+
          .. group-tab:: Ubuntu Linux
 
             .. include:: snippets/nextstrain-setup-conda.rst
+
 
    .. group-tab:: Ambient (advanced)
 
