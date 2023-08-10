@@ -22,7 +22,7 @@ When completed, you'll be ready to run Nextstrain :term:`workflows <workflow>`.
 Installation steps
 ==================
 
-Steps vary by runtime option (Docker, Conda, ambient) and host interface (macOS, Windows (PowerShell), Windows (WSL), Linux).
+Steps vary by runtime option (Docker, Conda, ambient) and host interface (macOS, Windows (WSL), Windows (PowerShell), Linux).
 For help choosing, refer to our :doc:`/reference/faq`, such as:
 
   * :ref:`what-are-docker-conda-wsl-etc`
@@ -53,18 +53,6 @@ Install Nextstrain CLI
          If not, the installer will ask you to first enable Rosetta 2 and then retry the installation.
 
 
-   .. group-tab:: Windows (PowerShell)
-
-      In a PowerShell terminal, run:
-
-      .. code-block:: powershell
-
-         Invoke-RestMethod https://nextstrain.org/cli/installer/windows | Invoke-Expression
-
-      You can launch a PowerShell terminal by clicking the Start menu, typing ``powershell``, and pressing enter.
-      Make sure to choose the item that is **not** marked "(Adminstrator)".
-
-
    .. group-tab:: Windows (WSL)
 
       `Install Windows Subsystem for Linux (WSL) 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
@@ -77,6 +65,18 @@ Install Nextstrain CLI
          curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
 
       You can launch a WSL terminal by clicking the Start menu, typing ``wsl``, and pressing enter.
+
+
+   .. group-tab:: Windows (PowerShell)
+
+      In a PowerShell terminal, run:
+
+      .. code-block:: powershell
+
+         Invoke-RestMethod https://nextstrain.org/cli/installer/windows | Invoke-Expression
+
+      You can launch a PowerShell terminal by clicking the Start menu, typing ``powershell``, and pressing enter.
+      Make sure to choose the item that is **not** marked "(Adminstrator)".
 
 
    .. group-tab:: Ubuntu Linux
@@ -109,14 +109,6 @@ Set up a Nextstrain runtime
                `Install Docker Desktop for macOS <https://docs.docker.com/desktop/install/mac-install/>`_.
 
 
-            .. group-tab:: Windows (PowerShell)
-
-               `Install Windows Subsystem for Linux (WSL) 2`_.
-               You may have to restart your machine when configuring WSL.
-
-               `Install Docker Desktop for Windows <https://docs.docker.com/desktop/install/windows-install/>`_ with the `WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
-
-
             .. group-tab:: Windows (WSL)
 
                `Install Docker Desktop for Windows`_ with the `WSL 2 backend`_.
@@ -127,6 +119,14 @@ Set up a Nextstrain runtime
                   If you forget to do this, ``docker`` won't work in the WSL terminal.
 
                .. include:: snippets/wsl-home-dir.rst
+
+
+            .. group-tab:: Windows (PowerShell)
+
+               `Install Windows Subsystem for Linux (WSL) 2`_.
+               You may have to restart your machine when configuring WSL.
+
+               `Install Docker Desktop for Windows <https://docs.docker.com/desktop/install/windows-install/>`_ with the `WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
 
             .. group-tab:: Ubuntu Linux
@@ -166,16 +166,16 @@ Set up a Nextstrain runtime
             .. include:: snippets/nextstrain-setup-conda.rst
 
 
+         .. group-tab:: Windows (WSL)
+
+            .. include:: snippets/nextstrain-setup-conda.rst
+
+
          .. group-tab:: Windows (PowerShell)
 
             .. note::
 
                Due to installation constraints, there is no way to use Nextstrain's Conda runtime on Windows directly. Starting from the beginning, follow steps for **Windows (WSL)** if the Conda runtime is desired, or use the **Docker** runtime instead.
-
-
-         .. group-tab:: Windows (WSL)
-
-            .. include:: snippets/nextstrain-setup-conda.rst
 
 
          .. group-tab:: Ubuntu Linux
@@ -202,16 +202,16 @@ Set up a Nextstrain runtime
             .. include:: snippets/ambient-setup.rst
 
 
+         .. group-tab:: Windows (WSL)
+
+            .. include:: snippets/ambient-setup.rst
+
+
          .. group-tab:: Windows (PowerShell)
 
             .. note::
 
                Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Starting from the beginning, follow steps for **Windows (WSL)** if the ambient runtime is desired, or use the **Docker** runtime instead.
-
-
-         .. group-tab:: Windows (WSL)
-
-            .. include:: snippets/ambient-setup.rst
 
 
          .. group-tab:: Ubuntu Linux

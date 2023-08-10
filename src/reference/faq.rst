@@ -59,7 +59,7 @@ If you pick one and later realize you want to switch, you can go back and instal
 
 .. _when-to-use-wsl:
 
-Should I use PowerShell or WSL on Windows?
+Should I use WSL or PowerShell on Windows?
 ------------------------------------------
 
 Both of our Windows installation guides require installation of WSL; the difference between them is in the interface you ultimately use for Nextstrain.
