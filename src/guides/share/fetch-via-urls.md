@@ -29,7 +29,7 @@ Formally, only the [hier-part](https://tools.ietf.org/html/rfc3986#section-3) of
 
 **Suffixes not required** The above examples have assumed that the URL for the dataset JSON ends with `.json`, as is often the case, but this isn't required! For instance, you could have a server which generates a JSON at `https://my-server/makeMeADataset` and access this via `https://nextstrain.org/fetch/my-server/makeMeADataset`.
 
-**Sidecar files** (such as tip-frequency JSONs) are fetched similarly to other sources -- e.g. if the dataset is at `https://A/B.json` then a subsequent request to `https://A/B_tip-frequencies.json` will be made. 
+**Sidecar files** (such as tip-frequency JSONs) are fetched similarly to other sources -- e.g. if the dataset is at `https://A/B.json` then a subsequent request to `https://A/B_tip-frequencies.json` will be made.
 If the fetch URL doesn't end in `.json` then the GET request would be to `https://A/B_tip-frequencies`.
 
 **Authentication** is not currently supported. Please see [Nextstrain Groups](./groups/index) for this!
@@ -38,9 +38,8 @@ If the fetch URL doesn't end in `.json` then the GET request would be to `https:
 
 ### How do I manage the data storage?
 
-That's completely up to you - all that we require for this to work is that it's publicly accessible via a URL over HTTPS. 
+That's completely up to you - all that we require for this to work is that it's publicly accessible via a URL over HTTPS.
 It could be a static asset (e.g. AWS S3) or a server which responds dynamically.
 We recommend the the data is transmitted using compression to improve loading times for the client.
 
 P.S. If you build something interesting here, for instance a server which generates the JSON on-the-fly, we'd love to [hear from you!](mailto:hello@nextstrain.org).
-
