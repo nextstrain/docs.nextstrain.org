@@ -27,6 +27,8 @@ You can see this rendered in Nextstrain at: https://nextstrain.org/fetch/narrati
 **HTTPS only** The [HTTPS](https://developer.mozilla.org/en-US/docs/Glossary/https) protocol is mandated, but "https://" must be left out of the datset URL when it's written as part of the Nextstrain URL.
 Formally, only the [hier-part](https://tools.ietf.org/html/rfc3986#section-3) of the URL is used -- we mandate the scheme to be HTTPS and ignore any queries (or fragments).
 
+**Colons not allowed** The colon (`:`) is reserved as the separator for dual tree displays so they are not allowed in the dataset URL. Using URLs with colons will result in 404 errors.
+
 **Suffixes not required** The above examples have assumed that the URL for the dataset JSON ends with `.json`, as is often the case, but this isn't required! For instance, you could have a server which generates a JSON at `https://my-server/makeMeADataset` and access this via `https://nextstrain.org/fetch/my-server/makeMeADataset`.
 
 **Sidecar files** (such as tip-frequency JSONs) are fetched similarly to other sources -- e.g. if the dataset is at `https://A/B.json` then a subsequent request to `https://A/B_tip-frequencies.json` will be made.
