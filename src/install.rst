@@ -22,7 +22,7 @@ When completed, you'll be ready to run Nextstrain :term:`workflows <workflow>`.
 Installation steps
 ==================
 
-Steps vary by runtime option (Docker, Conda, ambient) and operating system (macOS, Windows, WSL on Windows, Linux).
+Steps vary by runtime option (Docker, Conda, ambient) and host interface (macOS, Windows (PowerShell), Windows (WSL), Linux).
 For help choosing, refer to our :doc:`/reference/faq`, such as:
 
   * :ref:`what-are-docker-conda-wsl-etc`
@@ -52,7 +52,7 @@ Install Nextstrain CLI
          Most of the time, Rosetta 2 will already be enabled.
          If not, the installer will ask you to first enable Rosetta 2 and then retry the installation.
 
-   .. group-tab:: Windows
+   .. group-tab:: Windows (PowerShell)
 
       In a PowerShell terminal, run:
 
@@ -64,7 +64,7 @@ Install Nextstrain CLI
       Make sure to choose the item that is **not** marked "(Adminstrator)".
 
 
-   .. group-tab:: WSL on Windows
+   .. group-tab:: Windows (WSL)
 
       `Install Windows Subsystem for Linux (WSL) 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
       You may have to restart your machine when configuring WSL.
@@ -108,7 +108,7 @@ Set up a Nextstrain runtime
                `Install Docker Desktop for macOS <https://docs.docker.com/desktop/install/mac-install/>`_.
 
 
-            .. group-tab:: Windows
+            .. group-tab:: Windows (PowerShell)
 
                `Install Windows Subsystem for Linux (WSL) 2`_.
                You may have to restart your machine when configuring WSL.
@@ -116,7 +116,7 @@ Set up a Nextstrain runtime
                `Install Docker Desktop for Windows <https://docs.docker.com/desktop/install/windows-install/>`_ with the `WSL 2 backend <https://docs.docker.com/desktop/windows/wsl/>`_.
 
 
-            .. group-tab:: WSL on Windows
+            .. group-tab:: Windows (WSL)
 
                `Install Docker Desktop for Windows`_ with the `WSL 2 backend`_.
 
@@ -164,13 +164,13 @@ Set up a Nextstrain runtime
 
             .. include:: snippets/nextstrain-setup-conda.rst
 
-         .. group-tab:: Windows
+         .. group-tab:: Windows (PowerShell)
 
             .. note::
 
-               Due to installation constraints, there is no way to use Nextstrain's Conda runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the Conda runtime is desired, or use the **Docker** runtime instead.
+               Due to installation constraints, there is no way to use Nextstrain's Conda runtime on Windows directly. Starting from the beginning, follow steps for **Windows (WSL)** if the Conda runtime is desired, or use the **Docker** runtime instead.
 
-         .. group-tab:: WSL on Windows
+         .. group-tab:: Windows (WSL)
 
             .. include:: snippets/nextstrain-setup-conda.rst
 
@@ -197,14 +197,14 @@ Set up a Nextstrain runtime
             .. include:: snippets/ambient-setup.rst
 
 
-         .. group-tab:: Windows
+         .. group-tab:: Windows (PowerShell)
 
             .. note::
 
-               Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Starting from the beginning, follow steps for **WSL on Windows** if the ambient runtime is desired, or use the **Docker** runtime instead.
+               Due to installation constraints, there is no way to use the ambient runtime on Windows directly. Starting from the beginning, follow steps for **Windows (WSL)** if the ambient runtime is desired, or use the **Docker** runtime instead.
 
 
-         .. group-tab:: WSL on Windows
+         .. group-tab:: Windows (WSL)
 
             .. include:: snippets/ambient-setup.rst
 

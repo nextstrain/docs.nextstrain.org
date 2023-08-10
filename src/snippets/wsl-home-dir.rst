@@ -1,4 +1,4 @@
-.. admonition:: For WSL on Windows installs
+.. admonition:: For Windows (WSL) installs
    :class: hint
 
    By default, your Windows home directory will not be directly accessible under your WSL home directory. When run in a WSL prompt, the following command fixes that by creating a symlink to it in your WSL home directory. This allows you to use Windows-based text editors and Linux commands all on the same files.

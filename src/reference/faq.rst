@@ -59,16 +59,19 @@ If you pick one and later realize you want to switch, you can go back and instal
 
 .. _when-to-use-wsl:
 
-When should I use (or not use) WSL on Windows?
-----------------------------------------------
+Should I use PowerShell or WSL on Windows?
+------------------------------------------
 
-All of our Windows installation guides actually require WSL; the difference between them is in the interface you ultimately use for Nextstrain.
-This makes the choice mostly hinge on if you prefer a GNU/Linux `Bash shell <https://www.gnu.org/software/bash/manual/bash.html#What-is-Bash_003f>`__ interface or a Windows `PowerShell <https://docs.microsoft.com/en-us/powershell/scripting/discover-powershell>`__ interface for your command-line work.
-If you don't have a preference (e.g. perhaps you're new to both), we suggest choosing the Bash shell.
+Both of our Windows installation guides require installation of WSL; the difference between them is in the interface you ultimately use for Nextstrain.
+This makes the choice mostly hinge on what interface you prefer for your command-line work:
+
+1. A GNU/Linux `Bash shell <https://www.gnu.org/software/bash/manual/bash.html#What-is-Bash_003f>`__ interface (choose **WSL**)
+2. A Windows `PowerShell <https://docs.microsoft.com/en-us/powershell/scripting/discover-powershell>`__ interface (choose **PowerShell**)
+
+If you don't have a preference (e.g. perhaps you're new to both), we suggest **WSL**.
 Learning Bash will likely be useful in other work, as it is very widely used in bioinformatics and computing at large.
 
-The other deciding factor is if you're unable to install Docker (e.g. for adminstrative or organizational reasons), then you'll need to use the **ambient** runtime with **WSL on Windows**.
-The ambient runtime is not available without WSL.
+The other deciding factor is which runtime(s) you'd like to use. Under **PowerShell**, only the Docker runtime is available. If you're unable to install Docker (e.g. for administrative or organizational reasons), then you'll need to use **WSL** with one of the other runtimes.
 
 
 .. old anchors
