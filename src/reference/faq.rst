@@ -12,6 +12,19 @@ Installation
 There are many ways to install Nextstrain, and we aim to simplify the installation guide so it is easy to follow along. Here, you will find answers to some common questions about the installation process.
 
 
+.. _whats-a-runtime:
+
+What's a runtime?
+-----------------
+
+We use the term "runtime" (in the same sense as `runtime environments <https://en.wikipedia.org/wiki/Runtime_environment>`__) to refer to specific computing environments in which Nextstrain CLI expects to find and run other Nextstrain programs, like Augur and Auspice.
+In turn, Nextstrain CLI provides a consistent set of commands to run and visualize Nextstrain pathogen builds regardless of the underlying runtime in use.
+Together, this allows Nextstrain to be used across many different computing platforms and operating systems.
+Not all Nextstrain CLI commands require a runtime, though usually one is required.
+
+See Nextstrain CLI's :doc:`runtimes documentation <cli:runtimes/index>` for more information.
+
+
 .. old anchors
 .. _what-are-docker-conda-mamba-wsl-etc:
 
