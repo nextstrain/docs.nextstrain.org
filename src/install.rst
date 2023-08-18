@@ -25,6 +25,7 @@ Installation steps
 Steps vary by runtime option (Docker, Conda, ambient) and host interface (macOS, Windows (WSL), Windows (PowerShell), Linux).
 For help choosing, refer to our :doc:`/reference/faq`, such as:
 
+  * :ref:`whats-a-runtime`
   * :ref:`what-are-docker-conda-wsl-etc`
   * :ref:`choosing-a-runtime`
   * :ref:`what-happened-to-the-native-runtime`
