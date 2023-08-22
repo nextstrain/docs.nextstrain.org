@@ -96,9 +96,11 @@ For example, do this:
 .. code-block:: python
 
    params:
-       name = config["name"]
+       name = lambda _: config["name"]
    shell:
-       "echo {params.name:q}"
+       """
+       echo {params.name:q}
+       """
 
 instead of using the ``config`` dictionary directly in the shell
 command. This has several benefits:
@@ -146,7 +148,9 @@ the ``:q`` modifier for interpolation:
    params:
        file = "filename with spaces.txt"
    shell:
-       "wc -l {params.file:q}"
+       """
+       wc -l {params.file:q}
+       """
 
 Not quoting these values is also a security risk.
 
@@ -161,7 +165,9 @@ string. Snakemake will interpolate it correctly:
    params:
        files = ["a.txt", "b.txt", "c.txt"]
    shell:
-       "wc -l {params.files:q}"
+       """
+       wc -l {params.files:q}
+       """
 
 Use triple-quoted command definitions
 =====================================
