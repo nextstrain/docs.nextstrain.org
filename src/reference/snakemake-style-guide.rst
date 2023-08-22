@@ -75,30 +75,20 @@ Example:
    params:
        key=lambda w: config["value_may_contain_curlies"]
 
-Use a config.yaml file
-======================
+Use a YAML configuration file and allow for overrides
+=====================================================
 
-Configuration is data and should live inside a YAML file named
-``config.yaml``. You can access it in your Snakefile by including the
-line:
-
-.. code-block:: python
-
-   configfile: "config.yaml"
-
-and then using the ``config`` dictionary provided in scope afterwards.
-
-Allow for easy config overrides
-===============================
-
-By including the following snippet in your Snakefile, you can allow for
-optional configuration overrides using the ``--configfile`` option to
-``snakemake``.
+Configuration is data and should live inside YAML files. By including the
+following snippet in your Snakefile, you can provide default values and allow
+for additional entries or overrides via the ``--configfile`` or ``--config``
+options to ``snakemake``.
 
 .. code-block:: python
 
-   if not config:
-       configfile: "config.yaml"
+   configfile: "defaults.yaml"
+
+Configuration values are available as a ``config`` dictionary provided in scope
+afterwards.
 
 Use Snakemake ``params:`` block to map into ``config`` dictionary
 =================================================================
