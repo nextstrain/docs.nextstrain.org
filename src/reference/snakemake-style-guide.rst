@@ -40,40 +40,23 @@ Do this instead of using ``rule`` variables.
    (`see ncov PR 877 <https://github.com/nextstrain/ncov/pull/877>`__,
    for an example).
 
+Always use relative paths
+=========================
+
+Relative paths (paths that don't start with ``/``) mean that anyone can
+run the build without running into portability issues caused by paths
+specific to your computer.
+
+See the `Snakemake documentation
+<https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-interpret-relative-paths>`__
+for how relative paths are interpreted depending on context.
+
 Avoid the ``message`` rule attribute
 ====================================
 
 When the ``message`` attribute is defined, Snakemake suppresses other critical
 details that otherwise get displayed by default (e.g., job id, rule name,
 input, output, etc.).
-
-Access ``config`` values appropriately
-======================================
-
-Use the appropriate method to access configuration in the ``config``
-global variable. 3 ways are supported, but only 2 should be used:
-
-1. ``config[key]``: Use this when the key is required, or a default is
-   specified in a pre-loaded configuration file.
-
-2. ``config.get(key, default)``: Use this when the key is optional.
-
-3. ``config.get(key)``: Never use this. All use cases should be covered
-   by (1) and (2). Using this will only mask errors that may be due to a
-   missing required key.
-
-Use lambda on ``params`` that may have ``{`` or ``}`` in the value
-==================================================================
-
-If the value passed to a param contains curly braces, Snakemake will attempt to
-resolve it as a wildcard. To keep the value as-is, `use a lambda expression <https://github.com/snakemake/snakemake/issues/2166#issuecomment-1464202922>`__.
-
-Example:
-
-.. code-block:: python
-
-   params:
-       key=lambda w: config["value_may_contain_curlies"]
 
 Use a YAML configuration file and allow for overrides
 =====================================================
@@ -89,6 +72,21 @@ options to ``snakemake``.
 
 Configuration values are available as a ``config`` dictionary provided in scope
 afterwards.
+
+Access ``config`` values appropriately
+======================================
+
+Use the appropriate method to access configuration in the ``config``
+global variable. 3 ways are supported, but only 2 should be used:
+
+1. ``config[key]``: Use this when the key is required, or a default is
+   specified in a pre-loaded configuration file.
+
+2. ``config.get(key, default)``: Use this when the key is optional.
+
+3. ``config.get(key)``: Never use this. All use cases should be covered
+   by (1) and (2). Using this will only mask errors that may be due to a
+   missing required key.
 
 Use Snakemake ``params:`` block to map into ``config`` dictionary
 =================================================================
@@ -116,6 +114,19 @@ command. This has several benefits:
 -  Snakemake can automatically discover which rules have parameter
    values that are different than the last run and show what output
    files are affected (``--list-params-changes``).
+
+Use lambda on ``params`` that may have ``{`` or ``}`` in the value
+==================================================================
+
+If the value passed to a param contains curly braces, Snakemake will attempt to
+resolve it as a wildcard. To keep the value as-is, `use a lambda expression <https://github.com/snakemake/snakemake/issues/2166#issuecomment-1464202922>`__.
+
+Example:
+
+.. code-block:: python
+
+   params:
+       key=lambda w: config["value_may_contain_curlies"]
 
 Always use quoted (:q) interpolations
 =====================================
@@ -172,14 +183,3 @@ Example:
            --output-sequences {output.sequences:q} \
            --output-metadata {output.metadata:q}
        """
-
-Always use relative paths
-=========================
-
-Relative paths (paths that don't start with ``/``) mean that anyone can
-run the build without running into portability issues caused by paths
-specific to your computer.
-
-See the `Snakemake documentation
-<https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-interpret-relative-paths>`__
-for how relative paths are interpreted depending on context.
