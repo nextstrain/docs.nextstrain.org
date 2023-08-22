@@ -43,9 +43,9 @@ Do this instead of using ``rule`` variables.
 Avoid the ``message`` rule attribute
 ====================================
 
--  When the ``message`` attribute is defined, Snakemake suppresses other
-   critical details that otherwise get displayed by default (e.g., job
-   id, rule name, input, output, etc.).
+When the ``message`` attribute is defined, Snakemake suppresses other critical
+details that otherwise get displayed by default (e.g., job id, rule name,
+input, output, etc.).
 
 Access ``config`` values appropriately
 ======================================
