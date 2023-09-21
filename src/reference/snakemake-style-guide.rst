@@ -82,11 +82,15 @@ global variable. 3 ways are supported, but only 2 should be used:
 1. ``config[key]``: Use this when the key is required, or a default is
    specified in a pre-loaded configuration file.
 
-2. ``config.get(key, default)``: Use this when the key is optional.
+2. ``key [not] in config``: Use this when the key is optional and you
+   want to check if a value is specified.
 
-3. ``config.get(key)``: Never use this. All use cases should be covered
-   by (1) and (2). Using this will only mask errors that may be due to a
-   missing required key.
+3. ``config.get(key, default)``: Use this when the key is optional and
+   you want to access its value.
+
+4. ``config.get(key)``: **Never use this**. All use cases should be covered
+   by the options above. Using this will only mask errors that may be
+   due to a missing required key.
 
 Use Snakemake ``params:`` block to map into ``config`` dictionary
 =================================================================
