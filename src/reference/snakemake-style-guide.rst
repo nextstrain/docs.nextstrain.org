@@ -218,8 +218,9 @@ Example:
                --output-metadata {output.metadata} 2>&1 | tee {log}
            """
 
-Before using ``tee``, ensure that your workflow uses bash's ``pipefail`` option, so successful ``tee`` execution does not mask errors from earlier commands in the pipe.
-Snakemake enables this option by default.
+Before using ``tee``, ensure that your workflow uses `bash's pipefail option <http://redsymbol.net/articles/unofficial-bash-strict-mode/>`_, so successful ``tee`` execution does not mask errors from earlier commands in the pipe.
+Snakemake uses bash's strict mode by default, so the pipefail option should be enabled by default.
+However, some workflows may override the defaults `locally at specific rules <https://snakemake.readthedocs.io/en/stable/project_info/faq.html#my-shell-command-fails-with-exit-code-0-from-within-a-pipe-what-s-wrong>`_ or globally as with `a custom shell prefix <https://github.com/nextstrain/ncov/pull/751>`_.
 
 Run workflows with ``--show-failed-logs``
 =========================================
