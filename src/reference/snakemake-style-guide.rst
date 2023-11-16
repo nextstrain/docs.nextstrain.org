@@ -193,3 +193,37 @@ Example:
            --output-sequences {output.sequences:q} \
            --output-metadata {output.metadata:q}
        """
+
+Log standard out and error output to log files and the terminal
+===============================================================
+
+Use `the Snakemake log directive <https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files>`_ for each rule that writes output to either standard out or error and direct output to the corresponding log file.
+Use the ``tee`` command to ensure that output gets written to both the log file and the terminal, so users can track their workflow progress interactively and use the log file later for debugging.
+
+Example:
+
+.. code-block:: python
+
+   rule filter:
+       input:
+           metadata="results/metadata.tsv",
+       output:
+           metadata="results/filtered_metadata.tsv",
+       log:
+           "logs/filter.txt"
+       shell:
+           """
+           augur filter \
+               --metadata {input.metadata} \
+               --output-metadata {output.metadata} 2>&1 | tee {log}
+           """
+
+Before using ``tee``, ensure that your workflow uses `bash's pipefail option <http://redsymbol.net/articles/unofficial-bash-strict-mode/>`_, so successful ``tee`` execution does not mask errors from earlier commands in the pipe.
+Snakemake uses bash's strict mode by default, so the pipefail option should be enabled by default.
+However, some workflows may override the defaults `locally at specific rules <https://snakemake.readthedocs.io/en/stable/project_info/faq.html#my-shell-command-fails-with-exit-code-0-from-within-a-pipe-what-s-wrong>`_ or globally as with `a custom shell prefix <https://github.com/nextstrain/ncov/pull/751>`_.
+
+Run workflows with ``--show-failed-logs``
+=========================================
+
+Run workflows with the ``--show-failed-logs`` which will print the logs for failed jobs to the terminal when the workflow exits.
+This pattern helps users identify error messages without first finding the corresponding log file.
