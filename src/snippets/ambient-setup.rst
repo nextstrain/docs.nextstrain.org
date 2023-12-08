@@ -6,10 +6,6 @@
 
 2. Install all the necessary software:
 
-   .. note::
-
-      We recommend `Mamba <https://mamba.readthedocs.io>`_ as a drop-in replacement for ``conda`` to have faster installation times.
-
    .. code-block:: bash
 
       conda install --override-channels --strict-channel-priority \
