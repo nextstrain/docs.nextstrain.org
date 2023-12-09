@@ -23,12 +23,12 @@ RUN set -x \
 RUN set -x \
   && chown -R ${USER}:${GROUP} ${HOME}
 
-COPY environment.yml ${HOME}/src/
+COPY conda.yml ${HOME}/src/
 
 WORKDIR ${HOME}/src
 
 RUN set -x \
-  && conda env create docs.nextstrain.org
+  && conda env create --file conda.yml
 
 USER ${USER}
 
