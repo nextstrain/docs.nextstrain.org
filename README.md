@@ -18,7 +18,7 @@ Build dependencies are managed with [Conda](https://conda.io).
 Install them
 into an isolated environment named `docs.nextstrain.org` with:
 
-    conda env create
+    conda env create --file conda.yml
 
 Enter the environment with:
 
