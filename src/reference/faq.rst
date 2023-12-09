@@ -98,21 +98,23 @@ Why do I get an error when installing to my Conda environment on a Mac computer 
 An example error:
 
 .. code-block:: text
-   :emphasize-lines: 9,10,11,12,13
+   :emphasize-lines: 10,11,12,13,14,15
 
-   (your-environment-name) $ mamba install augur
-
-   Looking for: ['augur']
-
-   bioconda/osx-arm64
+   (your-environment-name) $ conda install augur
 
    …
 
-   Could not solve for environment specs
-   Encountered problems while solving:
-     - nothing provides mafft needed by augur-10.0.0-py_0
+   Platform: osx-arm64
 
-   The environment can't be solved, aborting the operation
+   …
+
+   Collecting package metadata (repodata.json): done
+   Solving environment: failed
+
+   LibMambaUnsatisfiableError: Encountered problems while solving:
+     - nothing provides fasttree needed by augur-10.0.0-py_0
+
+   Could not solve for environment specs
 
 This happens when using an ARM64-based Conda installation on a `computer with Apple silicon <https://support.apple.com/en-us/HT211814>`__, but there are workarounds.
 
@@ -150,7 +152,7 @@ The suitability of the "native" name had long been discussed within the Nextstra
 
 The ambient runtime is native in that sense, but it puts all the software maintenance burden on the user. This means:
 
-1. There is a lengthy setup process which requires installing external software (Conda, Mamba). Additionally, there is no way for us to provide accurate setup steps for users who already have Conda installed, as there are various methods of installing Conda.
+1. There is a lengthy setup process which requires installing external software (Conda). Additionally, there is no way for us to provide accurate setup steps for users who already have Conda installed, as there are various methods of installing Conda.
 2. It is up to you as the creator of the ``nextstrain`` Conda environment to know (a) how to activate it, (b) when to update it, and (c) how to update it.
 
 So really, the ambient runtime is any environment that has been set up with all of the required software available on your local ``PATH``. We chose Conda in the installation instructions since some users may already be familiar with it, and it is simpler than using individual package managers for the various required software (e.g. ``pip``, ``npm``).
