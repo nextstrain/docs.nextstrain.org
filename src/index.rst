@@ -70,6 +70,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Communicating scientific insights <guides/communicate/index>
     Managing an installation <guides/manage-installation>
     Contributing <guides/contribute/index>
+    Viewing previous versions <guides/versions>
 
 .. toctree::
     :maxdepth: 1
