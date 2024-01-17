@@ -44,7 +44,7 @@ against the one from the middle of 2023 via the URL
 Here's a screenshot of this taken in early January 2024, allowing us to see the
 expansion of clade 2a.3a.1 over the past 6 months:
 
-.. image:: ../images/versions-tanglegram-h3n2.jpg
+.. image:: ../images/snapshots-tanglegram-h3n2.jpg
   :alt: Tanglegram of flu/seasonal/h3n2/ha/6y:flu/seasonal/h3n2/ha/6y@2023-07-01
 
 Over time, the data shown by this URL link will start to change as we update the
@@ -103,7 +103,7 @@ When looking back at versions over time, we interpret the intended behaviour of
 a delete marker as removing the then-latest file from history, so it won't be
 available via any ``@YYYY-MM-DD`` value.
 
-.. image:: ../images/delete-markers.png
+.. image:: ../images/snapshots-delete-markers.png
 
 
 What about if the URL changed over time?

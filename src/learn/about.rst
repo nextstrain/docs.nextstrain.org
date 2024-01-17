@@ -27,7 +27,7 @@ analyses which are continually updated when new genomes are available.  This
 offers a powerful pathogen surveillance tool to virologists, epidemiologists,
 public health officials, and community scientists. In many cases old snapshots of
 these analyses are able to be easily accessed, see :doc:`viewing previous analyses
-</guides/versions>` for more.
+</guides/snapshots>` for more.
 
 .. rubric:: Open-source software
 
