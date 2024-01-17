@@ -100,7 +100,7 @@ able to provide this functionality. When files are "deleted" from a versioned
 bucket, the normal behaviour is to preserve the file but add a `delete marker
 <https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html>`__.
 When looking back at versions over time, we interpret the intended behaviour of
-a delete marker as removing the then-latest file from history, so it wont be
+a delete marker as removing the then-latest file from history, so it won't be
 available via any ``@YYYY-MM-DD`` value.
 
 .. image:: ../images/delete-markers.png
