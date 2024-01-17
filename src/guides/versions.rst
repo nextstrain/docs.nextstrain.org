@@ -110,7 +110,7 @@ What about if the URL changed over time?
 ----------------------------------------
 
 We've often changed the URL which (core) datasets appear at, for instance we
-recently changed the URL for `/dengue/denv1
+recently changed the URL for `dengue/denv1
 <https://nextstrain.org/dengue/denv1>`__ to `dengue/denv1/genome
 <https://nextstrain.org/dengue/denv1/genome>`__, with the former now redirecting
 to the latter. The result of this is that the earliest available
