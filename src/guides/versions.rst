@@ -1,6 +1,6 @@
-=================================
-Viewing previous versions of data
-=================================
+=========================
+Viewing previous analyses
+=========================
 
 
 .. contents:: Sections in this document
@@ -36,7 +36,7 @@ will load the dataset that was the latest available at that particular date.
 Tanglegrams to compare changes
 ------------------------------
 
-Using tanglegrams allows us to easily view two different versions of the same
+Using tanglegrams allows us to easily view two different snapshots of the same
 dataset side-by-side. Using the above examples we can view the latest dataset
 against the one from the middle of 2023 via the URL
 `flu/seasonal/h3n2/ha/6y:flu/seasonal/h3n2/ha/6y@2023-07-01
@@ -48,7 +48,7 @@ expansion of clade 2a.3a.1 over the past 6 months:
   :alt: Tanglegram of flu/seasonal/h3n2/ha/6y:flu/seasonal/h3n2/ha/6y@2023-07-01
 
 Over time, the data shown by this URL link will start to change as we update the
-latest version, but by versioning both datasets we can preserve this exact view
+latest snapshot, but by dating both datasets we can preserve this exact view
 into the data:
 `flu/seasonal/h3n2/ha/6y@2024-01-03:flu/seasonal/h3n2/ha/6y@2023-07-01
 <https://nextstrain.org/flu/seasonal/h3n2/ha/6y@2024-01-03:flu/seasonal/h3n2/ha/6y@2023-07-01>`__.
@@ -57,7 +57,7 @@ into the data:
 SARS-CoV-2 datestamped datasets
 -------------------------------
 
-Prior to the functionality described here we exposed dated versions of some of
+Prior to the functionality described here we exposed dated snapshots of some of
 our datasets by including the YYYY-MM-DD in the URL without the ``@`` character,
 i.e. the date string was part of the dataset name. This functionality is now
 superseded by the new URL syntax described here, and we may stop producing these
@@ -117,7 +117,7 @@ to the latter. The result of this is that the earliest available
 ``dengue/denv1/genome`` dataset is from 2024-01-03, despite DENV1 datasets being
 available since January 2019.
 
-We have plans to expose these versions - see `this issue
+We have plans to expose these snapshots - see `this issue
 <https://github.com/nextstrain/nextstrain.org/issues/777>`__ for progress here.
 
 
@@ -139,6 +139,6 @@ meta+tree JSONs in the case of v1 datasets).
 How far back does this go?
 --------------------------
 
-The oldest versioned dataset `is a H3N2 dataset from August 2018
+The oldest dataset snapshot `is a H3N2 dataset from August 2018
 <https://nextstrain.org/flu/seasonal/h3n2/ha/3y@2018-08-01>`__. While Nextstrain
 datasets existed before then, we didn't have versioning enabled.
