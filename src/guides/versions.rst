@@ -100,7 +100,7 @@ able to provide this functionality. When files are "deleted" from a versioned
 bucket, the normal behaviour is to preserve the file but add a `delete marker
 <https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html>`__.
 When looking back at versions over time, we interpret the intended behaviour of
-a delete marker as removing the then-latest file from history, so it wont be
+a delete marker as removing the then-latest file from history, so it won't be
 available via any ``@YYYY-MM-DD`` value.
 
 .. image:: ../images/delete-markers.png
@@ -110,7 +110,7 @@ What about if the URL changed over time?
 ----------------------------------------
 
 We've often changed the URL which (core) datasets appear at, for instance we
-recently changed the URL for `/dengue/denv1
+recently changed the URL for `dengue/denv1
 <https://nextstrain.org/dengue/denv1>`__ to `dengue/denv1/genome
 <https://nextstrain.org/dengue/denv1/genome>`__, with the former now redirecting
 to the latter. The result of this is that the earliest available
