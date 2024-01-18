@@ -68,7 +68,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Bioinformatics <guides/bioinformatics/index>
     Sharing analyses <guides/share/index>
     Communicating scientific insights <guides/communicate/index>
-    Viewing previous versions <guides/versions>
+    Viewing previous analyses <guides/snapshots>
     Managing an installation <guides/manage-installation>
     Contributing <guides/contribute/index>
 

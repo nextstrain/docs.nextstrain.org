@@ -190,3 +190,7 @@
 - type: page
   from_url: /reference/style.html
   to_url: /reference/documentation-style-guide.html
+
+- type: page
+  from_url: /guides/versions.html
+  to_url: /guides/snapshots.html

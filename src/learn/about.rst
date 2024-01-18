@@ -25,9 +25,9 @@ snapshots of evolving pathogen populations such as `SARS-CoV-2
 We use interactive visualizations to enable exploration of curated datasets and
 analyses which are continually updated when new genomes are available.  This
 offers a powerful pathogen surveillance tool to virologists, epidemiologists,
-public health officials, and community scientists. In many cases old versions of
-these analyses are able to be easily accessed, see :doc:`viewing previous versions
-</guides/versions>` for more.
+public health officials, and community scientists. In many cases old snapshots of
+these analyses are able to be easily accessed, see :doc:`viewing previous analyses
+</guides/snapshots>` for more.
 
 .. rubric:: Open-source software
 
