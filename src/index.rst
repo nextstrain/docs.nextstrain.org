@@ -82,7 +82,6 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Auspice <https://docs.nextstrain.org/projects/auspice/>
     Nextstrain CLI <https://docs.nextstrain.org/projects/cli/>
     Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-cli/index.html>
-    Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextalign-cli.html>
     nextstrain.org <https://docs.nextstrain.org/projects/nextstrain-dot-org/>
 
 .. toctree::
