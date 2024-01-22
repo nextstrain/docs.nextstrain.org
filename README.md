@@ -46,7 +46,7 @@ Leave the environment with:
     conda deactivate
 
 > See below for how to build the docs for each subproject
-    
+
 ## Building the docs with Docker
 
 Alternatively, you can perform the same steps inside a container.
@@ -63,7 +63,7 @@ The HTML files appear in `build/html/` as usual, and can be viewed in a browser.
 docs.nextstrain.org (the live version of the docs) is built and configured via [the Read The Docs dashboard for this project](https://readthedocs.org/projects/nextstrain/).
 It uses [our readthedocs.yml](https://github.com/nextstrain/docs.nextstrain.org/blob/master/readthedocs.yml) to get the right dependencies and configuration parameters to build the docs on the Read the Docs server; [more about Read The Docs configuration](https://docs.readthedocs.io/en/stable/config-file/v2.html).
 
-You can adjust settings for the live version of the docs on [the Read The Docs dashboard for this project](https://readthedocs.org/dashboard/nextstrain/edit/). 
+You can adjust settings for the live version of the docs on [the Read The Docs dashboard for this project](https://readthedocs.org/dashboard/nextstrain/edit/).
 This includes:
 
 #### Configuring redirects
@@ -148,7 +148,7 @@ We currently maintain the following subprojects for this project:
 - [Augur](https://docs.nextstrain.org/projects/augur/en/stable/index.html), sourced from https://github.com/nextstrain/augur/tree/master/docs
 - [Auspice](https://docs.nextstrain.org/projects/auspice/en/stable/), sourced from https://github.com/nextstrain/auspice/tree/master/docs
 - [Nextstrain CLI](https://docs.nextstrain.org/projects/cli/en/stable/), sourced from https://github.com/nextstrain/cli/tree/master/doc
-- [Nextclade (includes Nextclade Web, Nextclade CLI, Nextalign CLI)](https://docs.nextstrain.org/projects/nextclade/en/stable/index.html), sourced from https://github.com/nextstrain/nextclade/tree/master/docs
+- [Nextclade (includes Nextclade Web and Nextclade CLI)](https://docs.nextstrain.org/projects/nextclade/en/stable/index.html), sourced from https://github.com/nextstrain/nextclade/tree/master/docs
 - [ncov (SARS-CoV-2 Workflow)](https://docs.nextstrain.org/projects/ncov/en/latest/index.html), sourced from https://github.com/nextstrain/ncov/tree/master/docs
 
 
@@ -158,10 +158,10 @@ To link to a file in a subproject (or any other Read The Docs project), use [int
  ======================================
  Welcome to Nextstrain's documentation!
  ======================================
- 
+
  Projects
  ========
- 
+
 +* :doc:`augur:index`
 ```
 You also need to add the project you are linking to to the [intersphinx configuration](https://docs.readthedocs.io/en/stable/guides/intersphinx.html#using-intersphinx) of your build.
@@ -181,7 +181,7 @@ For full details, see the respective how-to-build-docs sections:
 
 - [Augur](https://github.com/nextstrain/augur/blob/master/docs/contribute/DEV_DOCS.md#building-documentation)
 - [Auspice](https://github.com/nextstrain/auspice/blob/master/DEV_DOCS.md#contributing-to-documentation)
-- [Nextclade (includes Nextclade Web, Nextclade CLI, Nextalign CLI)](https://github.com/nextstrain/nextclade/tree/master/docs#building-the-docs-locally)
+- [Nextclade (includes Nextclade Web and Nextclade CLI)](https://github.com/nextstrain/nextclade/tree/master/docs#building-the-docs-locally)
 - [ncov (SARS-CoV-2 Workflow)](https://github.com/nextstrain/ncov/tree/master/docs#building-the-docs)
 
 
@@ -244,7 +244,7 @@ If you come across a useful feature to solve a common problem in the docs implem
 Adding the following line to the table of contents statement in the index / root page of this project, for example, will remove the table of contents section from that document and only render the table of contents in the navigation bar on the left like this:
 
 ```diff
- .. toctree:: 
+ .. toctree::
     :maxdepth: 2
     :titlesonly:
 +   :hidden:
@@ -271,4 +271,3 @@ The types of documents are:
 - [How-to guides](https://documentation.divio.com/how-to-guides/) - problem- / goal- oriented
 - [Reference guides](https://documentation.divio.com/reference/) - information-oriented
 - [Explanation](https://documentation.divio.com/explanation/) (aka discussions) - understanding oriented
-

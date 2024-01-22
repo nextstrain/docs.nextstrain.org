@@ -57,7 +57,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Exploring SARS-CoV-2 evolution <https://docs.nextstrain.org/projects/ncov/page/index.html>
     tutorials/creating-a-bacterial-pathogen-workflow
     tutorials/narratives-how-to-write
-    Analyzing genomes with Nextclade <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-web.html>
+    Analyzing genomes with Nextclade <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-web/index.html>
 
 .. toctree::
     :maxdepth: 1
@@ -81,8 +81,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Augur <https://docs.nextstrain.org/projects/augur/>
     Auspice <https://docs.nextstrain.org/projects/auspice/>
     Nextstrain CLI <https://docs.nextstrain.org/projects/cli/>
-    Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-cli.html>
-    Nextalign CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextalign-cli.html>
+    Nextclade CLI <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-cli/index.html>
     nextstrain.org <https://docs.nextstrain.org/projects/nextstrain-dot-org/>
 
 .. toctree::

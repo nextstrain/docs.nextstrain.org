@@ -236,11 +236,10 @@ together all of the above to provide a consistent way to run pathogen workflows,
 access Nextstrain tools like Augur and Auspice across computing environments
 such as Docker, Conda, and AWS Batch, and publish datasets to nextstrain.org.
 
-:doc:`Nextclade <nextclade:index>` is a web application and two command-line
-programs (``nextclade`` and ``nextalign``) for performing viral genome
-alignment, mutation calling, clade assignment, quality checks, and phylogenetic
-placement.  Nextclade can be used indepedently of other Nextstrain tools as
-well as integrated into workflows.
+:doc:`Nextclade <nextclade:index>` is a web application and a command-line
+tool for performing viral genome alignment, mutation calling, clade assignment,
+quality checks, and phylogenetic placement. Nextclade can be used independently
+of other Nextstrain tools as well as integrated into workflows.
 
 With this overview, you'll be better prepared to :doc:`install Nextstrain
 </install>` and :doc:`run a workflow </tutorials/running-a-workflow>` or :doc:`contribute

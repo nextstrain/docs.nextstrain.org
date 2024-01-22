@@ -10,7 +10,7 @@
 
       conda install --override-channels --strict-channel-priority \
             -c conda-forge -c bioconda --yes \
-            augur auspice nextalign nextclade \
+            augur auspice nextclade \
             snakemake git epiweeks pangolin pangolearn \
             ncbi-datasets-cli
 
