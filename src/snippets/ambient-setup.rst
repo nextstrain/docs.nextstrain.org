@@ -12,7 +12,7 @@
             -c conda-forge -c bioconda --yes \
             augur auspice nextclade \
             snakemake git epiweeks pangolin pangolearn \
-            ncbi-datasets-cli
+            ncbi-datasets-cli csvtk seqkit tsv-utils
 
 3. Set the runtime:
 
