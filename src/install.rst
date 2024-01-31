@@ -184,6 +184,29 @@ Set up a Nextstrain runtime
             .. include:: snippets/nextstrain-setup-conda.rst
 
 
+   .. group-tab:: Singularity (Apptainer)
+
+      Singularity is a container system freely-available for Linux platforms. It is commonly available on institutional HPC systems as an alternative to Docker, which is often not supported on such systems.
+
+      The Singularity project forked into two separate projects in late 2021: `SingularityCE <https://sylabs.io/singularity/>`__ and `Apptainer <https://apptainer.org>`__.  Either fork should work with Nextstrain CLI, as both projects still provide very similar interfaces and functionality via the ``singularity`` command.
+
+      .. note::
+
+         These instructions are for institutional HPC systems that have Singularity installed and configured. You may need to ``module load`` SingularityCE or Apptainer. If you don't have Singularity available, consider using one of the other runtimes or continue by installing `SingularityCE <https://docs.sylabs.io/guides/3.0/user-guide/installation.html>`__/`Apptainer <https://apptainer.org/docs/admin/main/installation.html>`__.
+
+      1. Check that Singularity is available in your environment.
+
+         .. code-block:: bash
+
+            singularity --version
+
+      2. Set up the runtime:
+
+         .. code-block:: none
+
+            nextstrain setup --set-default singularity
+
+
    .. group-tab:: Ambient (advanced)
 
       .. We use the phrase "custom Conda environment" to refer to a Conda environment managed by the user for use with the ambient runtime.
@@ -265,6 +288,33 @@ Try running Augur and Auspice
 
 
    .. group-tab:: Conda
+
+      1. Enter an interactive Nextstrain shell in the current directory (``.``).
+
+         .. code-block:: bash
+
+            nextstrain shell .
+
+      2. Run Augur.
+
+         .. code-block:: bash
+
+            augur --help
+
+      3. Run Auspice.
+
+         .. code-block:: bash
+
+            auspice --help
+
+      4. Exit the Nextstrain shell.
+
+         .. code-block:: bash
+
+            exit
+
+
+   .. group-tab:: Singularity (Apptainer)
 
       1. Enter an interactive Nextstrain shell in the current directory (``.``).
 
