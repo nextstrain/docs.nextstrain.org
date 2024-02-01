@@ -47,12 +47,6 @@ Install Nextstrain CLI
 
       You can launch a Terminal by clicking the Launchpad icon in the Dock, typing ``terminal`` in the search field, and clicking Terminal.
 
-      .. note::
-
-         On newer Macs with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), `Rosetta 2 <https://support.apple.com/en-us/HT211861>`__ is required for both Nextstrain CLI itself and our runtimes.
-         Most of the time, Rosetta 2 will already be enabled.
-         If not, the installer will ask you to first enable Rosetta 2 and then retry the installation.
-
 
    .. group-tab:: Windows (WSL)
 
@@ -165,6 +159,12 @@ Set up a Nextstrain runtime
          .. group-tab:: macOS
 
             .. include:: snippets/nextstrain-setup-conda.rst
+
+            .. note::
+
+               On newer Macs with an `Apple silicon chip <https://support.apple.com/en-us/HT211814>`_ (e.g. M1), `Rosetta 2 <https://support.apple.com/en-us/HT211861>`__ is required for the Conda runtime.
+               Most of the time, Rosetta 2 will already be enabled.
+               If not, the installer will ask you to first enable Rosetta 2 and then retry the installation.
 
 
          .. group-tab:: Windows (WSL)
