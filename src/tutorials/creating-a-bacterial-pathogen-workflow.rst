@@ -17,7 +17,7 @@ Prerequisites
 Setup
 =====
 
-1. Download the example :term:`workflow repository` and enter the new directory.
+1. Download the example :term:`pathogen repository` and enter the new directory.
 
    .. code-block:: bash
 

@@ -21,7 +21,7 @@ Prerequisites
 Setup
 =====
 
-1. Change directory to the Zika :term:`workflow repository` downloaded in the previous tutorial.
+1. Change directory to the Zika :term:`pathogen repository` downloaded in the previous tutorial.
 
    .. code-block:: bash
 

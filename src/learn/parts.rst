@@ -165,9 +165,18 @@ colloquially because they use a generic data format called JSON.
         metadata -> filter;
     }
 
-Builds run several commands and are often automated by workflow managers such as `Snakemake <https://snakemake.readthedocs.io>`__, `Nextflow <https://nextflow.io>`__ and `WDL <https://openwdl.org>`__. A :term:`workflow` bundles one or more related :term:`builds<build>` which each produce a :term:`dataset` for visualization with :term:`Auspice`.
+Builds run several commands and are often automated by workflow managers such as
+`Snakemake <https://snakemake.readthedocs.io>`__, `Nextflow <https://nextflow.io>`__
+and `WDL <https://openwdl.org>`__. A :term:`workflow` can bundle one or more related
+:term:`builds<build>` which each produce a :term:`dataset` for visualization with :term:`Auspice`.
 
-As an example, our core workflows are organized as `Git repositories <https://git-scm.com>`__ hosted on `GitHub <https://github.com/nextstrain>`__. Each contains a :doc:`Snakemake workflow </guides/bioinformatics/augur_snakemake>` using Augur, configuration, and data.
+A workflow can also produce outputs that are not limited to Auspice datasets. For example,
+ingest workflows produce curated metadata and sequences files and Nextclade workflows
+produce :term:`Nextclade datasets<Nextclade dataset>`.
+
+Our :term:`pathogen repositories<pathogen repository>` are organized as `Git repositories <https://git-scm.com>`__
+hosted on `GitHub <https://github.com/nextstrain>`__. Each repository can contain
+one or more workflows.
 
 .. graphviz::
     :align: center
@@ -176,7 +185,7 @@ As an example, our core workflows are organized as `Git repositories <https://gi
         graph [
             fontname="Lato, 'Helvetica Neue', sans-serif",
             fontsize=12,
-        ]
+        ];
         node [
             shape=box,
             style="rounded, filled",
@@ -184,36 +193,88 @@ As an example, our core workflows are organized as `Git repositories <https://gi
             fontsize=12,
             height=0.1,
             colorscheme=paired10,
+            pad=0.1,
+            margin=0.1,
         ];
-        rankdir=LR
+        rankdir=LR;
 
-        subgraph cluster_0 {
-            label = "Zika workflow";
-            build0 [width=1, label="Zika build"]
-            dataset0 [width=1, label="dataset"]
+        subgraph cluster_ncov {
+            label = "SARS-CoV-2 repository";
+            subgraph cluster_ncov_phylo {
+                label = "Phylogenetic workflow";
+                build0 [width=1, label="Global build"];
+                build1 [width=1, label="Africa build"];
+                build2 [width=1, label="Europe build"];
+                output0 [width=1, label="dataset"];
+                output1 [width=1, label="dataset"];
+                output2 [width=1, label="dataset"];
+                ellipses1 [width=1, label="...", penwidth=0, fillcolor="white"];
+                ellipses2 [width=1, label="...", penwidth=0, fillcolor="white"];
+            }
         }
 
-        subgraph cluster_1 {
-            label = "SARS-CoV-2 workflow";
-            build1 [width=1, label="Global build"]
-            build2 [width=1, label="Africa build"]
-            build3 [width=1, label="Europe build"]
-            dataset1 [width=1, label="dataset"]
-            dataset2 [width=1, label="dataset"]
-            dataset3 [width=1, label="dataset"]
-            ellipses1 [width=1, label="...", penwidth=0, fillcolor="white"]
-            ellipses2 [width=1, label="...", penwidth=0, fillcolor="white"]
+        subgraph cluster_zika {
+            label = "Zika repository";
+            nojustify = true;
+            subgraph cluster_zika_ingest {
+                label = "Ingest workflow";
+                build3 [width=1, label="ingest build"];
+                output3 [width=1, label="output files"];
+            }
+            subgraph cluster_zika_phylo {
+                label = "Phylogenetic workflow";
+                build4 [width=1, label="phylogenetic build"];
+                output4 [width=1, label="dataset"];
+            }
         }
 
-        build0 -> dataset0
-        build1 -> dataset1
-        build2 -> dataset2
-        build3 -> dataset3
+        subgraph cluster_mpox {
+            label = "Mpox repository";
+            subgraph cluster_mpox_ingest {
+                label = "Ingest workflow";
+                build5 [width=1, label="ingest build"];
+                output5 [width=1, label="output files"];
+            }
+            subgraph cluster_mpox_phylo {
+                label = "Phylogenetic workflow";
+                build6 [width=1, label="mpxv build"];
+                build7 [width=1, label="hmpxv1 build"];
+                build8 [width=1, label="hmpxv1_big build"];
+                output6 [width=1, label="dataset"];
+                output7 [width=1, label="dataset"];
+                output8 [width=1, label="dataset"];
+
+            }
+            subgraph cluster_mpox_nextclade {
+                label = "Nextclade workflow";
+                build9 [width=1, label="all-clades build"];
+                build10 [width=1, label="clade-iib build"];
+                build11 [width=1, label="lineage-b.1 build"];
+                output9 [width=1, label="nextclade dataset"];
+                output10 [width=1, label="nextclade dataset"];
+                output11 [width=1, label="nextclade dataset"];
+
+            }
+        }
+
+        build0 -> output0;
+        build1 -> output1;
+        build2 -> output2;
+        build3 -> output3;
+        build4 -> output4;
+        build5 -> output5;
+        build6 -> output6;
+        build7 -> output7;
+        build8 -> output8;
+        build9 -> output9;
+        build10 -> output10;
+        build11 -> output11;
 
         {
-            edge[style=invis]
-            dataset0 -> build1      // arrange clusters on same row
-            ellipses1 -> ellipses2
+            edge[style=invis];
+            output0 -> build3; // arrange clusters on same row
+            output3 -> build5; // arrange clusters on same row
+            ellipses1 -> ellipses2;
         }
     }
 

@@ -17,10 +17,10 @@ Prerequisites
 
 1. :doc:`Install Nextstrain </install>`. These instructions will install all of the software you need to complete this tutorial and others.
 
-Download the example Zika workflow repository
+Download the example Zika pathogen repository
 =============================================
 
-:term:`Pathogen workflows<workflow>` are stored in :term:`workflow repositories<workflow repository>` (version-controlled folders) to track changes over time. Download the `example Zika workflow repository <https://github.com/nextstrain/zika-tutorial>`_.
+:term:`Pathogen workflows<workflow>` are stored in :term:`pathogen repositories<pathogen repository>` (version-controlled folders) to track changes over time. Download the `example Zika pathogen repository <https://github.com/nextstrain/zika-tutorial>`_.
 
 .. code-block::
 

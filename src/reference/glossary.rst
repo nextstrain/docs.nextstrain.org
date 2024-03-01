@@ -12,10 +12,16 @@ Glossary
 
       A web application used for phylogenetic visualization and analysis. :doc:`Documentation<auspice:index>`
 
-   workflow
-      also *pathogen workflow*, *pathogen analysis*, *Nextstrain workflow*
+   pathogen repository
 
-      A reproducible process comprised of one or more :term:`builds<build>` producing :term:`datasets<dataset>`, which can be visualized by :term:`Auspice`. Implementation varies per workflow, but generally they are run by workflow managers such as Snakemake.
+      A version-controlled folder containing all files necessary to run a pathogen's :term:`workflows<workflow>`.
+
+   workflow
+      also *Nextstrain workflow*
+
+      A reproducible process comprised of one or more :term:`builds<build>` producing outputs.
+      The outputs produced are often :term:`datasets<dataset>`, which can be visualized by :term:`Auspice`.
+      Implementation varies per workflow, but generally they are run by workflow managers such as Snakemake.
 
       Our :term:`core workflows<core workflow>` can be divided into two types:
 
@@ -30,15 +36,11 @@ Glossary
 
       A :term:`workflow` maintained by the Nextstrain team.
 
-   workflow repository
-      also *pathogen workflow repository*
-
-      A version-controlled folder containing all files necessary to run a :term:`workflow`.
-
    build
       also *Nextstrain build*
 
-      *(noun)* A sequence of commands, parameters and input files which work together to reproducibly execute bioinformatic analyses and generate a :term:`dataset` for visualization with :term:`Auspice`.
+      *(noun)* A sequence of commands, parameters and input files which work together to reproducibly generate outputs.
+      Phylogenetic builds execute bioinformatic analyses and generate a :term:`dataset` for visualization with :term:`Auspice`.
 
    build (verb)
 
@@ -59,6 +61,10 @@ Glossary
       - ``flu_seasonal_h3n2_ha_2y_tip-frequencies.json``
 
       Some :term:`workflows<workflow>` produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce many datasets.
+
+   Nextclade dataset
+
+      A collection of input data files required for :doc:`Nextclade<nextclade:index>` to run an analysis. :doc:`Documentation<nextclade:user/datasets>`
 
    narrative
 
