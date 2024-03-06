@@ -22,6 +22,7 @@ docs = {
     f'{augur_url}faq/fasta_input.md': 'guides/bioinformatics/fasta_input.md',
     f'{augur_url}faq/seq_traits.md': 'guides/bioinformatics/seq_traits.md',
     f'{augur_url}examples/examples.rst': 'guides/bioinformatics/examples.rst',
+    f'{augur_url}usage/cli/snippets/filtering-and-subsampling.rst': 'snippets/filtering-and-subsampling.rst',
 }
 
 if __name__ == '__main__':
