@@ -31,7 +31,7 @@ Workflow files
 
 Build files
     Files which correspond to a specific single :term:`build` visible on nextstrain.org, e.g. <`nextstrain.org/ncov/open/global/6m <https://nextstrain.org/ncov/open/global/6m>`__>.
-    These often include the subsampled metadata table, sequences FASTA, and Newick tree as well as the final :term:`dataset` JSONs.
+    These often include the subsampled metadata table, sequences FASTA, and Newick tree as well as the final :term:`phylogenetic dataset` JSONs.
 
     We often call these "outputs" colloquially because they're produced by running a :term:`phylogenetic workflow`, but some of the files are actually the specific, subsampled inputs that went into the specific build.
 

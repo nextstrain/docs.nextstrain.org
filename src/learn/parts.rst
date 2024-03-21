@@ -79,7 +79,7 @@ example, you visit `nextstrain.org/mumps/na
 
     Auspice displaying Mumps genomes from North America.
 
-:term:`Datasets<dataset>` are produced by Augur and
+:term:`Datasets<phylogenetic dataset>` are produced by Augur and
 visualized by Auspice.  These files are often referred to as :term:`JSONs`
 colloquially because they use a generic data format called JSON.
 
@@ -168,7 +168,7 @@ colloquially because they use a generic data format called JSON.
 Builds run several commands and are often automated by workflow managers such as
 `Snakemake <https://snakemake.readthedocs.io>`__, `Nextflow <https://nextflow.io>`__
 and `WDL <https://openwdl.org>`__. A :term:`workflow` can bundle one or more related
-:term:`builds<build>` which each produce a :term:`dataset` for visualization with :term:`Auspice`.
+:term:`builds<build>` which each produce a :term:`phylogenetic dataset` for visualization with :term:`Auspice`.
 
 A workflow can also produce outputs that are not limited to Auspice datasets. For example,
 ingest workflows produce curated metadata and sequences files and Nextclade workflows

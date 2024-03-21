@@ -2,7 +2,7 @@
 Running a phylogenetic workflow
 ===============================
 
-This tutorial uses the :term:`Nextstrain CLI` to help you get started running :term:`phylogenetic workflows<phylogenetic workflow>` and viewing the :term:`datasets<dataset>` you see on `nextstrain.org <https://nextstrain.org>`_.
+This tutorial uses the :term:`Nextstrain CLI` to help you get started running :term:`phylogenetic workflows<phylogenetic workflow>` and viewing the :term:`datasets<phylogenetic dataset>` you see on `nextstrain.org <https://nextstrain.org>`_.
 It assumes you are comfortable using the command line and installing software on your computer.
 If you need help when following this tutorial, please create a post at `discussion.nextstrain.org <https://discussion.nextstrain.org>`_.
 
@@ -51,7 +51,7 @@ Output files will be in the directories ``zika-tutorial/data/``, ``zika-tutorial
 Visualize results
 =================
 
-View the resulting :term:`dataset` using Nextstrain's visualizations.
+View the resulting :term:`phylogenetic dataset` using Nextstrain's visualizations.
 
 .. code-block::
 

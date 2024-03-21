@@ -63,8 +63,7 @@ Glossary
    build
       also *Nextstrain build*
 
-      *(noun)* A sequence of commands, parameters and input files which work together to reproducibly generate outputs.
-      Phylogenetic builds execute bioinformatic analyses and generate a :term:`dataset` for visualization with :term:`Auspice`.
+      *(noun)* A sequence of commands, parameters and input files which work together to reproducibly generate a :term:`dataset`.
 
    build (verb)
 
@@ -118,7 +117,7 @@ Glossary
 
    narrative
 
-      A method of data-driven storytelling with interactive views of :term:`datasets <dataset>` displayed alongside multiple pages (or slides) of text and images.
+      A method of data-driven storytelling with interactive views of :term:`phylogenetic datasets<phylogenetic dataset>` displayed alongside multiple pages (or slides) of text and images.
       Saved as a Markdown file with extended syntax to support additional displays.
 
       Viewable on nextstrain.org or with :term:`Auspice` via the :doc:`cli:commands/view` or :doc:`auspice view <auspice:introduction/how-to-run>` commands.
@@ -126,7 +125,7 @@ Glossary
       See also :doc:`/guides/communicate/narratives-intro` and :doc:`/tutorials/narratives-how-to-write`.
 
    JSONs
-      Special ``.json`` files produced by :term:`Augur` and visualized by :term:`Auspice`. These files make up a :term:`dataset`.
+      Special ``.json`` files produced by :term:`Augur` and visualized by :term:`Auspice`. These files make up a :term:`phylogenetic dataset`.
       See :doc:`data formats<data-formats>`.
 
    Nextstrain CLI
