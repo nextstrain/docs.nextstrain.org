@@ -1,6 +1,6 @@
-======================================
-Creating a bacterial pathogen workflow
-======================================
+==========================================
+Creating a bacterial phylogenetic workflow
+==========================================
 
 This tutorial explains how to create a :term:`single-build Nextstrain workflow<phylogenetic workflow>` for Tuberculosis sequences. However, much of it will be applicable to any run where you are starting with `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`_ files rather than `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ files. We'll create a Snakefile step-by-step for each step of the analysis.
 
@@ -12,7 +12,7 @@ Prerequisites
 =============
 
 1. :doc:`Install Nextstrain </install>`.
-2. Run through the :doc:`first tutorial<running-a-workflow>`. This will verify your installation.
+2. Run through the :doc:`first tutorial<running-a-phylogenetic-workflow>`. This will verify your installation.
 
 Setup
 =====

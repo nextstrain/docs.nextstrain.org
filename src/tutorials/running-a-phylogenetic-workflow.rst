@@ -1,8 +1,8 @@
-===========================
-Running a pathogen workflow
-===========================
+===============================
+Running a phylogenetic workflow
+===============================
 
-This tutorial uses the :term:`Nextstrain CLI` to help you get started running :term:`pathogen workflows<phylogenetic workflow>` and viewing the :term:`datasets<dataset>` you see on `nextstrain.org <https://nextstrain.org>`_.
+This tutorial uses the :term:`Nextstrain CLI` to help you get started running :term:`phylogenetic workflows<phylogenetic workflow>` and viewing the :term:`datasets<dataset>` you see on `nextstrain.org <https://nextstrain.org>`_.
 It assumes you are comfortable using the command line and installing software on your computer.
 If you need help when following this tutorial, please create a post at `discussion.nextstrain.org <https://discussion.nextstrain.org>`_.
 
@@ -33,7 +33,7 @@ When it's done, you'll have a new directory called ``zika-tutorial/``.
 Run the workflow
 ================
 
-:term:`Pathogen workflows<phylogenetic workflow>` use the :term:`Augur` bioinformatics toolkit to subsample data, align sequences, build a phylogeny, estimate phylogeographic patterns, and save the results in a format suitable for visualization with :term:`Auspice`.
+:term:`Phylogenetic workflows<phylogenetic workflow>` use the :term:`Augur` bioinformatics toolkit to subsample data, align sequences, build a phylogeny, estimate phylogeographic patterns, and save the results in a format suitable for visualization with :term:`Auspice`.
 
 Run the workflow with the :term:`Nextstrain CLI`.
 
@@ -71,6 +71,6 @@ Next steps
 ==========
 
 * :doc:`Learn how to interpret Nextstrain's visualizations </learn/interpret/index>`.
-* :doc:`Learn how to create the workflow in this tutorial </tutorials/creating-a-workflow>`.
+* :doc:`Learn how to create the workflow in this tutorial </tutorials/creating-a-phylogenetic-workflow>`.
 * Learn more about the CLI by running ``nextstrain --help`` and ``nextstrain <command> --help``.
 * Explore the :term:`Nextstrain runtime<runtime>` by running ad-hoc commands inside it using ``nextstrain shell zika-tutorial/``.

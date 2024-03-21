@@ -11,7 +11,7 @@ Share via Nextstrain Groups
     This how-to guide assumes familiarity with the :doc:`Nextstrain Groups
     </learn/groups/index>` feature and the :doc:`Nextstrain dataset files
     </reference/data-formats>` produced by :doc:`running a pathogen workflow
-    </tutorials/running-a-workflow>`.  We recommend reading about those first
+    </tutorials/running-a-phylogenetic-workflow>`.  We recommend reading about those first
     if you're not familiar with them.
 
 Log in with the Nextstrain CLI

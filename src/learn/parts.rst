@@ -303,5 +303,5 @@ quality checks, and phylogenetic placement. Nextclade can be used independently
 of other Nextstrain tools as well as integrated into workflows.
 
 With this overview, you'll be better prepared to :doc:`install Nextstrain
-</install>` and :doc:`run a workflow </tutorials/running-a-workflow>` or :doc:`contribute
+</install>` and :doc:`run a workflow </tutorials/running-a-phylogenetic-workflow>` or :doc:`contribute
 to development </guides/contribute/index>`.
