@@ -75,20 +75,46 @@ Glossary
       A modular instruction of a :term:`build` which can be run standalone (e.g. ``augur filter``), often with clear input and output files.
 
    dataset
+
+      A collection of output files produced by a :term:`build`.
+      A Nextstrain :term:`pathogen repository` typically produces multiple types of datasets
+
+      1. :term:`phylogenetic dataset`
+      2. :term:`ingest dataset`
+      3. :term:`Nextclade dataset`
+
+   phylogenetic dataset
       also *Auspice JSONs*
 
-      A collection of :term:`JSONs` produced by a :term:`build`. It is also the shared file prefix of the JSONs. For example ``flu/seasonal/h3n2/ha/2y`` identifies a dataset which corresponds to the files
-      :
+      A :term:`dataset` consisting of :term:`JSONs` produced by a :term:`build` of a :term:`phylogenetic workflow`.
+      It is also the shared file prefix of the JSONs.
+      For example ``flu/seasonal/h3n2/ha/2y`` identifies a dataset which corresponds to the files:
 
       - ``flu_seasonal_h3n2_ha_2y_meta.json``
       - ``flu_seasonal_h3n2_ha_2y_tree.json``
       - ``flu_seasonal_h3n2_ha_2y_tip-frequencies.json``
 
-      Some :term:`phylogenetic workflows<phylogenetic workflow>` produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce many datasets.
+      Some phylogenetic workflows produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce m
+
+      The phylogenetic dataset is often considered the primary dataset in a pathogen repository
+      (e.g. "the Zika dataset" typically means "the phylogenetic dataset from the Zika pathogen repository").
+
+   ingest dataset
+
+      A :term:`dataset` consisting of curated files produced by a :term:`build` of an :term:`ingest workflow`.
+      Typically consists of the files:
+
+      * metadata.tsv
+      * sequences.fasta
+
+      If the ingest workflow includes Nextclade :term:`build steps<build step>`, then the dataset will typically include
+      :doc:`Nextclade output files<nextclade:user/output-files/index>` as well.
 
    Nextclade dataset
 
-      A collection of input data files required for :doc:`Nextclade<nextclade:index>` to run an analysis. :doc:`Documentation<nextclade:user/datasets>`
+      A :term:`dataset` consisting of files required for a :doc:`Nextclade<nextclade:index>` analysis, usually produced
+      by a :term:`build` of a :term:`Nextclade workflow`.
+      See :doc:`documentation<nextclade:user/datasets>` for more details
 
    narrative
 
