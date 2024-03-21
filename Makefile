@@ -26,7 +26,7 @@ help:
 # fnmatch(), where "*" means something other than a normal glob, for example),
 # but our usage is limited enough for this to work as much as necessary.
 livehtml:
-	sphinx-autobuild -b html $(patsubst %,--ignore "*/%",$(file < .gitignore)) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	sphinx-autobuild -b html $(patsubst %,--ignore "**%",$(file < .gitignore)) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .ONESHELL:
 docker-html:
