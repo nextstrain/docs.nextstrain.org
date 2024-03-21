@@ -118,7 +118,7 @@ colloquially because they use a generic data format called JSON.
         Augur -> jsons -> Auspice;
     }
 
-:term:`Builds<build>` are recipes of code and data that produce these :term:`datasets<dataset>`.
+A :term:`build` is a recipe of several commands and data that produce a single :term:`dataset`.
 
 .. graphviz::
     :align: center
@@ -165,14 +165,9 @@ colloquially because they use a generic data format called JSON.
         metadata -> filter;
     }
 
-Builds run several commands and are often automated by workflow managers such as
-`Snakemake <https://snakemake.readthedocs.io>`__, `Nextflow <https://nextflow.io>`__
-and `WDL <https://openwdl.org>`__. A :term:`workflow` can bundle one or more related
-:term:`builds<build>` which each produce a :term:`phylogenetic dataset` for visualization with :term:`Auspice`.
-
-A workflow can also produce outputs that are not limited to Auspice datasets. For example,
-ingest workflows produce curated metadata and sequences files and Nextclade workflows
-produce :term:`Nextclade datasets<Nextclade dataset>`.
+A :term:`workflow` can bundle one or more related :term:`builds<build>` and are often automated by workflow managers
+such as `Snakemake <https://snakemake.readthedocs.io>`__, `Nextflow <https://nextflow.io>`__
+and `WDL <https://openwdl.org>`__.
 
 Our :term:`pathogen repositories<pathogen repository>` are organized as `Git repositories <https://git-scm.com>`__
 hosted on `GitHub <https://github.com/nextstrain>`__. Each repository can contain
@@ -219,7 +214,7 @@ one or more workflows.
             subgraph cluster_zika_ingest {
                 label = "Ingest workflow";
                 build3 [width=1, label="ingest build"];
-                output3 [width=1, label="output files"];
+                output3 [width=1, label="ingest dataset"];
             }
             subgraph cluster_zika_phylo {
                 label = "Phylogenetic workflow";
@@ -233,7 +228,7 @@ one or more workflows.
             subgraph cluster_mpox_ingest {
                 label = "Ingest workflow";
                 build5 [width=1, label="ingest build"];
-                output5 [width=1, label="output files"];
+                output5 [width=1, label="ingest dataset"];
             }
             subgraph cluster_mpox_phylo {
                 label = "Phylogenetic workflow";
@@ -250,9 +245,9 @@ one or more workflows.
                 build9 [width=1, label="all-clades build"];
                 build10 [width=1, label="clade-iib build"];
                 build11 [width=1, label="lineage-b.1 build"];
-                output9 [width=1, label="nextclade dataset"];
-                output10 [width=1, label="nextclade dataset"];
-                output11 [width=1, label="nextclade dataset"];
+                output9 [width=1, label="Nextclade dataset"];
+                output10 [width=1, label="Nextclade dataset"];
+                output11 [width=1, label="Nextclade dataset"];
 
             }
         }
