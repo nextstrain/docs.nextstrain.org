@@ -19,9 +19,14 @@ Glossary
    workflow
       also *Nextstrain workflow*
 
-      A reproducible process comprised of one or more :term:`builds<build>` producing outputs.
-      The outputs produced are often :term:`datasets<dataset>`, which can be visualized by :term:`Auspice`.
+      A reproducible process comprised of one or more :term:`builds<build>` producing :term:`datasets<dataset>`.
       Implementation varies per workflow, but generally they are run by workflow managers such as Snakemake.
+
+      A Nextstrain :term:`pathogen repository` typically consists of these different workflows
+
+      1. :term:`phylogenetic workflow`
+      2. :term:`ingest workflow`
+      3. :term:`Nextclade workflow`
 
       Our :term:`core workflows<core workflow>` can be divided into two types:
 
@@ -31,6 +36,25 @@ Glossary
       .. note::
 
          The individual builds in a multi-build workflow are also "workflows" in the definition of workflow managers like Snakemake.
+
+   phylogenetic workflow
+
+      A :term:`workflow` consisting of :term:`build(s)<build>` that execute bioinformatic analyses with :term:`Augur` to generate
+      :term:`phylogenetic dataset(s)<phylogenetic dataset>` for visualization with :term:`Auspice`.
+
+      The phylogenetic workflow is often considered the primary workflow in a pathogen repository
+      (e.g. "the Zika workflow" typically means "the phylogenetic workflow in the Zika pathogen repository").
+
+   ingest workflow
+
+      A :term:`workflow` consisting of :term:`build(s)<build>` that curate public metadata and sequences to generate
+      :term:`ingest dataset(s)<ingest dataset>` that are typically used as input files for
+      :term:`phylogenetic workflows<phylogenetic workflow>` and :term:`Nextclade workflows<Nextclade workflow>`.
+
+   Nextclade workflow
+
+      A :term:`workflow` consisting of :term:`build(s)<build>` that generate :doc:`reference tree(s)<nextclade:user/input-files/04-reference-tree>` to be packaged with other
+      dataset files to create :term:`Nextclade dataset(s)<Nextclade dataset>`.
 
    core workflow
 
