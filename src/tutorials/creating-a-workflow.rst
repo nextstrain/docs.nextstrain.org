@@ -2,7 +2,7 @@
 Creating a pathogen workflow
 ============================
 
-This tutorial dissects the :term:`single-build workflow<workflow>` used in the previous tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
+This tutorial dissects the :term:`single-build workflow<phylogenetic workflow>` used in the previous tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
 
 .. note::
 

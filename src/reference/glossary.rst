@@ -84,7 +84,7 @@ Glossary
       - ``flu_seasonal_h3n2_ha_2y_tree.json``
       - ``flu_seasonal_h3n2_ha_2y_tip-frequencies.json``
 
-      Some :term:`workflows<workflow>` produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce many datasets.
+      Some :term:`phylogenetic workflows<phylogenetic workflow>` produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce many datasets.
 
    Nextclade dataset
 

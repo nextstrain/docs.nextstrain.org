@@ -2,7 +2,7 @@
 Creating a bacterial pathogen workflow
 ======================================
 
-This tutorial explains how to create a :term:`single-build Nextstrain workflow<workflow>` for Tuberculosis sequences. However, much of it will be applicable to any run where you are starting with `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`_ files rather than `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ files. We'll create a Snakefile step-by-step for each step of the analysis.
+This tutorial explains how to create a :term:`single-build Nextstrain workflow<phylogenetic workflow>` for Tuberculosis sequences. However, much of it will be applicable to any run where you are starting with `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`_ files rather than `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ files. We'll create a Snakefile step-by-step for each step of the analysis.
 
 .. contents:: Table of Contents
    :local:
