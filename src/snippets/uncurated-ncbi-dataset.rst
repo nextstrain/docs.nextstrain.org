@@ -1,8 +1,34 @@
+1. Enter an interactive Nextstrain shell to be able to run the NCBI Datasets CLI commands without installing them separately.
+
 .. code-block::
 
     $ nextstrain shell .
-    $ datasets download virus genome taxon <taxon-id> --filename ingest/data/ncbi_dataset.zip
-    $ dataformat tsv virus-genome --package ingest/data/ncbi_dataset.zip > ingest/data/raw_metadata.tsv
+
+2. Create the ``ingest/data`` directory if it doesn't already exist.
+
+.. code-block::
+
+    $ mkdir -p ingest/data
+
+3. Download the dataset with the pathogen NCBI taxonomy ID.
+
+.. code-block::
+
+    $ datasets download virus genome taxon <taxon-id> \
+        --filename ingest/data/ncbi_dataset.zip
+
+4. Extract and format the metadata as a TSV file for easy inspection
+
+.. code-block::
+
+    $ dataformat tsv virus-genome \
+        --package ingest/data/ncbi_dataset.zip \
+        > ingest/data/raw_metadata.tsv
+
+5. Exit the Nextstrain shell to return to your usual shell environment.
+
+.. code-block::
+
     $ exit
 
 The produced ``ingest/data/raw_metadata.tsv`` will contain all of the fields available from NCBI Datasets.
