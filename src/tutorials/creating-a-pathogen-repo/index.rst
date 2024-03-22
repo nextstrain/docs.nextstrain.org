@@ -20,3 +20,5 @@ within the repository.
    :maxdepth: 2
    :titlesonly:
    :caption: Table of contents
+
+   creating-an-ingest-workflow
