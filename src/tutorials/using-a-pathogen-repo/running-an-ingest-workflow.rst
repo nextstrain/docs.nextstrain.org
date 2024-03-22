@@ -74,19 +74,10 @@ Your results may have additional records depending on whether new data has been 
 Configuring the ingest workflow
 ===============================
 
-Now that you've seen the default outputs of the ingest workflow, you can try configuring the ingest workflow to change the outputs. If you want to see the uncurated NCBI Datasets data to decide what changes you would like to make to the workflow, you can run the following:
+Now that you've seen the default outputs of the ingest workflow, you can try configuring the ingest workflow to change the outputs.
+If you want to see the uncurated NCBI Datasets data to decide what changes you would like to make to the workflow, you can run the following:
 
-.. code-block::
-
-    $ nextstrain shell .
-    $ datasets download virus genome taxon <taxon-id> --filename ingest/data/ncbi_dataset.zip
-    $ dataformat tsv virus-genome --package ingest/data/ncbi_dataset.zip > ingest/data/raw_metadata.tsv
-    $ exit
-
-The produced ``ingest/data/raw_metadata.tsv`` will contain all of the fields available from NCBI Datasets.
-Note that the headers in this file use the human readable ``Name`` of the
-`NCBI Datasets' available fields <https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/command-line/dataformat/tsv/dataformat_tsv_virus-genome/#fields>`_,
-while the pipeline uses the config's ``curate.field_map`` dictionary to convert these to computer friendly ``Mnemonic``.
+.. include:: ../../snippets/uncurated-ncbi-dataset.rst
 
 We'll walk through an example custom config to include an additional column in the curated output.
 For example, examining the raw NCBI metadata shows us that ``virus-name`` is a NCBI Datasets field that is not currently downloaded by the default Zika ingest workflow.
@@ -255,4 +246,4 @@ Next steps
       $ mv ingest/results/* phylogenetic/data/
       $ nextstrain build phylogenetic
 
-* :doc:`Learn how to create an ingest workflow </tutorials/creating-an-ingest-workflow>`
+* :doc:`Learn how to create an ingest workflow </tutorials/creating-a-pathogen-repo/creating-an-ingest-workflow>`
