@@ -58,6 +58,8 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     tutorials/creating-a-bacterial-phylogenetic-workflow
     tutorials/narratives-how-to-write
     Analyzing genomes with Nextclade <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-web/index.html>
+    tutorials/using-a-pathogen-repo/index
+    tutorials/creating-a-pathogen-repo/index
 
 .. toctree::
     :maxdepth: 1
