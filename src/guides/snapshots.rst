@@ -26,12 +26,44 @@ the latest available snapshot on July 1st, which was a dataset updated on June
 In general, appending a ``@YYYY-MM-DD`` string to a Nextstrain core dataset URL
 will load the dataset that was the latest available at that particular date.
 
+
 .. note::
 
-  This functionality is newly introduced in early 2024 and is currently only
-  available for core Nextstrain datasets. There is not yet a way to see a list /
-  visualise all the available datasets, but this is in the works.
+  This functionality is currently only available for core Nextstrain datasets.
 
+Viewing all available (core) resources and their snapshots
+==========================================================
+
+`nextstrain.org/pathogens <https://nextstrain.org/pathogens>`__ lists all
+available core datasets grouped by pathogen, as well as exposing all the known
+snapshots for each resource. Next to each resource you'll see the total number
+of available snapshots as well as an indication of how frequently the dataset is
+updated, for instance at the time of writing `nextstrain.org/rsv/A/G <https://nextstrain.org/rsv/A/G>`__
+had 82 snapshots and was being updated weekly:
+
+.. image:: ../images/snapshots-listing-ui-hover.jpg
+  :alt: Resource listing UI indicating previous snapshots
+
+Clicking on the dataset name, e.g. ``rsv|a|G`` in the above image, will always
+load the latest available dataset.
+
+To view the available snapshots, click on the update frequency/number text to
+bring up a view similar to the top-half of the following screenshot:
+
+.. image:: ../images/snapshots-listing-ui-modal.png
+  :alt: Resource listing UI showing previous snapshots
+
+Here each coloured circle represents an available snapshot, and we can hover
+over each to view the date it was uploaded and click to view the dataset itself.
+Perhaps a simpler way to explore the data is to move your mouse over the grey
+bar, as shown in the lower panel of the screenshot. This will indicate which
+dataset was the latest available at the date you're currently hovering over, and
+you can click at any time to load that dataset.
+
+
+
+Additional information
+======================
 
 Tanglegrams to compare changes
 ------------------------------
