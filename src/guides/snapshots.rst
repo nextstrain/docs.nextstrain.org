@@ -113,12 +113,10 @@ We've often changed the URL which (core) datasets appear at, for instance we
 recently changed the URL for `dengue/denv1
 <https://nextstrain.org/dengue/denv1>`__ to `dengue/denv1/genome
 <https://nextstrain.org/dengue/denv1/genome>`__, with the former now redirecting
-to the latter. The result of this is that the earliest available
-``dengue/denv1/genome`` dataset is from 2024-01-03, despite DENV1 datasets being
-available since January 2019.
-
-We have plans to expose these snapshots - see `this issue
-<https://github.com/nextstrain/nextstrain.org/issues/777>`__ for progress here.
+to the latter. We group the datasets behind these various URLs together to
+present a consistent history of dataset updates. You can access these snapshots
+using old or new URLs, the browser will simply be redirected to the current URL
+we are using.
 
 
 Multiple datasets uploaded on the same day
