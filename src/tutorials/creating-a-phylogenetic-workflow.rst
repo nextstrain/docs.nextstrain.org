@@ -1,8 +1,8 @@
-============================
-Creating a pathogen workflow
-============================
+================================
+Creating a phylogenetic workflow
+================================
 
-This tutorial dissects the :term:`single-build workflow<workflow>` used in the previous tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
+This tutorial dissects the :term:`single-build workflow<phylogenetic workflow>` used in the previous tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
 
 .. note::
 
@@ -16,12 +16,12 @@ Prerequisites
 =============
 
 1. :doc:`Install Nextstrain </install>`.
-2. Run through the :doc:`previous tutorial<running-a-workflow>`. This will verify your installation.
+2. Run through the :doc:`previous tutorial<running-a-phylogenetic-workflow>`. This will verify your installation.
 
 Setup
 =====
 
-1. Change directory to the Zika :term:`workflow repository` downloaded in the previous tutorial.
+1. Change directory to the Zika :term:`pathogen repository` downloaded in the previous tutorial.
 
    .. code-block:: bash
 
@@ -278,7 +278,7 @@ To stop Auspice and return to the command line when you are done viewing your da
 Automate the Build with Snakemake
 =================================
 
-While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager. Nextstrain implements these automated builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`previous tutorial <running-a-workflow>`.
+While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager. Nextstrain implements these automated builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`previous tutorial <running-a-phylogenetic-workflow>`.
 
 From the ``zika-tutorial/`` directory, delete the previously generated results.
 
@@ -301,4 +301,4 @@ Next steps
 
 -  Learn more about :doc:`Augur commands <augur:index>`.
 -  Learn more about :doc:`Auspice visualizations <auspice:index>`.
--  Fork the `Zika tutorial pathogen repository on GitHub <https://github.com/nextstrain/zika-tutorial>`_, modify the Snakefile to make your own pathogen workflow, and learn :doc:`how to contribute to nextstrain.org </guides/share/community-builds>`.
+-  Fork the `Zika tutorial pathogen repository on GitHub <https://github.com/nextstrain/zika-tutorial>`_, modify the Snakefile to make your own phylogenetic workflow, and learn :doc:`how to contribute to nextstrain.org </guides/share/community-builds>`.

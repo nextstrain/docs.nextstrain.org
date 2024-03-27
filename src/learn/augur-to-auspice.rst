@@ -24,7 +24,7 @@ Auspice (visualization) components
 
 It's helpful to start in Auspice and then work backwards to Augur.
 In this section, we will walk through various components of Auspice and how
-they relate to the :term:`dataset JSON <dataset>` (sometimes called an Auspice JSON).
+they relate to the :term:`dataset JSON <phylogenetic dataset>` (sometimes called an Auspice JSON).
 
 Phylogeny Tree Panel and Core Controls
 --------------------------------------
@@ -226,7 +226,7 @@ various components:
 .. image:: ../images/auspice-components-diversity-panel.png
   :alt: Annotated screenshot of Auspice's diversity (entropy) panel
 
-The diversity panel is enabled by data in the :term:`dataset JSON <dataset>`.
+The diversity panel is enabled by data in the :term:`dataset JSON <phylogenetic dataset>`.
 The top-level ``meta.genome_annotations`` provides the genome annotations
 displayed and the individual tree nodes provide the mutations
 via ``node.branch_attrs.mutations``, which are used to calculate the entropy
@@ -337,9 +337,9 @@ Exporting data via Augur
 ========================
 
 We now consider how information flows through Augur, specifically
-``augur export v2`` which produces the :term:`dataset (Auspice) JSON <dataset>`
+``augur export v2`` which produces the :term:`dataset (Auspice) JSON <phylogenetic dataset>`
 described above.  This process combines data inputs with parameters configuring
-aspects of the visualisation and produces :term:`dataset files <dataset>` for
+aspects of the visualisation and produces :term:`dataset files <phylogenetic dataset>` for
 Auspice to visualise.
 
 .. graphviz::

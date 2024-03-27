@@ -160,12 +160,24 @@
   to_url: /tutorials/running-a-workflow.html
 
 - type: page
+  from_url: /tutorials/running-a-workflow.html
+  to_url: /tutorials/running-a-phylogenetic-workflow.html
+
+- type: page
   from_url: /tutorials/zika.html
   to_url: /tutorials/creating-a-workflow.html
 
 - type: page
+  from_url: /tutorials/creating-a-workflow.html
+  to_url: /tutorials/creating-a-phylogenetic-workflow.html
+
+- type: page
   from_url: /tutorials/tb_tutorial.html
   to_url: /tutorials/creating-a-bacterial-pathogen-workflow.html
+
+- type: page
+  from_url: /tutorials/creating-a-bacterial-pathogen-workflow.html
+  to_url: /tutorials/creating-a-bacterial-phylogenetic-workflow.html
 
 - type: page
   from_url: /guides/share/nextstrain-groups.html

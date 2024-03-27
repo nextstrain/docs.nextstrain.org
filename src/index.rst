@@ -52,10 +52,10 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     :hidden:
 
     Installing <install>
-    tutorials/running-a-workflow
-    tutorials/creating-a-workflow
+    tutorials/running-a-phylogenetic-workflow
+    tutorials/creating-a-phylogenetic-workflow
     Exploring SARS-CoV-2 evolution <https://docs.nextstrain.org/projects/ncov/page/index.html>
-    tutorials/creating-a-bacterial-pathogen-workflow
+    tutorials/creating-a-bacterial-phylogenetic-workflow
     tutorials/narratives-how-to-write
     Analyzing genomes with Nextclade <https://docs.nextstrain.org/projects/nextclade/page/user/nextclade-web/index.html>
 
