@@ -325,7 +325,7 @@ Try running Augur and Auspice
 Next steps
 ==========
 
-With Nextstrain installed, try :doc:`tutorials/running-a-workflow` next.
+With Nextstrain installed, try :doc:`tutorials/running-a-phylogenetic-workflow` next.
 
 
 Alternate installation methods

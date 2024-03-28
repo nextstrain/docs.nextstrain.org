@@ -55,14 +55,14 @@ We'll introduce the basic functionality via an example Markdown file below, whic
   3-slide narrative to introduce how to write narratives.
   This narrative is intended to be used as part out the
   [Writing a Narrative](https://docs.nextstrain.org/en/latest/tutorials/narratives-how-to-write.html)
-  tutorial. 
+  tutorial.
 
   This opening slide is looking at monkeypox genomes focusing
   on the current outbreak. This view into the data is taken from
   the associated URL: https://nextstrain.org/monkeypox/hmpxv1?d=map&p=full&c=region
   "
   ---
-  
+
   # [Monkeypox](https://nextstrain.org/monkeypox/hmpxv1?d=tree&p=full&c=region)
 
   We've now changed the view from the map to the phylogenetic tree.
@@ -119,7 +119,7 @@ To introduce this functionality,
 
 You can see the titles of the three slides and their associated datasets. Hover over one to see the full appearance of the slide.
 
-To the right of each title is the associate :term:`dataset` and a series of icons representing the main + sidecar :term:`JSONs` associated with the dataset.
+To the right of each title is the associate :term:`phylogenetic dataset` and a series of icons representing the main + sidecar :term:`JSONs` associated with the dataset.
 The icons represent whether the dataset exists on nextstrain.org -- in this case, they are all green (success) or grey (not attempted).
 
 When writing a narrative, it's easy to make syntax errors that result in invalid datasets. To observe this, try changing a dataset URL in the Markdown file and dragging the file back onto the debugger.
@@ -156,7 +156,7 @@ There are plenty of ways to approach the task, but we find the following workflo
         auspice [shape="tab" style="filled" fillcolor="#c7e9b4" label="nextstrain.org/...\nto choose desired \nview of data"]
         md [shape="note" style="filled" fillcolor="#41b6c4" label="Narrative file\nwe are writing\n(Markdown)"]
         debugger [shape="tab" style="filled" fontcolor="white" fillcolor="#225ea8" label="Narratives debugger\nto test narrative\nas we go"]
-        
+
         auspice -> md [label="copy\nURL" fontcolor="#7fcdbb" fillcolor="#7fcdbb" color="#7fcdbb"]
         md -> auspice [label="repeat" fontcolor="#7fcdbb" fillcolor="#7fcdbb" color="#7fcdbb" splines=curved]
         md -> debugger [label="drag &\ndrop" fontcolor="#1d91c0" fillcolor="#1d91c0" color="#1d91c0"]
