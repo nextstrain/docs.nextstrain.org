@@ -17,7 +17,6 @@ Glossary
       A version-controlled folder containing all files necessary to run a pathogen's :term:`workflows<workflow>`.
 
    workflow
-      also *Nextstrain workflow*
 
       A reproducible process comprised of one or more :term:`builds<build>` producing :term:`datasets<dataset>`.
       Implementation varies per workflow, but generally they are run by workflow managers such as Snakemake.
@@ -38,6 +37,7 @@ Glossary
          The individual builds in a multi-build workflow are also "workflows" in the definition of workflow managers like Snakemake.
 
    phylogenetic workflow
+      also *Nextstrain workflow*
 
       A :term:`workflow` consisting of :term:`build(s)<build>` that execute bioinformatic analyses with :term:`Augur` to generate
       :term:`phylogenetic dataset(s)<phylogenetic dataset>` for visualization with :term:`Auspice`.
