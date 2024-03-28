@@ -93,8 +93,7 @@ Glossary
       - ``flu_seasonal_h3n2_ha_2y_tree.json``
       - ``flu_seasonal_h3n2_ha_2y_tip-frequencies.json``
 
-      Some phylogenetic workflows produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce m
-
+      Some phylogenetic workflows produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce many datasets.
       The phylogenetic dataset is often considered the primary dataset in a pathogen repository
       (e.g. "the Zika dataset" typically means "the phylogenetic dataset from the Zika pathogen repository").
 
