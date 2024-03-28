@@ -16,6 +16,10 @@ Glossary
 
       A version-controlled folder containing all files necessary to run a pathogen's :term:`workflows<workflow>`.
 
+   core repository
+
+      A :term:`pathogen repository` maintained by the Nextstrain team.
+
    workflow
 
       A reproducible process comprised of one or more :term:`builds<build>` producing :term:`datasets<dataset>`.
@@ -58,7 +62,8 @@ Glossary
 
    core workflow
 
-      A :term:`workflow` maintained by the Nextstrain team.
+      A default :term:`workflow` maintained by the Nextstrain team that can usually be run without additional
+      configurations or customizations.
 
    build
       also *Nextstrain build*, *phylogenetic build*, *ingest build*, *Nextclade build*
