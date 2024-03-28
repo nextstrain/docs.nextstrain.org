@@ -61,7 +61,7 @@ Glossary
       A :term:`workflow` maintained by the Nextstrain team.
 
    build
-      also *Nextstrain build*
+      also *Nextstrain build*, *phylogenetic build*, *ingest build*, *Nextclade build*
 
       *(noun)* A sequence of commands, parameters and input files which work together to reproducibly generate a :term:`dataset`.
 
