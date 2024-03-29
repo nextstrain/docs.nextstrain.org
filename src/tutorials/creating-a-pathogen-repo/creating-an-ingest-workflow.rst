@@ -63,14 +63,18 @@ that is parsed by NCBI Datasets.
 
 You can decide whether NCBI Datasets include sufficient data for your pathogen by inspecting the uncurated data from NCBI Datasets CLI.
 
-.. include:: ../../snippets/uncurated-ncbi-dataset.rst
+1. Add your pathogen's NCBI taxonomy ID to the ``ncbi_taxon_id`` parameter in the ``ingest/defaults/config.yaml`` config file.
+2. Dump the uncurated metadata by running
 
-If the data looks sufficient for your pathogen, then use the NCBI Datasets source in your workflow by
-updating the ``ingest/defaults/config.yaml`` config file.
+.. code-block::
 
-1. Add your pathogen's NCBI taxonomy ID to the ``ncbi_taxon_id`` parameter
-2. If there are other NCBI Datasets fields you would like to include in the download, you can add them to the ``ncbi_datasets_fields`` parameter
-3. Skip to the :ref:`curation-steps`.
+    nextstrain build ingest dump_ncbi_dataset_report
+
+3. Inspect the generated file ``ingest/data/ncbi_dataset_report_raw.tsv``
+4. If there are other fields in the raw file that you would like to include in the workflow,
+   you can add them to the ``ncbi_datasets_fields`` parameter
+
+If the data looks sufficient for your pathogen, then skip to the :ref:`curation-steps`.
 
 NCBI Entrez
 -----------
