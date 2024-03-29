@@ -75,9 +75,57 @@ Configuring the ingest workflow
 ===============================
 
 Now that you've seen the default outputs of the ingest workflow, you can try configuring the ingest workflow to change the outputs.
-If you want to see the uncurated NCBI Datasets data to decide what changes you would like to make to the workflow, you can run the following:
 
-.. include:: ../../snippets/uncurated-ncbi-dataset.rst
+Inspecting the uncurated metadata
+---------------------------------
+
+If you want to see the uncurated NCBI Datasets data to decide what changes you would like to make to the workflow,
+you can download the uncurated NCBI data.
+
+.. hint::
+
+  These commands are very similar to the commands run by the ingest workflow with some minor differences.
+  The ingest workflow restricts the columns to those defined in ``config["ncbi_datasets_fields"]``
+  and keeps the header names as the more computer friendly "Mnemonic" of the
+  `NCBI Datasets' available fields <https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/command-line/dataformat/tsv/dataformat_tsv_virus-genome/#fields>`_.
+
+1. Enter an interactive Nextstrain shell to be able to run the NCBI Datasets CLI commands without installing them separately.
+
+.. code-block::
+
+    $ nextstrain shell .
+
+2. Create the ``ingest/data`` directory if it doesn't already exist.
+
+.. code-block::
+
+    $ mkdir -p ingest/data
+
+3. Download the dataset with the pathogen NCBI taxonomy ID.
+
+.. code-block::
+
+    $ datasets download virus genome taxon <taxon-id> \
+        --filename ingest/data/ncbi_dataset.zip
+
+4. Extract and format the metadata as a TSV file for easy inspection
+
+.. code-block::
+
+    $ dataformat tsv virus-genome \
+        --package ingest/data/ncbi_dataset.zip \
+        > ingest/data/raw_metadata.tsv
+
+5. Exit the Nextstrain shell to return to your usual shell environment.
+
+.. code-block::
+
+    $ exit
+
+The produced ``ingest/data/raw_metadata.tsv`` will contain all of the fields available from NCBI Datasets.
+
+Updating the workflow config
+----------------------------
 
 We'll walk through an example custom config to include an additional column in the curated output.
 For example, examining the raw NCBI metadata shows us that ``virus-name`` is a NCBI Datasets field that is not currently downloaded by the default Zika ingest workflow.
