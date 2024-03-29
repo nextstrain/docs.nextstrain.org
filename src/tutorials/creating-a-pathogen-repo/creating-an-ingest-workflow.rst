@@ -466,4 +466,5 @@ Next steps
 ==========
 
 * Learn more about :doc:`augur curate commands <augur:usage/cli/curate/index>`
-* Learn how to create a phylogenetic workflow (TKTK)
+* We are planning to write another detailed tutorial for creating a phylogenetic workflow,
+  but until that is ready you can follow the :doc:`simple phylogenetic workflow tutorial <../creating-a-phylogenetic-workflow>`.

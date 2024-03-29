@@ -294,4 +294,7 @@ Next steps
       $ mv ingest/results/* phylogenetic/data/
       $ nextstrain build phylogenetic
 
+  If you've customized the ingest workflow then you may need to modify the phylogenetic workflow to use the new ingested data file.
+  We are planning to write another tutorial to cover other modifications to your phylogenetic workflow.
+
 * :doc:`Learn how to create an ingest workflow </tutorials/creating-a-pathogen-repo/creating-an-ingest-workflow>`
