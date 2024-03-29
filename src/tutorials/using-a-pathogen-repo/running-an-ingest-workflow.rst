@@ -137,64 +137,36 @@ If you wanted this field to be included in your outputs, you could perform the f
 
     $ mkdir ingest/build-configs/tutorial
 
-2. Create a new config file ``ingest/build-configs/tutorial/config.yaml``
+2. Copy the default config to ``ingest/build-configs/tutorial/config.yaml``
 
 .. code-block::
 
-    ncbi_datasets_fields:
-      - accession
-      - sourcedb
-      - sra-accs
-      - isolate-lineage
-      - geo-region
-      - geo-location
-      - isolate-collection-date
-      - release-date
-      - update-date
-      - length
-      - host-name
-      - isolate-lineage-source
-      - biosample-acc
-      - submitter-names
-      - submitter-affiliation
-      - submitter-country
-      - virus-name
+    $ cp ingest/defaults/config.yaml ingest/build-configs/tutorial/config.yaml
+
+3. Modify the config parameters within your new custom config ``ingest/build-configs/tutorial/config.yaml``.
+
+* Add ``virus-name`` to the ``ncbi_datasets_fields`` to make the workflow parse the column from the downloaded NCBI data.
+* Update the ``curate.field_map`` with an entry for the new field to match the underscore naming scheme of column names.
+
+  .. code-block:: yaml
 
     curate:
       field_map:
         virus-name: virus_name
-      metadata_columns:
-        - genbank_accession
-        - genbank_accession_rev
-        - strain
-        - date
-        - region
-        - country
-        - division
-        - location
-        - length
-        - host
-        - release_date
-        - update_date
-        - sra_accessions
-        - authors
-        - institution
-        - virus_name
+
+* Add ``virus_name`` to the ``curate.metadata_columns`` to configure the workflow to include the new column in the final output file.
+* (Optional) Remove any other config parameters that you are not modifying
 
 .. note::
 
-    Config parameters that are dictionaries will merge with the parameters defined in ``ingest/defaults/config.yaml``
-    while all other types will overwrite the default.
-    See `Snakemake documentation <https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html>`_ for more details on how configuration files work.
-
-This config adds ``virus-name`` to the ``ncbi_datasets_fields`` to make the workflow parse the column from the downloaded NCBI data.
-The ``curate.field_map`` entry renames the field from ``virus-name`` to ``virus_name`` to match the underscore naming scheme of column names.
-Finally, adding ``virus_name`` to the ``curate.metadata_columns`` configures the workflow to include the new column in the final output file.
+  Config parameters that are dictionaries will merge with the parameters defined in ``ingest/defaults/config.yaml``
+  while all other types will overwrite the default.
+  See `Snakemake documentation <https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html>`_ for more details on how configuration files work.
 
 All config parameters available are listed in the ``ingest/defaults/config.yaml`` file.
 Any of the config parameters can be overridden in a custom config file.
 
-3. Run the ingest workflow again with the custom config file.
+4. Run the ingest workflow again with the custom config file.
 
 .. code-block::
 
@@ -204,7 +176,7 @@ Any of the config parameters can be overridden in a custom config file.
     Building DAG of jobs…
     [...a lot of output...]
 
-4. Inspect the new ``ingest/results/metadata.tsv`` to see that it now includes the additional ``virus_name`` column.
+5. Inspect the new ``ingest/results/metadata.tsv`` to see that it now includes the additional ``virus_name`` column.
 
 Advanced usage: Customizing the ingest workflow
 ===============================================
