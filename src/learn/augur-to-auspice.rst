@@ -718,9 +718,9 @@ Select (discrete) colorings are available for filtering in Auspice (both
 via the sidebar UI and listed in the footer) if they are defined in the
 auspice-config JSONs filters list:
 
-.. code-block::
+.. code-block:: json
 
-   "filters": ["country", "region", ...]
+   "filters": ["country", "region", "..."]
 
 Additionally, each mutation and strain name will be automatically
 available in Auspice’s sidebar UI for filtering.

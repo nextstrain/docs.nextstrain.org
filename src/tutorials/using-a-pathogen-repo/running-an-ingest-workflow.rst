@@ -27,7 +27,7 @@ Download the Zika repository
 All pathogen ingest workflows are stored in :term:`pathogen repositories<pathogen repository>` (version-controlled folders) to track changes over time.
 Download the `Zika repository <https://github.com/nextstrain/zika>`_.
 
-.. code-block::
+.. code-block:: console
 
     $ git clone https://github.com/nextstrain/zika
     Cloning into 'zika'...
@@ -44,13 +44,13 @@ the downloaded data into a format suitable for :term:`phylogenetic workflows <ph
 
 1. Change directory to the Zika pathogen repository downloaded in the previous step
 
-.. code-block::
+.. code-block:: console
 
     $ cd zika
 
 2. Run the default ingest workflow with the :term:`Nextstrain CLI`.
 
-.. code-block::
+.. code-block:: console
 
     $ nextstrain build ingest
     Using profile profiles/default and workflow specific profile profiles/default for setting default command line arguments.
@@ -91,26 +91,26 @@ you can download the uncurated NCBI data.
 
 1. Enter an interactive Nextstrain shell to be able to run the NCBI Datasets CLI commands without installing them separately.
 
-.. code-block::
+.. code-block:: console
 
     $ nextstrain shell .
 
 2. Create the ``ingest/data`` directory if it doesn't already exist.
 
-.. code-block::
+.. code-block:: console
 
     $ mkdir -p ingest/data
 
 3. Download the dataset with the pathogen NCBI taxonomy ID.
 
-.. code-block::
+.. code-block:: console
 
     $ datasets download virus genome taxon <taxon-id> \
         --filename ingest/data/ncbi_dataset.zip
 
 4. Extract and format the metadata as a TSV file for easy inspection
 
-.. code-block::
+.. code-block:: console
 
     $ dataformat tsv virus-genome \
         --package ingest/data/ncbi_dataset.zip \
@@ -118,7 +118,7 @@ you can download the uncurated NCBI data.
 
 5. Exit the Nextstrain shell to return to your usual shell environment.
 
-.. code-block::
+.. code-block:: console
 
     $ exit
 
@@ -133,13 +133,13 @@ If you wanted this field to be included in your outputs, you could perform the f
 
 1. Create a new build config directory ``ingest/build-configs/tutorial/``
 
-.. code-block::
+.. code-block:: console
 
     $ mkdir ingest/build-configs/tutorial
 
 2. Copy the default config to ``ingest/build-configs/tutorial/config.yaml``
 
-.. code-block::
+.. code-block:: console
 
     $ cp ingest/defaults/config.yaml ingest/build-configs/tutorial/config.yaml
 
@@ -168,7 +168,7 @@ Any of the config parameters can be overridden in a custom config file.
 
 4. Run the ingest workflow again with the custom config file.
 
-.. code-block::
+.. code-block:: console
 
     $ nextstrain build ingest --configfile build-configs/tutorial/config.yaml --forceall
     Using profile profiles/default and workflow specific profile profiles/default for setting default command line arguments.
@@ -190,7 +190,7 @@ We'll walk through an example customization that joins additional metadata to th
 
 1. Create an additional metadata file ``ingest/build-configs/tutorial/additional-metadata.tsv``
 
-.. code-block::
+.. code-block:: none
 
     genbank_accession    column_A    column_B    column_C
     AF013415    AAAAA    BBBBB    CCCCC
@@ -207,7 +207,7 @@ We'll walk through an example customization that joins additional metadata to th
 
 2. Create a new rules file ``ingest/build-configs/tutorial/merge-metadata.smk``
 
-.. code-block::
+.. code-block:: python
 
     rule merge_metadata:
       input:
@@ -234,7 +234,7 @@ default ``?`` value in the new columns.
 
 3. Add the following to the custom config file ``ingest/build-configs/tutorial/config.yaml``
 
-.. code-block::
+.. code-block:: yaml
 
     custom_rules:
       - build-configs/tutorial/merge-metadata.smk
@@ -243,7 +243,7 @@ The ``custom_rules`` config tells the ingest workflow to include your custom rul
 
 4. Run the ingest workflow again with the customized rule.
 
-.. code-block::
+.. code-block:: console
 
     $ nextstrain build ingest merge_metadata --configfile build-configs/tutorial/config.yaml
     Using profile profiles/default and workflow specific profile profiles/default for setting default command line arguments.
@@ -261,7 +261,7 @@ Next steps
 * Run the `zika phylogenetic workflow <https://github.com/nextstrain/zika/tree/main/phylogenetic>`_ with new ingested data as input
   by running
 
-  .. code-block::
+  .. code-block:: console
 
       $ mv ingest/results/* phylogenetic/data/
       $ nextstrain build phylogenetic

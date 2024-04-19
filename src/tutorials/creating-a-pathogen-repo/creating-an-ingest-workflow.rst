@@ -36,9 +36,9 @@ This tutorial will only focus on using the guide to set up the ingest workflow.
 3. Follow the `GitHub guide to download the new repository <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>`_.
 4. Change directory to your new pathogen repository
 
-.. code-block::
+.. code-block:: console
 
-    cd <new-pathogen-repository>
+    $ cd <new-pathogen-repository>
 
 Decide on data source
 =====================
@@ -66,9 +66,9 @@ You can decide whether NCBI Datasets include sufficient data for your pathogen b
 1. Add your pathogen's NCBI taxonomy ID to the ``ncbi_taxon_id`` parameter in the ``ingest/defaults/config.yaml`` config file.
 2. Dump the uncurated metadata by running
 
-.. code-block::
+.. code-block:: console
 
-    nextstrain build ingest dump_ncbi_dataset_report
+    $ nextstrain build ingest dump_ncbi_dataset_report
 
 3. Inspect the generated file ``ingest/data/ncbi_dataset_report_raw.tsv``
 4. If there are other fields in the raw file that you would like to include in the workflow,
@@ -92,7 +92,7 @@ the `NCBI Entrez <https://www.ncbi.nlm.nih.gov/books/NBK25501/>`_ tool to downlo
 4. Switch the `Snakemake ruleorder <https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#handling-ambiguous-rules>`_
    within the ``ingest/rules/fetch_from_ncbi.smk`` file.
 
-.. code-block::
+.. code-block:: python
 
     ruleorder: format_ncbi_datasets_ndjson < parse_genbank_to_ndjson
 
@@ -276,7 +276,7 @@ Geolocation rules
 
 Geolocation rules are defined in a TSV file with the format
 
-.. code-block::
+.. code-block:: none
 
     region/country/division/location<\t>region/country/division/location
 
@@ -289,14 +289,14 @@ If there are rules that can be applied across multiple locations, then a wildcar
 
 Let's say you have the following locations in your NDJSON
 
-.. code-block::
+.. code-block:: none
 
     {“region”: “North America”, “country”: “United States”, “division”: “New York”, “location”: “Buffalo”}
     {“region”: “North America”, “country”: “United States”, “division”: “New York”, “location”: “New York”}
 
 And you provide these geolocation rules
 
-.. code-block::
+.. code-block:: none
 
     North America/United States/New York/New York		North America/United States/New York/New York City
     North America/United States/New York/*	North America/United States/New York State/*
@@ -308,7 +308,7 @@ The third rule has wildcards for both division and location, so it will correct 
 
 Running through the ``ingest/vendored/apply-geolocation-rules`` script should produce the following
 
-.. code-block::
+.. code-block:: none
 
     {“region”: “North America”, “country”: “USA”, “division”: “New York State”, “location”: “Buffalo”}
     {“region”: “North America”, “country”: “USA”, “division”: “New York State”, “location”: “New York City”}
@@ -337,7 +337,7 @@ User annotations
 
 The user annotations are defined in a TSV file with the format
 
-.. code-block::
+.. code-block:: none
 
     id<\t>field<\t>value
 
@@ -347,14 +347,14 @@ The ``value`` is the value you are trying to add to the NDJSON record.
 
 Let's say you have the following NDJSON records
 
-.. code-block::
+.. code-block:: none
 
     {“accession”: “AAAAA”, “country”: “United States”, “division”: “New York”, “location”: “Buffalo”}
     {“accession”: “BBBBB”, “country”: “United States”, “division”: “New York”, “location”: “Buffalo”}
 
 And you provide these user annotations
 
-.. code-block::
+.. code-block:: none
 
     AAAAA	age	10
     BBBBB	age	12
@@ -365,7 +365,7 @@ third annotation overwrites the existing ``location`` field for the record ``BBB
 
 Running through the ``ingest/vendored/merge-user-metadata`` script should produce the following:
 
-.. code-block::
+.. code-block:: none
 
     {“accession”: “AAAAA”, “country”: “United States”, “division”: “New York”, “location”: “Buffalo”, “age”: 10}
     {“accession”: “BBBBB”, “country”: “United States”, “division”: “New York”, “location”: “Niagara Falls”, “age”: 12}
@@ -448,7 +448,7 @@ config file to include the Nextclade rules from ``ingest/rules/nextclade.smk`` a
 1. Add your Nextclade dataset name to the ``nextclade.dataset_name`` parameter
 2. Run the ingest workflow with the additional config file
 
-.. code-block::
+.. code-block:: bash
 
     nextstrain build ingest --configfile defaults/nextclade_config.yaml
 
