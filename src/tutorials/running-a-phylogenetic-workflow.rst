@@ -22,7 +22,7 @@ Download the example Zika pathogen repository
 
 :term:`Pathogen workflows<phylogenetic workflow>` are stored in :term:`pathogen repositories<pathogen repository>` (version-controlled folders) to track changes over time. Download the `example Zika pathogen repository <https://github.com/nextstrain/zika-tutorial>`_.
 
-.. code-block::
+.. code-block:: console
 
     $ git clone https://github.com/nextstrain/zika-tutorial
     Cloning into 'zika-tutorial'...
@@ -37,7 +37,7 @@ Run the workflow
 
 Run the workflow with the :term:`Nextstrain CLI`.
 
-.. code-block::
+.. code-block:: console
 
     $ nextstrain build --cpus 1 zika-tutorial/
     Building DAG of jobs...
@@ -53,7 +53,7 @@ Visualize results
 
 View the resulting :term:`phylogenetic dataset` using Nextstrain's visualizations.
 
-.. code-block::
+.. code-block:: console
 
     $ nextstrain view zika-tutorial/auspice/
     ——————————————————————————————————————————————————————————————————————————————
