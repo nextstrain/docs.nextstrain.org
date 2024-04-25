@@ -9,7 +9,7 @@ sample data.
    :local:
 
 Filtering
----------
+=========
 
 The filter command allows you to select various subsets of your input data for
 different types of analysis. A simple example use of this command would be
@@ -49,7 +49,7 @@ To drop such strains, you can pass the filename to ``--exclude``:
      --output-metadata filtered_metadata.tsv
 
 Subsampling within ``augur filter``
------------------------------------
+===================================
 
 Another common filtering operation is subsetting of data to a achieve a more
 even spatio-temporal distribution or to cut-down data set size to more
@@ -70,7 +70,7 @@ country:
      --output-metadata subsampled_metadata.tsv
 
 Subsampling using multiple ``augur filter`` commands
-----------------------------------------------------
+====================================================
 
 There are some subsampling strategies in which a single call to ``augur filter``
 does not suffice. One such strategy is "tiered subsampling". In this strategy,
@@ -90,7 +90,7 @@ samples.
    3. Combine the samples.
 
 Calling ``augur filter`` multiple times
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 A basic approach is to run the ``augur filter`` commands directly. This works
 well for ad-hoc analyses.
@@ -130,7 +130,7 @@ files. If the same strain appears in both files, ``augur filter`` will only
 write it once in each of the final outputs.
 
 Generalizing subsampling in a workflow
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 The approach above can be cumbersome with more intermediate samples. To
 generalize this process and allow for more flexibility, a workflow management
