@@ -146,7 +146,7 @@ system can be used. The following examples use `Snakemake`_.
 
 2. Add two rules in a `Snakefile`_. If you are building a standard Nextstrain
    workflow, the output files should be used as input to sequence alignment. See
-   :doc:`docs.nextstrain.org:learn/parts` to learn more about the placement of
+   :doc:`../../learn/parts` to learn more about the placement of
    this step within a workflow.
 
    .. code-block:: python
