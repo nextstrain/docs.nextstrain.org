@@ -44,6 +44,17 @@ Update an existing installation
       If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
 
 
+   .. group-tab:: Singularity (Apptainer)
+
+      Update the Singularity runtime:
+
+      .. code-block:: bash
+
+         nextstrain update singularity
+
+      If the output notes that an update of the Nextstrain CLI itself is available, run the suggested command (after optionally reviewing the release notes).
+
+
    .. group-tab:: Ambient (advanced)
 
       Update a custom Conda environment.
@@ -87,6 +98,20 @@ Troubleshoot a broken installation
       .. code-block:: bash
 
          nextstrain setup --force conda
+
+      This should rarely be necessary, but may help if you find yourself with a broken runtime.
+
+
+   .. group-tab:: Singularity (Apptainer)
+
+      Running ``nextstrain check-setup singularity`` will report potential issues.
+      Make sure there are no errors or warnings reported.
+
+      You can forcibly setup the Singularity runtime again by running:
+
+      .. code-block:: bash
+
+         nextstrain setup --force singularity
 
       This should rarely be necessary, but may help if you find yourself with a broken runtime.
 
