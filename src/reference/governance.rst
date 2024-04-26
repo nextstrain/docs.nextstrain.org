@@ -33,6 +33,8 @@ Organizational structure
    Core Team
       Active and substantial contributors to Nextstrain including :term:`Project Leads` who have enough context on the project and its components to contribute to decision-making.
 
+      See the `Nextstrain team page <https://nextstrain.org/team>`__ for a full list of members.
+
    Community Contributors
       Occasional contributors including those from `Bedford Lab <https://bedford.io>`__, `Neher Lab <https://neherlab.org>`__, alumni, or other external groups.
       Influences decision-making but does not directly participate in it.
