@@ -49,7 +49,7 @@ Seek consensus from the Core Team.
    - Allow enough time for team members to review and register feedback before finalizing a decision.
    - Summarize the consensus decision publicly (e.g., on a GitHub PR or issue).
    - Alert the team that a consensus has been reached on major changes (e.g., via Slack or GitHub).
-   - For critical, urgent, or stalled decisions, arrange a synchronous meeting to review available options and attempt to reach a decision during the meeting (e.g., biweekly Nextstrain meeting, biweekly issue triage meeting, or a special topic meeting).
+   - For critical, urgent, or stalled decisions, arrange a synchronous meeting to review available options and attempt to reach a decision during the meeting (e.g., biweekly Nextstrain meeting or a special topic meeting).
    - Minimally, seek consensus with at least one other Core Team member who is familiar with the context.
 
 Hold an informal vote to gauge opinion on difficult or subjective decisions (e.g., naming).
