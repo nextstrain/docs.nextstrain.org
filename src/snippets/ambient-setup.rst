@@ -1,18 +1,19 @@
-1. Activate a Conda environment that you wish to use:
+1. Create a new Conda environment and install all the necessary software:
 
    .. code-block:: bash
 
-      conda activate <your-environment-name>
-
-2. Install all the necessary software:
-
-   .. code-block:: bash
-
-      conda install --override-channels --strict-channel-priority \
+      conda create -n <your-environment-name> \
+            --override-channels --strict-channel-priority \
             -c conda-forge -c bioconda --yes \
             augur auspice nextclade \
             snakemake git epiweeks pangolin pangolearn \
             ncbi-datasets-cli csvtk seqkit tsv-utils
+
+2. Activate the runtime:
+
+   .. code-block:: bash
+
+      conda activate <your-environment-name>
 
 3. Set the runtime:
 
