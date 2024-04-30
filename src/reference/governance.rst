@@ -21,21 +21,23 @@ Organizational structure
 
 .. glossary::
 
-    Project Leads
-        The Project Leads are the two co-creators of Nextstrain:
+   Project Leads
+      The Project Leads are the two co-creators of Nextstrain:
 
-          - `Trevor Bedford <https://bedford.io/team/trevor-bedford/>`__
-          - `Richard Neher <https://neherlab.org/richard-neher.html>`__
+      - `Trevor Bedford <https://bedford.io/team/trevor-bedford/>`__
+      - `Richard Neher <https://neherlab.org/richard-neher.html>`__
 
-        The Project Leads have the authority to make all final decisions for the project.
-        In practice, the Project Leads usually choose to defer that authority to the consensus of the :term:`Core Team`.
+      The Project Leads have the authority to make all final decisions for the project.
+      In practice, the Project Leads usually choose to defer that authority to the consensus of the :term:`Core Team`.
 
-    Core Team
-        Active and substantial contributors to Nextstrain including :term:`Project Leads` who have enough context on the project and its components to contribute to decision-making.
+   Core Team
+      Active and substantial contributors to Nextstrain including :term:`Project Leads` who have enough context on the project and its components to contribute to decision-making.
 
-    Community Contributors
-        Occasional contributors including those from `Bedford Lab <https://bedford.io>`__, `Neher Lab <https://neherlab.org>`__, alumni, or other external groups.
-        Influences decision-making but does not directly participate in it.
+      See the `Nextstrain team page <https://nextstrain.org/team>`__ for a full list of members.
+
+   Community Contributors
+      Occasional contributors including those from `Bedford Lab <https://bedford.io>`__, `Neher Lab <https://neherlab.org>`__, alumni, or other external groups.
+      Influences decision-making but does not directly participate in it.
 
 
 Decision-making
@@ -49,7 +51,7 @@ Seek consensus from the Core Team.
    - Allow enough time for team members to review and register feedback before finalizing a decision.
    - Summarize the consensus decision publicly (e.g., on a GitHub PR or issue).
    - Alert the team that a consensus has been reached on major changes (e.g., via Slack or GitHub).
-   - For critical, urgent, or stalled decisions, arrange a synchronous meeting to review available options and attempt to reach a decision during the meeting (e.g., biweekly Nextstrain meeting, biweekly issue triage meeting, or a special topic meeting).
+   - For critical, urgent, or stalled decisions, arrange a synchronous meeting to review available options and attempt to reach a decision during the meeting (e.g., biweekly Nextstrain meeting or a special topic meeting).
    - Minimally, seek consensus with at least one other Core Team member who is familiar with the context.
 
 Hold an informal vote to gauge opinion on difficult or subjective decisions (e.g., naming).
@@ -74,8 +76,8 @@ The informal nature of this process can result in a lack of feedback from the Co
 The stalling means the people involved in the PR (author and reviewers) have spent time on something that's now in an ambiguous state of "reviewed, needs more work" and is effectively blocked indefinitely.
 Both PR authors and other team members can benefit from a more concrete decision of:
 
-  1. **Yes**, this should be pushed to finish soon while it's fresh in our minds.
-  2. **No**, let's close this and label it as "shelved", reserving the option to re-open later.
+   1. **Yes**, this should be pushed to finish soon while it's fresh in our minds.
+   2. **No**, let's close this and label it as "shelved", reserving the option to re-open later.
 
 We use the decision-making process described above to break a deadlock or move forward on a stalled PR.
 
@@ -84,9 +86,9 @@ Related documentation
 
 This governance document is inspired by the following related documents.
 
-  - `Producing Open Source Software: Social and Political Infrastructure <https://producingoss.com/en/producingoss.html#social-infrastructure>`_
-  - `Matplotlib Main Governance Document <https://matplotlib.org/governance/governance.html>`_
-  - `NumPy project governance and decision-making <https://numpy.org/doc/stable/dev/governance/governance.html>`_
+   - `Producing Open Source Software: Social and Political Infrastructure <https://producingoss.com/en/producingoss.html#social-infrastructure>`_
+   - `Matplotlib Main Governance Document <https://matplotlib.org/governance/governance.html>`_
+   - `NumPy project governance and decision-making <https://numpy.org/doc/stable/dev/governance/governance.html>`_
 
 .. rubric:: Footnotes
 
