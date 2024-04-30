@@ -11,7 +11,7 @@
 
 2. Activate the runtime:
 
-   .. code-black:: bash
+   .. code-block:: bash
 
       conda activate <your-environment-name>
 
