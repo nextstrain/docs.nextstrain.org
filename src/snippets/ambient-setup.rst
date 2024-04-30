@@ -1,8 +1,11 @@
-1. Activate a Conda environment that you wish to use:
+1. Create a new Conda environment and install Python 3.10.13:
 
    .. code-block:: bash
 
+      conda create -n <your-environment-name>
       conda activate <your-environment-name>
+      conda install --override-channels --strict-channel-priority \
+            -c conda-forge --yes python=3.10.13
 
 2. Install all the necessary software:
 

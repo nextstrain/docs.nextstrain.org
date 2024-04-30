@@ -213,7 +213,7 @@ Set up a Nextstrain runtime
 
       The ambient runtime does not require a particular setup method; it will work as long as the programs you wish to use are available.
 
-      The following describes how to accomplish this using a custom Conda environment as an example. You should be familiar with the `basics of Conda <https://conda.io/projects/conda/en/latest/user-guide/getting-started.html>`__ before proceeding.
+      The following describes how to accomplish this by creating a new custom Conda environment, as an example. You should be familiar with the `basics of Conda <https://conda.io/projects/conda/en/latest/user-guide/getting-started.html>`__ before proceeding. If you want to add Nextstrain to an existing Conda environment, please make sure you're using a compatible Python version (we suggest v3.10.13) and activate that environment instead of creating a new one.
 
       .. tabs::
 
