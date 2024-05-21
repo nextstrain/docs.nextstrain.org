@@ -35,6 +35,10 @@ Organizational structure
 
       See the `Nextstrain team page <https://nextstrain.org/team>`__ for a full list of members.
 
+
+   Scientific Advisory Board
+      The scientific advisory board provides guidance on future directions. See the `Nextstrain team page <https://nextstrain.org/team>`__ for a full list of board members.
+
    Community Contributors
       Occasional contributors including those from `Bedford Lab <https://bedford.io>`__, `Neher Lab <https://neherlab.org>`__, alumni, or other external groups.
       Influences decision-making but does not directly participate in it.
