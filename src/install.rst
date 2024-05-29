@@ -45,7 +45,7 @@ Install Nextstrain CLI
 
          curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/mac | bash
 
-      You can launch a Terminal by clicking the Launchpad icon in the Dock, typing ``terminal`` in the search field, and clicking Terminal.
+      You can launch a Terminal by clicking the Launchpad icon in the Dock, typing ``terminal`` in the search field, and clicking :guilabel:`Terminal`.
 
 
    .. group-tab:: Windows (WSL)
@@ -59,7 +59,7 @@ Install Nextstrain CLI
 
          curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
 
-      You can launch a WSL terminal by clicking the Start menu, typing ``wsl``, and pressing enter.
+      You can launch a WSL terminal by clicking the Start menu, typing ``wsl``, and opening :guilabel:`wsl: Run command`.
 
       .. note::
 
@@ -74,8 +74,8 @@ Install Nextstrain CLI
 
          Invoke-RestMethod https://nextstrain.org/cli/installer/windows | Invoke-Expression
 
-      You can launch a PowerShell terminal by clicking the Start menu, typing ``powershell``, and pressing enter.
-      Make sure to choose the item that is **not** marked "(Adminstrator)".
+      You can launch a PowerShell terminal by clicking the Start menu, typing ``powershell``, and opening :guilabel:`Windows PowerShell: App`.
+      **Do not** run as Administrator.
 
 
    .. group-tab:: Ubuntu Linux
@@ -86,7 +86,7 @@ Install Nextstrain CLI
 
          curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
 
-      You can launch a terminal by clicking the "Show applications" icon in the Dock, typing ``terminal`` in the search field, and clicking Terminal.
+      You can launch a terminal by clicking the "Show applications" icon in the Dock, typing ``terminal`` in the search field, and clicking :guilabel:`Terminal`.
 
 
 Make sure to follow the installer's final instructions to setup your shell config.
