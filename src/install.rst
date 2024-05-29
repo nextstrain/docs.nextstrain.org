@@ -61,6 +61,10 @@ Install Nextstrain CLI
 
       You can launch a WSL terminal by clicking the Start menu, typing ``wsl``, and pressing enter.
 
+      .. note::
+
+         If you run into errors such as ``curl: not found``, this may be because Ubuntu is not set as the default Linux distribution. To fix this, run ``wsl --set-default Ubuntu`` in a Command Prompt terminal (not WSL), then open WSL.
+
 
    .. group-tab:: Windows (PowerShell)
 
