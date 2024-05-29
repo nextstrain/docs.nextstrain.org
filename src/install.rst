@@ -45,7 +45,7 @@ Install Nextstrain CLI
 
          curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/mac | bash
 
-      You can launch a Terminal by clicking the Launchpad icon in the Dock, typing ``terminal`` in the search field, and clicking :guilabel:`Terminal`.
+      You can launch a Terminal by searching for ``terminal`` in Spotlight (search icon in the menu bar) and opening :guilabel:`Terminal.app`.
 
 
    .. group-tab:: Windows (WSL)
