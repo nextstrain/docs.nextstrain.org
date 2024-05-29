@@ -59,7 +59,7 @@ Install Nextstrain CLI
 
          curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
 
-      You can launch a WSL terminal by clicking the Start menu, typing ``wsl``, and opening :guilabel:`wsl: Run command`.
+      You can launch a WSL terminal by searching for ``wsl`` in the Start menu and opening :guilabel:`wsl: Run command`.
 
       .. note::
 
@@ -74,7 +74,7 @@ Install Nextstrain CLI
 
          Invoke-RestMethod https://nextstrain.org/cli/installer/windows | Invoke-Expression
 
-      You can launch a PowerShell terminal by clicking the Start menu, typing ``powershell``, and opening :guilabel:`Windows PowerShell: App`.
+      You can launch a PowerShell terminal by searching for ``powershell`` in the Start menu and opening :guilabel:`Windows PowerShell: App`.
       **Do not** run as Administrator.
 
 
