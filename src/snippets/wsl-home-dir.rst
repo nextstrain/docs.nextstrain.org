@@ -1,12 +1,14 @@
 .. admonition:: For Windows (WSL) installs
    :class: hint
 
-   By default, your Windows home directory will not be directly accessible under your WSL home directory. When run in a WSL prompt, the following command fixes that by creating a symlink to it in your WSL home directory. This allows you to use Windows-based text editors and Linux commands all on the same files.
+   You will have two home directories: one for Windows and one for WSL. You can run commands and edit files in either directory, but note the difference in paths when working on Windows vs. WSL.
 
-   .. code-block:: bash
+   1. Windows home directory
 
-         ln -ws "$(wslpath "$(wslvar USERPROFILE)")" ~/windows_home
+      - Windows path: ``C:\Users\<user>\``
+      - WSL path: ``/mnt/c/Users/<user>/``
 
-   Optionally, you can customize the ``windows_home`` folder name or only link to a specific directory under your windows user (e.g. ``ln -ws "$(wslpath "$(wslvar USERPROFILE)")/Documents" ~/windows_documents``).
+   2. WSL home directory
 
-   If the command does not work, you may have to first run ``sudo apt install wslu``.
+      - Windows path: ``\\wsl$\Ubuntu\home\<user>\``
+      - WSL path: ``/home/<user>/`` or ``~``
