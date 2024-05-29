@@ -39,27 +39,26 @@ Install Nextstrain CLI
 
    .. group-tab:: macOS
 
-      In a Terminal, run:
+      1. Open a Terminal. You can do so by searching for ``terminal`` in Spotlight (search icon in the menu bar) and opening :guilabel:`Terminal.app`.
 
-      .. code-block:: bash
+      2. Install Nextstrain CLI:
 
-         curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/mac | bash
+         .. code-block:: bash
 
-      You can launch a Terminal by searching for ``terminal`` in Spotlight (search icon in the menu bar) and opening :guilabel:`Terminal.app`.
+            curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/mac | bash
 
 
    .. group-tab:: Windows (WSL)
 
-      `Install Windows Subsystem for Linux (WSL) 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_.
-      You may have to restart your machine when configuring WSL.
+      1. `Install Windows Subsystem for Linux (WSL) 2 <https://docs.microsoft.com/en-us/windows/wsl/install>`_. You may have to restart your machine when configuring WSL.
 
-      In a WSL terminal, run:
+      2. Open a WSL terminal. You can do this by searching for ``wsl`` in the Start menu and opening :guilabel:`wsl: Run command`.
 
-      .. code-block:: bash
+      3. Install Nextstrain CLI:
 
-         curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
+         .. code-block:: bash
 
-      You can launch a WSL terminal by searching for ``wsl`` in the Start menu and opening :guilabel:`wsl: Run command`.
+            curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
 
       .. note::
 
@@ -68,25 +67,26 @@ Install Nextstrain CLI
 
    .. group-tab:: Windows (PowerShell)
 
-      In a PowerShell terminal, run:
+      1. Open a PowerShell terminal. You do so by searching for ``powershell`` in the Start menu and opening :guilabel:`Windows PowerShell: App`.
 
-      .. code-block:: powershell
+         **Do not** run as Administrator.
 
-         Invoke-RestMethod https://nextstrain.org/cli/installer/windows | Invoke-Expression
+      2. Install Nextstrain CLI:
 
-      You can launch a PowerShell terminal by searching for ``powershell`` in the Start menu and opening :guilabel:`Windows PowerShell: App`.
-      **Do not** run as Administrator.
+         .. code-block:: powershell
+
+            Invoke-RestMethod https://nextstrain.org/cli/installer/windows | Invoke-Expression
 
 
    .. group-tab:: Ubuntu Linux
 
-      In a terminal, run:
+      1. Open a terminal. You can do so by clicking the "Show applications" icon in the Dock, typing ``terminal`` in the search field, and clicking :guilabel:`Terminal`.
 
-      .. code-block:: bash
+      2. Install Nextstrain CLI:
 
-         curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
+         .. code-block:: bash
 
-      You can launch a terminal by clicking the "Show applications" icon in the Dock, typing ``terminal`` in the search field, and clicking :guilabel:`Terminal`.
+            curl -fsSL --proto '=https' https://nextstrain.org/cli/installer/linux | bash
 
 
 Make sure to follow the installer's final instructions to setup your shell config.
