@@ -227,3 +227,10 @@ Run workflows with ``--show-failed-logs``
 
 Run workflows with the ``--show-failed-logs`` which will print the logs for failed jobs to the terminal when the workflow exits.
 This pattern helps users identify error messages without first finding the corresponding log file.
+
+Always use the ``benchmark`` directive
+======================================
+
+Use `the Snakemake benchmark directive <https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#benchmark-rules>`_
+for each rule so that it is easy to track run time and memory usage.
+This makes it easier for us identify bottlenecks in workflows without parsing Snakemake logs.
