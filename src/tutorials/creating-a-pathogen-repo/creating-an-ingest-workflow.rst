@@ -106,22 +106,14 @@ Curation steps
 After the public data is downloaded, the next part of the workflow runs a pipeline of data curation commands and scripts
 to format the metadata and sequences.
 
-The long term goal is to build out the :doc:`augur curate <augur:usage/cli/curate/index>`
-suite of commands to include all of the custom curation steps.
-For now, we've bundled custom scripts into the `ingest repository <https://github.com/nextstrain/ingest>`_ that is then
-vendored in the pathogen-repo-guide using `git-subrepo <https://github.com/ingydotnet/git-subrepo>`_.
-Please do not edit the vendored scripts in ``ingest/vendored`` directly.
-If you run into issues or encounter bugs with the vendored scripts, please `make an issue in the ingest repository <https://github.com/nextstrain/ingest/issues/new/choose>`_.
-Once the bug has been fixed in the original source code, you can follow the `instructions to update the vendored scripts <https://github.com/nextstrain/ingest?tab=readme-ov-file#vendoring>`_.
-
-We highly encourage you to go through the commands and custom scripts used in the ``curate`` rule within ``ingest/rules/curate.smk``
+We highly encourage you to go through the commands used in the ``curate`` rule within ``ingest/rules/curate.smk``
 to gain a deeper understanding of how they work.
 We will give a brief overview of each step and their relevant config parameters defined in ``ingest/defaults/config.yaml`` to help you get started.
 
-Transform field names
----------------------
+Rename fields
+-------------
 
-The ``ingest/vendored/transform-field-names`` script will rename the fields in the NDJSON records.
+The :doc:`augur curate rename <augur:usage/cli/curate/rename>` command will rename the fields in the NDJSON records.
 
 .. note::
 
@@ -146,7 +138,8 @@ Currently, there are no config parameters for this command.
 Transform strain names
 ----------------------
 
-The ``ingest/vendored/transform-strain-names`` script will verify the ``strain`` field values match an expected pattern.
+The :doc:`augur curate transform-strain-name <augur:usage/cli/curate/transform-strain-name>` command will verify the
+``strain`` field values match an expected pattern.
 
 Config parameters
 ~~~~~~~~~~~~~~~~~
@@ -186,15 +179,20 @@ Config parameters
 Transform GenBank location
 --------------------------
 
-The ``ingest/vendored/transform-genbank-location`` script will try to parse locations in NDJSON records according to
-`GenBank country qualifier <https://www.ncbi.nlm.nih.gov/genbank/collab/country/>`_.
+The :doc:`augur curate parse-genbank-location <augur:usage/cli/curate/parse-genbank-location>` command will try to parse locations in NDJSON records according to
+`GenBank geo_loc_name qualifier <https://www.ncbi.nlm.nih.gov/genbank/collab/country/>`_.
 It parses the ``location`` field into three fields:
 
 * ``country``
 * ``division``
 * ``location``
 
-Currently, there are no config parameters for this script.
+Config parameters
+~~~~~~~~~~~~~~~~~
+
+* ``curate.genbank_location_field``
+
+    * The NDJSON field that contains the GenBank ``geo_loc_name``.
 
 Titlecase
 ---------
@@ -223,10 +221,11 @@ Config parameters
 
     * The default list includes articles (e.g., 'and', 'the', 'of', etc) that we've encountered in past ingest pipelines
 
-Transform authors
------------------
+Abbreviate authors
+------------------
 
-The ``ingest/vendored/transform-authors`` script will abbreviate the authors list in the NDJSON records to ``<first author> et al.``.
+The :doc:`augur curate abbreviate-authors <augur:usage/cli/curate/abbreviate-authors>` command will abbreviate the
+authors list in the NDJSON records to ``<first author> et al.``.
 
 Config parameters
 ~~~~~~~~~~~~~~~~~
@@ -254,7 +253,8 @@ Config parameters
 Apply geolocation rules
 -----------------------
 
-The ``ingest/vendored/apply-geolocation-rules`` script will apply geolocation standardizations across all records.
+The :doc:`augur curate apply-geolocation-rules <augur:usage/cli/curate/apply-geolocation-rules>` command will apply
+geolocation standardizations across all records.
 
 Config parameters
 ~~~~~~~~~~~~~~~~~
@@ -306,18 +306,22 @@ The first rule looks for the specific hierarchy to correct the location from “
 The second rule has a wildcard as the location, so it will correct all applicable divisions from “New York” to "New York State".
 The third rule has wildcards for both division and location, so it will correct all applicable countries from “United States” to "USA".
 
-Running through the ``ingest/vendored/apply-geolocation-rules`` script should produce the following
+Running through the :doc:`augur curate apply-geolocation-rules <augur:usage/cli/curate/apply-geolocation-rules>` command
+should produce the following
 
 .. code-block:: none
 
     {“region”: “North America”, “country”: “USA”, “division”: “New York State”, “location”: “Buffalo”}
     {“region”: “North America”, “country”: “USA”, “division”: “New York State”, “location”: “New York City”}
 
-Merge user metadata
--------------------
+Apply record annotations
+------------------------
 
-The ``ingest/vendored/merge-user-metadata`` script merges user curated annotations with the NDJSON records,
-with the user curations overwriting the existing fields.
+The :doc:`augur curate apply-record-annotations <augur:usage/cli/curate/apply-record-annotations>` command merges user
+curated annotations with the NDJSON records, with the user curations overwriting the existing fields.
+
+As the final step in the curation pipeline, this command will output the NDJSON records as separate metadata TSV and
+sequences FASTA files.
 
 Config parameters
 ~~~~~~~~~~~~~~~~~
@@ -331,6 +335,16 @@ Config parameters
 
     * The NDJSON field that has the ID used to match records to annotations
     * The default value uses the GenBank ``accession`` since they are guaranteed to be unique
+
+* ``curate.output_id_field``
+
+    * The NDJSON field to use as the sequence identifiers in the FASTA file
+    * The default value uses the GenBank ``accession`` since they are guaranteed to be unique
+
+* ``curate.output_sequence_field``
+
+    * The NDJSON field that contains the genomic sequence
+    * The default value uses ``sequence`` which is the field name we use for NCBI Datasets.
 
 User annotations
 ~~~~~~~~~~~~~~~~
@@ -363,31 +377,13 @@ And you provide these user annotations
 The first two annotations add the ``age`` field to the records and the
 third annotation overwrites the existing ``location`` field for the record ``BBBBB``.
 
-Running through the ``ingest/vendored/merge-user-metadata`` script should produce the following:
+Running through the :doc:`augur curate apply-record-annotations <augur:usage/cli/curate/apply-record-annotations>` command
+should produce the following:
 
 .. code-block:: none
 
     {“accession”: “AAAAA”, “country”: “United States”, “division”: “New York”, “location”: “Buffalo”, “age”: 10}
     {“accession”: “BBBBB”, “country”: “United States”, “division”: “New York”, “location”: “Niagara Falls”, “age”: 12}
-
-Passthru
---------
-
-The :doc:`augur curate passthru <augur:usage/cli/curate/passthru>` is being used to split the NDJSON records into the
-metadata TSV and sequences FASTA files.
-
-Config parameters
-~~~~~~~~~~~~~~~~~
-
-* ``curate.output_id_field``
-
-    * The NDJSON field to use as the sequence identifiers in the FASTA file
-    * The default value uses the GenBank ``accession`` since they are guaranteed to be unique
-
-* ``curate.output_sequence_field``
-
-    * The NDJSON field that contains the genomic sequence
-    * The default value uses ``sequence`` which is the field name we use for NCBI Datasets.
 
 Subset metadata
 ---------------
@@ -415,7 +411,7 @@ Add custom curation steps
 The curation pipeline is designed to be extremely customizable, with each curation step reading NDJSON records
 from stdin and outputing modified NDJSON records to stdout.
 If you write a custom script that follows the same pattern, you can add your script as another step anywhere in the
-curation pipeline before the final ``augur curate passthru`` command.
+curation pipeline before the final ``augur curate apply-record-annotations`` command.
 
 A typical pathogen-specific step for curation is the standardization of strain names since pathogens usually have different naming conventions
 (e.g. `influenza <https://www.cdc.gov/flu/about/viruses/types.htm#naming-influenza-viruses>`_ vs `measles <https://www.cdc.gov/measles/lab-tools/genetic-analysis.html#guide>`_).
@@ -425,7 +421,7 @@ For example, we've added a step in the curation pipeline to normalize the strain
 to the Zika repository which reads NDJSON records from stdin, edits the ``strain`` field per record, then outputs the modified records to stdout.
 
 2. The script was `added to the curation pipeline <https://github.com/nextstrain/zika/blob/7b3fe1a27f0d013a8d51f6090718b7f617cc31a0/ingest/rules/curate.smk#L93-L94>`_
-before the ``ingest/vendored/merge-user-metadata`` step to still allow user annotations to override the modified strain names if necessary.
+before the ``augur curate apply-record-annotations`` step to still allow user annotations to override the modified strain names if necessary.
 
 Nextclade as part of ingest
 ---------------------------
