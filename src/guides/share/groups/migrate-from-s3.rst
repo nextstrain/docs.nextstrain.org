@@ -213,8 +213,8 @@ to inform them of these changes.  A copy of the email is below.
 
     Thank you for being an early adopter of Nextstrain Groups!  We're excited
     to keep improving the functionality of Groups.  If you have any feedback,
-    please don't hesitate to `email us`_ or post to `discussions.nextstrain.org
-    <https://discussions.nextstrain.org>`__.
+    please don't hesitate to `email us`_ or post to `discussion.nextstrain.org
+    <https://discussion.nextstrain.org>`__.
 
     —the Nextstrain team
 
@@ -248,8 +248,8 @@ migrated.
 
     Thank you for being an early adopter of Nextstrain Groups!  We're excited
     to keep improving the functionality of Groups.  If you have any feedback,
-    please don't hesitate to `email us`_ or post to `discussions.nextstrain.org
-    <https://discussions.nextstrain.org>`__.
+    please don't hesitate to `email us`_ or post to `discussion.nextstrain.org
+    <https://discussion.nextstrain.org>`__.
 
     —the Nextstrain team
 
