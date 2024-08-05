@@ -38,7 +38,7 @@ Viewing all available (core) resources and their snapshots
 available core datasets grouped by pathogen, as well as exposing all the known
 snapshots for each resource. Next to each resource you'll see the total number
 of available snapshots as well as an indication of how frequently the dataset is
-updated, for instance at the time of writing `nextstrain.org/rsv/A/G <https://nextstrain.org/rsv/A/G>`__
+updated, for instance at the time of writing `nextstrain.org/rsv/a/G <https://nextstrain.org/rsv/a/G>`__
 had 82 snapshots and was being updated weekly:
 
 .. image:: ../images/snapshots-listing-ui-hover.jpg
