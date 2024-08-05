@@ -414,7 +414,7 @@ If you write a custom script that follows the same pattern, you can add your scr
 curation pipeline before the final ``augur curate apply-record-annotations`` command.
 
 A typical pathogen-specific step for curation is the standardization of strain names since pathogens usually have different naming conventions
-(e.g. `influenza <https://www.cdc.gov/flu/about/viruses/types.htm#naming-influenza-viruses>`_ vs `measles <https://www.cdc.gov/measles/lab-tools/genetic-analysis.html#guide>`_).
+(e.g. `influenza <https://www.cdc.gov/flu/about/viruses/types.htm>`_ vs `measles <https://www.cdc.gov/measles/php/laboratories/genetic-analysis.html#cdc_generic_section_3-guidelines-for-naming-measles-strains-or-sequences>`_).
 For example, we've added a step in the curation pipeline to normalize the strain names for the `Zika ingest workflow <https://github.com/nextstrain/zika/tree/main/ingest>`_.
 
 1. We added a `custom Python script <https://github.com/nextstrain/zika/blob/a91e575bff38f154390c9eb11a44a89abf95a55b/ingest/bin/fix-zika-strain-names.py>`_
