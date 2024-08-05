@@ -57,4 +57,4 @@ Do not use::
 This is particularly important for unversioned subprojects (e.g. using
 ``latest``) which we might start versioning later.
 
-.. _default version redirect: https://docs.readthedocs.io/en/stable/automatic-redirects.html#redirecting-to-a-page
+.. _default version redirect: https://docs.readthedocs.io/en/stable/user-defined-redirects.html#page-redirects-at-page
