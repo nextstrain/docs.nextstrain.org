@@ -128,7 +128,7 @@ There are two ways to work around this:
 
    This provides easy compatibility with a broader set of bioinformatics packages, but comes at the cost of relatively longer run times for packages that have native ARM64 support.
 
-2. Create a custom Conda environment that installs and runs packages under `Intel emulation <https://conda-forge.org/docs/user/tipsandtricks.html#installing-apple-intel-packages-on-apple-silicon>`__. Run this after setting up an **empty** Conda environment and before installing any packages to it:
+2. Create a custom Conda environment that installs and runs packages under `Intel emulation <https://conda-forge.org/docs/user/tipsandtricks/#installing-apple-intel-packages-on-apple-silicon>`__. Run this after setting up an **empty** Conda environment and before installing any packages to it:
 
    .. code-block:: bash
 
