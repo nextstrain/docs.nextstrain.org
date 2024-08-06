@@ -100,8 +100,13 @@ linkcheck_ignore = [
      r'https://nextstrain.org/ncov/gisaid/21L/global/6m/2024-01-10',
 ]
 linkcheck_anchors_ignore_for_url = [
+     # colorbrewer uses pseudo-anchors, ala Github. Converting the `#`
+     # to `?` loads the same page, but it also appends the query
+     # string as a pseudo-anchor, so the URL ends up looking very ugly
+     # and potentially misleading. Let's just ignore the anchor...
+     r'https://colorbrewer2.org',
      # Github uses anchor-looking links for highlighting lines but
      # handles the actual resolution with Javascript, so skip anchor
      # checks for Github URLs:
-     r'https?://github.com',
+     r'https://github.com',
 ]
