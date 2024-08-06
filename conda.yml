@@ -10,7 +10,7 @@ dependencies:
     - docutils
     - recommonmark
     - requests
-    - sphinx
+    - sphinx>=7.1
     - sphinx-autobuild
     - sphinx-markdown-tables
     - sphinx-argparse

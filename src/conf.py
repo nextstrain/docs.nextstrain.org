@@ -85,3 +85,23 @@ intersphinx_mapping = {
     'nextclade': ('https://docs.nextstrain.org/projects/nextclade/page/', None),
     'ncov': ('https://docs.nextstrain.org/projects/ncov/page/', None)
 }
+
+
+# -- Linkchecking ------------------------------------------------------------
+linkcheck_ignore = [
+     # we have links to localhost for explanatory purposes; obviously
+     # they will never work in the linkchecker
+     r'http://127.0.0.1:\d+',
+     r'http://localhost:\d+',
+     # these URLs block the client the linkchecker uses
+     r'https://www.pnas.org/doi/10.1073/pnas.1507071112',
+     r'https://www.ncbi.nlm.nih.gov/books/NBK25501',
+     # we specifically use this as an example of a link that _won't_ work
+     r'https://nextstrain.org/ncov/gisaid/21L/global/6m/2024-01-10',
+]
+linkcheck_anchors_ignore_for_url = [
+     # Github uses anchor-looking links for highlighting lines but
+     # handles the actual resolution with Javascript, so skip anchor
+     # checks for Github URLs:
+     r'https?://github.com',
+]

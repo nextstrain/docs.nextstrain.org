@@ -26,7 +26,7 @@ Setup
 
    .. note::
 
-      The data in this tutorial is public and is a subset of the data from Lee et al.'s 2015 paper `Population genomics of Mycobacterium tuberculosis in the Inuit <http://www.pnas.org/content/112/44/13609>`_. As location was anonymized in the paper, location data provided here was randomly chosen from the region for illustrative purposes.
+      The data in this tutorial is public and is a subset of the data from Lee et al.'s 2015 paper `Population genomics of Mycobacterium tuberculosis in the Inuit <https://www.pnas.org/doi/10.1073/pnas.1507071112>`_. As location was anonymized in the paper, location data provided here was randomly chosen from the region for illustrative purposes.
 
 Create the Nextstrain Build
 ===========================
@@ -307,7 +307,7 @@ Reconstruct Ancestral Traits
 Identify Specified Clades
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the `original paper <http://www.pnas.org/content/112/44/13609>`_, the authors identified 'sublineages' within the dataset. We can add these to our dataset as 'clades' by defining the sublineages with amino-acid or nucleotide mutations specific to that sublineage, given here in the file ``config/clades.tsv``. Open it up in a text editor to have a look at the format.
+In the `original paper <https://www.pnas.org/doi/10.1073/pnas.1507071112>`_, the authors identified 'sublineages' within the dataset. We can add these to our dataset as 'clades' by defining the sublineages with amino-acid or nucleotide mutations specific to that sublineage, given here in the file ``config/clades.tsv``. Open it up in a text editor to have a look at the format.
 
 The ``clades.tsv`` file must be tab-delimited with four columns: clade, gene, site, and alt. The 'clade' column gives the name of the clade being defined - you can have more than one row per clade - it will only be defined from the branch where all criteria are met. The 'gene' and 'site' columns specify the gene (or ``nuc`` for nucleotide) and location (by AA position in the gene, or nucleotide position in the genome) where the branch must have the 'alt' (4th column) value to be considered this clade.
 
