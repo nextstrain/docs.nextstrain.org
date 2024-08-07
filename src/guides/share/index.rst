@@ -52,7 +52,7 @@ Nextstrain Community
 --------------------
 
 To make supporting this philosophy as easy as possible, we have created a "community builds" functionality, whereby GitHub is used to store the results of your analyses and the results are available for everyone via nextstrain.org.
-This is behind the `community builds <https://nextstrain.org/#community>`__ which you can see on the main page.
+This is behind the `community builds <https://nextstrain.org/community>`__ which you can see on the Nextstrain site.
 
 See :doc:`community-builds` for more information, including a step-by-step guide on how you can get your datasets up as a community build.
 
