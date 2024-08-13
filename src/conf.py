@@ -88,25 +88,31 @@ intersphinx_mapping = {
 
 
 # -- Linkchecking ------------------------------------------------------------
+
+## NOTE: for both sets of regular expressions that follow, the
+## underlying linkchecker code uses `re.match()` to apply them to URLs
+## — so there's already an implicit "only at the beginning of a
+## string" matching happening, and something like a plain `r'google'`
+## regular expression will _NOT_ match all google.com URLs.
 linkcheck_ignore = [
      # we have links to localhost for explanatory purposes; obviously
      # they will never work in the linkchecker
-     r'http://127.0.0.1:\d+',
-     r'http://localhost:\d+',
+     r'^http://127\.0\.0\.1:\d+',
+     r'^http://localhost:\d+',
      # these URLs block the client the linkchecker uses
-     r'https://www.pnas.org/doi/10.1073/pnas.1507071112',
-     r'https://www.ncbi.nlm.nih.gov/books/NBK25501',
+     r'^https://www\.pnas\.org/doi/10\.1073/pnas\.1507071112',
+     r'^https://www\.ncbi\.nlm\.nih\.gov/books/NBK25501',
      # we specifically use this as an example of a link that _won't_ work
-     r'https://nextstrain.org/ncov/gisaid/21L/global/6m/2024-01-10',
+     r'^https://nextstrain\.org/ncov/gisaid/21L/global/6m/2024-01-10',
 ]
 linkcheck_anchors_ignore_for_url = [
      # colorbrewer uses pseudo-anchors, ala Github. Converting the `#`
      # to `?` loads the same page, but it also appends the query
      # string as a pseudo-anchor, so the URL ends up looking very ugly
      # and potentially misleading. Let's just ignore the anchor...
-     r'https://colorbrewer2.org',
+     r'^https://colorbrewer2\.org',
      # Github uses anchor-looking links for highlighting lines but
      # handles the actual resolution with Javascript, so skip anchor
      # checks for Github URLs:
-     r'https://github.com',
+     r'^https://github\.com',
 ]
