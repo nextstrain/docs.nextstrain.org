@@ -156,11 +156,56 @@ options. Example:
 Subsampling
 ===========
 
-Another common filtering operation is subsetting of data to achieve a more
-even spatio-temporal distribution or to cut-down data set size to more
-manageable numbers. The filter command allows you to partition the data into
-groups based on column values and sample uniformly. For example, target one
-sequence per month from each country:
+Another common filtering operation is **subsampling**: selection of data using
+rules based on output size rather than individual sequence attributes. These are
+the sampling methods supported by ``augur filter`` and a final section for caveats:
+
+.. contents::
+   :local:
+
+Random sampling
+---------------
+
+The simplest scenario is a reduction of dataset size to more manageable numbers.
+For example, limit the output to 100 sequences:
+
+.. code-block:: bash
+
+   augur filter \
+     --sequences data/sequences.fasta \
+     --metadata data/metadata.tsv \
+     --min-date 2012 \
+     --exclude exclude.txt \
+     --subsample-max-sequences 100 \
+     --output-sequences subsampled_sequences.fasta \
+     --output-metadata subsampled_metadata.tsv
+
+Random sampling is easy to define but can expose sampling bias in some datasets.
+Consider uniform sampling to reduce sampling bias.
+
+Uniform sampling
+----------------
+
+``--group-by`` allows you to partition the data into groups based on column
+values and sample uniformly. For example, sample evenly across countries over
+time:
+
+.. code-block:: bash
+
+   augur filter \
+     --sequences data/sequences.fasta \
+     --metadata data/metadata.tsv \
+     --min-date 2012 \
+     --exclude exclude.txt \
+     --group-by country year month \
+     --subsample-max-sequences 100 \
+     --output-sequences subsampled_sequences.fasta \
+     --output-metadata subsampled_metadata.tsv
+
+An alternative to ``--subsample-max-sequences`` is ``--sequences-per-group``.
+This is useful if you care less about total sample size and more about having
+a fixed number of sequences from each group. For example, target one sequence
+per month from each country:
 
 .. code-block:: bash
 
@@ -173,6 +218,40 @@ sequence per month from each country:
      --sequences-per-group 1 \
      --output-sequences subsampled_sequences.fasta \
      --output-metadata subsampled_metadata.tsv
+
+Probabilistic sampling
+----------------------
+
+It is possible to encounter situations in uniform sampling where the number of
+groups exceeds the target sample size. For example, consider a command with
+groups defined by ``--group-by country year month`` and target sample size
+defined by ``--subsample-max-sequences 100``. If the input contains data from 5
+countries over a span of 24 months, that could result in 120 groups.
+
+The only way to target 100 sequences from 120 groups is to apply **probabilistic
+sampling** which randomly determines a whole number of sequences per group. This
+is noted in the output:
+
+.. code-block:: text
+
+   WARNING: Asked to provide at most 100 sequences, but there are 120 groups.
+   Sampling probabilistically at 0.83 sequences per group, meaning it is
+   possible to have more than the requested maximum of 100 sequences after
+   filtering.
+
+This is automatically enabled. To force the command to exit with an error in
+these situations, use ``--no-probabilistic-sampling``.
+
+Caveats
+-------
+
+For these sampling methods, the number of targeted sequences per group does not
+take into account the actual number of sequences available in the input data.
+For example, consider a dataset with 200 sequences available from 2023 and 100
+sequences available from 2024. ``--group-by year --subsample-max-sequences 300``
+is equivalent to ``--group-by year --sequences-per-group 150``. This will take
+150 sequences from 2023 and all 100 sequences from 2024 for a total of 250
+sequences, which is less than the target of 300.
 
 Subsampling using multiple ``augur filter`` commands
 ====================================================
