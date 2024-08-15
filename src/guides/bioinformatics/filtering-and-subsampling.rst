@@ -158,9 +158,9 @@ Subsampling
 
 Another common filtering operation is subsetting of data to achieve a more
 even spatio-temporal distribution or to cut-down data set size to more
-manageable numbers. The filter command allows you to select a specific number of
-sequences from specific groups, for example one sequence per month from each
-country:
+manageable numbers. The filter command allows you to partition the data into
+groups based on column values and sample uniformly. For example, target one
+sequence per month from each country:
 
 .. code-block:: bash
 
