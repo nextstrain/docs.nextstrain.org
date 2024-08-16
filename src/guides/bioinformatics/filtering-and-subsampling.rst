@@ -187,7 +187,7 @@ Uniform sampling
 ----------------
 
 ``--group-by`` allows you to partition the data into groups based on column
-values and sample uniformly. For example, sample evenly across countries over
+values and sample uniformly. For example, sample evenly across regions over
 time:
 
 .. code-block:: bash
@@ -197,7 +197,7 @@ time:
      --metadata data/metadata.tsv \
      --min-date 2012 \
      --exclude exclude.txt \
-     --group-by country year month \
+     --group-by region year month \
      --subsample-max-sequences 100 \
      --output-sequences subsampled_sequences.fasta \
      --output-metadata subsampled_metadata.tsv
@@ -205,7 +205,7 @@ time:
 An alternative to ``--subsample-max-sequences`` is ``--sequences-per-group``.
 This is useful if you care less about total sample size and more about having
 a fixed number of sequences from each group. For example, target one sequence
-per month from each country:
+per month from each region:
 
 .. code-block:: bash
 
@@ -214,7 +214,7 @@ per month from each country:
      --metadata data/metadata.tsv \
      --min-date 2012 \
      --exclude exclude.txt \
-     --group-by country year month \
+     --group-by region year month \
      --sequences-per-group 1 \
      --output-sequences subsampled_sequences.fasta \
      --output-metadata subsampled_metadata.tsv
@@ -224,9 +224,9 @@ Probabilistic sampling
 
 It is possible to encounter situations in uniform sampling where the number of
 groups exceeds the target sample size. For example, consider a command with
-groups defined by ``--group-by country year month`` and target sample size
+groups defined by ``--group-by region year month`` and target sample size
 defined by ``--subsample-max-sequences 100``. If the input contains data from 5
-countries over a span of 24 months, that could result in 120 groups.
+regions over a span of 24 months, that could result in 120 groups.
 
 The only way to target 100 sequences from 120 groups is to apply **probabilistic
 sampling** which randomly determines a whole number of sequences per group. This
