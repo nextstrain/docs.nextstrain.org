@@ -11,8 +11,9 @@ sample data.
 Filtering
 =========
 
-The filter command allows you to select various subsets of your input data for
-different types of analysis. A simple example use of this command would be
+``augur filter`` provides the flexibility to choose different subsets of input
+data for various types of analysis. A simple example would be to select all
+sequences with a collection date in 2012 or later using ``--min-date 2012``:
 
 .. code-block:: bash
 
@@ -23,30 +24,43 @@ different types of analysis. A simple example use of this command would be
      --output-sequences filtered_sequences.fasta \
      --output-metadata filtered_metadata.tsv
 
-This command will select all sequences with collection date in 2012 or later.
-The filter command has a large number of options that allow flexible filtering
-for many common situations. One such use-case is the exclusion of sequences that
-are known to be outliers (e.g. because of sequencing errors, cell-culture
-adaptation, ...). These can be specified in a separate text file (e.g.
-``exclude.txt``):
+There are several options that allow flexible filtering for many common
+situations. Below are additional examples.
 
-.. code-block::
+- Exclude outliers (e.g. because of sequencing errors, cell-culture adaptation)
+  using ``--exclude``. First, create a text file ``exclude.txt`` with one line
+  per sequence ID:
 
-   BRA/2016/FC_DQ75D1
-   COL/FLR_00034/2015
-   ...
+  .. code-block::
 
-To drop such strains, you can pass the filename to ``--exclude``:
+      BRA/2016/FC_DQ75D1
+      COL/FLR_00034/2015
+      ...
 
-.. code-block:: bash
+  Add the option by using ``--exclude exclude.txt`` in the command:
 
-   augur filter \
-     --sequences data/sequences.fasta \
-     --metadata data/metadata.tsv \
-     --min-date 2012 \
-     --exclude exclude.txt \
-     --output-sequences filtered_sequences.fasta \
-     --output-metadata filtered_metadata.tsv
+  .. code-block:: bash
+
+      augur filter \
+        --sequences data/sequences.fasta \
+        --metadata data/metadata.tsv \
+        --min-date 2012 \
+        --exclude exclude.txt \
+        --output-sequences filtered_sequences.fasta \
+        --output-metadata filtered_metadata.tsv
+
+- Include sequences from a specific region using ``--query``:
+
+  .. code-block:: bash
+
+      augur filter \
+        --sequences data/sequences.fasta \
+        --metadata data/metadata.tsv \
+        --min-date 2012 \
+        --exclude exclude.txt \
+        --query 'region="Asia"' \
+        --output-sequences filtered_sequences.fasta \
+        --output-metadata filtered_metadata.tsv
 
 Subsampling within ``augur filter``
 ===================================
