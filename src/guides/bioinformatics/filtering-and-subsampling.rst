@@ -8,24 +8,79 @@ sample data.
 .. contents:: Table of Contents
    :local:
 
-Filtering
-=========
+Overview
+========
 
 ``augur filter`` provides the flexibility to choose different subsets of input
-data for various types of analysis. A simple example would be to select all
-sequences with a collection date in 2012 or later using ``--min-date 2012``:
+data for various types of analysis. There are several options which can be
+categorized based on the information source and selection method.
 
-.. code-block:: bash
+Information source:
 
-   augur filter \
-     --sequences data/sequences.fasta \
-     --metadata data/metadata.tsv \
-     --min-date 2012 \
-     --output-sequences filtered_sequences.fasta \
-     --output-metadata filtered_metadata.tsv
+- **Metadata-based** options work with information available from
+  ``--metadata``.
+- **Sequence-based** options work with information available from
+  ``--sequences`` or ``--sequence-index``.
 
-There are several options that allow flexible filtering for many common
-situations. Below are additional examples.
+Selection method:
+
+- **Preliminary** options work by selecting or dropping sequences that match
+  certain criteria.
+- **Subsampling** options work by selecting sequences using rules based on final
+  output size. These are applied after all preliminary options and before any
+  force-inclusive options.
+- **Force-inclusive** options work by ensuring sequences that match certain
+  criteria are always included in the output, ignoring all other filter options.
+
+.. list-table:: Categories for filter options
+   :header-rows: 1
+   :stub-columns: 1
+
+   * -
+     - Metadata-based
+     - Sequence-based
+   * - Preliminary
+     - * ``--min-date``
+       * ``--max-date``
+       * ``--exclude-ambiguous-dates-by``
+       * ``--exclude``
+       * ``--exclude-where``
+       * ``--query``
+     - * ``--min-length``
+       * ``--max-length``
+       * ``--non-nucleotide``
+
+   * - Subsampling
+     - * ``--subsample-max-sequences``
+       * ``--group-by``
+       * ``--sequences-per-group``
+       * ``--probabilistic-sampling``
+       * ``--no-probabilistic-sampling``
+       * ``--priority``
+     - *None*
+
+   * - Force-inclusive
+     - * ``--include``
+       * ``--include-where``
+     - *None*
+
+Preliminary & force-inclusive selection
+=======================================
+
+A common filtering operation is to select sequences according to rules on
+individual sequence attributes. Examples:
+
+- Select all sequences with a collection date in 2012 or later using
+  ``--min-date 2012``:
+
+  .. code-block:: bash
+
+     augur filter \
+       --sequences data/sequences.fasta \
+       --metadata data/metadata.tsv \
+       --min-date 2012 \
+       --output-sequences filtered_sequences.fasta \
+       --output-metadata filtered_metadata.tsv
 
 - Exclude outliers (e.g. because of sequencing errors, cell-culture adaptation)
   using ``--exclude``. First, create a text file ``exclude.txt`` with one line
@@ -62,8 +117,44 @@ situations. Below are additional examples.
         --output-sequences filtered_sequences.fasta \
         --output-metadata filtered_metadata.tsv
 
-Subsampling within ``augur filter``
-===================================
+  .. tip::
+
+      ``--query 'region="Asia"'`` is functionally equivalent to ``--exclude-where
+      region!=Asia``. However, ``--query`` allows for more complex expressions such
+      as ``--query '(region in {"Asia", "Europe"}) & (coverage >= 0.95)'``.
+
+      ``--query 'region="Asia"'`` is **not** equivalent to ``--include-where
+      region=Asia`` since force-inclusive options ignore other filter options
+      (i.e. ``--min-date`` and ``--exclude`` in the example above).
+
+Force-inclusive options work similarly, and override all other filtering
+options. Example:
+
+- Include specific sequences (e.g. root sequence) using ``--include``. First,
+  create a text file ``include.txt`` with one line per sequence ID:
+
+  .. code-block::
+
+      Wuhan/Hu-1/2019
+      ...
+
+  Add the option by using ``--include include.txt`` in the command:
+
+  .. code-block:: bash
+
+      augur filter \
+        --sequences data/sequences.fasta \
+        --metadata data/metadata.tsv \
+        --min-date 2020 \
+        --include include.txt \
+        --output-sequences filtered_sequences.fasta \
+        --output-metadata filtered_metadata.tsv
+
+  ``Wuhan/Hu-1/2019`` will still be included even if it does not pass the filter
+  ``--min-date 2020``.
+
+Subsampling
+===========
 
 Another common filtering operation is subsetting of data to achieve a more
 even spatio-temporal distribution or to cut-down data set size to more
