@@ -309,17 +309,62 @@ Subsampling using multiple ``augur filter`` commands
 ====================================================
 
 There are some subsampling strategies in which a single call to ``augur filter``
-does not suffice. One such strategy is "tiered subsampling". In this strategy,
-mutually exclusive sets of filters, each representing a "tier", are sampled with
-different subsampling rules. This is commonly used to create geographic tiers.
-Consider this subsampling scheme:
+does not suffice or is difficult to create. One such strategy is "tiered
+subsampling". In this strategy, mutually exclusive sets of filters, each
+representing a "tier", are sampled with different subsampling rules. This is
+commonly used to create geographic tiers. Consider this subsampling scheme:
 
-   Sample 100 sequences from Washington state and 50 sequences from the rest of the United States.
+   Sample 200 sequences from Washington state and 100 sequences from the rest of
+   the United States.
 
-This cannot be done in a single call to ``augur filter``. Instead, it can be
-decomposed into multiple schemes, each handled by a single call to ``augur
-filter``. Additionally, there is an extra step to combine the intermediate
-samples.
+This can be approximated by first selecting all sequences from the United States
+then sampling with these weights:
+
+.. list-table::
+    :header-rows: 1
+
+    * - state
+      - weight
+    * - WA
+      - 200
+    * - default
+      - 2.04
+
+.. code-block:: bash
+
+   augur filter \
+     --sequences sequences.fasta \
+     --metadata metadata.tsv \
+     --query "country == 'USA'" \
+     --group-by state \
+     --group-by-weights weights.tsv \
+     --subsample-max-sequences 300 \
+     --output-sequences subsampled_sequences.fasta \
+     --output-metadata subsampled_metadata.tsv
+
+This approach has some caveats:
+
+1. It relies on a calculation to determine weights, making it less intuitive:
+
+   .. math::
+
+     {n_{\text{other sequences}}} * \frac{1}{{n_{\text{other states}}}}
+     =                        100 * \frac{1}{49}
+     \approx                 1.02
+
+2. Achieving a full *100 sequences from the rest of the United States* requires
+   at least 2 sequences from each of the remaining states. This may not be
+   possible if some states are under-sampled.
+
+Intuitiveness for caveat (1) can be improved by adding a comment to the weights
+file. However, caveat (2) is an inherent limitation of what is effectively
+uniform sampling across all other states. The only way to get around this in
+``augur filter`` is **random sampling** across states, but that is not possible
+when ``state`` is used as a grouping column.
+
+An alternative approach is to decompose this into multiple schemes, each handled
+by a single call to ``augur filter``. Additionally, there is an extra step to
+combine the intermediate samples.
 
    1. Sample 100 sequences from Washington state.
    2. Sample 50 sequences from the rest of the United States.
@@ -364,6 +409,12 @@ Each intermediate sample is represented by a strain list file obtained from
 and ``--include`` to sample the data based on the intermediate strain list
 files. If the same strain appears in both files, ``augur filter`` will only
 write it once in each of the final outputs.
+
+.. note::
+
+   The 2nd sample does not use ``--group-by``, implying **random sampling**
+   across states. This differs from previous approach that used a single ``augur
+   filter`` command with weighted sampling.
 
 Generalizing subsampling in a workflow
 --------------------------------------
