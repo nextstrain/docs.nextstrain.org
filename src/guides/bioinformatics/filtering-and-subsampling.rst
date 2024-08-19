@@ -51,7 +51,7 @@ To drop such strains, you can pass the filename to ``--exclude``:
 Subsampling within ``augur filter``
 ===================================
 
-Another common filtering operation is subsetting of data to a achieve a more
+Another common filtering operation is subsetting of data to achieve a more
 even spatio-temporal distribution or to cut-down data set size to more
 manageable numbers. The filter command allows you to select a specific number of
 sequences from specific groups, for example one sequence per month from each
