@@ -8,35 +8,166 @@ sample data.
 .. contents:: Table of Contents
    :local:
 
-Filtering
-=========
+Overview
+========
 
-The filter command allows you to select various subsets of your input data for
-different types of analysis. A simple example use of this command would be
+``augur filter`` provides the flexibility to choose different subsets of input
+data for various types of analysis. There are several options which can be
+categorized based on the information source and selection method.
 
-.. code-block:: bash
+Information source:
 
-   augur filter \
-     --sequences data/sequences.fasta \
-     --metadata data/metadata.tsv \
-     --min-date 2012 \
-     --output-sequences filtered_sequences.fasta \
-     --output-metadata filtered_metadata.tsv
+- **Metadata-based** options work with information available from
+  ``--metadata``.
+- **Sequence-based** options work with information available from
+  ``--sequences`` or ``--sequence-index``.
 
-This command will select all sequences with collection date in 2012 or later.
-The filter command has a large number of options that allow flexible filtering
-for many common situations. One such use-case is the exclusion of sequences that
-are known to be outliers (e.g. because of sequencing errors, cell-culture
-adaptation, ...). These can be specified in a separate text file (e.g.
-``exclude.txt``):
+Selection method:
 
-.. code-block::
+- **Preliminary** options work by selecting or dropping sequences that match
+  certain criteria.
+- **Subsampling** options work by selecting sequences using rules based on final
+  output size. These are applied after all preliminary options and before any
+  force-inclusive options.
+- **Force-inclusive** options work by ensuring sequences that match certain
+  criteria are always included in the output, ignoring all other filter options.
 
-   BRA/2016/FC_DQ75D1
-   COL/FLR_00034/2015
-   ...
+.. list-table:: Categories for filter options
+   :header-rows: 1
+   :stub-columns: 1
 
-To drop such strains, you can pass the filename to ``--exclude``:
+   * -
+     - Metadata-based
+     - Sequence-based
+   * - Preliminary
+     - * ``--min-date``
+       * ``--max-date``
+       * ``--exclude-ambiguous-dates-by``
+       * ``--exclude``
+       * ``--exclude-where``
+       * ``--query``
+     - * ``--min-length``
+       * ``--max-length``
+       * ``--non-nucleotide``
+
+   * - Subsampling
+     - * ``--subsample-max-sequences``
+       * ``--group-by``
+       * ``--sequences-per-group``
+       * ``--probabilistic-sampling``
+       * ``--no-probabilistic-sampling``
+       * ``--priority``
+     - *None*
+
+   * - Force-inclusive
+     - * ``--include``
+       * ``--include-where``
+     - *None*
+
+Preliminary & force-inclusive selection
+=======================================
+
+A common filtering operation is to select sequences according to rules on
+individual sequence attributes. Examples:
+
+- Select all sequences with a collection date in 2012 or later using
+  ``--min-date 2012``:
+
+  .. code-block:: bash
+
+     augur filter \
+       --sequences data/sequences.fasta \
+       --metadata data/metadata.tsv \
+       --min-date 2012 \
+       --output-sequences filtered_sequences.fasta \
+       --output-metadata filtered_metadata.tsv
+
+- Exclude outliers (e.g. because of sequencing errors, cell-culture adaptation)
+  using ``--exclude``. First, create a text file ``exclude.txt`` with one line
+  per sequence ID:
+
+  .. code-block::
+
+      BRA/2016/FC_DQ75D1
+      COL/FLR_00034/2015
+      ...
+
+  Add the option by using ``--exclude exclude.txt`` in the command:
+
+  .. code-block:: bash
+
+      augur filter \
+        --sequences data/sequences.fasta \
+        --metadata data/metadata.tsv \
+        --min-date 2012 \
+        --exclude exclude.txt \
+        --output-sequences filtered_sequences.fasta \
+        --output-metadata filtered_metadata.tsv
+
+- Include sequences from a specific region using ``--query``:
+
+  .. code-block:: bash
+
+      augur filter \
+        --sequences data/sequences.fasta \
+        --metadata data/metadata.tsv \
+        --min-date 2012 \
+        --exclude exclude.txt \
+        --query 'region="Asia"' \
+        --output-sequences filtered_sequences.fasta \
+        --output-metadata filtered_metadata.tsv
+
+  .. tip::
+
+      ``--query 'region="Asia"'`` is functionally equivalent to ``--exclude-where
+      region!=Asia``. However, ``--query`` allows for more complex expressions such
+      as ``--query '(region in {"Asia", "Europe"}) & (coverage >= 0.95)'``.
+
+      ``--query 'region="Asia"'`` is **not** equivalent to ``--include-where
+      region=Asia`` since force-inclusive options ignore other filter options
+      (i.e. ``--min-date`` and ``--exclude`` in the example above).
+
+Force-inclusive options work similarly, and override all other filtering
+options. Example:
+
+- Include specific sequences (e.g. root sequence) using ``--include``. First,
+  create a text file ``include.txt`` with one line per sequence ID:
+
+  .. code-block::
+
+      Wuhan/Hu-1/2019
+      ...
+
+  Add the option by using ``--include include.txt`` in the command:
+
+  .. code-block:: bash
+
+      augur filter \
+        --sequences data/sequences.fasta \
+        --metadata data/metadata.tsv \
+        --min-date 2020 \
+        --include include.txt \
+        --output-sequences filtered_sequences.fasta \
+        --output-metadata filtered_metadata.tsv
+
+  ``Wuhan/Hu-1/2019`` will still be included even if it does not pass the filter
+  ``--min-date 2020``.
+
+Subsampling
+===========
+
+Another common filtering operation is **subsampling**: selection of data using
+rules based on output size rather than individual sequence attributes. These are
+the sampling methods supported by ``augur filter`` and a final section for caveats:
+
+.. contents::
+   :local:
+
+Random sampling
+---------------
+
+The simplest scenario is a reduction of dataset size to more manageable numbers.
+For example, limit the output to 100 sequences:
 
 .. code-block:: bash
 
@@ -45,17 +176,36 @@ To drop such strains, you can pass the filename to ``--exclude``:
      --metadata data/metadata.tsv \
      --min-date 2012 \
      --exclude exclude.txt \
-     --output-sequences filtered_sequences.fasta \
-     --output-metadata filtered_metadata.tsv
+     --subsample-max-sequences 100 \
+     --output-sequences subsampled_sequences.fasta \
+     --output-metadata subsampled_metadata.tsv
 
-Subsampling within ``augur filter``
-===================================
+Random sampling is easy to define but can expose sampling bias in some datasets.
+Consider uniform sampling to reduce sampling bias.
 
-Another common filtering operation is subsetting of data to a achieve a more
-even spatio-temporal distribution or to cut-down data set size to more
-manageable numbers. The filter command allows you to select a specific number of
-sequences from specific groups, for example one sequence per month from each
-country:
+Uniform sampling
+----------------
+
+``--group-by`` allows you to partition the data into groups based on column
+values and sample uniformly. For example, sample evenly across countries over
+time:
+
+.. code-block:: bash
+
+   augur filter \
+     --sequences data/sequences.fasta \
+     --metadata data/metadata.tsv \
+     --min-date 2012 \
+     --exclude exclude.txt \
+     --group-by country year month \
+     --subsample-max-sequences 100 \
+     --output-sequences subsampled_sequences.fasta \
+     --output-metadata subsampled_metadata.tsv
+
+An alternative to ``--subsample-max-sequences`` is ``--sequences-per-group``.
+This is useful if you care less about total sample size and more about having
+a fixed number of sequences from each group. For example, target one sequence
+per month from each country:
 
 .. code-block:: bash
 
@@ -68,6 +218,40 @@ country:
      --sequences-per-group 1 \
      --output-sequences subsampled_sequences.fasta \
      --output-metadata subsampled_metadata.tsv
+
+Probabilistic sampling
+----------------------
+
+It is possible to encounter situations in uniform sampling where the number of
+groups exceeds the target sample size. For example, consider a command with
+groups defined by ``--group-by country year month`` and target sample size
+defined by ``--subsample-max-sequences 100``. If the input contains data from 5
+countries over a span of 24 months, that could result in 120 groups.
+
+The only way to target 100 sequences from 120 groups is to apply **probabilistic
+sampling** which randomly determines a whole number of sequences per group. This
+is noted in the output:
+
+.. code-block:: text
+
+   WARNING: Asked to provide at most 100 sequences, but there are 120 groups.
+   Sampling probabilistically at 0.83 sequences per group, meaning it is
+   possible to have more than the requested maximum of 100 sequences after
+   filtering.
+
+This is automatically enabled. To force the command to exit with an error in
+these situations, use ``--no-probabilistic-sampling``.
+
+Caveats
+-------
+
+For these sampling methods, the number of targeted sequences per group does not
+take into account the actual number of sequences available in the input data.
+For example, consider a dataset with 200 sequences available from 2023 and 100
+sequences available from 2024. ``--group-by year --subsample-max-sequences 300``
+is equivalent to ``--group-by year --sequences-per-group 150``. This will take
+150 sequences from 2023 and all 100 sequences from 2024 for a total of 250
+sequences, which is less than the target of 300.
 
 Subsampling using multiple ``augur filter`` commands
 ====================================================
