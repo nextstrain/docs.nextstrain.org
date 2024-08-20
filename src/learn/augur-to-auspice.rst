@@ -523,10 +523,11 @@ If the type is not provided, it will be inferred in this order:
 #. "continuous" if all values are numeric.
 #. "categorical" if none of the above are satisfied.
 
-To use these catgeories the data should be in the format:
+To use these categories the data should be in the format:
+
 - "boolean" - values should all be within ``["false", "true", "1.0", "0.0", "1", "0", "yes", "no"]``; coloring will be binary
 - "continuous" - values should be numeric; coloring will be a range between the minimum & maximum values
-- "temporal" - values should be dates in decimal date format (`2022.365`); coloring will be a range, and the legend will display human-readable dates
+- "temporal" - values should be dates in decimal date format (``2022.365``); coloring will be a range, and the legend will display human-readable dates
 - "ordinal" - values should be integers; coloring will be a range but all displayed values will be integers
 - "categorical" - each unique value will receive a different color, the color wheel will be repeated if necessary
 
