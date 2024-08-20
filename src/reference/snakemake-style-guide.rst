@@ -102,7 +102,7 @@ For example, do this:
    params:
        name = lambda _: config["name"]
    shell:
-       """
+       r"""
        echo {params.name:q}
        """
 
@@ -152,7 +152,7 @@ the ``:q`` modifier for interpolation:
    params:
        file = "filename with spaces.txt"
    shell:
-       """
+       r"""
        wc -l {params.file:q}
        """
 
@@ -169,30 +169,42 @@ string. Snakemake will interpolate it correctly:
    params:
        files = ["a.txt", "b.txt", "c.txt"]
    shell:
-       """
+       r"""
        wc -l {params.files:q}
        """
 
-Use triple-quoted command definitions
-=====================================
+.. _use-triple-quoted-command-definitions:
 
-Using triple-quoted (``"""`` or ``'''``) command definitions make it
+Use raw, triple-quoted shell blocks
+===================================
+
+Using raw, triple-quoted (``r"""`` or ``r'''``) ``shell`` blocks makes it
 much easier to build readable commands with one-option per line. It also
 avoids any nested quoting issues if you need to use literal single or
-double quotes in your command.
+double quotes in your command. The command will remain readable in
+Snakemake's logging messages because it'll look like the source form
+(e.g. with backslashes and newlines retained instead of collapsed).
 
 Example:
 
 .. code-block:: python
 
    shell:
-       """
+       r"""
        augur parse \
            --sequences {input:q} \
            --fields {params.fields:q} \
            --output-sequences {output.sequences:q} \
            --output-metadata {output.metadata:q}
        """
+
+.. hint::
+    If you're converting interpreted strings to raw strings (e.g.
+    ``"""`` to ``r"""``), make sure to check that they're not relying on
+    `escape sequences`_ like ``\n``, ``\t``, or ``\\`` to be interpreted by
+    Python before the shell (Bash) sees them.
+
+.. _escape sequences: https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences
 
 Log standard out and error output to log files and the terminal
 ===============================================================
@@ -212,7 +224,7 @@ Example:
        log:
            "logs/filter.txt"
        shell:
-           """
+           r"""
            augur filter \
                --metadata {input.metadata} \
                --output-metadata {output.metadata} 2>&1 | tee {log}
