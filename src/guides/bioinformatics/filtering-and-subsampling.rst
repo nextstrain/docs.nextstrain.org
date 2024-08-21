@@ -158,10 +158,11 @@ Subsampling
 
 Another common filtering operation is **subsampling**: selection of data using
 rules based on output size rather than individual sequence attributes. These are
-the sampling methods supported by ``augur filter`` and a final section for caveats:
+the sampling methods supported by ``augur filter``:
 
 .. contents::
    :local:
+   :depth: 2
 
 Random sampling
 ---------------
@@ -181,14 +182,19 @@ For example, limit the output to 100 sequences:
      --output-metadata subsampled_metadata.tsv
 
 Random sampling is easy to define but can expose sampling bias in some datasets.
-Consider uniform sampling to reduce sampling bias.
+Consider using grouped sampling to reduce sampling bias.
 
-Uniform sampling
+Grouped sampling
 ----------------
 
 ``--group-by`` allows you to partition the data into groups based on column
-values and sample uniformly. For example, sample evenly across regions over
-time:
+values and sample a number of sequences per group.
+
+Uniform sampling
+~~~~~~~~~~~~~~~~
+
+``--group-by`` samples uniformly across groups. For example, sample evenly
+across regions over time:
 
 .. code-block:: bash
 
@@ -221,16 +227,16 @@ per month from each region:
 
 
 Caveats
--------
+~~~~~~~
 
 Probabilistic sampling
-~~~~~~~~~~~~~~~~~~~~~~
+``````````````````````
 
-It is possible to encounter situations in uniform sampling where the number of
-groups exceeds the target sample size. For example, consider a command with
-groups defined by ``--group-by region year month`` and target sample size
-defined by ``--subsample-max-sequences 100``. If the input contains data from 5
-regions over a span of 24 months, that could result in 120 groups.
+It is possible to encounter situations where the number of groups exceeds the
+target sample size. For example, consider a command with groups defined by
+``--group-by region year month`` and target sample size defined by
+``--subsample-max-sequences 100``. If the input contains data from 5 regions
+over a span of 24 months, that could result in 120 groups.
 
 The only way to target 100 sequences from 120 groups is to apply **probabilistic
 sampling** which randomly determines a whole number of sequences per group. This
@@ -247,7 +253,7 @@ This is automatically enabled. To force the command to exit with an error in
 these situations, use ``--no-probabilistic-sampling``.
 
 Undersampling
-~~~~~~~~~~~~~
+`````````````
 
 For these sampling methods, the number of targeted sequences per group does not
 take into account the actual number of sequences available in the input data.
