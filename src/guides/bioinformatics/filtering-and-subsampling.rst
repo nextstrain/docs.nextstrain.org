@@ -219,8 +219,12 @@ per month from each region:
      --output-sequences subsampled_sequences.fasta \
      --output-metadata subsampled_metadata.tsv
 
+
+Caveats
+-------
+
 Probabilistic sampling
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 It is possible to encounter situations in uniform sampling where the number of
 groups exceeds the target sample size. For example, consider a command with
@@ -242,8 +246,8 @@ is noted in the output:
 This is automatically enabled. To force the command to exit with an error in
 these situations, use ``--no-probabilistic-sampling``.
 
-Caveats
--------
+Undersampling
+~~~~~~~~~~~~~
 
 For these sampling methods, the number of targeted sequences per group does not
 take into account the actual number of sequences available in the input data.
