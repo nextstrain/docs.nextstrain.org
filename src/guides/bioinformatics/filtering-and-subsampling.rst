@@ -53,6 +53,7 @@ Selection method:
    * - Subsampling
      - * ``--subsample-max-sequences``
        * ``--group-by``
+       * ``--group-by-weights``
        * ``--sequences-per-group``
        * ``--probabilistic-sampling``
        * ``--no-probabilistic-sampling``
@@ -190,11 +191,17 @@ Grouped sampling
 ``--group-by`` allows you to partition the data into groups based on column
 values and sample a number of sequences per group.
 
+Grouped sampling can be further divided into two types with a final section for
+caveats:
+
+.. contents::
+   :local:
+
 Uniform sampling
 ~~~~~~~~~~~~~~~~
 
-``--group-by`` samples uniformly across groups. For example, sample evenly
-across regions over time:
+By default (i.e. without ``--group-by-weights``), ``--group-by`` will sample
+uniformly across groups. For example, sample evenly across regions over time:
 
 .. code-block:: bash
 
@@ -225,6 +232,40 @@ per month from each region:
      --output-sequences subsampled_sequences.fasta \
      --output-metadata subsampled_metadata.tsv
 
+Weighted sampling
+~~~~~~~~~~~~~~~~~
+
+``--group-by-weights`` can be specified in addition to ``--group-by`` to allow
+different target sizes per group. For example, target twice the amount of
+sequences from Asia compared to other regions using this ``weights.tsv`` file:
+
+.. list-table::
+   :header-rows: 1
+
+   * - region
+     - weight
+   * - Asia
+     - 2
+   * - default
+     - 1
+
+and command:
+
+.. code-block:: bash
+
+   augur filter \
+     --sequences data/sequences.fasta \
+     --metadata data/metadata.tsv \
+     --min-date 2012 \
+     --exclude exclude.txt \
+     --group-by region year month \
+     --group-by-weights weights.tsv \
+     --subsample-max-sequences 100 \
+     --output-sequences subsampled_sequences.fasta \
+     --output-metadata subsampled_metadata.tsv
+
+The weights file format is described in ``augur filter`` docs for
+``--group-by-weights``.
 
 Caveats
 ~~~~~~~
@@ -249,8 +290,9 @@ is noted in the output:
    possible to have more than the requested maximum of 100 sequences after
    filtering.
 
-This is automatically enabled. To force the command to exit with an error in
-these situations, use ``--no-probabilistic-sampling``.
+This is automatically enabled. ``--no-probabilistic-sampling`` can be used with
+uniform sampling to force the command to exit with an error in these situations.
+It is always be enabled for weighted sampling.
 
 Undersampling
 `````````````
