@@ -350,7 +350,7 @@ This approach has some caveats:
 
      {n_{\text{other sequences}}} * \frac{1}{{n_{\text{other states}}}}
      =                        100 * \frac{1}{49}
-     \approx                 1.02
+     \approx                 2.04
 
 2. Achieving a full *100 sequences from the rest of the United States* requires
    at least 2 sequences from each of the remaining states. This may not be
@@ -366,8 +366,8 @@ An alternative approach is to decompose this into multiple schemes, each handled
 by a single call to ``augur filter``. Additionally, there is an extra step to
 combine the intermediate samples.
 
-   1. Sample 100 sequences from Washington state.
-   2. Sample 50 sequences from the rest of the United States.
+   1. Sample 200 sequences from Washington state.
+   2. Sample 100 sequences from the rest of the United States.
    3. Combine the samples.
 
 Calling ``augur filter`` multiple times
@@ -378,20 +378,20 @@ well for ad-hoc analyses.
 
 .. code-block:: bash
 
-   # 1. Sample 100 sequences from Washington state
+   # 1. Sample 200 sequences from Washington state
    augur filter \
      --sequences sequences.fasta \
      --metadata metadata.tsv \
      --query "state == 'WA'" \
-     --subsample-max-sequences 100 \
+     --subsample-max-sequences 200 \
      --output-strains sample_strains_state.txt
  
-   # 2. Sample 50 sequences from the rest of the United States
+   # 2. Sample 100 sequences from the rest of the United States
    augur filter \
      --sequences sequences.fasta \
      --metadata metadata.tsv \
      --query "state != 'WA' & country == 'USA'" \
-     --subsample-max-sequences 50 \
+     --subsample-max-sequences 100 \
      --output-strains sample_strains_country.txt
  
    # 3. Combine using augur filter
@@ -428,8 +428,8 @@ system can be used. The following examples use `Snakemake`_.
    .. code-block:: yaml
 
       subsampling:
-        state: --query "state == 'WA'" --subsample-max-sequences 100
-        country: --query "state != 'WA' & country == 'USA'" --subsample-max-sequences 50
+        state: --query "state == 'WA'" --subsample-max-sequences 200
+        country: --query "state != 'WA' & country == 'USA'" --subsample-max-sequences 100
 
 2. Add two rules in a `Snakefile`_. If you are building a standard Nextstrain
    workflow, the output files should be used as input to sequence alignment. See
@@ -438,8 +438,8 @@ system can be used. The following examples use `Snakemake`_.
 
    .. code-block:: python
 
-      # 1. Sample 100 sequences from Washington state
-      # 2. Sample 50 sequences from the rest of the United States
+      # 1. Sample 200 sequences from Washington state
+      # 2. Sample 100 sequences from the rest of the United States
       rule intermediate_sample:
           input:
               metadata = "data/metadata.tsv",
