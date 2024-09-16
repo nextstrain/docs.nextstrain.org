@@ -14,6 +14,7 @@ How-to guides for performing bioinformatic anaylses with Nextstrain.
    augur_snakemake
    missing-sequence-data
    translate_ref
+   root-and-ref-seqs
    import-beast
    defining-clades
    colors
