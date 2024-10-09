@@ -1,6 +1,6 @@
 name: docs.nextstrain.org
 channels:
-  - defaults
+  - conda-forge
 dependencies:
   - graphviz
   - make
