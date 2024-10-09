@@ -83,7 +83,8 @@ intersphinx_mapping = {
     'auspice': ('https://docs.nextstrain.org/projects/auspice/page/', None),
     'cli': ('https://docs.nextstrain.org/projects/cli/page/', None),
     'nextclade': ('https://docs.nextstrain.org/projects/nextclade/page/', None),
-    'ncov': ('https://docs.nextstrain.org/projects/ncov/page/', None)
+    'ncov': ('https://docs.nextstrain.org/projects/ncov/page/', None),
+    'python': ('https://docs.python.org/3/', None),
 }
 
 
