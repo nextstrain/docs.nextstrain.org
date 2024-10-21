@@ -68,7 +68,8 @@ OpenSSL is the most common library used to provide TLS/SSL support in
 application software.  Its `default locations of trusted CA certificates
 <https://docs.openssl.org/3.0/man3/SSL_CTX_load_verify_locations/>`__ can be
 overridden by setting the ``SSL_CERT_FILE`` and/or ``SSL_CERT_DIR`` environment
-variables.
+variables.  Filenames in the latter must be hashed with OpenSSL's ``c_rehash``
+utility.
 
 Its final trust store is built from certificates in all default locations, so
 to *comprehensively* override the defaults, all locations must be overridden.
