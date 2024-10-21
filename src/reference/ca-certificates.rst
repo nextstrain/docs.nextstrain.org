@@ -157,23 +157,35 @@ Set the |REQUESTS_CA_BUNDLE|_ environment variable to override.
 Nextclade CLI
 -------------
 
-*Applies to Nextclade v3.*
+*Applies to Nextclade v3.9.0 and onwards.*
 
-Uses its own bundled snapshot of `Mozilla's CA trust store`_ via the
-|webpki-roots|_ Rust crate (by way of the ``reqwest`` crate's
-|rustls-tls-webpki-roots feature|_).
+Uses CA certificates extracted from the OS-level trust store via the
+|rustls-native-certs|_ Rust crate plus its own bundled snapshot of `Mozilla's
+CA trust store`_ via the |webpki-roots|_ Rust crate (by way of the ``reqwest``
+crate's |rustls-tls-webpki-roots feature|_).
 
-There is currently no way to configure or modify the trust store without
-modifying the Nextclade source code.
+Set the OpenSSL-style ``SSL_CERT_FILE`` or ``SSL_CERT_DIR`` environment
+variables to override the OS-level trust store (on all platforms, not just
+those using :ref:`OpenSSL <openssl>`).  The bundled trust store is always
+included and cannot be overridden or disabled.
 
-.. I have a fix in-flight for ↑ that. —trs, 10 Oct 2024
+Set the |NEXTCLADE_EXTRA_CA_CERTS|_ environment variable to add CA
+certificates to the default trust store.
+
+.. note:: Nextclade v3.8.2 and earlier provides no way to configure or modify
+   the trust store.
+
+.. |rustls-native-certs| replace:: ``rustls-native-certs``
+.. _rustls-native-certs: https://docs.rs/crate/rustls-native-certs/0.8.0
 
 .. |webpki-roots| replace:: ``webpki-roots``
-.. _webpki-roots: https://docs.rs/webpki-roots/0.26.6/webpki_roots/
+.. _webpki-roots: https://docs.rs/crate/webpki-roots/0.26.6
 
 .. |rustls-tls-webpki-roots feature| replace:: ``rustls-tls-webpki-roots`` feature
 .. _rustls-tls-webpki-roots feature: https://docs.rs/reqwest/0.12.8/reqwest/#optional-features
 
+.. |NEXTCLADE_EXTRA_CA_CERTS| replace:: ``NEXTCLADE_EXTRA_CA_CERTS``
+.. _NEXTCLADE_EXTRA_CA_CERTS: https://docs.nextstrain.org/projects/nextclade/en/3.9.0/user/nextclade-cli/reference.html#nextclade-dataset-get
 
 
 .. _aws-cli:
