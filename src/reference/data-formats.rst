@@ -5,6 +5,31 @@ Data formats
 .. contents:: Table of Contents
    :local:
 
+TSV
+===
+
+Nextstrain generally uses TSV files for metadata.
+Nextstrain tools and workflows produce `RFC 4180 CSV-like TSVs <https://datatracker.ietf.org/doc/html/rfc4180>`__.
+
+When using `csvtk <https://bioinf.shenwei.me/csvtk/>`__
+
+* the ``--lazy`` (``-l``) option should not be necessary
+* the ``fix-quotes``/``del-quotes`` commands should not be necessary
+
+When using `tsv-utils <https://opensource.ebay.com/tsv-utils/>`__
+
+* pass the inputs through ``csv2tsv --csv-delim $'\t'``
+* pass the final ``tsv-util`` outputs through ``csvtk fix-quotes --tabs``
+
+.. code-block:: bash
+
+  csv2tsv --csv-delim $'\t' metadata.tsv \
+    | tsv-select -H -f strain,date \
+    | tsv-uniq -H -f strain \
+    | csvtk fix-quotes --tabs > output.tsv
+
+See our internal `discussion on TSV standardization <https://github.com/nextstrain/augur/issues/1566>`__ for more details.
+
 JSON
 ====
 
