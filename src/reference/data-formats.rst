@@ -2,6 +2,12 @@
 Data formats
 ============
 
+.. contents:: Table of Contents
+   :local:
+
+JSON
+====
+
 Nextstrain uses a few different kinds of `JSON
 <https://en.wikipedia.org/wiki/JSON>`__ files at various stages in a typical
 build.
