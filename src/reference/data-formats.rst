@@ -8,7 +8,9 @@ Data formats
 TSV
 ===
 
-Nextstrain generally uses TSV files for metadata.
+Nextstrain strongly prefers using TSV files for metadata even though Augur commands support other delimiters as inputs.
+If you are using other formats, we recommend using :doc:`augur curate passthru  <augur:usage/cli/curate/passthru>` to convert them to TSV.
+
 Nextstrain tools and workflows produce `RFC 4180 CSV-like TSVs <https://datatracker.ietf.org/doc/html/rfc4180>`__.
 
 When using `csvtk <https://bioinf.shenwei.me/csvtk/>`__
