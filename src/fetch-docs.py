@@ -27,6 +27,9 @@ docs = {
 if __name__ == '__main__':
     # Use a Session for connection pooling
     session = requests.Session()
+    session.headers.update({
+        "User-Agent": "https://github.com/nextstrain/docs.nextstrain.org (hello@nextstrain.org)",
+    })
 
     class RemoteDoc:
         def __init__(self, source_url, dest_path):
