@@ -2,6 +2,39 @@
 Data formats
 ============
 
+.. contents:: Table of Contents
+   :local:
+
+TSV
+===
+
+Nextstrain strongly prefers using TSV files for metadata even though Augur commands support other delimiters as inputs.
+If you are using other formats, we recommend using :doc:`augur curate passthru  <augur:usage/cli/curate/passthru>` to convert them to TSV.
+
+Nextstrain tools and workflows produce `RFC 4180 CSV-like TSVs <https://datatracker.ietf.org/doc/html/rfc4180>`__.
+
+When using `csvtk <https://bioinf.shenwei.me/csvtk/>`__
+
+* the ``--lazy`` (``-l``) option should not be necessary
+* the ``fix-quotes``/``del-quotes`` commands should not be necessary
+
+When using `tsv-utils <https://opensource.ebay.com/tsv-utils/>`__
+
+* pass the inputs through ``csv2tsv --csv-delim $'\t'``
+* pass the final ``tsv-util`` outputs through ``csvtk fix-quotes --tabs``
+
+.. code-block:: bash
+
+  csv2tsv --csv-delim $'\t' metadata.tsv \
+    | tsv-select -H -f strain,date \
+    | tsv-uniq -H -f strain \
+    | csvtk fix-quotes --tabs > output.tsv
+
+See our internal `discussion on TSV standardization <https://github.com/nextstrain/augur/issues/1566>`__ for more details.
+
+JSON
+====
+
 Nextstrain uses a few different kinds of `JSON
 <https://en.wikipedia.org/wiki/JSON>`__ files at various stages in a typical
 build.
