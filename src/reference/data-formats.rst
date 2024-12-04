@@ -30,6 +30,34 @@ When using `tsv-utils <https://opensource.ebay.com/tsv-utils/>`__
     | tsv-uniq -H -f strain \
     | csvtk fix-quotes --tabs > output.tsv
 
+If you are writing Python scripts that process TSV files, we recommend using the
+`csv module <https://docs.python.org/3/library/csv.html>`__ for file I/O.
+
+.. note::
+
+  Be sure to follow `csv module's recommendation <https://docs.python.org/3/library/csv.html#id4>`__
+  to open files with ``newline=''``.
+
+Reading a TSV file:
+
+.. code-block:: Python
+
+  with open(input_file, 'r', newline='') as handle:
+    reader = csv.reader(handle, delimiter='\t')
+    for row in reader:
+      ...
+
+Writing a TSV file:
+
+.. code-block:: Python
+
+  with open(output_file, 'w', newline='') as output_handle:
+    tsv_writer = csv.writer(output_handle, delimiter='\t')
+    tsv_writer.writerow(header)
+    for record in records:
+      tsv_writer.writerow(record)
+
+
 See our internal `discussion on TSV standardization <https://github.com/nextstrain/augur/issues/1566>`__ for more details.
 
 JSON
