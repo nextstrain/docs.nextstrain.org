@@ -8,3 +8,6 @@ build:
 
 conda:
   environment: conda.yml
+
+sphinx:
+  configuration: src/conf.py
