@@ -255,15 +255,10 @@ Apply geolocation rules
 
 The :doc:`augur curate apply-geolocation-rules <augur:usage/cli/curate/apply-geolocation-rules>` command will apply
 geolocation standardizations across all records.
+The command will use `Augur's built-in geolocation rules <https://github.com/nextstrain/augur/blob/@/augur/data/geolocation_rules.tsv>` by default.
 
 Config parameters
 ~~~~~~~~~~~~~~~~~
-
-* ``curate.geolocation_rules_url``
-
-    * The URL for a public set of geolocation rules
-
-    * The default URL points to the `Nextstrain ncov-ingest geolocation rules <https://raw.githubusercontent.com/nextstrain/ncov-ingest/master/source-data/gisaid_geoLocationRules.tsv>`_, which is currently the most complete set of geolocation rules.
 
 * ``curate.local_geolocation_rules``
 
