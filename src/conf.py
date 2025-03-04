@@ -103,8 +103,9 @@ linkcheck_ignore = [
      # these URLs block the client the linkchecker uses
      r'^https://www\.pnas\.org/doi/10\.1073/pnas\.1507071112',
      r'^https://www\.ncbi\.nlm\.nih\.gov/books/NBK25501',
-     # This URL returns 403 in GH Actions, but succeeds locally.
+     # These URLs fail in GH Actions, but succeeds locally.
      r'^https://wiki\.mozilla\.org/CA/Included_Certificates',
+     r'^https://www\.gnu\.org/software/bash/manual/bash\.html\#What-is-Bash_003f',
      # we specifically use this as an example of a link that _won't_ work
      r'^https://nextstrain\.org/ncov/gisaid/21L/global/6m/2024-01-10',
 ]
