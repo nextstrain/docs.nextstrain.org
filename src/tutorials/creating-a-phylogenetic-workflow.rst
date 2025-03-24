@@ -4,6 +4,10 @@ Creating a phylogenetic workflow
 
 This tutorial dissects the :term:`single-build workflow<phylogenetic workflow>` used in the previous tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
 
+.. tip::
+
+   For an example of these steps using SARS-CoV-2 data, refer to our `VEME 2022 workshop walkthrough <https://github.com/nextstrain/veme-2022>`__.
+
 .. note::
 
    The difference between a :term:`workflow` and :term:`build` isn't obvious with single-build workflows such as this example Zika workflow, but will become more distinct in multi-build workflows such as the SARS-CoV-2 workflow.
