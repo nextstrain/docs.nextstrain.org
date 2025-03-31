@@ -264,7 +264,30 @@ and command:
      --output-sequences subsampled_sequences.fasta \
      --output-metadata subsampled_metadata.tsv
 
-The weights file format is described in ``augur filter`` docs for
+Multiple grouping columns are supported in the weights file, as well as a
+default weight for unspecified groups. A weight of ``0`` can be used to exclude
+all matching sequences.
+
+.. list-table::
+   :header-rows: 1
+
+   * - region
+     - month
+     - weight
+   * - Asia
+     - 2024-01
+     - 2
+   * - Asia
+     - 2024-02
+     - 3
+   * - Africa
+     - 2024-01
+     - 2
+   * - default
+     - default
+     - 0
+
+More information can be found in ``augur filter`` docs for
 ``--group-by-weights``.
 
 Caveats
