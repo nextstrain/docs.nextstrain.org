@@ -221,8 +221,8 @@ Example:
    shell:
        r"""
        augur filter \
-           --metadata {input.metadata} \
-           --output-metadata {output.metadata} 2>&1 | tee {log}
+           --metadata {input.metadata:q} \
+           --output-metadata {output.metadata:q} 2>&1 | tee {log:q}
        """
 
 Before using ``tee``, ensure that your workflow uses `bash's pipefail option <http://redsymbol.net/articles/unofficial-bash-strict-mode/>`_, so successful ``tee`` execution does not mask errors from earlier commands in the pipe.
