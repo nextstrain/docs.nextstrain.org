@@ -1,6 +1,6 @@
-=========================================================
-Real-time tracking of pathogen evolution using Nextstrain
-=========================================================
+===========================================================
+Nextstrain Walkthrough: From Sequence Data to Visualization
+===========================================================
 
 .. contents:: Table of Contents
    :local:
