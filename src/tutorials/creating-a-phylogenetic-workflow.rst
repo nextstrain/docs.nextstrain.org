@@ -6,7 +6,7 @@ This tutorial dissects the :term:`single-build workflow<phylogenetic workflow>` 
 
 .. tip::
 
-   For an example of these steps using SARS-CoV-2 data, refer to our `VEME 2022 workshop walkthrough <https://github.com/nextstrain/veme-2022>`__.
+   For an example of these steps using SARS-CoV-2 data, refer to our :doc:`VEME 2022 workshop walkthrough <nextstrain-walkthrough>`.
 
 .. note::
 
