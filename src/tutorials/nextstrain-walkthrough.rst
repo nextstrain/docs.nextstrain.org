@@ -2,6 +2,10 @@
 Real-time tracking of pathogen evolution using Nextstrain
 =========================================================
 
+.. contents:: Table of Contents
+   :local:
+   :depth: 1
+
 Prerequisites
 =============
 
