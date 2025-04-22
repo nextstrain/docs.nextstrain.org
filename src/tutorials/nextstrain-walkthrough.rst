@@ -31,6 +31,11 @@ Set up an environment using one of the following options:
    This launches a preconfigured environment in your web browser.
    Use this if you prefer not to use GitHub Codespaces or install things locally.
 
+   .. note::
+
+      There are `some restrictions <https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html#resources-available>`__.
+      Notably, sessions are shut down after 10 minutes of inactivity.
+
    .. |Open with Binder| image:: https://mybinder.org/badge_logo.svg
       :target: https://mybinder.org/v2/gh/nextstrain/nextstrain-walkthrough/HEAD
 
