@@ -4,6 +4,9 @@
 Nextstrain Walkthrough: From Sequence Data to Visualization
 ===========================================================
 
+This walkthrough was originally written for use by our team to teach live workshops.
+Content has been adjusted to be a generic tutorial.
+
 .. contents:: Table of Contents
    :local:
    :depth: 1
@@ -41,7 +44,7 @@ Set up an environment using one of the following options:
 
 3. Local installation:
    `Install Nextstrain <https://docs.nextstrain.org/en/latest/install.html>`__ +
-   `clone this repository <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>`__
+   `clone the tutorial repository <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>`__
 
    Use this if you prefer to install software locally on your computer.
 
