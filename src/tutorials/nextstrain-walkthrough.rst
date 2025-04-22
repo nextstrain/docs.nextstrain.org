@@ -285,7 +285,6 @@ This export step requires at least a Newick tree and a node data JSON file to pr
 
 .. code:: bash
 
-   mkdir -p auspice/
    augur export v2 \
      --tree results/tree.nwk \
      --node-data results/branch_lengths.json \
