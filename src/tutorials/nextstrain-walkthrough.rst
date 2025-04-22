@@ -14,45 +14,7 @@ Content has been adjusted to be a generic tutorial.
 Prerequisites
 =============
 
-Set up an environment using one of the following options:
-
-1. GitHub Codespaces: |Open with GitHub Codespaces|
-
-   This launches a preconfigured environment in your web browser or Visual Studio Code.
-
-   .. note::
-
-      A GitHub account is required. There is a `monthly free quota <https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts>`__ which varies by account plan.
-      This tutorial is expected to use less than 4 core hours and 1 GB.
-      Storage use against quota is negligible if the codespace is deleted after you complete the tutorial.
-
-   .. |Open with GitHub Codespaces| image:: https://github.com/codespaces/badge.svg
-      :target: https://codespaces.new/nextstrain/nextstrain-walkthrough
-
-2. Binder: |Open with Binder|
-
-   This launches a preconfigured environment in your web browser.
-   Use this if you prefer not to use GitHub Codespaces or install things locally.
-
-   .. note::
-
-      There are `some restrictions <https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html#resources-available>`__.
-      Notably, sessions are shut down after 10 minutes of inactivity.
-
-   .. |Open with Binder| image:: https://mybinder.org/badge_logo.svg
-      :target: https://mybinder.org/v2/gh/nextstrain/nextstrain-walkthrough/HEAD
-
-3. Local installation:
-   `Install Nextstrain <https://docs.nextstrain.org/en/latest/install.html>`__ +
-   `clone the tutorial repository <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>`__
-
-   Use this if you prefer to install software locally on your computer.
-
-   .. warning::
-
-      For live workshops, this is not recommend since it takes time to set up and environments may vary across computers.
-      You may need to use ``nextstrain shell`` to run some commands in this tutorial.
-      If you face any issues during the workshop, please use one of the other options.
+Visit the `tutorial repository <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>`__ and follow setup instructions in the README.
 
 Scope
 =====
