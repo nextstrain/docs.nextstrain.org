@@ -92,7 +92,7 @@ Inspect input files
 
 To start, we will inspect the input files for SARS-CoV-2 analysis.
 We will use a curated reference genome and annotations from Nextclade.
-`See the data curation guide <data/README.md>`__ for more details.
+`See the data curation guide <https://github.com/nextstrain/nextstrain-walkthrough/tree/HEAD/data>`__ for more details.
 
 Inspect the contents of the reference genome `FASTA <https://www.ncbi.nlm.nih.gov/genbank/fastaformat/>`__.
 
