@@ -298,10 +298,10 @@ This export step requires at least a Newick tree and a node data JSON file to pr
 View the new tree by loading ``auspice/nextstrain-walkthrough.json`` in `auspice.us <https://auspice.us/>`__.
 It should look something like below.
 
+.. FIXME: update screenshot
+
 .. figure:: ../images/tree_refined.jpeg
    :alt: time tree in auspice.us
-
-   .. FIXME: update screenshot
 
 Note the differences from the Auspice view of ``results/tree_raw.nwk``:
 
@@ -426,6 +426,8 @@ We can export these into the Auspice JSON file that Auspice will use to visualiz
 
 View the updated tree by loading ``auspice/nextstrain-walkthrough.json`` in `auspice.us <https://auspice.us/>`__.
 It should look something like below.
+
+.. FIXME: update screenshot
 
 .. figure:: ../images/tree_with_node_data.jpeg
    :alt: time tree with additional info in auspice.us
@@ -631,6 +633,8 @@ We need to tell Auspice to expect this sidecar file when it loads the tree, so w
 View the updated tree by loading **both** ``auspice/nextstrain-walkthrough.json`` and ``auspice/nextstrain-walkthrough_tip-frequencies.json`` in `auspice.us <https://auspice.us>`__.
 
 A new panel is available, **Frequencies**. Color by **Clade** to see the dominance of clades over time.
+
+.. FIXME: update screenshot
 
 .. figure:: ../images/tree_with_frequencies.jpeg
    :alt: dataset with frequencies in auspice.us
