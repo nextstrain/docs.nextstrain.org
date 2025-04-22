@@ -31,11 +31,6 @@ Set up an environment using one of the following options:
    This launches a preconfigured environment in your web browser.
    Use this if you prefer not to use GitHub Codespaces or install things locally.
 
-   .. warning::
-
-      This option does not support proper usage of the local Auspice server.
-      Use `auspice.us <https://auspice.us>`__ in place of those steps.
-
    .. |Open with Binder| image:: https://mybinder.org/badge_logo.svg
       :target: https://mybinder.org/v2/gh/nextstrain/nextstrain-walkthrough/HEAD
 
@@ -76,7 +71,7 @@ By the end of this tutorial, you will know how to:
 -  identify the necessary input files to perform a genomic epidemiology analysis with Nextstrain
 -  run commands in Nextstrain’s bioinformatics toolkit including Augur and Nextclade to convert input genomes and metadata into an annotated phylogenetic time tree that can be visualized locally or online
 -  inspect and understand the contents of Nextstrain toolkit command outputs
--  visualize and interpret a phylogenetic tree produced by Nextstrain’s bioinformatics toolkit using Auspice or `auspice.us <https://auspice.us>`__
+-  visualize and interpret a phylogenetic tree produced by Nextstrain’s bioinformatics toolkit using `auspice.us <https://auspice.us>`__
 
 Introduction
 ============
@@ -330,22 +325,13 @@ This export step requires at least a Newick tree and a node data JSON file to pr
 
 ..
 
-.. tip::
-
-   You can view Auspice datasets in auspice.us, but we will use a local Auspice server for the rest of this tutorial.
-
-We will view the tree using a local Auspice server.
-Open a new terminal and start the server using the command below.
-
-.. code:: bash
-
-   auspice view --datasetDir auspice/
-
-Then, navigate to http://localhost:4000 and open the **nextstrain-walkthrough** dataset.
-You should see a view like this:
+View the new tree by loading ``auspice/nextstrain-walkthrough.json`` in `auspice.us <https://auspice.us/>`__.
+It should look something like below.
 
 .. figure:: ../images/tree_refined.jpeg
-   :alt: time tree in local Auspice server
+   :alt: time tree in auspice.us
+
+   .. FIXME: update screenshot
 
 Note the differences from the Auspice view of ``results/tree_raw.nwk``:
 
@@ -468,10 +454,11 @@ We can export these into the Auspice JSON file that Auspice will use to visualiz
      --geo-resolutions country \
      --output auspice/nextstrain-walkthrough.json
 
-View the tree with additional metadata in Auspice. It should look something like below.
+View the updated tree by loading ``auspice/nextstrain-walkthrough.json`` in `auspice.us <https://auspice.us/>`__.
+It should look something like below.
 
 .. figure:: ../images/tree_with_node_data.jpeg
-   :alt: time tree with additional info in local Auspice server
+   :alt: time tree with additional info in auspice.us
 
 Note the differences from the previous Auspice dataset:
 
@@ -671,10 +658,9 @@ We need to tell Auspice to expect this sidecar file when it loads the tree, so w
      --output auspice/nextstrain-walkthrough.json \
      --panels tree map entropy frequencies
 
-View the final tree with frequencies in Auspice.
-If you are using `auspice.us <https://auspice.us>`__, drag both the ``auspice/nextstrain-walkthrough.json`` and ``auspice/nextstrain-walkthrough_tip-frequencies.json`` files onto the page.
+View the updated tree by loading **both** ``auspice/nextstrain-walkthrough.json`` and ``auspice/nextstrain-walkthrough_tip-frequencies.json`` in `auspice.us <https://auspice.us>`__.
 
 A new panel is available, **Frequencies**. Color by **Clade** to see the dominance of clades over time.
 
 .. figure:: ../images/tree_with_frequencies.jpeg
-   :alt: dataset with frequencies in local Auspice server
+   :alt: dataset with frequencies in auspice.us
