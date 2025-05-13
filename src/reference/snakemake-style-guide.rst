@@ -211,6 +211,7 @@ Log standard out and error output to log files and the terminal
 
 Use `the Snakemake log directive <https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files>`_ for each rule that writes output to either standard out or error and direct output to the corresponding log file.
 Use the ``tee`` command to ensure that output gets written to both the log file and the terminal, so users can track their workflow progress interactively and use the log file later for debugging.
+Use ``exec`` to capture output from the entire shell block, which is useful if there are multiple commands (e.g. piping).
 
 Example:
 
@@ -220,9 +221,11 @@ Example:
        "logs/filter.txt"
    shell:
        r"""
+       exec &> >(tee {log:q})
+
        augur filter \
            --metadata {input.metadata:q} \
-           --output-metadata {output.metadata:q} 2>&1 | tee {log:q}
+           --output-metadata {output.metadata:q}
        """
 
 Before using ``tee``, ensure that your workflow uses `bash's pipefail option <http://redsymbol.net/articles/unofficial-bash-strict-mode/>`_, so successful ``tee`` execution does not mask errors from earlier commands in the pipe.
