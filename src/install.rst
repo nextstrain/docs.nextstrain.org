@@ -225,10 +225,6 @@ Set up a Nextstrain runtime
 
          .. group-tab:: macOS
 
-            .. warning::
-
-               If step 2 fails, you might have an Apple silicon version of Conda installed. See :ref:`this FAQ section <why-conda-install-errors-on-apple-silicon>` for workarounds.
-
             .. include:: snippets/ambient-setup.rst
 
 
