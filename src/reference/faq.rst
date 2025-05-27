@@ -89,56 +89,19 @@ The other deciding factor is which runtime(s) you'd like to use. Under **PowerSh
 
 .. old anchors
 .. _why-intel-miniconda-installer-on-apple-silicon:
-
 .. _why-conda-install-errors-on-apple-silicon:
 
-Why do I get an error when installing to my Conda environment on a Mac computer with Apple silicon (e.g. M1)?
--------------------------------------------------------------------------------------------------------------
+.. _what-happened-to-the-intel-conda-recommendation:
 
-An example error:
+What happened to the recommendation to use an Intel-based Conda installation?
+-----------------------------------------------------------------------------
 
-.. code-block:: text
-   :emphasize-lines: 10,11,12,13,14,15
+Background: computers with Apple silicon hardware have two options for Conda subdir: ``osx-arm64`` (native) and ``osx-64`` (Intel-based, requires Rosetta 2 emulation).
 
-   (your-environment-name) $ conda install augur
+When Apple silicon was first released, few Conda packages supported ``osx-arm64``. This meant that the example ``conda create`` command provided in the Nextstrain docs would fail to resolve packages when using an ``osx-arm64`` Conda installation. We had suggested using an ``osx-64`` Conda installation as an easy workaround for most users, at the cost of not taking full advantage of the Apple silicon architecture.
 
-   …
+Now that there is wide support for ``osx-arm64`` packages, we have removed the workaround.
 
-   Platform: osx-arm64
-
-   …
-
-   Collecting package metadata (repodata.json): done
-   Solving environment: failed
-
-   LibMambaUnsatisfiableError: Encountered problems while solving:
-     - nothing provides fasttree needed by augur-10.0.0-py_0
-
-   Could not solve for environment specs
-
-This happens when using an ARM64-based Conda installation on a `computer with Apple silicon <https://support.apple.com/en-us/HT211814>`__, but there are workarounds.
-
-Apple silicon chips are great and efficient. They are based on a different chip architecture, ARM64/AArch64, and come with performance improvements compared to the x64-based Intel chips in older Macs.
-
-However, many existing packages have not yet added support to run on these chips natively. An easy way to identify support on the `Bioconda packages page <https://anaconda.org/bioconda>`_ is to look for ``noarch`` or ``osx-arm64`` under the **Installers** section of a package. Without any of those, a package is not able to be installed natively on Apple silicon. This is the case for packages such as `MAFFT <https://anaconda.org/bioconda/mafft>`_ (a dependency of :term:`Augur`) and many other bioinformatics packages. For this reason, using an ARM64-based Conda installation for the average bioinformatics researcher can result in a difficult experience.
-
-There are two ways to work around this:
-
-1. Uninstall Conda, delete all existing environments, and re-install with an `Intel-based installer <https://docs.conda.io/en/latest/miniconda.html>`__. With an Intel-based installation, all environments are forced to use emulation.
-
-   This provides easy compatibility with a broader set of bioinformatics packages, but comes at the cost of relatively longer run times for packages that have native ARM64 support.
-
-2. Create a custom Conda environment that installs and runs packages under `Intel emulation <https://conda-forge.org/docs/user/tipsandtricks/#installing-apple-intel-packages-on-apple-silicon>`__. Run this after setting up an **empty** Conda environment and before installing any packages to it:
-
-   .. code-block:: bash
-
-      conda config --env --set subdir osx-64
-
-   This will ensure that all commands in the active Conda environment are run using Intel emulation, making it possible to install Nextstrain software such as Augur. You only need to run this once per Conda environment.
-
-   .. warning::
-
-      This should only be done on an empty Conda environment (otherwise you may encounter low-level errors) and does not automatically apply to other new or existing environments.
 
 .. _what-happened-to-the-native-runtime:
 
