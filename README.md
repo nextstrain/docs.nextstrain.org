@@ -47,16 +47,6 @@ Leave the environment with:
 
 > See below for how to build the docs for each subproject
 
-## Building the docs with Docker
-
-Alternatively, you can perform the same steps inside a container.
-
-Once you have [Docker](https://docs.docker.com/get-docker/) installed, run:
-
-    make docker-html
-
-The HTML files appear in `build/html/` as usual, and can be viewed in a browser.
-
 ## Build configuration
 
 ### Read The Docs
