@@ -11,44 +11,95 @@ and :doc:`augur subsample <augur:usage/cli/subsample>` to sample data.
 Overview
 ========
 
-``augur filter`` provides the flexibility to choose different subsets of input
-data for various types of analysis. There are several options which can be
-categorized based on the information source and selection method.
+Augur provides two tools to choose different subsets of input data for various
+types of analysis.
 
-Information source:
+- **augur filter**: Tool with command-line configuration options
+- **augur subsample**: Tool with file-based configuration options
 
-- **Metadata-based** options work with information available from
-  ``--metadata``.
-- **Sequence-based** options work with information available from
-  ``--sequences`` or ``--sequence-index``.
+This guide contains examples for both tools. For ``augur filter`` examples, the options should be added to the following call:
 
-Selection method:
+.. code-block:: bash
+
+   augur filter \
+     --sequences data/sequences.fasta \
+     --metadata data/metadata.tsv \
+     <OPTIONS>
+     --output-sequences filtered_sequences.fasta \
+     --output-metadata filtered_metadata.tsv
+
+For augur subsample examples, the options should be added to a YAML file. If it is named ``samples.yaml``, the following call should be used:
+
+.. code-block:: bash
+
+   augur subsample \
+     --sequences data/sequences.fasta \
+     --metadata data/metadata.tsv \
+     --config samples.yaml \
+     --output-sequences filtered_sequences.fasta \
+     --output-metadata filtered_metadata.tsv
+
+.. tip::
+
+   Use ``augur filter`` when:
+
+   - You need simple, single-step filtering and subsampling
+   - You are comfortable with command-line flags
+
+   Use ``augur subsample`` when:
+
+   - You need complex, multi-tier subsampling (e.g., geographic tiers)
+   - You prefer configuration files over long command lines
+
+Options can be categorized based on the selection method.
 
 - **Preliminary** options work by selecting or dropping sequences that match
-  certain criteria.
+  certain criteria. Criteria is one of either
+  
+  1. metadata-based: works with information available from ``--metadata``
+  2. sequence-based: works with information available from
+     ``--sequences``/``--sequence-index``.
+
 - **Subsampling** options work by selecting sequences using rules based on final
   output size. These are applied after all preliminary options and before any
   force-inclusive options.
 - **Force-inclusive** options work by ensuring sequences that match certain
-  criteria are always included in the output, ignoring all other filter options.
+  criteria are always included in the output, ignoring all other options.
 
-.. list-table:: Categories for filter options
+.. list-table:: Categories for sampling options
    :header-rows: 1
    :stub-columns: 1
 
    * -
-     - Metadata-based
-     - Sequence-based
+     - ``augur filter``
+     - ``augur subsample``
    * - Preliminary
+
+       (metadata-based)
+
      - * ``--min-date``
        * ``--max-date``
        * ``--exclude-ambiguous-dates-by``
        * ``--exclude``
        * ``--exclude-where``
        * ``--query``
+     - * ``min_date``
+       * ``max_date``
+       * ``exclude_ambiguous_dates_by``
+       * ``exclude``
+       * ``exclude_where``
+       * ``query``
+
+   * - Preliminary
+
+       (sequence-based)
+
      - * ``--min-length``
        * ``--max-length``
        * ``--non-nucleotide``
+     - * ``min_length``
+       * ``max_length``
+       * ``non_nucleotide``
 
    * - Subsampling
      - * ``--subsample-max-sequences``
@@ -58,34 +109,44 @@ Selection method:
        * ``--probabilistic-sampling``
        * ``--no-probabilistic-sampling``
        * ``--priority``
-     - *None*
+     - * ``max_sequences``
+       * ``group_by``
+       * ``group_by_weights``
+       * ``sequences_per_group``
+       * ``probabilistic_sampling``
 
    * - Force-inclusive
      - * ``--include``
        * ``--include-where``
-     - *None*
+     - * ``include``
+       * ``include_where``
 
 Preliminary & force-inclusive selection
 =======================================
 
-A common filtering operation is to select sequences according to rules on
+A common sampling operation is to select sequences according to rules on
 individual sequence attributes. Examples:
 
 - Select all sequences with a collection date in 2012 or later using
-  ``--min-date 2012``:
+  the minimum date option.
 
-  .. code-block:: bash
+  .. list-table::
+     :header-rows: 1
 
-     augur filter \
-       --sequences data/sequences.fasta \
-       --metadata data/metadata.tsv \
-       --min-date 2012 \
-       --output-sequences filtered_sequences.fasta \
-       --output-metadata filtered_metadata.tsv
+     * - ``augur filter`` options
+       - ``augur subsample`` config
+     * - .. code-block:: bash
 
-- Exclude outliers (e.g. because of sequencing errors, cell-culture adaptation)
-  using ``--exclude``. First, create a text file ``exclude.txt`` with one line
-  per sequence ID:
+            --min-date 2012 \
+
+       - .. code-block:: yaml
+
+            samples:
+              my_sample:
+                min_date: 2012
+
+- Exclude outliers (e.g. because of sequencing errors, cell-culture adaptation).
+  First, create a text file ``exclude.txt`` with one line per sequence ID.
 
   .. code-block::
 
@@ -93,73 +154,96 @@ individual sequence attributes. Examples:
       COL/FLR_00034/2015
       ...
 
-  Add the option by using ``--exclude exclude.txt`` in the command:
+  The name of the file is given to the file-based exclusion option.
 
-  .. code-block:: bash
+  .. list-table::
+     :header-rows: 1
 
-      augur filter \
-        --sequences data/sequences.fasta \
-        --metadata data/metadata.tsv \
-        --min-date 2012 \
-        --exclude exclude.txt \
-        --output-sequences filtered_sequences.fasta \
-        --output-metadata filtered_metadata.tsv
+     * - ``augur filter`` options
+       - ``augur subsample`` config
+     * - .. code-block:: bash
 
-- Include sequences from a specific region using ``--query``:
+            --min-date 2012 \
+            --exclude exclude.txt \
 
-  .. code-block:: bash
+       - .. code-block:: yaml
 
-      augur filter \
-        --sequences data/sequences.fasta \
-        --metadata data/metadata.tsv \
-        --min-date 2012 \
-        --exclude exclude.txt \
-        --query 'region="Asia"' \
-        --output-sequences filtered_sequences.fasta \
-        --output-metadata filtered_metadata.tsv
+            samples:
+              my_sample:
+                min_date: 2012
+                exclude: exclude.txt
+
+- Include sequences from a specific region using the query option.
+
+  .. list-table::
+     :header-rows: 1
+
+     * - ``augur filter`` options
+       - ``augur subsample`` config
+     * - .. code-block:: bash
+
+            --min-date 2012 \
+            --exclude exclude.txt \
+            --query 'region="Asia"' \
+
+       - .. code-block:: yaml
+
+            samples:
+              my_sample:
+                min_date: 2012
+                exclude: exclude.txt
+                query: region="Asia"
 
   .. tip::
 
-      ``--query 'region="Asia"'`` is functionally equivalent to ``--exclude-where
-      region!=Asia``. However, ``--query`` allows for more complex expressions such
-      as ``--query '(region in {"Asia", "Europe"}) & (coverage >= 0.95)'``.
+      The query ``region="Asia"`` is functionally equivalent to the column-based
+      exclusion ``region!=Asia``. However, the query option allows for more
+      complex expressions such as ``(region in {"Asia", "Europe"}) & (coverage
+      >= 0.95)``.
 
-      ``--query 'region="Asia"'`` is **not** equivalent to ``--include-where
-      region=Asia`` since force-inclusive options ignore other filter options
-      (i.e. ``--min-date`` and ``--exclude`` in the example above).
+      The query ``region="Asia"`` is **not** equivalent to a column-based
+      force-inclusion ``region=Asia`` since force-inclusive options ignore other
+      options (i.e. minimum date and file-based exclusion in the examples
+      above).
 
-Force-inclusive options work similarly, and override all other filtering
-options. Example:
+Force-inclusive options work similarly, and override all other options.
+Example:
 
-- Include specific sequences (e.g. root sequence) using ``--include``. First,
-  create a text file ``include.txt`` with one line per sequence ID:
+- Include specific sequences (e.g. root sequence). First, create a text file
+  ``include.txt`` with one line per sequence ID.
 
   .. code-block::
 
       Wuhan/Hu-1/2019
       ...
 
-  Add the option by using ``--include include.txt`` in the command:
+  The name of the file is given to the file-based force-inclusion option.
 
-  .. code-block:: bash
+  .. list-table::
+     :header-rows: 1
 
-      augur filter \
-        --sequences data/sequences.fasta \
-        --metadata data/metadata.tsv \
-        --min-date 2020 \
-        --include include.txt \
-        --output-sequences filtered_sequences.fasta \
-        --output-metadata filtered_metadata.tsv
+     * - ``augur filter`` options
+       - ``augur subsample`` config
+     * - .. code-block:: bash
 
-  ``Wuhan/Hu-1/2019`` will still be included even if it does not pass the filter
-  ``--min-date 2020``.
+            --min-date 2020 \
+            --include include.txt \
+
+       - .. code-block:: yaml
+
+            samples:
+              my_sample:
+                min_date: 2020
+                include: include.txt
+
+  ``Wuhan/Hu-1/2019`` will still be included even if it does not pass the date filter.
 
 Subsampling
 ===========
 
-Another common filtering operation is **subsampling**: selection of data using
+Another common operation is **subsampling**: selection of data using
 rules based on output size rather than individual sequence attributes. These are
-the sampling methods supported by ``augur filter``:
+the sampling methods supported by Augur:
 
 .. contents::
    :local:
@@ -171,16 +255,24 @@ Random sampling
 The simplest scenario is a reduction of dataset size to more manageable numbers.
 For example, limit the output to 100 sequences:
 
-.. code-block:: bash
+.. list-table::
+   :header-rows: 1
 
-   augur filter \
-     --sequences data/sequences.fasta \
-     --metadata data/metadata.tsv \
-     --min-date 2012 \
-     --exclude exclude.txt \
-     --subsample-max-sequences 100 \
-     --output-sequences subsampled_sequences.fasta \
-     --output-metadata subsampled_metadata.tsv
+   * - ``augur filter`` options
+     - ``augur subsample`` config
+   * - .. code-block:: bash
+
+          --min-date 2012 \
+          --exclude exclude.txt \
+          --subsample-max-sequences 100 \
+
+     - .. code-block:: yaml
+
+          samples:
+            my_sample:
+              min_date: 2012
+              exclude: exclude.txt
+              max_sequences: 100
 
 Random sampling is easy to define but can expose sampling bias in some datasets.
 Consider using grouped sampling to reduce sampling bias.
@@ -188,8 +280,9 @@ Consider using grouped sampling to reduce sampling bias.
 Grouped sampling
 ----------------
 
-``--group-by`` allows you to partition the data into groups based on column
-values and sample a number of sequences per group.
+Grouping columns specified by ``--group-by`` (for ``augur filter``) and
+``group_by`` (for ``augur subsample``) allow you to partition the data into
+groups based on column values and sample a number of sequences per group.
 
 Grouped sampling can be further divided into two types with a final section for
 caveats:
@@ -200,44 +293,67 @@ caveats:
 Uniform sampling
 ~~~~~~~~~~~~~~~~
 
-By default (i.e. without ``--group-by-weights``), ``--group-by`` will sample
-uniformly across groups. For example, sample evenly across regions over time:
+By default (i.e. without weights), Augur will sample uniformly across groups.
+For example, sample evenly across regions over time:
 
-.. code-block:: bash
+.. list-table::
+   :header-rows: 1
 
-   augur filter \
-     --sequences data/sequences.fasta \
-     --metadata data/metadata.tsv \
-     --min-date 2012 \
-     --exclude exclude.txt \
-     --group-by region year month \
-     --subsample-max-sequences 100 \
-     --output-sequences subsampled_sequences.fasta \
-     --output-metadata subsampled_metadata.tsv
+   * - ``augur filter`` options
+     - ``augur subsample`` config
+   * - .. code-block:: bash
 
-An alternative to ``--subsample-max-sequences`` is ``--sequences-per-group``.
-This is useful if you care less about total sample size and more about having
-a fixed number of sequences from each group. For example, target one sequence
-per month from each region:
+          --min-date 2012 \
+          --exclude exclude.txt \
+          --group-by region year month \
+          --subsample-max-sequences 100 \
 
-.. code-block:: bash
+     - .. code-block:: yaml
 
-   augur filter \
-     --sequences data/sequences.fasta \
-     --metadata data/metadata.tsv \
-     --min-date 2012 \
-     --exclude exclude.txt \
-     --group-by region year month \
-     --sequences-per-group 1 \
-     --output-sequences subsampled_sequences.fasta \
-     --output-metadata subsampled_metadata.tsv
+          samples:
+            my_sample:
+              min_date: 2012
+              exclude: exclude.txt
+              group_by:
+                - region
+                - year
+                - month
+              max_sequences: 100
+
+An alternative to targeting a total sample size is to target a fixed number of
+sequences per group. For example, target one sequence per month from each
+region:
+
+.. list-table::
+   :header-rows: 1
+
+   * - ``augur filter`` options
+     - ``augur subsample`` config
+   * - .. code-block:: bash
+
+          --min-date 2012 \
+          --exclude exclude.txt \
+          --group-by region year month \
+          --sequences-per-group 1 \
+
+     - .. code-block:: yaml
+
+          samples:
+            my_sample:
+              min_date: 2012
+              exclude: exclude.txt
+              group_by:
+                - region
+                - year
+                - month
+              sequences_per_group: 1
 
 Weighted sampling
 ~~~~~~~~~~~~~~~~~
 
-``--group-by-weights`` can be specified in addition to ``--group-by`` to allow
-different target sizes per group. For example, target twice the amount of
-sequences from Asia compared to other regions using this ``weights.tsv`` file:
+Weights can be specified in addition to grouping columns to allow different
+target sizes per group. For example, target twice the amount of sequences from
+Asia compared to other regions using this ``weights.tsv`` file:
 
 .. list-table::
    :header-rows: 1
@@ -249,20 +365,33 @@ sequences from Asia compared to other regions using this ``weights.tsv`` file:
    * - default
      - 1
 
-and command:
+The name of the file is given to the grouping column weights option.
 
-.. code-block:: bash
+.. list-table::
+   :header-rows: 1
 
-   augur filter \
-     --sequences data/sequences.fasta \
-     --metadata data/metadata.tsv \
-     --min-date 2012 \
-     --exclude exclude.txt \
-     --group-by region year month \
-     --group-by-weights weights.tsv \
-     --subsample-max-sequences 100 \
-     --output-sequences subsampled_sequences.fasta \
-     --output-metadata subsampled_metadata.tsv
+   * - ``augur filter`` options
+     - ``augur subsample`` config
+   * - .. code-block:: bash
+
+          --min-date 2012 \
+          --exclude exclude.txt \
+          --group-by region year month \
+          --group-by-weights weights.tsv \
+          --subsample-max-sequences 100 \
+
+     - .. code-block:: yaml
+
+          samples:
+            my_sample:
+              min_date: 2012
+              exclude: exclude.txt
+              group_by:
+                - region
+                - year
+                - month
+              group_by_weights: weights.tsv
+              max_sequences: 100
 
 Multiple grouping columns are supported in the weights file, as well as a
 default weight for unspecified groups. A weight of ``0`` can be used to exclude
@@ -287,8 +416,7 @@ all matching sequences.
      - default
      - 0
 
-More information can be found in ``augur filter`` docs for
-``--group-by-weights``.
+More information can be found in the documentation page for each tool.
 
 Caveats
 ~~~~~~~
@@ -298,9 +426,9 @@ Probabilistic sampling
 
 It is possible to encounter situations where the number of groups exceeds the
 target sample size. For example, consider a command with groups defined by
-``--group-by region year month`` and target sample size defined by
-``--subsample-max-sequences 100``. If the input contains data from 5 regions
-over a span of 24 months, that could result in 120 groups.
+grouping columns ``region``, ``year``, ``month`` and target sample size of 100
+sequences. If the input contains data from 5 regions over a span of 24 months,
+that could result in 120 groups.
 
 The only way to target 100 sequences from 120 groups is to apply **probabilistic
 sampling** which randomly determines a whole number of sequences per group. This
@@ -313,9 +441,11 @@ is noted in the output:
    possible to have more than the requested maximum of 100 sequences after
    filtering.
 
-This is automatically enabled. ``--no-probabilistic-sampling`` can be used with
-uniform sampling to force the command to exit with an error in these situations.
-It is always be enabled for weighted sampling.
+This is automatically enabled. For ``augur filter``,
+``--no-probabilistic-sampling`` can be used with uniform sampling to force the
+command to exit with an error in these situations. For ``augur subsample``,
+``probabilistic_sampling: False`` can be used. It must be enabled for weighted
+sampling.
 
 Undersampling
 `````````````
@@ -323,9 +453,9 @@ Undersampling
 For these sampling methods, the number of targeted sequences per group does not
 take into account the actual number of sequences available in the input data.
 For example, consider a dataset with 200 sequences available from 2023 and 100
-sequences available from 2024. ``--group-by year --subsample-max-sequences 300``
-is equivalent to ``--group-by year --sequences-per-group 150``. This will take
-150 sequences from 2023 and all 100 sequences from 2024 for a total of 250
+sequences available from 2024. When grouping by ``year``, targeting 300 total
+sequences is equivalent to targeting 150 sequences per group. This will take 150
+sequences from 2023 and all 100 sequences from 2024 for a total of 250
 sequences, which is less than the target of 300.
 
 Complex subsampling strategies
@@ -362,17 +492,6 @@ This can be represented in an ``augur subsample`` config file:
      country:
        query: state != 'WA' & country == 'USA'
        max_sequences: 100
-
-If it is named ``samples.yaml``, the following call should be used:
-
-.. code-block:: bash
-
-   augur subsample \
-     --sequences data/sequences.fasta \
-     --metadata data/metadata.tsv \
-     --config samples.yaml \
-     --output-sequences filtered_sequences.fasta \
-     --output-metadata filtered_metadata.tsv
 
 
 .. _complex-subsampling-using-augur-filter:
