@@ -465,10 +465,14 @@ There are some subsampling strategies in which a single call to ``augur filter``
 does not suffice or is difficult to create. One such strategy is "tiered
 subsampling". In this strategy, mutually exclusive sets of filters, each
 representing a "tier", are sampled with different subsampling rules. This is
-commonly used to create geographic tiers.
+commonly used to create geographic tiers. In most situations it is recommended
+to use ``augur subsample``.
 
-Using ``augur subsample``
--------------------------
+Using ``augur subsample``…
+--------------------------
+
+.. contents::
+   :local:
 
 .. note::
 
@@ -476,7 +480,10 @@ Using ``augur subsample``
    you are using an older version of Augur, refer to :ref:`the augur filter
    examples <complex-subsampling-using-augur-filter>`.
 
-In most situations it is recommended to use ``augur subsample``. Consider the following task:
+… with a dedicated config file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Consider the following task:
 
    Sample 200 sequences from Washington state and 100 sequences from the rest of
    the United States.
@@ -492,6 +499,66 @@ This can be represented in an ``augur subsample`` config file:
      country:
        query: state != 'WA' & country == 'USA'
        max_sequences: 100
+
+… within Snakemake workflow config
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Snakemake`_ is a workflow manager where configuration is often written in YAML
+files. A clean pattern is to keep your ``augur subsample`` config inside your
+workflow config under a dedicated section, write the ``config`` variable to a YAML
+file at run time, and instruct ``augur subsample`` to read from the section.
+
+Consider the following workflow config and ``augur subsample`` usage:
+
+.. code-block:: yaml
+
+   builds:
+     build1:
+       subsample:
+         samples:
+           state:
+             query: state == 'WA'
+             max_sequences: 200
+           country:
+             query: state != 'WA' & country == 'USA'
+             max_sequences: 100
+
+.. code-block:: python
+
+   import yaml
+   with open("results/run_config.yaml", "w") as f:
+       yaml.dump(config, f, sort_keys=False)
+
+   rule subsample:
+       input:
+           metadata = "data/metadata.tsv",
+           config = "results/run_config.yaml",
+       params:
+           config_section = ["builds", "build1", "subsample"]
+       output:
+           metadata = "results/subsampled.tsv",
+       shell:
+           """
+           augur subsample \
+             --metadata {input.metadata} \
+             --config {input.config} \
+             --config-section {params.config_section:q} \
+             --output-metadata {output.metadata}
+           """
+
+.. tip::
+
+   Quoted interpolations (``:q``) let you include spaces in key names and are
+   generally recommended.
+
+Other options (less ideal):
+
+- Maintain a separate YAML dedicated to ``augur subsample``. This is not ideal
+  because it splits workflow configuration across files.
+- Instruct ``augur subsample`` to read directly from a Snakemake config file.
+  This is not ideal because values may be overridden at run time via
+  ``--configfile`` or ``--config``. The in-memory ``config`` variable is the
+  ultimate source of truth, so writing it out as recommended is more robust.
 
 
 .. _complex-subsampling-using-augur-filter:
