@@ -2,8 +2,8 @@
 Filtering and Subsampling
 =========================
 
-Below are some examples of using :doc:`augur filter <augur:usage/cli/filter>` to
-sample data.
+Below are some examples of using :doc:`augur filter <augur:usage/cli/filter>`
+and :doc:`augur subsample <augur:usage/cli/subsample>` to sample data.
 
 .. contents:: Table of Contents
    :local:
@@ -328,14 +328,69 @@ is equivalent to ``--group-by year --sequences-per-group 150``. This will take
 150 sequences from 2023 and all 100 sequences from 2024 for a total of 250
 sequences, which is less than the target of 300.
 
-Subsampling using multiple ``augur filter`` commands
-====================================================
+Complex subsampling strategies
+==============================
 
 There are some subsampling strategies in which a single call to ``augur filter``
 does not suffice or is difficult to create. One such strategy is "tiered
 subsampling". In this strategy, mutually exclusive sets of filters, each
 representing a "tier", are sampled with different subsampling rules. This is
-commonly used to create geographic tiers. Consider this subsampling scheme:
+commonly used to create geographic tiers.
+
+Using ``augur subsample``
+-------------------------
+
+.. note::
+
+   ``augur subsample`` is only available in Augur version 31.5.0 and later. If
+   you are using an older version of Augur, refer to :ref:`the augur filter
+   examples <complex-subsampling-using-augur-filter>`.
+
+In most situations it is recommended to use ``augur subsample``. Consider the following task:
+
+   Sample 200 sequences from Washington state and 100 sequences from the rest of
+   the United States.
+
+This can be represented in an ``augur subsample`` config file:
+
+.. code-block:: yaml
+
+   samples:
+     state:
+       query: state == 'WA'
+       max_sequences: 200
+     country:
+       query: state != 'WA' & country == 'USA'
+       max_sequences: 100
+
+If it is named ``samples.yaml``, the following call should be used:
+
+.. code-block:: bash
+
+   augur subsample \
+     --sequences data/sequences.fasta \
+     --metadata data/metadata.tsv \
+     --config samples.yaml \
+     --output-sequences filtered_sequences.fasta \
+     --output-metadata filtered_metadata.tsv
+
+
+.. _complex-subsampling-using-augur-filter:
+
+Using ``augur filter``…
+-----------------------
+
+.. contents::
+   :local:
+
+.. tip::
+
+   Using ``augur subsample`` is recommended for Augur version 31.5.0 and later.
+
+… with weighted sampling
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Consider the following task:
 
    Sample 200 sequences from Washington state and 100 sequences from the rest of
    the United States.
@@ -393,8 +448,8 @@ combine the intermediate samples.
    2. Sample 100 sequences from the rest of the United States.
    3. Combine the samples.
 
-Calling ``augur filter`` multiple times
----------------------------------------
+… with multiple calls
+~~~~~~~~~~~~~~~~~~~~~
 
 A basic approach is to run the ``augur filter`` commands directly. This works
 well for ad-hoc analyses.
@@ -439,8 +494,10 @@ write it once in each of the final outputs.
    across states. This differs from previous approach that used a single ``augur
    filter`` command with weighted sampling.
 
-Generalizing subsampling in a workflow
---------------------------------------
+.. _generalizing-subsampling-in-a-workflow:
+
+… generalized within a workflow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The approach above can be cumbersome with more intermediate samples. To
 generalize this process and allow for more flexibility, a workflow management
