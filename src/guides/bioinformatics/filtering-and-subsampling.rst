@@ -184,7 +184,7 @@ individual sequence attributes. Examples:
 
             --min-date 2012 \
             --exclude exclude.txt \
-            --query 'region="Asia"' \
+            --query 'region=="Asia"' \
 
        - .. code-block:: yaml
 
@@ -192,16 +192,16 @@ individual sequence attributes. Examples:
               my_sample:
                 min_date: 2012
                 exclude: exclude.txt
-                query: region="Asia"
+                query: region=="Asia"
 
   .. tip::
 
-      The query ``region="Asia"`` is functionally equivalent to the column-based
+      The query ``region=="Asia"`` is functionally equivalent to the column-based
       exclusion ``region!=Asia``. However, the query option allows for more
       complex expressions such as ``(region in {"Asia", "Europe"}) & (coverage
       >= 0.95)``.
 
-      The query ``region="Asia"`` is **not** equivalent to a column-based
+      The query ``region=="Asia"`` is **not** equivalent to a column-based
       force-inclusion ``region=Asia`` since force-inclusive options ignore other
       options (i.e. minimum date and file-based exclusion in the examples
       above).
