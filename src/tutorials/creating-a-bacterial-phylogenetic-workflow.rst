@@ -21,7 +21,7 @@ Setup
 
    .. code-block:: bash
 
-      git clone https://github.com/nextstrain/tb
+      git clone --branch north-america-archived https://github.com/nextstrain/tb
       cd tb
 
    .. note::
