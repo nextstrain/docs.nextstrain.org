@@ -1,8 +1,8 @@
-==========================================
-Creating a bacterial phylogenetic workflow
-==========================================
+===============================================
+Creating a phylogenetic workflow with VCF input
+===============================================
 
-This tutorial explains how to create a :term:`single-build Nextstrain workflow<phylogenetic workflow>` for Tuberculosis sequences. However, much of it will be applicable to any run where you are starting with `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`_ files rather than `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ files. We'll create a Snakefile step-by-step for each step of the analysis.
+For a typical :term:`Nextstrain phylogenetic workflow<phylogenetic workflow>`, the starting input format for sequences is a `FASTA <https://en.wikipedia.org/wiki/FASTA_format>`_ file, but for some applications, it is preferable to start from a `VCF <https://en.wikipedia.org/wiki/Variant_Call_Format>`_ file. For example, for pathogens with very large genomes, such as bacteria, starting from a VCF file can substantially decrease the computational resources required for the analysis. This tutorial explains how to create a single-build Nextstrain workflow starting from a VCF file, using Tuberculosis sequences as an example. We'll create a Snakefile step-by-step for each step of the analysis.
 
 .. contents:: Table of Contents
    :local:
