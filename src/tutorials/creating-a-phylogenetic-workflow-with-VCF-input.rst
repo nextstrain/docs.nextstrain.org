@@ -21,8 +21,8 @@ Setup
 
    .. code-block:: bash
 
-      git clone --branch north-america-archived https://github.com/nextstrain/tb
-      cd tb
+      git clone https://github.com/nextstrain/vcf-input-tutorial.git
+      cd vcf-input-tutorial
 
    .. note::
 
