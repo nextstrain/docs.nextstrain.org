@@ -92,11 +92,11 @@ Glossary
 
       A :term:`dataset` consisting of :term:`JSONs` produced by a :term:`build` of a :term:`phylogenetic workflow`.
       It is also the shared file prefix of the JSONs.
-      For example ``flu/seasonal/h3n2/ha/2y`` identifies a dataset which corresponds to the files:
+      For example ``flu/seasonal/h3n2/ha/2y`` identifies a dataset which corresponds to the :ref:`files <data-formats-json>`:
 
-      - ``flu_seasonal_h3n2_ha_2y_meta.json``
-      - ``flu_seasonal_h3n2_ha_2y_tree.json``
-      - ``flu_seasonal_h3n2_ha_2y_tip-frequencies.json``
+      - ``flu_seasonal_h3n2_ha_2y.json``: primary JSON file
+      - ``flu_seasonal_h3n2_ha_2y_root-sequence.json``: sidecar file
+      - ``flu_seasonal_h3n2_ha_2y_tip-frequencies.json``: sidecar file
 
       Some phylogenetic workflows produce a single, synonymous dataset, like Zika. Others, like seasonal flu, produce many datasets.
       The phylogenetic dataset is often considered the primary dataset in a pathogen repository

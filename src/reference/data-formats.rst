@@ -60,6 +60,8 @@ Writing a TSV file:
 
 See our internal `discussion on TSV standardization <https://github.com/nextstrain/augur/issues/1566>`__ for more details.
 
+.. _data-formats-json:
+
 JSON
 ====
 

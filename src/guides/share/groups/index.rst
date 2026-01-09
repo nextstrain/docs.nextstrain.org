@@ -50,16 +50,27 @@ Upload a Nextstrain dataset
    This restriction applies for public and private groups.
 
 Upload one or more Nextstrain datasets for your group using the :doc:`cli:commands/remote/upload` command.
-An example using a dataset produced by our :doc:`ncov workflow <ncov:index>`.
-The pattern of your dataset and sidecar filenames and desired display URL to upload may be different.
+Use ``*.json`` to capture all :term:`Auspice JSONs<phylogenetic dataset>` including sidecar files.
 
 .. code-block:: bash
 
    nextstrain remote upload \
-     nextstrain.org/groups/${GROUPNAME}/ncov/${YOUR_BUILD_NAME} \
-       auspice/ncov_${YOUR_BUILD_NAME}.json \
-       auspice/ncov_${YOUR_BUILD_NAME}_tip-frequencies.json \
-       auspice/ncov_${YOUR_BUILD_NAME}_root-sequence.json
+     nextstrain.org/groups/${GROUPNAME}/zika \
+       auspice/zika*.json
+
+.. tip::
+   Organize your datasets hierarchically using underscores ``_`` in the name.
+   These represent slashes ``/`` in the URL.
+   Your groups page is organized into sections according to the first level of the hierarchy.
+   An example using a dataset produced by our :doc:`ncov workflow <ncov:index>`.
+
+   .. code-block:: bash
+
+      nextstrain remote upload \
+        nextstrain.org/groups/${GROUPNAME}/ncov/open/global/6m \
+          auspice/ncov_open_global_6m.json \
+          auspice/ncov_open_global_6m_tip-frequencies.json \
+          auspice/ncov_open_global_6m_root-sequence.json
 
 After the upload completes, it'll appear in the group listing when you run:
 
@@ -82,7 +93,7 @@ Use the :doc:`cli:commands/remote/delete` command to remove a dataset or narrati
 
 .. code-block:: bash
 
-   nextstrain remote delete nextstrain.org/groups/${GROUPNAME}/ncov/${YOUR_BUILD_NAME}
+   nextstrain remote delete nextstrain.org/groups/${GROUPNAME}/${YOUR_DATASET_NAME}
 
 Example
 =======
