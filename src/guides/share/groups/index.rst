@@ -50,14 +50,13 @@ Upload a Nextstrain dataset
    This restriction applies for public and private groups.
 
 Upload one or more Nextstrain datasets for your group using the :doc:`cli:commands/remote/upload` command.
+Use ``*.json`` to capture all :term:`Auspice JSONs<phylogenetic dataset>` including sidecar files.
 
 .. code-block:: bash
 
    nextstrain remote upload \
      nextstrain.org/groups/${GROUPNAME}/zika \
-       auspice/zika.json
-       auspice/zika_tip-frequencies.json
-       auspice/zika_root-sequence.json
+       auspice/zika*.json
 
 .. tip::
    Organize your datasets hierarchically using underscores ``_`` in the name.
