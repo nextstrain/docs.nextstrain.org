@@ -70,6 +70,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     Bioinformatics <guides/bioinformatics/index>
     Sharing analyses <guides/share/index>
     Communicating scientific insights <guides/communicate/index>
+    Using Pathoplexus in Nextstrain <guides/pathoplexus>
     Viewing previous analyses <guides/snapshots>
     Managing an installation <guides/manage-installation>
     Contributing <guides/contribute/index>
