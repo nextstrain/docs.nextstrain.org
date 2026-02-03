@@ -2,26 +2,29 @@
 Using Pathoplexus in Nextstrain
 ===============================
 
-This page is for users who are already familiar with
+.. ATTENTION::
+
+   When using Pathoplexus (PPX) as a data source, please review the latest
+   `PPX Data Use Terms`_. This guide is intended to give recommendations for how
+   to use PPX data in Nextstrain workflows following the Nextstrain team's
+   interpretation of the `PPX Data Use Terms`_ as of January 26, 2026.
+
+   **Please take special care to comply with the** `RESTRICTED Data Use terms`_
+   - if you used RESTRICTED data you need to create and cite a DOI and may
+   have authorship obligations.
+
+This page is for users who are already familiar with the following:
 
 * `Pathoplexus (PPX) <https://pathoplexus.org/>`__
 * :doc:`/tutorials/creating-a-pathogen-repo/creating-an-ingest-workflow`
 * :doc:`/tutorials/creating-a-phylogenetic-workflow`
 
+This guide will refer to the `RSV repository <https://github.com/nextstrain/rsv>`__
+as the example Nextstrain repository for using PPX data.
+
 .. contents:: Table of Contents
    :local:
    :depth: 2
-
-Overview
-========
-
-When using Pathoplexus (PPX) as a data source, please review the latest
-`PPX Data Use Terms`_. This guide is intended to give recommendations for how
-to use PPX data in Nextstrain workflows following the Nextstrain team's
-interpretation of the `PPX Data Use Terms`_ as of January 26, 2026.
-
-This guide will refer to the `RSV repository <https://github.com/nextstrain/rsv>`__
-as the example Nextstrain repository for using PPX data.
 
 Ingest Workflow
 ===============
@@ -118,10 +121,13 @@ The only parts that will need to be changed are the inputs and the ``augur expor
 Inputs
 ------
 
-The default inputs for Nextstrain pathogens include both the OPEN and RESTRICTED
-data to utilize all available PPX data.
+.. ATTENTION::
 
-For workflows that support multiple inputs, we fetch separate inputs:
+   If you are using the RESTRICTED data for your own analysis,
+   please take special care to comply with the `RESTRICTED Data Use terms`_.
+
+The default inputs for Nextstrain pathogens include both the OPEN and RESTRICTED
+data to utilize all available PPX data:
 
 .. code-block:: yaml
 
@@ -132,16 +138,6 @@ For workflows that support multiple inputs, we fetch separate inputs:
       - name: ppx_restricted
         metadata: "https://data.nextstrain.org/files/workflows/rsv/{a_or_b}/metadata_restricted.tsv.gz"
         sequences: "https://data.nextstrain.org/files/workflows/rsv/{a_or_b}/sequences_restricted.fasta.xz"
-
-For workflows that do not support multiple inputs, we fetch a single set of inputs
-that include both OPEN and RESTRICTED data.
-
-.. code-block:: yaml
-   
-   inputs:
-     - name: pathoplexus
-       metadata: "https://data.nextstrain.org/files/workflows/mpox/metadata_with_restricted.tsv.zst"
-       sequences: "https://data.nextstrain.org/files/workflows/mpox/sequences_with_restricted.fasta.zst"
 
 Augur export
 ------------
@@ -199,6 +195,8 @@ do the following updates in addition to the changes above.
 
 1. Update all NCBI accessions to PPX accessions in configuration files, e.g.
    ingest annotations.tsv and phylogenetic include/exclude files.
+   This can be done programmatically with the new ingest output as documented
+   in `WNV <https://github.com/nextstrain/WNV/commit/34ea83efef9dbd4d3278a5339af8a1990fc60f80>`__.
 2. If using example data for CI tests, update the data to PPX OPEN records.
 3. To reduce confusion of the data source, remove NCBI related config params,
    scripts, and Snakemake rules.
@@ -209,4 +207,5 @@ do the following updates in addition to the changes above.
 .. _LAPIS query engines: https://pathoplexus.org/api-documentation
 .. _parse-ppx-division script: https://github.com/nextstrain/rsv/blob/fc6c095c3983d9f53eafdb3b68cace7d76d517e4/ingest/bin/parse-ppx-division
 .. _PPX Data Use Terms: https://pathoplexus.org/about/terms-of-use/data-use-terms
+.. _RESTRICTED Data Use terms: https://pathoplexus.org/about/terms-of-use/data-use-terms#42-restricted-data-use
 .. _RSV description: https://github.com/nextstrain/rsv/blob/fc6c095c3983d9f53eafdb3b68cace7d76d517e4/config/description.md#L24-L36
