@@ -529,6 +529,8 @@ Below is an example of how it can be used in Snakemake.
 .. code-block:: python
 
    import yaml
+   from augur.subsample import get_referenced_files
+
    with open("results/subsample_config.yaml", "w") as f:
        yaml.dump(config["builds"]["build1"]["subsample"], f, sort_keys=False)
 
@@ -536,6 +538,7 @@ Below is an example of how it can be used in Snakemake.
        input:
            metadata = "data/metadata.tsv",
            config = "results/subsample_config.yaml",
+           referenced_files = get_referenced_files("results/subsample_config.yaml"),
        output:
            metadata = "results/subsampled.tsv",
        shell:
@@ -545,6 +548,13 @@ Below is an example of how it can be used in Snakemake.
              --config {input.config} \
              --output-metadata {output.metadata}
            """
+
+.. tip::
+
+   :py:func:`augur.subsample.get_referenced_files` is a helper function that returns
+   the file paths referenced by the ``augur subsample`` config. While optional,
+   using it ensures that changes to those files will trigger this rule to
+   re-run.
 
 Other options (less ideal):
 
