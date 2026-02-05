@@ -505,10 +505,11 @@ This can be represented in an ``augur subsample`` config file:
 
 `Snakemake`_ is a workflow manager where configuration is often written in YAML
 files. A clean pattern is to keep your ``augur subsample`` config inside your
-workflow config under a dedicated section, write the ``config`` variable to a YAML
-file at run time, and instruct ``augur subsample`` to read from the section.
+workflow config under a dedicated section, write the section from the ``config``
+variable to a YAML file at run time, and instruct ``augur subsample`` to read
+from the file.
 
-Consider the following workflow config and ``augur subsample`` usage:
+Consider the following workflow config:
 
 .. code-block:: yaml
 
@@ -523,18 +524,18 @@ Consider the following workflow config and ``augur subsample`` usage:
              query: state != 'WA' & country == 'USA'
              max_sequences: 100
 
+Below is an example of how it can be used in Snakemake.
+
 .. code-block:: python
 
    import yaml
-   with open("results/run_config.yaml", "w") as f:
-       yaml.dump(config, f, sort_keys=False)
+   with open("results/subsample_config.yaml", "w") as f:
+       yaml.dump(config["builds"]["build1"]["subsample"], f, sort_keys=False)
 
    rule subsample:
        input:
            metadata = "data/metadata.tsv",
-           config = "results/run_config.yaml",
-       params:
-           config_section = ["builds", "build1", "subsample"]
+           config = "results/subsample_config.yaml",
        output:
            metadata = "results/subsampled.tsv",
        shell:
@@ -542,14 +543,8 @@ Consider the following workflow config and ``augur subsample`` usage:
            augur subsample \
              --metadata {input.metadata} \
              --config {input.config} \
-             --config-section {params.config_section:q} \
              --output-metadata {output.metadata}
            """
-
-.. tip::
-
-   Quoted interpolations (``:q``) let you include spaces in key names and are
-   generally recommended.
 
 Other options (less ideal):
 
