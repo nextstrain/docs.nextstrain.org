@@ -529,7 +529,7 @@ Below is an example of how it can be used in Snakemake.
 .. code-block:: python
 
    import yaml
-   from augur.subsample import get_referenced_files
+   from augur.subsample import get_referenced_files, get_parallelism
 
    with open("results/subsample_config.yaml", "w") as f:
        yaml.dump(config["builds"]["build1"]["subsample"], f, sort_keys=False)
@@ -541,11 +541,13 @@ Below is an example of how it can be used in Snakemake.
            referenced_files = get_referenced_files("results/subsample_config.yaml"),
        output:
            metadata = "results/subsampled.tsv",
+       threads: get_parallelism("results/subsample_config.yaml", limit=workflow.cores)
        shell:
            """
            augur subsample \
              --metadata {input.metadata} \
              --config {input.config} \
+             --nthreads {threads} \
              --output-metadata {output.metadata}
            """
 
@@ -555,6 +557,10 @@ Below is an example of how it can be used in Snakemake.
    the file paths referenced by the ``augur subsample`` config. While optional,
    using it ensures that changes to those files will trigger this rule to
    re-run.
+
+   :py:func:`augur.subsample.get_parallelism` is a helper function that returns
+   the degree of parallelism based on the ``augur subsample`` config. While optional,
+   using it allows Snakemake to allocate an optimal amount of threads.
 
 Other options (less ideal):
 
