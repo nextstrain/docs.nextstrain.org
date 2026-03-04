@@ -110,16 +110,16 @@ To add CA certificates to the trust store, set the |NODE_EXTRA_CA_CERTS|_
 environment variable.
 
 .. |--use-openssl-ca| replace:: ``--use-openssl-ca``
-.. _--use-openssl-ca: https://nodejs.org/api/cli.html#--use-bundled-ca---use-openssl-ca
+.. _--use-openssl-ca: https://nodejs.org/docs/latest-v24.x/api/cli.html#--use-bundled-ca---use-openssl-ca
 
 .. |--use-bundled-ca| replace:: ``--use-bundled-ca``
-.. _--use-bundled-ca: https://nodejs.org/api/cli.html#--use-bundled-ca---use-openssl-ca
+.. _--use-bundled-ca: https://nodejs.org/docs/latest-v24.x/api/cli.html#--use-bundled-ca---use-openssl-ca
 
 .. |NODE_OPTIONS| replace:: ``NODE_OPTIONS``
-.. _NODE_OPTIONS: https://nodejs.org/api/cli.html#node_optionsoptions
+.. _NODE_OPTIONS: https://nodejs.org/docs/latest-v24.x/api/cli.html#node_optionsoptions
 
 .. |NODE_EXTRA_CA_CERTS| replace:: ``NODE_EXTRA_CA_CERTS``
-.. _NODE_EXTRA_CA_CERTS: https://nodejs.org/api/cli.html#node_extra_ca_certsfile
+.. _NODE_EXTRA_CA_CERTS: https://nodejs.org/docs/latest-v24.x/api/cli.html#node_extra_ca_certsfile
 
 
 .. _python:
