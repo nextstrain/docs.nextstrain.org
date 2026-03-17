@@ -10,9 +10,9 @@ dependencies:
     - docutils
     - recommonmark
     - requests
-    - sphinx>=7.1,<9.0.0
+    - sphinx>=7.1
     - sphinx-autobuild
     - sphinx-markdown-tables
     - sphinx-argparse
-    - sphinx-tabs
+    - sphinx-tabs>=3.5.0
     - sphinx-copybutton
