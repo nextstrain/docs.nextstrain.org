@@ -15,6 +15,7 @@ How-to guides for performing bioinformatic anaylses with Nextstrain.
    missing-sequence-data
    translate_ref
    root-and-ref-seqs
+   amino-acid-workflows
    import-beast
    defining-clades
    colors
