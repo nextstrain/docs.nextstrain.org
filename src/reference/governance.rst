@@ -1,6 +1,6 @@
 .. This document was initially drafted in Google Docs¹ and discussed during the
    27 October 2022 general meeting².
-   
+
    ¹ https://docs.google.com/document/d/1qWi0S6B1SPesYvC7lYvjN6j8pevubL1qvtYp3pRrGLs/edit
    ² https://docs.google.com/document/d/1SFUa6w1hdwx9ooYAGaTfq70NrdWYmlQDm_cNVce5FH8/edit
 
@@ -22,10 +22,9 @@ Organizational structure
 .. glossary::
 
    Project Leads
-      The Project Leads are the two co-creators of Nextstrain:
 
-      - `Trevor Bedford <https://bedford.io/team/trevor-bedford/>`__
       - `Richard Neher <https://neherlab.org/richard-neher.html>`__
+      - `JT McCrone <https://mccronelab.github.io/people>`__
 
       The Project Leads have the authority to make all final decisions for the project.
       In practice, the Project Leads usually choose to defer that authority to the consensus of the :term:`Core Team`.
@@ -35,7 +34,6 @@ Organizational structure
 
       See the `Nextstrain team page <https://nextstrain.org/team>`__ for a full list of members.
 
-
    Scientific Advisory Board
       The scientific advisory board provides guidance on future directions. See the `Nextstrain team page <https://nextstrain.org/team>`__ for a full list of board members.
 
@@ -43,6 +41,13 @@ Organizational structure
       Occasional contributors including those from `Bedford Lab <https://bedford.io>`__, `Neher Lab <https://neherlab.org>`__, alumni, or other external groups.
       Influences decision-making but does not directly participate in it.
 
+   Project Founders
+      The Project Founders are the two co-creators of Nextstrain:
+
+      - `Trevor Bedford <https://bedford.io/team/trevor-bedford/>`__
+      - `Richard Neher <https://neherlab.org/richard-neher.html>`__
+
+      Historically, they were the Project Leads, but Trevor has stepped back and continues to provide guidance as part of the Core Team.
 
 Decision-making
 ===============
