@@ -180,7 +180,7 @@ This defines a number of key-value pairs which we transform into the slide you s
 The possible content which can be rendered is listed below, in the order they would appear on screen:
 
 #. The main title is taken from the ``title`` key.
-#. The authors are then listed; these can be provided via ``authors`` and ``authorsLinks`` which should either both be strings or both be arrays of the same length. The ``authorsLinks`` is optional but recommended!
+#. The authors are then listed; these can be provided via ``authors`` and ``authorLinks`` which should either both be strings or both be arrays of the same length. The ``authorLinks`` is optional but recommended!
 #. Any translators are then listed, encoded in the same format as the authors but using keys ``translators`` and ``translatorLinks``.
 #. The abstract, defined by ``abstract`` is a string which will be rendered as Markdown [#f1]_.
 #. When the narrative was first created (``date``) and when it was most recently updated (``updated``) is then displayed.
