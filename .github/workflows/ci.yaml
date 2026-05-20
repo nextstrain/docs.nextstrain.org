@@ -20,3 +20,4 @@ jobs:
       environment-file: conda.yml
       docs-directory: .
       make-target: html
+      run-linkcheck: ${{ github.event_name == 'schedule' }}
