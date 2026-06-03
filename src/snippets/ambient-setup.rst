@@ -6,7 +6,7 @@
             --override-channels --strict-channel-priority \
             -c conda-forge -c bioconda --yes \
             augur auspice nextclade \
-            snakemake git epiweeks \
+            snakemake git epiweeks zstandard \
             ncbi-datasets-cli csvtk seqkit tsv-utils
 
 2. Activate the runtime:
