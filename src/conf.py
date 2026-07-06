@@ -36,8 +36,6 @@ extensions = [
     'recommonmark',
     'sphinx.ext.intersphinx',
     'sphinx_markdown_tables',
-    'sphinxarg.ext',
-    'sphinx.ext.autodoc',
     'sphinx_tabs.tabs',
     'sphinx.ext.graphviz',
     'nextstrain.sphinx.theme',
