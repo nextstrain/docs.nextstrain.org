@@ -8,9 +8,18 @@ The genbank & GISAID accessions, if applicable, are contained in the metadata do
 Unpublished data is included with permission of the data generators, and does not impact their right to publish.
 Please contact the respective authors (available via the TSV files below) if you intend to carry out further research using their data.
 
+The core nextstrain.org builds should have all download options as long as they
+do not violate the terms of use of the original data source.
+The maintainers of community or Groups builds have the ability to
+[control which assets are available for download](https://docs.nextstrain.org/projects/auspice/en/stable/advanced-functionality/view-settings.html#sharing-control-which-assets-auspice-exposes-for-download)
+so please contact the respective maintainers if the download option is not available.
 
 > The **DOWNLOAD DATA** button can be found at the very bottom of any nextstrain.org visualisation & brings up a display showing the following options:
 
+### Auspice JSON
+
+You can download the main Auspice dataset JSON with the current view as the display default.
+This does not include any of the sidecar JSONs such as frequencies.json or measurements.json.
 
 ### Phylogenetic Trees
 
