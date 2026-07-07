@@ -13,6 +13,5 @@ dependencies:
     - sphinx>=7.1
     - sphinx-autobuild
     - sphinx-markdown-tables
-    - sphinx-argparse
     - sphinx-tabs>=3.5.0
     - sphinx-copybutton
