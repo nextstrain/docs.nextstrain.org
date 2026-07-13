@@ -99,6 +99,7 @@ linkcheck_ignore = [
      r'^http://127\.0\.0\.1:\d+',
      r'^http://localhost:\d+',
      # these URLs block the client the linkchecker uses
+     r'^https://www\.cdc\.gov',
      r'^https://www\.pnas\.org/doi/10\.1073/pnas\.1507071112',
      r'^https://www\.ncbi\.nlm\.nih\.gov/books/NBK25501',
      # These URLs fail in GH Actions, but succeeds locally.
