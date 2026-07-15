@@ -6,17 +6,26 @@ We've made the decision _not_ to make the sequence data downloadable as a lot of
 sources have data sharing restrictions which this would violate.
 The genbank & GISAID accessions, if applicable, are contained in the metadata download should you wish to access the original sequence data.
 Unpublished data is included with permission of the data generators, and does not impact their right to publish.
-Please contact the respective authors (available via the TSV files below) if you intend to carry out further research using their data. 
+Please contact the respective authors (available via the TSV files below) if you intend to carry out further research using their data.
 
+The core nextstrain.org builds should have all download options as long as they
+do not violate the terms of use of the original data source.
+The maintainers of community or Groups builds have the ability to
+[control which assets are available for download](https://docs.nextstrain.org/projects/auspice/en/stable/advanced-functionality/view-settings.html#sharing-control-which-assets-auspice-exposes-for-download)
+so please contact the respective maintainers if the download option is not available.
 
 > The **DOWNLOAD DATA** button can be found at the very bottom of any nextstrain.org visualisation & brings up a display showing the following options:
 
+### Auspice JSON
+
+You can download the main Auspice dataset JSON with the current view as the display default.
+This does not include any of the sidecar JSONs such as frequencies.json or measurements.json.
 
 ### Phylogenetic Trees
 
 You can download newick trees with branch lengths either in terms of (genetic) divergence or time.
 To ascertain the units for divergence please check the axis label of main tree visualisation -- they are either subs/site/year or mutations.
-Time is always measured in years, and if you are using python then [TreeTime](https://github.com/neherlab/treetime) provides a helper function `datetime_from_numeric` to parse these. 
+Time is always measured in years, and if you are using python then [TreeTime](https://github.com/neherlab/treetime) provides a helper function `datetime_from_numeric` to parse these.
 Exported trees always contain the entirety of the data, and do not reflect any current filtering or zooming in the app.
 
 
@@ -53,6 +62,3 @@ This produces a vector image for downstream editing and display.
 Screenshots are licensed with a [CC-BY](https://creativecommons.org/licenses/by/4.0/) license -- please credit the authors behind the genomic data as well as Nextstrain!
 
 We are aware that the produced screenshot sometimes contain formatting errors -- please check the produced file against what you see on nextstrain.org!
-
-
-
