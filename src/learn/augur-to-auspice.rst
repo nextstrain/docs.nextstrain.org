@@ -403,7 +403,7 @@ to see the available options here.
 The most comprehensive description of this file is via
 `its schema <https://nextstrain.org/schemas/auspice/config/v2>`__, however to
 introduce this file here's a snippet of the `Auspice config JSON for the
-measles dataset presented above <https://github.com/nextstrain/measles/blob/main/phylogenetic/defaults/auspice_config_genome.json>`__:
+measles dataset presented above <https://github.com/nextstrain/measles/blob/main/phylogenetic/defaults/auspice_config/genome/global.json>`__:
 
 .. code-block:: json
 
@@ -544,7 +544,7 @@ A colors TSV file may be provided to ``augur export v2`` which is the
 most common way to associate (discrete) values with actual colors. Such
 a file has 3 tab-separated columns: the coloring key, the metadata
 value, and the color hex; no headers are necessary. As an example, `here
-are (some of) the colors TSV <https://github.com/nextstrain/measles/blob/main/phylogenetic/defaults/colors.tsv>`__
+are (some of) the colors TSV <https://github.com/nextstrain/measles/blob/7b0465906a15fd1e89ec0904dbb80af0474676e7/phylogenetic/defaults/colors.tsv>`__
 used in the measles build:
 
 .. code-block:: text
@@ -766,21 +766,32 @@ The **maintainers** (array of dictionaries) is used in the Auspice
 header to identify who created or maintains the dataset.
 
 As an example, here's how the `measles auspice-config uses these
-keys <https://github.com/nextstrain/measles/blob/main/phylogenetic/defaults/auspice_config_genome.json>`__
+keys <https://github.com/nextstrain/measles/blob/main/phylogenetic/defaults/auspice_config/genome/global.json>`__
 and you can `see here <https://nextstrain.org/measles>`__ how Auspice
 renders these:
 
 .. code-block:: json
 
-  "title": "Tutorial Nextstrain build for Zika virus",
+  "title": "Real-time tracking of measles full genome virus evolution",
   "maintainers": [
-    {"name": "Trevor Bedford", "url": "http://bedford.io/team/trevor-bedford/"}
+    {"name": "Kim Andrews", "url": "https://bedford.io/team/kim-andrews/"},
+    {"name": "the Nextstrain team", "url": "https://nextstrain.org/team"}
   ],
-  "build_url": "https://github.com/nextstrain/zika-tutorial",
-  "panels": [ "tree", "map", "entropy" ],
+  "data_provenance": [
+    {
+      "name": "GenBank",
+      "url": "https://www.ncbi.nlm.nih.gov/genbank/"
+    },
+    {
+      "name": "Pathoplexus",
+      "url": "https://pathoplexus.org"
+    }
+  ],
+  "build_url": "https://github.com/nextstrain/measles",
   "display_defaults": {
-    "map_triplicate": true
-  }
+    "map_triplicate": true,
+    "color_by": "clade"
+  },
 
 --------------
 
