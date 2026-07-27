@@ -772,15 +772,26 @@ renders these:
 
 .. code-block:: json
 
-  "title": "Tutorial Nextstrain build for Zika virus",
+  "title": "Real-time tracking of measles full genome virus evolution",
   "maintainers": [
-    {"name": "Trevor Bedford", "url": "http://bedford.io/team/trevor-bedford/"}
+    {"name": "Kim Andrews", "url": "https://bedford.io/team/kim-andrews/"},
+    {"name": "the Nextstrain team", "url": "https://nextstrain.org/team"}
   ],
-  "build_url": "https://github.com/nextstrain/zika-tutorial",
-  "panels": [ "tree", "map", "entropy" ],
+  "data_provenance": [
+    {
+      "name": "GenBank",
+      "url": "https://www.ncbi.nlm.nih.gov/genbank/"
+    },
+    {
+      "name": "Pathoplexus",
+      "url": "https://pathoplexus.org"
+    }
+  ],
+  "build_url": "https://github.com/nextstrain/measles",
   "display_defaults": {
-    "map_triplicate": true
-  }
+    "map_triplicate": true,
+    "color_by": "clade"
+  },
 
 --------------
 
