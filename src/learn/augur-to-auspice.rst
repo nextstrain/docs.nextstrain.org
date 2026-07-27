@@ -543,18 +543,9 @@ Configuring color scales and legends
 A colors TSV file may be provided to ``augur export v2`` which is the
 most common way to associate (discrete) values with actual colors. Such
 a file has 3 tab-separated columns: the coloring key, the metadata
-value, and the color hex; no headers are necessary. As an example, `here
-are (some of) the colors TSV <https://github.com/nextstrain/measles/blob/7b0465906a15fd1e89ec0904dbb80af0474676e7/phylogenetic/defaults/colors.tsv>`__
-used in the measles build:
-
-.. code-block:: text
-
-   region  oceania #88BB6C
-   region  west asia   #ADBD51
-   region  africa  #CEB541
-   region  europe  #E39B39
-
-See :doc:`the guide on custom trait colors </guides/bioinformatics/colors>` for more details on how to use the colors TSV.
+value, and the color hex; no headers are necessary. See
+:doc:`the guide on custom trait colors </guides/bioinformatics/colors>` for
+more details on how to use the colors TSV.
 
 Augur itself provides `a default set of colors <https://github.com/nextstrain/augur/blob/master/augur/data/colors.tsv>`__,
 currently only for “region”. This means that if you don't specify any colors
