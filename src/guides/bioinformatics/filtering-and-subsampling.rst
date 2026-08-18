@@ -777,3 +777,9 @@ updated to add another tier in between state and country:
 .. _wildcards: https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#wildcards
 .. _input function: https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#snakefiles-input-functions
 .. _expand(): https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#the-expand-function
+
+Proximal subsampling
+--------------------
+
+Subsampling by choosing the most genetically similar sequences to a focal set of interest is possible using ``augur subsample``;
+please see the :doc:`./proximal-subsampling` how-to guide for more details.

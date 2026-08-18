@@ -11,6 +11,7 @@ How-to guides for performing bioinformatic anaylses with Nextstrain.
    :caption: Table of contents
 
    filtering-and-subsampling
+   proximal-subsampling
    augur_snakemake
    missing-sequence-data
    translate_ref
