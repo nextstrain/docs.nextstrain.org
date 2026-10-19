@@ -172,7 +172,7 @@ Infer a phylogenetic tree from the multi-sequence alignment.
      --alignment results/aligned.fasta \
      --output results/tree_raw.nwk
 
-The resulting tree is stored in `Newick format <http://evolution.genetics.washington.edu/phylip/newicktree.html>`_. Branch lengths in this tree measure nucleotide divergence.
+The resulting tree is stored in `Newick format <https://phylipweb.github.io/phylip/newicktree.html>`_. Branch lengths in this tree measure nucleotide divergence.
 
 Get a Time-Resolved Tree
 ~~~~~~~~~~~~~~~~~~~~~~~~
