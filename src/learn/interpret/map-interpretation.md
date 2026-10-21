@@ -60,12 +60,12 @@ There is a toggle to switch the transmission lines off in the sidebar (Figure 1,
 ![](../../images/labelled-movement.png)
 _Figure 3.
 Left: Cartoon of how the tree determines the construction of transmission lines.
-Right: Example of transmission lines showing [between country movement of Ebola](https://nextstrain.org/ebola)._
+Right: Example of transmission lines showing [between country movement of Ebola](https://nextstrain.org/ebola/ebov-2013) during the 2013- West African outbreak._
 
 **Line thickness.**
 Each rendered arc is actually a collection of individual lines of identical thickness; in Fugure 3, each line identified by a branch in the tree indicates a change in the value of the current geographic resolution.
 Lines which look "thicker" therefore represent more observed cases of movement between the two locations (circles) - in other words, there are a larger number of situations in the tree where the parent node is ascribed one location and the child node the other. 
-For instance, in Figure 3 the arc labelled by "1" is thicker than the arc labelled "3", indicating that in the [Ebola dataset](https://nextstrain.org/ebola) there are more observed cases of movement between Guinea and Sierra Leone than there are between Liberia and Guinea.
+For instance, in Figure 3 the arc labelled by "1" is thicker than the arc labelled "3", indicating that in the [2013 West African Ebola dataset](https://nextstrain.org/ebola/ebov-2013) there are more observed cases of movement between Guinea and Sierra Leone than there are between Liberia and Guinea.
 
 Note that the thickness of lines is directly correlated with the number of observed movements between locations in the tree, and does not consider the number of onward cases (samples) which may result from a given transmission event. 
 
