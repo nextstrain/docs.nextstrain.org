@@ -240,3 +240,28 @@ Always use the ``benchmark`` directive
 Use `the Snakemake benchmark directive <https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#benchmark-rules>`_
 for each rule so that it is easy to track run time and memory usage.
 This makes it easier for us identify bottlenecks in workflows without parsing Snakemake logs.
+
+Use ``retries`` directive for rules that download resources
+===========================================================
+
+Use `the Snakemake retries directive <https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#defining-retries-for-fallible-rules>`_
+for rules that download resources to automatically retry the rule in case of
+transient network errors.
+
+Relatedly, if using ``curl`` to download resources, then use ``-fsSL`` flags to
+guard against silent network errors that can cause unexpected downstream errors.
+
+Example:
+
+.. code-block:: python
+
+    rule download_case_counts:
+        output:
+            cases = "data/cases.tsv.gz"
+        params:
+            cases_url = "https://catalog.ourworldindata.org/garden/covid/latest/compact/compact.csv"
+        retries: 5
+        shell:
+            """
+            curl -fsSL --compressed {params.cases_url:q} --output {output.cases:q}
+            """
