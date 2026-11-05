@@ -141,7 +141,7 @@ Filter the parsed sequences and metadata to exclude strains from subsequent anal
      --sequence-index results/sequence_index.tsv \
      --metadata data/metadata.tsv \
      --exclude config/dropped_strains.txt \
-     --output results/filtered.fasta \
+     --output-sequences results/filtered.fasta \
      --group-by country year month \
      --sequences-per-group 20 \
      --min-date 2012
@@ -223,6 +223,7 @@ Next, infer the ancestral sequence of each internal node and identify any nucleo
      --tree results/tree.nwk \
      --alignment results/aligned.fasta \
      --output-node-data results/nt_muts.json \
+     --output-sequences results/nt_sequences.fasta \
      --inference joint
 
 Identify Amino-Acid Mutations
@@ -236,7 +237,40 @@ Identify amino acid mutations from the nucleotide mutations and a reference sequ
      --tree results/tree.nwk \
      --ancestral-sequences results/nt_muts.json \
      --reference-sequence config/zika_outgroup.gb \
-     --output-node-data results/aa_muts.json
+     --output-node-data results/aa_muts.json \
+     --alignment-output results/aa_sequences/%GENE.fasta
+
+Calculate Nucleotide Distance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Calculate the cumulative number of nucleotide differences between each node in the tree and the root.
+
+.. code-block:: bash
+
+   augur distance \
+     --tree results/tree.nwk \
+     --alignment results/nt_sequences.fasta \
+     --map config/distance_map_nucleotides.json \
+     --gene-names nuc \
+     --attribute-name snvs \
+     --compare-to root \
+     --output results/distances_nucleotides.json
+
+Calculate ENV Amino Acid Distance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Calculate the cumulative number of amino acid differences in the ENV gene between each node in the tree and the root.
+
+.. code-block:: bash
+
+   augur distance \
+     --tree results/tree.nwk \
+     --alignment results/aa_sequences/ENV.fasta \
+     --map config/distance_map_aa.json \
+     --gene-names ENV \
+     --attribute-name ENV \
+     --compare-to root \
+     --output results/distances_aa.json
 
 Export the Results
 ------------------
@@ -252,9 +286,12 @@ Finally, collect all node annotations and metadata and export it in Auspice's JS
                  results/traits.json \
                  results/nt_muts.json \
                  results/aa_muts.json \
+                 results/distances_nucleotides.json \
+                 results/distances_aa.json \
      --colors config/colors.tsv \
      --lat-longs config/lat_longs.tsv \
      --auspice-config config/auspice_config.json \
+     --include-root-sequence \
      --output auspice/zika.json
 
 .. note::
