@@ -141,6 +141,8 @@ Pathogens
 Nextstrain maintains many different :term:`pathogen repositories <pathogen repository>` that are slighly different from each other.
 Here we try to answer common technical questions around pathogen repositories, please refer to the :doc:`bioinformatics guides for scientific questions <../guides/bioinformatics/index>`.
 
+.. _choosing-pathogen-setup:
+
 Should I set up the pathogen with the Nextstrain CLI or Git?
 ------------------------------------------------------------
 

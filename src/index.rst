@@ -67,6 +67,7 @@ team and other Nextstrain users provide assistance.  For private inquiries,
     :caption: How-to Guides
     :hidden:
 
+    Pathogens <guides/pathogens/index>
     Bioinformatics <guides/bioinformatics/index>
     Sharing analyses <guides/share/index>
     Communicating scientific insights <guides/communicate/index>
