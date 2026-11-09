@@ -2,7 +2,9 @@
 Creating a phylogenetic workflow
 ================================
 
-This tutorial dissects the :term:`single-build workflow<phylogenetic workflow>` used in the previous tutorial. We will first make the build step-by-step. Then we will automate this stepwise process in a :term:`workflow`.
+This tutorial dissects the :term:`single-build workflow<phylogenetic workflow>` used in the previous tutorial.
+We will first walk through the build step-by-step by manually running Augur commands.
+Then we demonstrate how this stepwise process is connected in a :term:`workflow`.
 
 .. tip::
 
@@ -20,7 +22,8 @@ Prerequisites
 =============
 
 1. :doc:`Install Nextstrain </install>`.
-2. Run through the :doc:`previous tutorial<running-a-phylogenetic-workflow>`. This will verify your installation.
+2. Run through the `nextstrain build section of the previous tutorial <running-a-phylogenetic-workflow.html#run-workflow-with-nextstrain-build>`_.
+   This will verify your installation and ensure you have the :term:`pathogen repository` properly set up.
 
 Setup
 =====
@@ -31,11 +34,11 @@ Setup
 
       cd zika-tutorial
 
-2. Create a folder for results.
+2. Remove the outputs from the previous tutorial.
 
    .. code-block:: bash
 
-      mkdir -p results/
+      rm -rf results/* auspice/*
 
 3. Enter a prompt with Nextstrain tools available. This varies by runtime.
 
@@ -141,7 +144,7 @@ Filter the parsed sequences and metadata to exclude strains from subsequent anal
      --sequence-index results/sequence_index.tsv \
      --metadata data/metadata.tsv \
      --exclude config/dropped_strains.txt \
-     --output results/filtered.fasta \
+     --output-sequences results/filtered.fasta \
      --group-by country year month \
      --sequences-per-group 20 \
      --min-date 2012
@@ -223,12 +226,16 @@ Next, infer the ancestral sequence of each internal node and identify any nucleo
      --tree results/tree.nwk \
      --alignment results/aligned.fasta \
      --output-node-data results/nt_muts.json \
+     --output-sequences results/nt_sequences.fasta \
      --inference joint
 
 Identify Amino-Acid Mutations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Identify amino acid mutations from the nucleotide mutations and a reference sequence with gene coordinate annotations. The resulting JSON file contains amino acid mutations indexed by strain or internal node name and by gene name. To export a FASTA file with the complete amino acid translations for each gene from each node's sequence, specify the ``--alignment-output`` parameter in the form of ``results/aligned_aa_%GENE.fasta``.
+Identify amino acid mutations from the nucleotide mutations and a reference sequence with gene coordinate annotations.
+The resulting JSON file contains amino acid mutations indexed by strain or internal node name and by gene name.
+This also exports a FASTA file per gene, where ``%GENE`` in the filename will be replaced by the gene name, that includes the complete amino acid translations from each node’s sequence.
+For example, the ``results/aa_sequences/ENV.fasta`` file contains the ENV gene translations that will later be used to :ref:`calculate-env-amino-acid-distance`.
 
 .. code-block:: bash
 
@@ -236,7 +243,42 @@ Identify amino acid mutations from the nucleotide mutations and a reference sequ
      --tree results/tree.nwk \
      --ancestral-sequences results/nt_muts.json \
      --reference-sequence config/zika_outgroup.gb \
-     --output-node-data results/aa_muts.json
+     --output-node-data results/aa_muts.json \
+     --alignment-output results/aa_sequences/%GENE.fasta
+
+Calculate Nucleotide Distance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Calculate the cumulative number of nucleotide differences between each node in the tree and the root.
+
+.. code-block:: bash
+
+   augur distance \
+     --tree results/tree.nwk \
+     --alignment results/nt_sequences.fasta \
+     --map config/distance_map_nucleotides.json \
+     --gene-names nuc \
+     --attribute-name snvs \
+     --compare-to root \
+     --output results/distances_nucleotides.json
+
+.. _calculate-env-amino-acid-distance:
+
+Calculate ENV Amino Acid Distance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Calculate the cumulative number of amino acid differences in the ENV gene between each node in the tree and the root.
+
+.. code-block:: bash
+
+   augur distance \
+     --tree results/tree.nwk \
+     --alignment results/aa_sequences/ENV.fasta \
+     --map config/distance_map_aa.json \
+     --gene-names ENV \
+     --attribute-name ENV \
+     --compare-to root \
+     --output results/distances_aa.json
 
 Export the Results
 ------------------
@@ -252,9 +294,12 @@ Finally, collect all node annotations and metadata and export it in Auspice's JS
                  results/traits.json \
                  results/nt_muts.json \
                  results/aa_muts.json \
+                 results/distances_nucleotides.json \
+                 results/distances_aa.json \
      --colors config/colors.tsv \
      --lat-longs config/lat_longs.tsv \
      --auspice-config config/auspice_config.json \
+     --include-root-sequence \
      --output auspice/zika.json
 
 .. note::
@@ -282,7 +327,12 @@ To stop Auspice and return to the command line when you are done viewing your da
 Automate the Build with Snakemake
 =================================
 
-While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager. Nextstrain implements these automated builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile`` like `this Snakefile <https://github.com/nextstrain/zika-tutorial/blob/master/Snakefile>`_ used in the :doc:`previous tutorial <running-a-phylogenetic-workflow>`.
+While it is instructive to run all of the above commands manually, it is more practical to automate their execution with a workflow manager.
+Nextstrain implements these automated builds with `Snakemake <https://snakemake.readthedocs.io>`_ by defining a ``Snakefile``, which you can find within the ``zika-tutorial`` directory.
+
+The details of how to write a Snakemake workflow are beyond the scope of this tutorial.
+However, we do recommend that you take a look at the ``zika-tutorial/Snakefile`` file to see that it includes all of the manual commands that you ran above.
+Then run the workflow and pay attention to the Snakemake outputs that also show the commands being run as part of the workflow.
 
 From the ``zika-tutorial/`` directory, delete the previously generated results.
 
@@ -290,19 +340,20 @@ From the ``zika-tutorial/`` directory, delete the previously generated results.
 
    rm -rf results/ auspice/
 
-Run the automated build.
+Run the workflow with :doc:`cli:commands/build`.
 
 .. code-block:: bash
 
    nextstrain build --cpus 1 .
 
-This runs all of the manual steps above, up through ``augur export``. View the results the same way you did before to confirm it produced the same dataset.
+View the results the same way you did before to confirm it produced the same dataset.
 
-Note that Snakemake will only re-run rules when the data changes. This means workflows will pick up where they left off if they are restarted after being interrupted. If you want to force a re-run of the whole workflow, first remove any previous output with ``nextstrain build --cpus 1 . clean``.
+When authoring and developing a workflow, we recommend using the :doc:`cli:commands/build` command to run the workflow.
+This will allow you to have more control over the workflow manager, such as using custom flags like ``nextstrain build --cpus 1 . --forceall`` or running custom targets such as ``nextstrain build --cpus 1 . clean``.
 
 Next steps
 ==========
 
 -  Learn more about :doc:`Augur commands <augur:index>`.
 -  Learn more about :doc:`Auspice visualizations <auspice:index>`.
--  Fork the `Zika tutorial pathogen repository on GitHub <https://github.com/nextstrain/zika-tutorial>`_, modify the Snakefile to make your own phylogenetic workflow, and learn :doc:`how to contribute to nextstrain.org </guides/share/community-builds>`.
+-  Learn more about `Snakemake <https://snakemake.readthedocs.io>`_ to modify the Snakefile to make your own phylogenetic workflow, and learn :doc:`how to contribute to nextstrain.org </guides/share/community-builds>`.

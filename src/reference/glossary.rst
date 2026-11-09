@@ -78,6 +78,17 @@ Glossary
 
       A modular instruction of a :term:`build` which can be run standalone (e.g. ``augur filter``), often with clear input and output files.
 
+   workflow directory
+      also *build directory*
+
+      A folder part of a :term:`pathogen repository` containing the entry point of a :term:`workflow`, e.g. the workflow's main Snakefile.
+
+   analysis directory
+
+      A folder for holding the inputs and outputs of a :term:`workflow`.
+      If running the workflow with the :doc:`cli:commands/build` command, then this is usually the same as the :term:`workflow directory`.
+      If running the workflow with the :doc:`cli:commands/run` command, then this is usually an independent directory outside of the :term:`pathogen repository`.
+
    dataset
 
       A collection of output files produced by a :term:`build`.
