@@ -232,7 +232,10 @@ Next, infer the ancestral sequence of each internal node and identify any nucleo
 Identify Amino-Acid Mutations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Identify amino acid mutations from the nucleotide mutations and a reference sequence with gene coordinate annotations. The resulting JSON file contains amino acid mutations indexed by strain or internal node name and by gene name. To export a FASTA file with the complete amino acid translations for each gene from each node's sequence, specify the ``--alignment-output`` parameter in the form of ``results/aligned_aa_%GENE.fasta``.
+Identify amino acid mutations from the nucleotide mutations and a reference sequence with gene coordinate annotations.
+The resulting JSON file contains amino acid mutations indexed by strain or internal node name and by gene name.
+This also exports a FASTA file per gene, where ``%GENE`` in the filename will be replaced by the gene name, that includes the complete amino acid translations from each node’s sequence.
+For example, the ``results/aa_sequences/ENV.fasta`` file contains the ENV gene translations that will later be used to :ref:`calculate-env-amino-acid-distance`.
 
 .. code-block:: bash
 
@@ -258,6 +261,8 @@ Calculate the cumulative number of nucleotide differences between each node in t
      --attribute-name snvs \
      --compare-to root \
      --output results/distances_nucleotides.json
+
+.. _calculate-env-amino-acid-distance:
 
 Calculate ENV Amino Acid Distance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
