@@ -86,7 +86,7 @@ Glossary
 
       A folder for holding the inputs and outputs of a :term:`workflow`.
       If running the workflow with the :doc:`cli:commands/build` command, then this is usually the same as the :term:`build directory`.
-      If running the workflow with :doc:`cli:commands/run` command, then this is usually an independent directory outside of the :term:`pathogen repository`.
+      If running the workflow with the :doc:`cli:commands/run` command, then this is usually an independent directory outside of the :term:`pathogen repository`.
 
    dataset
 

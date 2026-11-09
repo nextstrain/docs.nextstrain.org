@@ -31,7 +31,7 @@ Read our `introduction blog post <https://nextstrain.org/blog/2025-06-13-introdu
 Set up the example Zika pathogen repository
 -------------------------------------------
 
-Set up the `example Zika pathogen repository <https://github.com/nextstrain/zika-tutorial>`_ with the :doc:`cli:commands/setup` command
+Set up the `example Zika pathogen repository <https://github.com/nextstrain/zika-tutorial>`_ with the :doc:`cli:commands/setup` command:
 
 .. code-block:: console
 
@@ -105,7 +105,7 @@ Download the example Zika repository
 ------------------------------------
 
 :term:`Pathogen workflows<phylogenetic workflow>` are stored in :term:`pathogen repositories<pathogen repository>` (version-controlled folders) to track changes over time.
-Download the `example Zika pathogen repository <https://github.com/nextstrain/zika-tutorial>`_ via Git
+Download the `example Zika pathogen repository <https://github.com/nextstrain/zika-tutorial>`_ via Git:
 
 .. code-block:: console
 
