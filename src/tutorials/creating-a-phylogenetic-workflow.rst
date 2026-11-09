@@ -22,7 +22,8 @@ Prerequisites
 =============
 
 1. :doc:`Install Nextstrain </install>`.
-2. Run through the :doc:`previous tutorial<running-a-phylogenetic-workflow>`. This will verify your installation.
+2. Run through the `nextstrain build section of the previous tutorial <running-a-phylogenetic-workflow.html#run-workflow-with-nextstrain-build>`_.
+   This will verify your installation and ensure you have the :term:`pathogen repository` properly set up.
 
 Setup
 =====
