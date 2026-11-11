@@ -134,3 +134,49 @@ The CLI manages the versioning of an isolated Conda environment separate from an
 It ensures all the software tools used for Nextstrain-related analysis are available and handles updates to them via the ``nextstrain update`` command (like the Docker runtime).
 
 If you wish to use your existing ``nextstrain`` Conda environment from the previously-named native runtime or set up a new Conda environment yourself, please refer to the ambient runtime usage instructions on the installation page.
+
+Pathogens
+=========
+
+Nextstrain maintains many different :term:`pathogen repositories <pathogen repository>` that are slighly different from each other.
+Here we try to answer common technical questions around pathogen repositories, please refer to the :doc:`bioinformatics guides for scientific questions <../guides/bioinformatics/index>`.
+
+Should I set up the pathogen with the Nextstrain CLI or Git?
+------------------------------------------------------------
+
+Setting up pathogen repositories via the :term:`Nextstrain CLI` will allow you to use them without the complexities of Git.
+The pathogen repositories are downloaded to an automatically-managed location that will be separate from your analyses.
+The pathogen workflows are expected to only be run via the :doc:`cli:commands/run` command to maintain the isolation of the source code from the outputs.
+
+Managing pathogen repositories with `Git <https://git-scm.com>`_ will allow you to have more control over the source code.
+Git is a common technical frustration, so we recommend that you become familiar with the basics of Git in order to manually manage the source code.
+You can begin learning about the concepts behind Git with `The Git Parable <https://tom.preston-werner.com/2009/05/19/the-git-parable.html>`_
+and learn the basic commands in `The Pro Git book <https://git-scm.com/book/en/v2>`_.
+
+The main deciding factor will be how you :ref:`choose to run workflows <choosing-run-method>`.
+
+.. _choosing-run-method:
+
+Should I run pathogen workflows with ``nextstrain run``, ``nextstrain build``, or Snakemake?
+--------------------------------------------------------------------------------------------
+
+The three methods for running pathogen workflows should all produce the same output but vary in how much control you have over the workflow and its dependencies.
+
+Each one fits the needs of users with different technical skills:
+
+1. :doc:`cli:commands/run` is the simplest method.
+   It completely obscures the workflow from the user and only asks users to define an :term:`analysis directory` for holding inputs and outputs of the workflow.
+   The outputs are completely isolated from the source code of the workflow and the users are not expected to understand how the workflow works under the hood.
+   The users will have limited control of the workflow but can provide a config file to customize documented workflow config parameters.
+
+2. :doc:`cli:commands/build` is the next step up.
+   Users will need directly manage the workflow source code with Git.
+   The outputs are co-mingled with the workflow source code, so the :term:`analysis directory` is the same as the :term:`workflow directory`.
+   Users have the option to edit and customize the workflow itself in addition to setting the config parameters.
+   The ``nextstrain build`` command uses the :doc:`Nextstrain runtimes <cli:runtimes/index>`, so there's no need to manage workflow dependencies.
+
+3. `Snakemake <https://snakemake.github.io>`_ is the workflow manager that the Nextstrain CLI uses under the hood to run workflows.
+   We do not provide documentation or tutorials for how to use Snakemake directly as we expect it to only be used by advanced users who are already familiar with it.
+   Users will have full control of the workflow manager, but they will need to manage their own runtime environments for dependencies.
+
+It is important to note that not every pathogen workflow is compatible with ``nextstrain run``, but all workflows should work with ``nextstrain build`` and Snakemake.
