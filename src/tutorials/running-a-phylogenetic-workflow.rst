@@ -90,6 +90,8 @@ Open the `dataset URL <http://127.0.0.1:4000/zika>`_ in your web browser.
 .. image :: ../images/zika_example.png
    :alt: Screenshot of Zika example dataset viewed in Nextstrain
 
+.. _running-phylo-nextstrain-build:
+
 Run workflow with ``nextstrain build``
 ======================================
 

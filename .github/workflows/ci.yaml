@@ -6,6 +6,14 @@ on:
       - master
   pull_request:
   workflow_dispatch:
+    inputs:
+      run-linkcheck:
+        description: >-
+          Whether the CI workflow should run linkcheck.
+          Default is false since we've had a history of false positives with linkcheck.
+        type: boolean
+        default: false
+        required: false
 
   # Routinely check that we continue to work in the face of external changes.
   schedule:
@@ -20,4 +28,4 @@ jobs:
       environment-file: conda.yml
       docs-directory: .
       make-target: html
-      run-linkcheck: ${{ github.event_name == 'schedule' }}
+      run-linkcheck: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.run-linkcheck) }}
