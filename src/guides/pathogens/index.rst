@@ -10,3 +10,4 @@ How-to guides for using Nextstrain maintained :term:`pathogen repositories <path
    :caption: Table of contents
 
    managing-repository
+   running-workflows

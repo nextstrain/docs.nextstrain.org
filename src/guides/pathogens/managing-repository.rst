@@ -15,6 +15,8 @@ This is a more complex repository than the `Zika tutorial repository`_ used in t
    :local:
    :depth: 2
 
+.. _managing-repo-setup:
+
 Set up the repository
 =====================
 
