@@ -18,7 +18,7 @@ Prerequisites
 -------------
 
 1. The nextstrain CLI (``nextstrain``) installed with a working runtime; minimum version: 10.0.0. See `Installing Nextstrain <https://docs.nextstrain.org/en/latest/install.html>`_ for more details.
-2. The latest version of the measles pathogen repo installed / updated, via ``nextstrain setup measles`` or ``nextstrain update measles``.
+2. The latest version of the measles pathogen repo set up, see :doc:`../pathogens/managing-repository` for more details.
 3. Create an empty analysis directory for the tutorial. All commands below assume we are in this analysis directory.
 
 Configuring the analysis
@@ -34,7 +34,7 @@ We can fetch them either by copying / downloading them from GitHub: `config.yaml
     curl --compressed https://raw.githubusercontent.com/nextstrain/measles/refs/heads/main/phylogenetic/custom-analyses/north-america-outbreak-example/config.yaml -o config.yaml
     curl --compressed https://raw.githubusercontent.com/nextstrain/measles/refs/heads/main/phylogenetic/custom-analyses/north-america-outbreak-example/auspice_config.json -o auspice_config.json
 
-    
+
 The most important of these is the ``config.yaml``, which is `worth reading in full <https://github.com/nextstrain/measles/blob/main/phylogenetic/custom-analyses/north-america-outbreak-example/config.yaml>`_ to see how it configures the workflow.
 We will focus on the subsampling configuration and walk through each of the four samples.
 
@@ -122,4 +122,3 @@ Comparing the small tutorial tree with only 136 North American genomes vs our cu
     The full tree is the measles workflow's "genome/north-america" build.
     (**B**) Zoomed in view into a part of the trees with a Montana sample (highlighted in pink boxes).
     Horizontal axis here represents divergence.
-
